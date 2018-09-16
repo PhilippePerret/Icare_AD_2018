@@ -21,9 +21,9 @@ class << self
 
   def ligne_stat libelle, value
     (
-      libelle.in_span(class:'libelle') +
-      value.to_s.in_span(class:'value')
-    ).in_div(class: 'lstat')
+      libelle.in_div(class:'col-6') +
+      value.to_s.in_div(class:'col-6')
+    ).in_div(class: 'lstat row')
   end
 
   def nombres_icariens

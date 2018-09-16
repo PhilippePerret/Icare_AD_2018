@@ -5590,3 +5590,669 @@ Objet    = "overview"
 Objet ID = nil
 Method   = "reussites"
 Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 07:52:01 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "reussites"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 07:56:06 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "reussites"
+Context  = nil
+-- undefined method `in_nav' for nil:NilClass
+
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/overview/lib/required/overview/helper.rb:15:in `quicklinks'
+(erb):3:in `bind'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `eval'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `result'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/gem/superfile/lib/superfile/instance/io.rb:113:in `deserb'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Vue/inst.rb:27:in `output'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:104:in `content_route'
+(erb):5:in `bind'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `eval'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `result'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/gem/superfile/lib/superfile/instance/io.rb:113:in `deserb'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:72:in `content'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:25:in `preload'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/output.rb:35:in `output'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/index.rb:8:in `<main>'
+
+
+=== DEBUG DU 16 09 2018 - 07:59:59 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "reussites"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:01:12 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "reussites"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:24:44 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "reussites"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:25:16 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "reussites"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:25:29 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "reussites"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:27:44 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "reussites"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:29:13 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "reussites"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:30:37 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "reussites"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:31:08 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "reussites"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:33:15 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "reussites"
+Context  = nil
+-- /Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/overview/lib/required/overview/helper.rb:40: syntax error, unexpected end-of-input, expecting keyword_end
+
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:18:in `require'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `block in require_all_in'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `each'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `require_all_in'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/route.rb:266:in `block in load_required'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/route.rb:264:in `each'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/route.rb:264:in `load_required'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/route.rb:94:in `execute_route'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/output.rb:34:in `output'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/index.rb:8:in `<main>'
+-- (ERREUR : /Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/overview/lib/required/overview/helper.rb:40: syntax error, unexpected end-of-input, expecting keyword_end)
+<div>/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'</div>
+<div>/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'</div>
+<div>/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:18:in `require'</div>
+<div>/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `block in require_all_in'</div>
+<div>/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `each'</div>
+<div>/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `require_all_in'</div>
+<div>/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/route.rb:266:in `block in load_required'</div>
+<div>/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/route.rb:264:in `each'</div>
+<div>/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/route.rb:264:in `load_required'</div>
+<div>/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/route.rb:94:in `execute_route'</div>
+<div>/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/output.rb:34:in `output'</div>
+<div>/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/index.rb:8:in `<main>'</div>
+
+
+=== DEBUG DU 16 09 2018 - 08:33:24 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "reussites"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:33:41 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:34:05 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:34:13 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:34:21 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:34:39 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:35:02 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:35:24 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:35:45 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:36:21 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:36:29 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:36:42 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:36:49 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:37:11 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:37:18 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:39:14 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:41:45 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:42:10 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:42:18 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:42:28 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:42:36 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:43:13 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:43:41 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:44:04 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:44:46 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:44:56 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:45:29 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:45:49 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:45:52 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "reussites"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:46:50 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "reussites"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:47:07 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "parcours"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:47:54 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "parcours"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:48:16 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "raisons"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:49:23 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "raisons"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:50:12 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "temoignages"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:50:44 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "temoignages"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:51:25 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "temoignages"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:52:17 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "stats"
+Context  = nil
+-- 
+Objet    = "site"
+Objet ID = nil
+Method   = "statistiques"
+Context  = nil
+-- nombre_mois : 129
+
+
+=== DEBUG DU 16 09 2018 - 08:52:59 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "stats"
+Context  = nil
+-- 
+Objet    = "site"
+Objet ID = nil
+Method   = "statistiques"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:54:29 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "stats"
+Context  = nil
+-- 
+Objet    = "site"
+Objet ID = nil
+Method   = "statistiques"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:56:42 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "stats"
+Context  = nil
+-- 
+Objet    = "site"
+Objet ID = nil
+Method   = "statistiques"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:56:47 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "stats"
+Context  = nil
+-- 
+Objet    = "site"
+Objet ID = nil
+Method   = "statistiques"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:56:50 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:56:54 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "stats"
+Context  = nil
+-- 
+Objet    = "site"
+Objet ID = nil
+Method   = "statistiques"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:57:14 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "stats"
+Context  = nil
+-- 
+Objet    = "site"
+Objet ID = nil
+Method   = "statistiques"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:58:58 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "stats"
+Context  = nil
+-- 
+Objet    = "site"
+Objet ID = nil
+Method   = "statistiques"
+Context  = nil
+-- nombre_mois : 129
+
+
+=== DEBUG DU 16 09 2018 - 08:59:17 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "stats"
+Context  = nil
+-- 
+Objet    = "site"
+Objet ID = nil
+Method   = "statistiques"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 08:59:41 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "stats"
+Context  = nil
+-- 
+Objet    = "site"
+Objet ID = nil
+Method   = "statistiques"
+Context  = nil
+-- nombre_mois : 129
+
+
+=== DEBUG DU 16 09 2018 - 09:01:33 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "stats"
+Context  = nil
+-- 
+Objet    = "site"
+Objet ID = nil
+Method   = "statistiques"
+Context  = nil
+-- nombre_mois : 129
+
+
+=== DEBUG DU 16 09 2018 - 09:01:36 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "stats"
+Context  = nil
+-- 
+Objet    = "site"
+Objet ID = nil
+Method   = "statistiques"
+Context  = nil

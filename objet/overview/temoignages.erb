@@ -1,9 +1,9 @@
 <%= Atelier::Overview.titre_h1('Témoignages') %>
 
-<%= page.html_separator(80)%>
-
 <%= Atelier::Overview.quicklinks %>
 
+<div class="container"><div class="col col-lg-7 offset-lg-1">
 <%= Atelier::Overview::Temoignages.listing %>
+</div></div>
 
 <%= Atelier::Overview.quicklinks_bottom %>

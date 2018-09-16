@@ -1,32 +1,46 @@
-=== BENCHMARK DU 16 septembre 2018 à 07:47 ===
-=== Index start : 1537073220.399881 (2018-09-16 07:47:00 +0300)
+=== BENCHMARK DU 16 septembre 2018 à 09:01 ===
+=== Index start : 1537077696.772728 (2018-09-16 09:01:36 +0300)
 
 -> site/config.rb                                       0.000000  0.000000
-<- site/config.rb                                       0.000175  0.000175
--> execute_preambule                                    0.018422  0.018597
-  -> User#do_after_load                                 0.000078  0.018675
-  <- User#do_after_load                                 0.000005  0.018680
-<- execute_preambule                                    0.000003  0.018683
--> required.rb                                         -0.639148 -0.620465
-<- required.rb                                          0.639152  0.018687
--> SiteHtml#output                                      0.000071  0.018758
-  -> SiteHtml#execute_route                             0.000005  0.018763
+<- site/config.rb                                       0.000136  0.000136
+-> execute_preambule                                    0.014045  0.014181
+  -> User#do_after_load                                 0.000054  0.014235
+  <- User#do_after_load                                 0.000002  0.014237
+<- execute_preambule                                    0.000002  0.014239
+-> required.rb                                         -0.421397 -0.407158
+<- required.rb                                          0.421399  0.014241
+-> SiteHtml#output                                      0.000029  0.014270
+  -> SiteHtml#execute_route                             0.000002  0.014272
       | Objet    = "overview"                                           - 
       | Objet ID = nil                                                  - 
-      | Method   = "reussites"                                          - 
-      | Context  = nil                                  0.000110  0.018873
-    --> iroute.load_required                            0.000106  0.018979
-    <-- iroute.load_required                            0.003243  0.022222
-    --> iroute.load_per_vue                             0.000009  0.022231
-    <-- iroute.load_per_vue                             0.000200  0.022431
-    --> iroute.method_call                              0.000003  0.022434
-    <-- iroute.method_call                              0.000202  0.022636
-  <- SiteHtml#execute_route                             0.000003  0.022639
-  -> Page#preload                                       0.000045  0.022684
-  <- Page#preload                                       0.008108  0.030792
-  -> Page#prebuild_body                                 0.000013  0.030805
-    -> Page#body                                        0.000005  0.030810
-    <- Page#body                                        0.000005  0.030815
-  <- Page#prebuild_body                                 0.000016  0.030831
-  CODE HTML FINAL BUILT                                 0.004300  0.035131
-<- SiteHtml#output                                      0.000007  0.035138
+      | Method   = "stats"                                              - 
+      | Context  = nil                                  0.000068  0.014340
+    --> iroute.load_required                            0.000078  0.014418
+    <-- iroute.load_required                            0.002994  0.017412
+    --> iroute.load_per_vue                             0.000008  0.017420
+    -> SiteHtml#redirect_to                             0.000628  0.018048
+      -> SiteHtml#execute_route                         0.000267  0.018315
+      | Objet    = "site"                                               - 
+      | Objet ID = nil                                                  - 
+      | Method   = "statistiques"                                       - 
+      | Context  = nil                                  0.000050  0.018365
+        --> iroute.load_required                        0.000020  0.018385
+        <-- iroute.load_required                        0.001077  0.019462
+        --> iroute.load_per_vue                         0.000003  0.019465
+        <-- iroute.load_per_vue                         0.001309  0.020774
+        --> iroute.method_call                          0.000007  0.020781
+        <-- iroute.method_call                          0.000186  0.020967
+      <- SiteHtml#execute_route                         0.000003  0.020970
+    <- SiteHtml#redirect_to                             0.000001  0.020971
+    <-- iroute.load_per_vue                             0.000086  0.021057
+    --> iroute.method_call                              0.000002  0.021059
+    <-- iroute.method_call                              0.000135  0.021194
+  <- SiteHtml#execute_route                             0.000003  0.021197
+  -> Page#preload                                       0.000009  0.021206
+  <- Page#preload                                       0.007813  0.029019
+  -> Page#prebuild_body                                 0.000009  0.029028
+    -> Page#body                                        0.000004  0.029032
+    <- Page#body                                        0.000006  0.029038
+  <- Page#prebuild_body                                 0.000016  0.029054
+  CODE HTML FINAL BUILT                                 0.003121  0.032175
+<- SiteHtml#output                                      0.000004  0.032179
