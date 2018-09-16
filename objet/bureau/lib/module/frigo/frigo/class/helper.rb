@@ -14,11 +14,11 @@ class << self
       explication_inscription     +
       champ_pseudo                +
       app.fields_captcha
-    ).in_form(id:'form_login_quidam', class: 'mg dix', action: "bureau/#{frigo.owner_id}/frigo")
+    ).in_form(id:'form_login_quidam', class: 'mg dix container', action: "bureau/#{frigo.owner_id}/frigo")
   end
 
   def bouton_ok_signup_form
-    'OK'.in_submit(class:'btn tiny').in_div(class: 'buttons')
+    'OK'.in_submit(class:'btn btn-primary')
   end
   def champ_operation_discussion
     'create_of_retreive_discussion'.in_hidden(name:'operation')

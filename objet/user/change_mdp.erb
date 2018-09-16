@@ -1,6 +1,6 @@
 <% raise_unless_identified %>
 <h1>Modifier le mot de passe</h1>
-<form id="form_change_password" class="dim2080" action="user/change_mdp" method="POST">
+<form id="form_change_password" class="container" action="user/change_mdp" method="POST">
   <%= 'change_motdepasse'.in_hidden(name: 'operation') %>
   <div class="row">
     <span class="libelle">Nouveau mot de passe</span>
@@ -26,5 +26,5 @@
         />
     </span>
   </div>
-  <%= 'OK'.in_submit(class: 'btn').in_div(class: 'buttons') %>
+  <%= 'OK'.in_submit(class: 'btn btn-primary') %>
 </form>

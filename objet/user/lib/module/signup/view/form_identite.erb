@@ -62,5 +62,5 @@ form.prefix = 'user'
     <%= app.hidden_field_captcha_value %>
     <%= form.field_text("Antirobot#{required_mark}", 'captcha', nil, {class:'short', text_before: "#{site.captcha_question.in_span(id:'captcha_question')} : ".in_span(class:'small')}) %>
   </div>
-  <%= form_submit_button.in_submit(class: 'btn').in_div(class:'col').in_div(class:'form-control row mt-5') %>
+  <%= form_submit_button.in_submit(class: 'btn btn-primary').in_div(class:'col').in_div(class:'form-control row mt-5') %>
 </form>

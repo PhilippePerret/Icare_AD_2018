@@ -49,6 +49,6 @@ end
     ).in_div + # pour le moment, in_div pour bon aspect
     champ_numero_etape +
     'L’étape précédente compte pour une vraie étape'.in_checkbox(name: 'prev_etape_is_real', id: "prev_etape_#{icetape.id}_is_real") +
-    'Changer l\'étape'.in_submit.in_div(class: 'buttons')
+    'Changer l\'étape'.in_submit(class: 'btn btn-primary')
   end
 %>

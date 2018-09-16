@@ -22,7 +22,7 @@ class SiteHtml
     (
       'save_temoignage'.in_hidden(name: 'operation') +
       (param(:temoignage)||'').in_textarea(name: 'temoignage', id: 'temoignage', style: 'width:96%;height:580px;padding:2em;') +
-      'Enregistrer ce témoignage'.in_submit(class: 'btn').in_div(class: 'buttons')
+      'Enregistrer ce témoignage'.in_submit(class: 'btn btn-primary')
     ).in_form(id: 'form_temoignage', action: "overview/#{user_id}/temoignage")
   end
 

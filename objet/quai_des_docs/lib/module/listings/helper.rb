@@ -76,8 +76,8 @@ class IcModule::IcEtape::IcDocument
       ' … le commentaire'.in_span(class: 'libelle') +
       ([[0, 'Cote…']] + (1..5).collect{|n|[n, n]}).in_select(name: 'cote_comments', selected: cotec) +
       commentaire.in_textarea(name: 'comments', placeholder: 'Commentaire textuel') +
-      'Enregistrer cotes et commentaire'.in_submit.in_div(class: 'buttons')
-    ).in_form(action: "ic_document/#{id}/set_cote",class: 'inline').in_div(class: class_div.join(' '))
+      'Enregistrer cotes et commentaire'.in_submit(class: 'btn btn-primary').in_div(class: 'row')
+    ).in_form(action: "ic_document/#{id}/set_cote",class: 'container').in_div(class: class_div.join(' '))
   end
 
   def form_partage
@@ -87,7 +87,7 @@ class IcModule::IcEtape::IcDocument
       ( "Original ".in_span + menu_ori) +
       ( "Commentaires".in_span + menu_com) +
       'Définir'.in_submit
-    ).in_form(class: 'inline', action:"ic_document/#{id}/set_partage").in_div(class: 'partage_form')
+    ).in_form(class: 'inline container', action:"ic_document/#{id}/set_partage").in_div(class: 'partage_form')
   end
 
   # Lorsque c'est l'affichage des documents sur le quai des docs (options[:full]),

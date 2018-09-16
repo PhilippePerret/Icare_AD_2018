@@ -93,8 +93,8 @@ form_prefs =
       lipref('Contact avec les icariens et icariennes', menu_contact, 5) +
       lipref('Contact avec le reste du monde', menu_contact_world, 6)
     ).in_div(id: 'liste_preferences') +
-    "Enregistrer".in_submit(class: 'btn small discret').in_div(class: 'buttons')
-  ).in_form(id: 'form_preferences', action: "user/#{user.id}/profil")
+    "Enregistrer".in_submit(class: 'btn small discret')
+  ).in_form(id: 'form_preferences', action: "user/#{user.id}/profil", class: 'container')
 %>
 <%= ("Préférences".in_legend + form_prefs).in_fieldset(id: 'preferences') %>
 

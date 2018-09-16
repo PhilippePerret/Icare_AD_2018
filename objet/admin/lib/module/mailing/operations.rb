@@ -117,7 +117,7 @@ class << self
     f << template_formated.in_textarea(name: 'template_formated', class: 'hidden')
     f << keys_destinataires.join(" ").in_hidden(name: 'keys_destinataires')
     f << options_hidden.in_hidden(name: 'options_hidden')
-    f << "Envoyer".in_submit(class: 'btn main').in_div(class: 'buttons')
+    f << "Envoyer".in_submit(class: 'btn btn-primary')
     c << f.in_form(id: 'form_send_message', action: 'admin/mailing', class: 'dim1090')
 
     self.content = c.in_div(id: "div_mailing_confirmation")

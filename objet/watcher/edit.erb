@@ -60,7 +60,7 @@ objet_values =
     end.compact
   )
 %>
-<form id="form_watcher_edit" action="watcher/edit" method="POST">
+<form id="form_watcher_edit" class="container" action="watcher/edit" method="POST">
   <%= 'creer_watcher'.in_hidden(name:'opwatcher') %>
   <%= div_value_and_menu 'user_id', boutons: menu_types_icariens, select_values: user_values %>
   <%= div_value_and_menu 'objet', select_values: objet_values %>
@@ -68,7 +68,7 @@ objet_values =
   <%= div_value_and_menu 'processus' %>
   <%= div_value_and_menu 'triggered' %>
   <%= div_value_and_menu 'data', values_field: false %>
-  <%= 'Créer'.in_submit(class: 'btn').in_div(class: 'buttons')%>
+  <%= 'Créer'.in_submit(class: 'btn btn-primary') %>
 </form>
 
 <h4>Explications</h4>

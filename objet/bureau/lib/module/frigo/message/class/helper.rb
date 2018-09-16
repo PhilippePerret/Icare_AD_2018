@@ -46,7 +46,7 @@ class << self
           # Noter que param(:qmail) peut ne pas être défini, lorsque par exemple
           # c'est le propriétaire qui visite son frigo.
       ''.in_textarea(name:'frigo_message', id: 'frigo_message', placeholder: mess_destinataire, style: 'height:100px!important;width:94%;padding:1em') +
-      'Déposer sur le frigo'.in_submit(class: 'btn small').in_div(class: 'buttons') +
+      'Déposer sur le frigo'.in_submit(class: 'btn btn-primary') +
       'Styles utilisables : **texte en gras** (<strong>texte en gras</strong>), *texte en italique* (<em>texte en italique</em>), _texte souligné_ (<u>texte souligné</u>)'.in_p(class: 'tiny')
     ).in_form(id: "form_new_message", action: "bureau/#{frigo.owner_id}/frigo")
   end

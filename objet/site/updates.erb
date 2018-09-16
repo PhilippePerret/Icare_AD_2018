@@ -45,10 +45,10 @@ page.description= "Toutes les actualisations faites sur le site de la boite à o
   <hr />
   <p id="updates_propositions" class="small italic"><%= user.pseudo %>, en tant qu'administrateur, tu trouveras ici des actualisations qui sont
     peut-être à ajouter.</p>
-  <form class="" action="site/updates" method="POST">
+  <form class="container" action="site/updates" method="POST">
     <%= 'add_updates'.in_hidden(name: 'operation') %>
     <%= SiteHtml::Updates.propositions %>
-    <%= 'Ajouter comme update'.in_submit(class: 'btn').in_div(class:'buttons') %>
+    <%= 'Ajouter comme update'.in_submit(class: 'btn btn-primary') %>
   </form>
 
 <% end %>

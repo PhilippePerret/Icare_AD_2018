@@ -16,11 +16,11 @@ end
 <%=
 
   'Dépôt Quai des docs'.in_legend +
-  form(file: true) do
+  form(file: true, class: 'container') do
     "Document ##{icdocument.id} de l’#{icetape.designation} : <strong>#{icdocument.original_name}</strong> (<strong>#{owner.pseudo}</strong> ##{owner.id})".in_div +
     div_input_file(:original) +
     div_input_file(:comments) +
-    'Déposer'.in_submit.in_div(class: 'buttons')
+    'Déposer'.in_submit(class: 'btn btn-primary')
   end
 
 %>

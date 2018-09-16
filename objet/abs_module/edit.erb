@@ -25,5 +25,5 @@ cb_new_module = 'Créer un nouveau module'.in_checkbox(name:'create_new_module',
   <%= form.field_text('Tarif', 'tarif', nil, {text_after: '€', class: 'short'}) %>
   <%= form.field_text('Nombre jours', 'nombre_jours', nil, {class: 'short', text_after: 'jours'}) %>
   <%= form.field_text('Durée humaine', 'hduree', nil, {class: 'milong'}) %>
-  <%= 'Enregistrer'.in_submit(class: 'btn').in_div(class: 'buttons') %>
+  <%= 'Enregistrer'.in_submit(class: 'btn btn-primary') %>
 </form>

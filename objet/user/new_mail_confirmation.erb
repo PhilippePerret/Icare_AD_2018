@@ -14,7 +14,7 @@
 <p class='italic small'>
   Le message que vous allez recevoir contient un lien pour confirmer que vous êtes bien le possesseur de ladite adresse mail.
 </p>
-<form class="dim2080" action="user/new_mail_confirmation" method="POST">
+<form class="container" action="user/new_mail_confirmation" method="POST">
   <%= 'send_mail_confirmation_mail'.in_hidden(name: 'operation') %>
   <div class="row">
     <span class="libelle">Votre mail</span>
@@ -22,5 +22,5 @@
       <input type="text" name="user_mail" id="user_mail" placeholder="Votre mail" value="" />
     </span>
   </div>
-  <%= 'Envoyer la mail de confirmation'.in_submit(class: 'btn').in_div(class: 'buttons') %>
+  <%= 'Envoyer la mail de confirmation'.in_submit(class: 'btn btn-primary') %>
 </form>

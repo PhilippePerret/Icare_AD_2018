@@ -233,8 +233,8 @@ class Table
       form += 'save_new_data_row' .in_hidden(name: 'operation')
       form += 'database/edit'     .in_hidden(name: 'route')
       form += page.html_separator(50)
-      form += 'Enregistrer'       .in_a(class: 'btn', onclick: "$.proxy(Database,'save_edited_row')()").in_div(class: 'buttons')
-      form.in_form(id:'form_edit_row', class: 'dim3070') +
+      form += 'Enregistrer'       .in_a(class: 'btn btn-primary', onclick: "$.proxy(Database,'save_edited_row')()")
+      form.in_form(id:'form_edit_row', class: 'container') +
         (toutes_les_colonnes ? explications_toutes_colonnes : rappel_colonnes(colonnes_init)).in_div(class: 'small italic air')
 
     rescue Exception => e

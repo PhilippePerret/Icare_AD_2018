@@ -15,8 +15,8 @@ when NilClass
   (
     'visite_as'.in_hidden(name: 'operation') +
     ('Prendre l’identité de ' + menu_icariens + ' pour visiter le site.').in_span(class:'value').in_div(class:'row') +
-    'GO'.in_submit(class: '').in_div(class: 'buttons')
-  ).in_form(action: 'admin/visit_as', class: 'dim2080')
+    'GO'.in_submit(class: 'btn btn-primary')
+  ).in_form(action: 'admin/visit_as', class: 'container')
 when 'visite_as'
   user_as = User.new(param(:as_user).to_i)
   app.visit_as user_as

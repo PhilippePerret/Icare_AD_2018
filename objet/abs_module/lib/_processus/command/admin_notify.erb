@@ -48,9 +48,9 @@ window.ne_pas_envoyer_de_mail = function(){
       'Ne pas envoyer le mail de refus (simple suppression du watcher)'.in_checkbox(name: 'command[no_mail]', id: "command_cb_no_mail-#{id}", onclick: "ne_pas_envoyer_de_mail()").in_div
     ).in_div(id: div_refus_id, class: 'div_refus', display: false) +
     (
-      'Refuser'.in_button(id: "btn_refus-#{id}", class: 'fleft', onclick: "Refuser_commande_module()") +
-      'Attribuer'.in_submit(id: "btn_submit-#{id}")
-    ).in_div(class: 'buttons')
+      'Refuser'.in_button(id: "btn_refus-#{id}", class: 'fleft btn btn-secondary', onclick: "Refuser_commande_module()") +
+      'Attribuer'.in_submit(id: "btn_submit-#{id}", class: 'btn btn-primary')
+    ).in_div(class: 'row')
   end
 
 %>

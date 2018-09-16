@@ -31,10 +31,6 @@ ul.notifications
         padding   : 0.4em 0.6em
         div, p
           padding   : 0
-        // La rangée contenant le bouton pour soumettre le formulaire
-        // (et autres)
-        &.buttons
-          margin-top    : 1em
     // C'est le contenu direct du LI, le formulaire ou le p/div, qui
     // doit définir le padding
     > form, > div, > p
@@ -93,15 +89,6 @@ ul.notifications
       border-color        : #008000
       color               : black
       padding             : 0 0 1em 0
-    form
-      div.buttons
-        margin          : 12px 0 0 0 !important
-        padding-bottom  : 0 !important
-
-        input[type="button"], input[type="submit"]
-          // font-size   : 13pt
-          font-size   : inherit !important
-          padding     : 4px 17px !important
 
     // POUR UN LI MARQUÉ WARNING
     &.warning
