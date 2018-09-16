@@ -17,7 +17,7 @@ class AbsEtape
   # à insérer directement dans l'étape
   def objectifs_formated
     ([objectif.nil_if_empty]+ travaux_types.objectifs).uniq.compact.collect do |t|
-      t.in_div(class: 'objectif')
+      t.in_div(class: 'container bold italic')
     end.join
   end
 

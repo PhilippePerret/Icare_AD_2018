@@ -18,7 +18,7 @@ class << self
         (param(:minifaq_question) || '').in_textarea(row: '6', name: 'minifaq[question]', placeholder: 'Si vous avez une autre question sur cette étape, vous pouvez la poser ici.').in_span(class: 'value')
       ).in_div(class: 'row') +
       abs_etape.id.to_s.in_hidden(name: 'minifaq[abs_etape_id]') +
-      'Poser cette question'.in_submit(class: '').in_div(class: 'buttons')
+      'Poser cette question'.in_submit(class: 'btn btn-primary')
     ).in_form(id: 'minifaq_form', class: 'dim3070', action: 'abs_minifaq/new_question')
   end
 

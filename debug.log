@@ -6256,3 +6256,847 @@ Objet    = "site"
 Objet ID = nil
 Method   = "statistiques"
 Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 09:02:34 ===
+
+-- 
+Objet    = "icarien"
+Objet ID = nil
+Method   = "list"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 09:03:04 ===
+
+-- 
+Objet    = "abs_module"
+Objet ID = 7
+Method   = "show"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 09:04:44 ===
+
+-- 
+Objet    = "abs_module"
+Objet ID = 7
+Method   = "show"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 09:05:00 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "temoignages"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 09:05:52 ===
+
+-- 
+Objet    = "overview"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 09:06:12 ===
+
+-- 
+Objet    = "user"
+Objet ID = nil
+Method   = "signin"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 09:06:15 ===
+
+-- 
+Objet    = "user"
+Objet ID = nil
+Method   = "login"
+Context  = nil
+-- kroute = "admin/overview"
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "overview"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 09:06:26 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 09:06:57 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "visit_as"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 09:07:06 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "visit_as"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 09:07:13 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:09:51 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:10:23 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:10:54 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:10:58 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:14:27 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:15:22 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:17:01 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:19:06 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:20:51 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:21:13 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:21:49 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+-- undefined method `in_h5' for "Objectif":String
+Did you mean?  in_h
+               in_h3
+               in_h1
+               in_h4
+               in_h2
+               in_hidden
+               in_a
+               in_p
+
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/bureau/lib/module/section_current_work/master.rb:40:in `tit_section'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/bureau/lib/module/section_current_work/master.rb:53:in `section_etape_objectifs'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/bureau/lib/module/section_current_work/master.rb:28:in `_section_current_work'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/bureau/home.rb:87:in `section_travail_auteur'
+(erb):58:in `result'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `eval'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `result'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/gem/superfile/lib/superfile/instance/io.rb:113:in `deserb'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Vue/inst.rb:27:in `output'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:104:in `content_route'
+(erb):5:in `result'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `eval'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `result'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/gem/superfile/lib/superfile/instance/io.rb:113:in `deserb'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:72:in `content'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:25:in `preload'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/output.rb:35:in `output'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/index.rb:8:in `<main>'
+
+
+=== DEBUG DU 16 09 2018 - 09:22:13 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:23:01 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:24:10 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:24:22 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:25:15 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:25:26 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:27:03 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:27:31 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:28:14 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:29:53 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:30:46 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:31:48 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:34:14 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:40:19 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:40:39 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:40:47 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:43:42 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:44:19 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:44:41 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:45:59 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:46:19 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:47:53 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:48:13 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:48:36 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:48:50 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "historique"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 09:49:00 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:49:57 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:50:04 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:52:58 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:53:10 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:53:59 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:55:02 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:56:26 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 09:57:52 ===
+
+-- 
+Objet    = "user"
+Objet ID = 101
+Method   = "deconnexion"
+Context  = nil
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 09:58:40 ===
+
+-- 
+Objet    = "user"
+Objet ID = 101
+Method   = "deconnexion"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 09:58:47 ===
+
+-- 
+Objet    = "user"
+Objet ID = nil
+Method   = "signin"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 09:58:50 ===
+
+-- 
+Objet    = "user"
+Objet ID = nil
+Method   = "login"
+Context  = nil
+-- kroute = "admin/overview"
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "overview"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 10:00:06 ===
+
+-- 
+Objet    = "user"
+Objet ID = nil
+Method   = "login"
+Context  = nil
+-- kroute = "admin/overview"
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "overview"
+Context  = nil
+-- undefined local variable or method `titre' for Admin:Class
+Did you mean?  titre_h1
+
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/divers/modules/main_objets.rb:27:in `titre_h1'
+(erb):10:in `result'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `eval'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `result'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/gem/superfile/lib/superfile/instance/io.rb:113:in `deserb'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Vue/inst.rb:27:in `output'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:104:in `content_route'
+(erb):5:in `result'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `eval'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `result'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/gem/superfile/lib/superfile/instance/io.rb:113:in `deserb'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:72:in `content'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:25:in `preload'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/output.rb:35:in `output'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/index.rb:8:in `<main>'
+
+
+=== DEBUG DU 16 09 2018 - 10:00:33 ===
+
+-- 
+Objet    = "user"
+Objet ID = nil
+Method   = "login"
+Context  = nil
+-- kroute = "admin/overview"
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "overview"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 10:01:12 ===
+
+-- 
+Objet    = "user"
+Objet ID = nil
+Method   = "login"
+Context  = nil
+-- kroute = "admin/overview"
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "overview"
+Context  = nil
+-- undefined local variable or method `data_onglets' for Admin:Class
+
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/divers/modules/main_objets.rb:52:in `onglets'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/divers/modules/main_objets.rb:31:in `titre_h1'
+(erb):10:in `result'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `eval'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `result'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/gem/superfile/lib/superfile/instance/io.rb:113:in `deserb'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Vue/inst.rb:27:in `output'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:104:in `content_route'
+(erb):5:in `result'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `eval'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `result'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/gem/superfile/lib/superfile/instance/io.rb:113:in `deserb'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:72:in `content'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:25:in `preload'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/output.rb:35:in `output'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/index.rb:8:in `<main>'
+
+
+=== DEBUG DU 16 09 2018 - 10:01:30 ===
+
+-- 
+Objet    = "user"
+Objet ID = nil
+Method   = "login"
+Context  = nil
+-- kroute = "admin/overview"
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "overview"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 10:03:27 ===
+
+-- 
+Objet    = "user"
+Objet ID = nil
+Method   = "login"
+Context  = nil
+-- kroute = "admin/overview"
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "overview"
+Context  = nil
+-- /Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/required/constants.rb:5: syntax error, unexpected =>, expecting '}'
+    'Dashboard'       => 'admin/dashboard' => ,
+                                             ^
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/required/constants.rb:6: syntax error, unexpected =>, expecting keyword_end
+    'Aperçu général'  => 'admin/overview',
+                           ^
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/required/constants.rb:6: syntax error, unexpected ',', expecting keyword_end
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/required/constants.rb:7: syntax error, unexpected =>, expecting keyword_end
+    'Mailing'         => 'admin/mailing',
+                        ^
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/required/constants.rb:7: syntax error, unexpected ',', expecting keyword_end
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/required/constants.rb:8: syntax error, unexpected =>, expecting keyword_end
+    'Opérations'      => 'admin/users',
+                         ^
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/required/constants.rb:8: syntax error, unexpected ',', expecting keyword_end
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/required/constants.rb:9: syntax error, unexpected =>, expecting keyword_end
+    'Visite as…'      => 'admin/visit_as',
+                          ^
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/required/constants.rb:9: syntax error, unexpected ',', expecting keyword_end
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/required/constants.rb:10: syntax error, unexpected =>, expecting keyword_end
+    'Tâches'          => 'admin/taches'
+                         ^
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/required/constants.rb:11: syntax error, unexpected '}', expecting keyword_end
+
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:18:in `require'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `block in require_all_in'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `each'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `require_all_in'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/route.rb:266:in `block in load_required'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/route.rb:264:in `each'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/route.rb:264:in `load_required'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/route.rb:94:in `execute_route'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/route.rb:209:in `redirect_to'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/handy.rb:4:in `redirect_to'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/user/lib/required/user/instance/redirections.rb:14:in `redirect_after_login'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/User/instance/login.rb:85:in `login'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/User/class/login.rb:33:in `login_ok?'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/User/class/login.rb:8:in `login'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/route.rb:346:in `method_call'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/route.rb:111:in `execute_route'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/output.rb:34:in `output'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/index.rb:8:in `<main>'
+
+
+=== DEBUG DU 16 09 2018 - 10:03:35 ===
+
+-- 
+Objet    = "user"
+Objet ID = nil
+Method   = "login"
+Context  = nil
+-- kroute = "admin/overview"
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "overview"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 10:03:42 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "dashboard"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 10:03:50 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "overview"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 10:04:04 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "visit_as"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 10:04:14 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 10:04:36 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "dashboard"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 10:04:50 ===
+
+-- 
+Objet    = "user"
+Objet ID = 1
+Method   = "deconnexion"
+Context  = nil

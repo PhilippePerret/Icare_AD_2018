@@ -21,17 +21,11 @@ class << self
   # l'auteur (reçu, en attente, actif, inactif, etc.).
   def section_statut_auteur
     (
-      bouton_votre_travail_if_needed +
       (
         "Statut".in_span(class: 'title') +
         "#{user.hstatut}".in_span(class: 'user_state')
       ).in_div(id: 'div_user_state')
     ).in_div(id: 'section_statut')
-  end
-
-  def bouton_votre_travail_if_needed
-    user.actif? || (return '')
-    'Votre travail'.in_a(href: 'bureau/home#travail_etape', class: 'small btn fright')
   end
 
   # Section principale contenant les notifications de

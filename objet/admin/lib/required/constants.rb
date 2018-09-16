@@ -2,11 +2,11 @@
 class Admin
 
   DATA_ONGLETS = {
-    'admin/dashboard' => 'Dashboard',
-    'admin/overview'  => 'Aperçu général',
-    'admin/mailing'   => 'Mailing',
-    'admin/users'     => 'Opérations',
-    'admin/visit_as'  => 'Visite as…',
-    'admin/taches'    => 'Tâches'
+    'Dashboard'       => 'admin/dashboard',
+    'Aperçu général'  => 'admin/overview',
+    'Mailing'         => 'admin/mailing',
+    'Opérations'      => 'admin/users',
+    'Visite as…'      => 'admin/visit_as',
+    'Tâches'          => 'admin/taches'
   }
 end #/Admin

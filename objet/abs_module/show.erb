@@ -7,6 +7,8 @@ end
 %>
 <%= AbsModule.titre_h1("Module “#{absmodule.name}”")%>
 
+<div class="container">
+  <div class="col col-lg-7 offset-lg-1">
 <h4>Description courte</h4>
 <%= absmodule.short_description %>
 <% if absmodule.type_suivi? %>
@@ -20,3 +22,6 @@ end
 <% end %>
 <h4>Description détaillée</h4>
 <%= absmodule.long_description %>
+
+</div>
+</div>

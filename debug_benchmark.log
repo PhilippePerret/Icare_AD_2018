@@ -1,46 +1,36 @@
-=== BENCHMARK DU 16 septembre 2018 à 09:01 ===
-=== Index start : 1537077696.772728 (2018-09-16 09:01:36 +0300)
+=== BENCHMARK DU 16 septembre 2018 à 10:04 ===
+=== Index start : 1537081490.5589602 (2018-09-16 10:04:50 +0300)
 
 -> site/config.rb                                       0.000000  0.000000
-<- site/config.rb                                       0.000136  0.000136
--> execute_preambule                                    0.014045  0.014181
-  -> User#do_after_load                                 0.000054  0.014235
-  <- User#do_after_load                                 0.000002  0.014237
-<- execute_preambule                                    0.000002  0.014239
--> required.rb                                         -0.421397 -0.407158
-<- required.rb                                          0.421399  0.014241
--> SiteHtml#output                                      0.000029  0.014270
-  -> SiteHtml#execute_route                             0.000002  0.014272
-      | Objet    = "overview"                                           - 
-      | Objet ID = nil                                                  - 
-      | Method   = "stats"                                              - 
-      | Context  = nil                                  0.000068  0.014340
-    --> iroute.load_required                            0.000078  0.014418
-    <-- iroute.load_required                            0.002994  0.017412
-    --> iroute.load_per_vue                             0.000008  0.017420
-    -> SiteHtml#redirect_to                             0.000628  0.018048
-      -> SiteHtml#execute_route                         0.000267  0.018315
-      | Objet    = "site"                                               - 
-      | Objet ID = nil                                                  - 
-      | Method   = "statistiques"                                       - 
-      | Context  = nil                                  0.000050  0.018365
-        --> iroute.load_required                        0.000020  0.018385
-        <-- iroute.load_required                        0.001077  0.019462
-        --> iroute.load_per_vue                         0.000003  0.019465
-        <-- iroute.load_per_vue                         0.001309  0.020774
-        --> iroute.method_call                          0.000007  0.020781
-        <-- iroute.method_call                          0.000186  0.020967
-      <- SiteHtml#execute_route                         0.000003  0.020970
-    <- SiteHtml#redirect_to                             0.000001  0.020971
-    <-- iroute.load_per_vue                             0.000086  0.021057
-    --> iroute.method_call                              0.000002  0.021059
-    <-- iroute.method_call                              0.000135  0.021194
-  <- SiteHtml#execute_route                             0.000003  0.021197
-  -> Page#preload                                       0.000009  0.021206
-  <- Page#preload                                       0.007813  0.029019
-  -> Page#prebuild_body                                 0.000009  0.029028
-    -> Page#body                                        0.000004  0.029032
-    <- Page#body                                        0.000006  0.029038
-  <- Page#prebuild_body                                 0.000016  0.029054
-  CODE HTML FINAL BUILT                                 0.003121  0.032175
-<- SiteHtml#output                                      0.000004  0.032179
+<- site/config.rb                                       0.000125  0.000125
+-> execute_preambule                                    0.013883  0.014008
+  -> User#do_after_load                                 0.005089  0.019097
+  <- User#do_after_load                                 0.000006  0.019103
+<- execute_preambule                                    0.000003  0.019106
+-> required.rb                                         -0.405199 -0.386093
+<- required.rb                                          0.405201  0.019108
+-> SiteHtml#output                                      0.000117  0.019225
+  -> SiteHtml#execute_route                             0.000005  0.019230
+      | Objet    = "user"                                               - 
+      | Objet ID = 1                                                    - 
+      | Method   = "deconnexion"                                        - 
+      | Context  = nil                                  0.000126  0.019356
+    --> user.set_last_connexion                         0.000246  0.019602
+    <-- user.set_last_connexion                         0.000144  0.019746
+    --> iroute.load_required                            0.000009  0.019755
+    <-- iroute.load_required                            0.003377  0.023132
+    --> iroute.load_per_vue                             0.000007  0.023139
+    <-- iroute.load_per_vue                             0.000167  0.023306
+    --> iroute.method_call                              0.000004  0.023310
+    -> User#deconnexion                                 0.000232  0.023542
+    <- User#deconnexion                                 0.002421  0.025963
+    <-- iroute.method_call                              0.000009  0.025972
+  <- SiteHtml#execute_route                             0.000006  0.025978
+  -> Page#preload                                       0.000014  0.025992
+  <- Page#preload                                       0.009159  0.035151
+  -> Page#prebuild_body                                 0.000008  0.035159
+    -> Page#body                                        0.000003  0.035162
+    <- Page#body                                        0.000004  0.035166
+  <- Page#prebuild_body                                 0.000010  0.035176
+  CODE HTML FINAL BUILT                                 0.001902  0.037078
+<- SiteHtml#output                                      0.000003  0.037081
