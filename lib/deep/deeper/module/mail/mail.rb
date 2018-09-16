@@ -87,11 +87,13 @@ module MailModuleMethods
   def from; @from ||= site.mail end
   def to  ; @to   ||= site.mail end
 
+  def bind ; binding() end
+
   def code_html
     @code_html ||= <<-HTML
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
   "http://www.w3.org/TR/html4/loose.dtd">
-<html><head>#{content_type}#{title}#{style_tag}</head><body>#{body}</body></html>
+<html><head>#{content_type}#{title}#{style_tag}</head><body>#{ERB.new(body_responsive).result(bind)}</body></html>
     HTML
   end
 
@@ -120,6 +122,29 @@ module MailModuleMethods
       set_class(:content_type, '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>')
     end
     get_class(:content_type)
+  end
+
+  # Le corps de mail pour un email responsive
+  def body_responsive
+    <<-HTML
+<table style="max-width:600px;width:100%;">
+  <%= header %>
+  <tr><td colspan="3" style="<%= style_brut_message %>"><%=
+    # Le contenu du mail
+    message_formated
+  %></td></tr>
+  <tr><td colspan="2"></td>
+    <td style="max-width:50%;"><%=
+      # La signature
+      signature
+  %></td></tr>
+  <%= footer %>
+</table>
+    HTML
+  end
+
+  def style_brut_message
+    'font-size:1rem;padding:1rem;'
   end
 
   # Le corps du message du mail
@@ -168,7 +193,7 @@ module MailModuleMethods
   end
 
   def signature
-    return "" if @signature === false # in data
+    return '' if @signature === false # in data
     get_class(:signature) || ''
   end
 

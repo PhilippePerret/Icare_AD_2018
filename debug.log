@@ -7197,3 +7197,12 @@ Objet    = "bureau"
 Objet ID = nil
 Method   = "documents"
 Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 17:42:32 ===
+
+-- 
+Objet    = "user"
+Objet ID = nil
+Method   = "signup"
+Context  = nil

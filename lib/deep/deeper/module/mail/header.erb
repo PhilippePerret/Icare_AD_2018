@@ -1,25 +1,38 @@
 <%
 # Entête des messages mail
 %>
-<div id="logo"><%= site.name %></div>
+<tr id="logo" style="<%= Mail.style_div_logo %>">
+  <td colspan="3">
+    <div style="font-size:1.4rem;font-variant:small-caps;padding:8px 32px;background-color:#578088;color:white;"><%= site.name %></div>
+  </td>
+</tr>
 <%
 # ---------------------------------------------------------------------
 #   CITATION
 %>
-<div id="citation" style="font-size: 14.2pt !important; margin: 8px 4px 1em 300px;">
-  <%# Affichage d'une citation prise sur BOA %>
-  <%
-    Mail.instance_variable_get('@citation_courante') || begin
-      hquote = site.get_a_citation
-      q = hquote[:citation].strip_tags(' ')
-      current_quote =
-        (
-          "#{q}".in_span(id: 'quote_citation') +
-          hquote[:auteur].in_span(id: 'quote_auteur', style:'margin-left: 24px;')
-        ).in_a(href: "#{site.url_boa}/citation/#{hquote[:id]}/show")
-      Mail.instance_variable_set('@citation_courante', current_quote)
-    end
-  %>
-  <%= Mail.instance_variable_get('@citation_courante') %>
-</div>
-<div style="clear:both"></div>
+<tr id="citation">
+  <td></td>
+  <td colspan="2" style="font-size:0.85rem!important;padding:1rem;">
+    <%# Affichage d'une citation prise sur BOA %>
+    <%
+
+      Mail.instance_variable_get('@citation_courante') || begin
+
+        hquote = site.get_a_citation
+
+        url_citation    = "#{site.url_boa}/citation/#{hquote[:id]}/show"
+        style_citation  = 'text-decoration:none;color:#555555;font-style:italic;'
+        style_auteur    = 'margin-left:40px;font-weight:bold;'
+
+        q = hquote[:citation].strip_tags(' ')
+        current_quote =
+          (
+            "#{q}".in_a(href: url_citation, style: style_citation).in_div(id: 'quote_citation') +
+            hquote[:auteur].in_div(id: 'quote_auteur', style: style_auteur)
+          ).in_div(style:'text-align:right;')
+        Mail.instance_variable_set('@citation_courante', current_quote)
+      end
+    %>
+    <%= Mail.instance_variable_get('@citation_courante') %>
+  </td>
+</tr>

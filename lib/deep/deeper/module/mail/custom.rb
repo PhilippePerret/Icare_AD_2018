@@ -17,8 +17,10 @@ class Mail
     # Inséré dans une balise DIV contenant tout le mail
     # + Inséré dans la balise <style>...</style>
     def body_style
-      "margin:0;background-color:white;color:#555;font-size:17.2pt"
+      "margin:0;background-color:white;color:#555;font-size:2rem"
     end
+    alias :style_div_logo :body_style
+
     # Styles ajoutés à la balise <style>...</style>
     def styles_css
       @styles_css ||= begin
@@ -61,8 +63,8 @@ div#citation span#quote_auteur{
 
     def other_styles
       @other_styles ||= begin
-        ".tiny{font-size:11.2pt}"  +
-        ".small{font-size:14.3pt}"
+        ".tiny{font-size:x-small}"  +
+        ".small{font-size:small}"
       end
     end
 

@@ -8,7 +8,8 @@ class Mailing
     :ancien     => {hname: 'Aux anciens icariens',    checked: nil},
     :enpause    => {hname: 'Aux icariens en pause',   checked: nil},
     :alessai    => {hname: 'Aux icariens à l’essai',  checked: nil},
-    :real       => {hname: 'Aux vrais icariens',      checked: nil}
+    :real       => {hname: 'Aux vrais icariens',      checked: nil},
+    :admin      => {hname: 'Aux administrateurs',     checked: nil}
   }
 
   OPTIONS = {

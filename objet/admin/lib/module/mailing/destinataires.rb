@@ -21,19 +21,24 @@ class << self
     # Clause WHERE en fonction des clés
     # Défini par le 17e bit (bit 16) des options
     # et le 25e bit (bit 24) pour la réalité
-    clause16 = Array.new
-    clause24 = Array.new
+    clause16    = Array.new
+    clause24    = Array.new
+    clauseAdmin = Array.new
     KEYS_DESTINATAIRES.each do |ictype, dtype|
       if dtype[:checked]
-        bit16, bit24 =
+        bit1, bit16, bit24 =
           case ictype
-          when :all       then  [nil, nil]
-          when :actif     then  [2, 1]
-          when :ancien    then  [4, 1]
-          when :enpause   then  [3, 1]
-          when :alessai   then  [nil, 0]
-          when :real      then  [nil, 1]
+          when :all       then  [nil, nil, nil]
+          when :actif     then  [nil, 2, 1]
+          when :ancien    then  [nil, 4, 1]
+          when :enpause   then  [nil, 3, 1]
+          when :alessai   then  [nil, nil, 0]
+          when :real      then  [nil, nil, 1]
+          when :admin     then  [true, nil, nil]
           end
+      end
+      if bit1
+        clauseAdmin << "CONVERT(SUBSTRING(options,1,1),INTEGER) > 0"
       end
       if bit16
         clause16 << "SUBSTRING(options,17,1) = '#{bit16}'"
@@ -43,12 +48,13 @@ class << self
       end
     end
     clauses = Array.new
-    clauses << "SUBSTRING(options,18,1) = '0'" # aucun mail, ever
-    return nil if clause16.empty? && clause24.empty?
-    clause16.empty? || clauses << "( #{clause16.join(' OR ')} )"
-    clause24.empty? || clauses << "( #{clause24.join(' OR ')} )"
+    clauses << "( SUBSTRING(options,18,1) = '0' ) " # aucun mail, ever
+    return nil if clause16.empty? && clause24.empty? && clauseAdmin.empty?
+    clause16.empty?     || clauses << "( #{clause16.join(' OR ')} )"
+    clause24.empty?     || clauses << "( #{clause24.join(' OR ')} )"
+    clauseAdmin.empty?  || clauses << "( #{clauseAdmin.join(' OR ')} )"
     clauses = clauses.join(' AND ')
-    # debug "Clause where pour icariens : #{clauses}"
+    debug "Clause where pour icariens : #{clauses}"
     return clauses
   end
 

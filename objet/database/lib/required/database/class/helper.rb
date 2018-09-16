@@ -7,7 +7,8 @@ class << self
     list.collect{|dbn| [dbn, dbn]}.
       in_select(
         id: 'database', name: 'database[name]',
-        size: 10, onchange: "$.proxy(Database,'onchoose_base')()"
+        size: 10,
+        onchange: "$.proxy(Database,'onchoose_base')()"
         )
   end
 

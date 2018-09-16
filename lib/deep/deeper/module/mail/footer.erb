@@ -1,14 +1,17 @@
 <%
 # Pied des mails
 %>
-<hr />
-<div class="tiny"><%= site.name %></div>
-<% if site.distant_url %>
-  <div class='tiny'>Site : <%= site.distant_url %></div>
-<% end %>
-<% if site.facebook %>
-  <div class="tiny">Facebook : http://www.facebook.com/<%= site.facebook %></div>
-<% end %>
-<% if site.twitter %>
-  <div class="tiny">Twitter : https://twitter.com/<%= site.twitter %></div>
-<% end %>
+<tr id="footer">
+  <td colspan="3" style="padding:1rem;">
+    <div style="font-size:x-small;"><%= site.name %></div>
+    <% if site.distant_url %>
+      <div style="font-size:x-small;">Site : <%= site.distant_url %></div>
+    <% end %>
+    <% if site.facebook %>
+      <div style="font-size:x-small;">Facebook : http://www.facebook.com/<%= site.facebook %></div>
+    <% end %>
+    <% if site.twitter %>
+      <div style="font-size:x-small;">Twitter : https://twitter.com/<%= site.twitter %></div>
+    <% end %>
+  </td>
+</tr>
