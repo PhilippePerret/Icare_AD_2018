@@ -3,7 +3,9 @@
 %>
 <tr id="logo" style="<%= Mail.style_div_logo %>">
   <td colspan="3">
-    <div style="font-size:1.4rem;font-variant:small-caps;padding:8px 32px;background-color:#578088;color:white;"><%= site.name %></div>
+    <div style="font-size:1.4rem;font-variant:small-caps;padding:8px 32px;background-color:#578088;color:white;">
+      <%= site.name.in_a(href:'http://www.atelier-icare.net', style:'color:inherit;text-decoration:inherit;') %>
+    </div>
   </td>
 </tr>
 <%
@@ -11,7 +13,7 @@
 #   CITATION
 %>
 <tr id="citation">
-  <td></td>
+  <td style="min-width:25%;width:25%">&nbsp;</td>
   <td colspan="2" style="font-size:0.85rem!important;padding:1rem;">
     <%# Affichage d'une citation prise sur BOA %>
     <%
@@ -22,14 +24,14 @@
 
         url_citation    = "#{site.url_boa}/citation/#{hquote[:id]}/show"
         style_citation  = 'text-decoration:none;color:#555555;font-style:italic;'
-        style_auteur    = 'margin-left:40px;font-weight:bold;'
+        style_auteur    = 'text-align:right;font-weight:bold;'
 
         q = hquote[:citation].strip_tags(' ')
         current_quote =
           (
             "#{q}".in_a(href: url_citation, style: style_citation).in_div(id: 'quote_citation') +
             hquote[:auteur].in_div(id: 'quote_auteur', style: style_auteur)
-          ).in_div(style:'text-align:right;')
+          ).in_div(style:'text-align:left;')
         Mail.instance_variable_set('@citation_courante', current_quote)
       end
     %>

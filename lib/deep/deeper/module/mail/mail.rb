@@ -93,7 +93,7 @@ module MailModuleMethods
     @code_html ||= <<-HTML
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
   "http://www.w3.org/TR/html4/loose.dtd">
-<html><head>#{content_type}#{title}#{style_tag}</head><body>#{ERB.new(body_responsive).result(bind)}</body></html>
+<html><head>#{content_type}#{title}</head><body style="background-color:#578088;">#{ERB.new(body_responsive).result(bind)}</body></html>
     HTML
   end
 
@@ -127,13 +127,18 @@ module MailModuleMethods
   # Le corps de mail pour un email responsive
   def body_responsive
     <<-HTML
-<table style="max-width:600px;width:100%;">
+<table style="max-width:600px;width:100%;background-color:white;">
+  <colgroup>
+    <col width="25%" style="min-width:25%;width:25%;">
+    <col width="auto">
+    <col width="auto">
+  </colgroup>
   <%= header %>
   <tr><td colspan="3" style="<%= style_brut_message %>"><%=
     # Le contenu du mail
     message_formated
   %></td></tr>
-  <tr><td colspan="2"></td>
+  <tr><td colspan="2">&nbsp;</td>
     <td style="max-width:50%;"><%=
       # La signature
       signature
@@ -147,28 +152,18 @@ module MailModuleMethods
     'font-size:1rem;padding:1rem;'
   end
 
-  # Le corps du message du mail
-  def body
-    c = header + (
-        message_formated  +
-        signature         +
-        footer
-      ).in_div(id:'message_content')
-    # Si le body style est défini, on met le code dans un div
-    # contenant ce body style.
-    c = c.in_div(style: SiteHtml::Mail.body_style) if SiteHtml::Mail.respond_to?(:body_style)
-    return c
-  end
-
-  def style_tag
-    if get_class(:style_tag).nil?
-      stag = ""
-      stag << "body{#{SiteHtml::Mail.body_style}}"  if SiteHtml::Mail.respond_to?(:body_style)
-      stag << SiteHtml::Mail.styles_css             if SiteHtml::Mail.respond_to?(:styles_css)
-      set_class(:style_tag, "<style type='text/css'>#{stag}</style>")
-    end
-    get_class(:style_tag)
-  end
+  # # Le corps du message du mail
+  # def body
+  #   c = header + (
+  #       message_formated  +
+  #       signature         +
+  #       footer
+  #     ).in_div(id:'message_content')
+  #   # Si le body style est défini, on met le code dans un div
+  #   # contenant ce body style.
+  #   c = c.in_div(style: SiteHtml::Mail.body_style) if SiteHtml::Mail.respond_to?(:body_style)
+  #   return c
+  # end
 
   # / Sous-sous-méthodes
   # ---------------------------------------------------------------------
