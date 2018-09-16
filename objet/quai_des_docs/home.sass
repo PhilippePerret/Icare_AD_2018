@@ -1,0 +1,16 @@
+div.qdd_boite_navigation
+  text-align    : center
+  border        : 1px solid
+  padding       : 0.2em 1em
+  > span
+
+    // Le span contenant le lien vers le trimestre précédent
+    &.trim_prev
+      float       : left
+    // Le trimestre courant dans la boite de navigation
+    &.trim_curr
+      font-size   : 1.1em
+      font-weight : bold
+    // Le span contenant le lien vers le trimestre suivant
+    &.trim_next
+      float        : right

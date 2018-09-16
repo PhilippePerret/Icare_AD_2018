@@ -1,0 +1,38 @@
+<%
+# Mail envoyé à l'administration lorsque la définition des
+# partages a été effectuée
+
+self.subject_mail = 'Définition du partage de documents'
+%>
+<p>
+  Phil,
+</p>
+<p>
+  Je t'informe que le partage de plusieurs documents a été défini par <strong><%= owner.pseudo %></strong>.
+</p>
+<pre>
+  Module    : <%= module_name %>
+  Étape     : <%= numero_etape %> - <%= icetape.abs_etape.titre%>
+  Documents : <%= icetape.documents %>
+  ----------------------------------------------
+  <% icetape.documents.split(' ').each do |doc_id|
+    idoc = IcModule::IcEtape::IcDocument.new(doc_id.to_i)
+    etat_original =
+      case idoc.acces(:original)
+      when 1 then 'partagé'.in_span(class: 'green')
+      when 2 then 'non partagé'.in_span(class: 'red')
+      when 3 then 'inexistant'.in_span # impossible, normalement
+      end
+    etat_comments =
+      case idoc.acces(:comments)
+      when 1 then 'partagés'.in_span(class: 'green')
+      when 2 then 'non partagés'.in_span(class: 'red')
+      when 3 then 'inexistants'
+      end
+    %>
+    Document <%= idoc.original_name %> (#<%= idoc.id %>)
+        Original <%= etat_original %>
+        Commentaires <%= etat_comments %>
+  <% end %>
+  ----------------------------------------------
+</pre>

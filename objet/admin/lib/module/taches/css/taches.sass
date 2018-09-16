@@ -1,0 +1,51 @@
+ul.taches
+  list-style      : none
+  li.tache
+    margin        : 24px 0
+    font-size     : 0.85em
+    padding-left  : 40px
+    span.btnok
+      vertical-align    : calc(16%)
+      border            : 1px solid #050
+      font-size         : 8pt
+      margin-right      : 8px
+      margin-left       : -32px
+      display           : inline-block
+      padding           : 3px
+      background-color  : #75b975
+      a
+        color             : white !important
+
+    div.btns_edition
+      float           : right
+      a
+        margin-left     : 4px
+    div.infos_tache
+      font-size       : 13pt
+      text-align      : right
+      span
+        margin-left   : 1em
+      span.reste
+        &:before
+          content   : "donc "
+        &.today
+          color           : green
+          font-weight     : bold
+          &:before
+            content   : "donc "
+        &.later
+          color           : #777
+          font-style      : italic
+        &.over
+          padding           : 1px 8px
+          color             : white
+          // font-weight       : bold
+          background-color  : red
+      span.date
+        margin-left     : 1em
+      span.owner
+        margin-left     : 1em
+        &:before
+          content: "(responsable : "
+        &:after
+          content: ")"

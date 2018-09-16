@@ -1,0 +1,51 @@
+// Administrateur seulement : bouton pour masquer/afficher la marge
+a#btn_mask_marge
+  position    : fixed
+  bottom      : 1em
+  left        : 1em
+  border      : 1px solid #777
+  font-size   : 6.1pt
+  font-family : Arial, Helvetica
+  padding     : 4px 8px
+  background-color  : #EFEFEF
+  height      : 8px
+  max-height  : 8px
+  width       : 4px
+  overflow    : hidden
+  color       : #EFEFEF
+  &:hover
+    width : auto
+    color : #777
+
+section#content
+  // Note : le padding left sera réglé en dur en fonction du
+  // fait qu'il y a ou non une marge droite.
+  padding           : 2em 0 2em
+  // La marge droite est définie en dur en fonction du fait qu'il
+  // peut ou non y avoir une marge droite
+  // margin-left       : 134px
+  position          : relative
+  min-height        : 340px
+  width             : 100%
+  max-width         : 970px
+  min-width         : 700px
+
+  > pre
+    margin-left     : 4em
+  > div, > p, > table
+    line-height     : 1.6em
+    margin-left     : 2em
+  > table
+    margin-top      : 2em
+    margin-bottom   : 2em
+  div#bloc_encourage_subscribe
+    width               : 100%
+    border              : 1px solid #CCC
+    padding             : 1em
+    font-size           : 12.1pt
+    background-color    : #4f606f
+    &, *
+      color               : white
+
+.darkgreen
+  background-color  : #207e1e

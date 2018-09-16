@@ -1,0 +1,17 @@
+<%
+
+# Mail de refus de la candidature
+
+self.subject_mail = 'Refus de candidature'
+
+%>
+<p>
+  Bonjour <%= owner.pseudo %>,
+</p>
+<p>
+  Nous avons le regret de vous annoncer que votre candidature à l'atelier Icare vient d'être malheureusement refusée pour le motif suivant :
+</p>
+<%= motif_refus_candidature %>
+<p>
+  Nous sommes vraiment désolés de cette décision et vous prions d'agréer cependant nos meilleurs sentiments.
+</p>

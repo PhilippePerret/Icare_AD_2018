@@ -1,0 +1,29 @@
+<%
+# Mail envoyé à l'administrateur lorsque l'user dépose ses documents
+# de travail.
+
+self.subject_mail = 'Envoi de travail pour une étape'
+
+%>
+<p>
+  Phil,
+</p>
+<p>
+  <strong><%= owner.pseudo %></strong> vient de déposer des documents de travail.
+</p>
+<pre class="small">
+<%= "Icarien#{owner.f_ne}".ljust(10) %>: <%= owner.pseudo %> (#<%= owner.id %>)
+Module    : <%= icetape.icmodule.abs_module.name %>
+IcModule  : <%= icetape.icmodule.id %>
+Étape     : <%= icetape.abs_etape.numero %> <%= icetape.abs_etape.titre %>
+IcEtape   : <%= icetape.id %>
+
+Documents : <%= documents_etape.collect{|doc| doc.original_name }.pretty_join %>
+Docs-ids  : <%= icetape.documents.split(' ').pretty_join %>
+</pre>
+<p>
+  L'échéance de lecture de ces documents est attendue pour : <%= documents_etape.first.expected_comments.as_human_date(true, true, ' ', 'à') %>
+</p>
+<p class="small">
+  Tu peux les télécharger depuis ton <%= lien.bureau('bureau', online: true) %>.
+</p>

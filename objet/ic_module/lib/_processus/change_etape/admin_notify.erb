@@ -1,0 +1,54 @@
+<%
+# Formulaire pour que je puisse choisir l'étape suivante de l'icarienne
+%>
+<%
+def infos_module
+  icarienn = "Icarien#{owner.f_ne}".ljust(11)
+  (
+    "#{icarienn}: <strong>#{owner.pseudo} (##{owner.id})</strong>\n" +
+    "Module     : #{absmodule.name}\n"    +
+    "Étape      : #{absetape.numero} - #{icetape.abs_etape.titre}"
+  ).in_pre
+end
+
+def menu_select_etapes
+  drequest = {
+    where:      "module_id = #{absmodule.id} AND numero > #{absetape.numero}",
+    colonnes:   [:titre, :numero],
+    order:      'numero ASC'
+  }
+  liste_etapes = dbtable_absetapes.select(drequest).collect do |h|
+    [ h[:id], "#{h[:numero]} - #{h[:titre]}"]
+  end
+  # debug "liste_etapes: #{liste_etapes.inspect}"
+  (
+    # [ ['', 'Choisir l’étape…'] ]+
+    liste_etapes
+  ).in_select(name: 'next_etape', id: "next_etape-#{icmodule.id}", style: 'width:95%')
+end
+
+# Parfois, il est nécessaire de revenir en arrière, donc on place un champ
+# labelisé pour pouvoir entrer un numéro d'étape
+def champ_numero_etape
+  <<-HTML
+<div>
+  <label>Ou numéro explicite : </label>
+  <input type="text" name="next_etape_explicite" value="" style="width:80px;" />
+</div>
+  HTML
+end
+
+%>
+<%=
+
+  "Changement d'étape".in_legend +
+  form do
+    (
+    infos_module +
+    menu_select_etapes
+    ).in_div + # pour le moment, in_div pour bon aspect
+    champ_numero_etape +
+    'L’étape précédente compte pour une vraie étape'.in_checkbox(name: 'prev_etape_is_real', id: "prev_etape_#{icetape.id}_is_real") +
+    'Changer l\'étape'.in_submit.in_div(class: 'buttons')
+  end
+%>

@@ -1,0 +1,120 @@
+// Pour correspondre à la couleur foncée du site, c'est-à-dire
+// celle de la bande logo supérieure
+@import 'charte'
+
+.darkcharte
+  color             : $darkcharte
+.darkbgcharte
+  background-color  : $darkcharte
+
+.greencharte
+  color             : $greencharte !important
+.greenbgcharte
+  background-color  : $greencharte !important
+
+// ---------------------------------------------------------------------
+
+// Pour utiliser comme "Facteur<thin>U" entre deux mots inséparables
+thin
+  display : inline-block
+  width   : 0.3em
+
+.film
+  font-size           : 0.9em !important
+  span.titre
+    font-variant        : small-caps
+    font-size           : 1.2em
+    font-style          : italic
+.bold
+  font-weight : bold !important
+.italic
+  font-style  : italic
+.underline
+  text-decoration : underline
+.blue, .bleu
+  color       : blue !important
+.green, .vert
+  color       : green !important
+.bggreen, .bgvert
+  background-color  : green !important
+  color             : white !important
+.red, .rouge
+  color       : red !important
+
+.invisible
+  visibility    : hidden
+.visible
+  visibility    : visible
+
+.libelle
+  color         : #6E6E6E
+  font-style    : italic
+  display       : inline-block
+  margin-right  : 0.7em
+
+// Pour les mots en exergue dans les textes.
+// Ce sélecteur est utilisé par la méthode String#with_exergue(<exergue>)
+// qui entoure toutes les occurrences trouvées de balises span.motex
+span.motex
+  color           : red
+  font-weight     : bold
+
+.warning
+  color       : #D60000
+  &.fort
+    font-weight : bold
+  &.border
+    border-color  : #D60000
+    padding       : 0.5em 2em
+
+p.warning, div.warning
+  display             : inline-block
+  width               : auto
+  margin              : 2em
+  background-color    : red
+  border-radius       : 0.5em
+  padding             : 1.5em
+  color               : white !important
+  a
+    color               : #00DF23 !important
+  &.small
+    padding   : 0.6em 2.1em
+  &.tiny
+    padding   : 0.4em 1.8em
+
+.tiny, a.tiny
+  font-size     : x-small !important
+  line-height   : 1.5em !important
+.small, a.small
+  font-size     : small !important
+  line-height   : 1.5em !important
+
+div.tiny, div.small
+  > div
+    line-height : 1.3em
+
+.medium, a.medium
+  font-size     : x-large
+.big, a.big
+  font-size     : xx-large
+
+.right
+  text-align    : right !important
+.left
+  text-align    : left !important
+.center
+  text-align    : center !important
+
+.notesur20
+  font-family   : Georgia
+  font-size     : 1.1em
+
+.nowrap
+  white-space     : nowrap
+
+// Permet de mettre une espace fine entre deux mots
+// @usage : Mon<span class='thin'></span>mot
+// Note : Utiliser plutot <thin /> tout court, maintenant
+span.thin
+  width           : 0.3em
+  display         : inline-block

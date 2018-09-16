@@ -1,0 +1,26 @@
+<%
+# Affichage de tous les commentaires (pour les valider, notamment)
+%>
+<h1>Commentaires de pages</h1>
+<% if user.admin? %>
+  <%
+    # Pour que tous les commentaires soient pris en compte
+    param(:wpc => 'all')
+
+    # Action à accomplir
+    case param(:action)
+    when "valider"  then Page::Comments.valider_comment(site.current_route.objet_id)
+    when "destroy"  then Page::Comments.destroy_comment(site.current_route.objet_id)
+    end
+    
+  %>
+  <h3>Commentaires non validés (<%= Page::Comments.nombre_comments_non_valided %>)</h3>
+  <%= Page::Comments.ul_comments_non_valided %>
+  <h3>Commentaires validés (<%= Page::Comments.nombre_comments_valided %>)</h3>
+<% end %>
+<%=
+Page::Comments.ul_comments_valided(
+  from: (param(:from_comment) || 0),
+  to:   (param(:to_comment) || 50)
+  )
+  %>

@@ -1,0 +1,33 @@
+<%
+# Historique de travail
+raise_unless_identified
+%>
+<%= Bureau.titre_h1('Historique de travail') %>
+<%
+# ---------------------------------------------------------------------
+#
+#   TEXTE INTRODUCTIF
+#
+# ---------------------------------------------------------------------
+%>
+<p class='small italic'>Retrouvez ici l'historique de votre travail au sein de l'atelier, c'est-à-dire les modules d'apprentissage que vous avez suivis ainsi que les étapes par lesquelles vous êtes passé<%= user.f_e %>.
+</p>
+<p class='small italic'>
+  Grâce au lien “relire” en regard de chaque étape, vous pouvez consulter l'intitulé de travail de l'étape correspondante. Notez que ce lien vous permet également de retrouver vos documents produits au cours de l'étape en question, en dessous du détail du travail.
+</p>
+<%
+  # ---------------------------------------------------------------------
+  #
+  #   BOUCLE SUR CHAQUE MODULE D'APPRENTISSAGE
+  #
+  # ---------------------------------------------------------------------
+  drequest = {
+    where: {user_id: user.id},
+    order: 'started_at ASC',
+    colonnes: []
+  }
+  dbtable_icmodules.select(drequest).each do |hmod|
+    icmodule = IcModule.new(hmod[:id])
+  %>
+    <%= icmodule.as_historique %>
+  <% end %>

@@ -1,0 +1,35 @@
+// J'appelle ce module `markdown` parce qu'il est inauguré pour
+// définir les styles utilités avec les document Markdown qui sont
+// "kramdownés" (de façon étendue) mais ils sont utilisables partout
+// dans les textes HTML.
+
+// Pour une citation
+div.quote
+  font-size     : 15.3pt
+  margin-left   : 10em
+  width         : 22em
+  // Le contenu de la citation
+  span.content
+    display     : block
+    font-style  : italic
+    font-family : "Times New Roman", Times
+    font-size   : 1.2em
+    &:before
+      content   : ""
+    &:after
+      content   : ""
+  span.ref
+    display     : block
+    text-align  : right
+    span.auteur, span.source
+      font-size   : 0.85em
+    span.auteur
+      font-weight   : bold
+    span.source
+      font-style    : italic
+      
+div.encart
+  margin          : 1em
+  border          : 1px solid
+  border-radius   : 0.3em
+  padding         : 2em 4em

@@ -1,0 +1,17 @@
+<%
+# Portion de page chargée en cas d'erreur de route inconnue.
+#
+# C'est la méthode Page#content_route qui appelle cette vue
+#
+%>
+<h1>Erreur 404</h1>
+<div class="air warning">
+  Houps !… Désolé, mais la route <%= site.current_route.route %> est inconnue sur ce site…
+</div>
+
+<p>Voici les solutions qui s'offrent à vous :</p>
+<ul>
+  <li>cliquez sur le titre <%= site.name %> dans le bandeau supérieur ou sur le “ACCUEIL” de la marge gauche <strong>pour rejoindre l'accueil</strong> ;</li>
+  <li>sous la barre en bas de page, vous pouvez rejoindre l'<strong>aide</strong> du site ;</li>
+  <li>cliquez sur le menu “PROFIL” dans la marge gauche pour <strong>rejoindre votre profil</strong> (seulement si vous êtes identifié).</li>
+</ul>

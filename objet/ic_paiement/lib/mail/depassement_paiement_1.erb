@@ -1,0 +1,18 @@
+<%
+# Mail pour un avertissement de dépassement d'échéance de paiement
+# de niveau 1
+%>
+<p>Bonjour <%= pseudo %>,</p>
+<p>
+  Ce mail pour vous informer que votre échéance de paiement est arrivée à terme.
+</p>
+<p>
+  Pour procéder au paiement de votre module <%= icmodule.abs_module.name %>, merci de <%= lien.bureau('rejoindre votre bureau') %> et d'utiliser le formulaire destiné au paiement.
+</p>
+<p>
+  Si vous rencontrez le moindre problème, n'hésitez pas à <%= lien.contact('nous en informer')%>.
+</p>
+<p>
+  En vous remerciant d'avance de votre confiance,
+</p>
+<!-- AVERTISSEMENT ECHEANCE PAIEMENT 1 -->

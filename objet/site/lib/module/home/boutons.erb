@@ -1,0 +1,39 @@
+<%
+# Contient les boutons "liste des modules", "réussites", etc.
+
+def lien_reussites
+  'RÉUSSITES'.in_a(href: 'overview/reussites', class: 'fond')
+end
+def lien_temoignages
+  'TÉMOIGNAGES'.in_a(href: 'overview/temoignages', class: 'fond')
+end
+def liens_icariens
+  'ICARIEN(NE)S'.in_a(href: 'icarien/list', class: 'fond')
+end
+def liens_modules_proposes
+  'MODULES PROPOSÉS'.in_a(href: 'abs_module/list', class: 'btn btn-primary')#.in_div(id: 'div_btn_modules')
+end
+%>
+<div id="main-buttons" class="container">
+
+  <div class="row">
+    <div id="" class="col">
+      <%= lien_reussites %>
+    </div>
+    <div id="" class="col">
+      <%= liens_icariens %>
+    </div>
+    <div id="" class="col center">
+      <%= lien_temoignages %>
+    </div>
+  </div>
+
+  <%= space %>
+
+  <div class="row center">
+    <div class="col-12">
+      <%= liens_modules_proposes %>
+    </div>
+  </div>
+
+</div>

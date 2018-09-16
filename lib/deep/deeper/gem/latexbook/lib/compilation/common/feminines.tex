@@ -1,0 +1,19 @@
+% Fichier permettant de définir les féminines afin de produire un manuel pour un garçon et un manuel pour une fille.
+
+% METTRE ICI À false POUR FAIRE LE MANUEL HOMME ET true
+% POUR LE MANUEL FEMME.
+% Sera défini de façon dynamique par _main_.rb
+% \newboolean{pourfille}
+% \setboolean{pourfille}{false}
+
+\newcommand{\fem}[1]{%
+  \ifthenelse{\boolean{pourfille}}{%
+    \ifthenelse{\equal{#1}{e}}{e}{}%
+    \ifthenelse{\equal{#1}{E}}{E}{}%
+    \ifthenelse{\equal{#1}{iere}}{ière}{}%
+  }{%
+    \ifthenelse{\equal{#1}{e}}{}{}%
+    \ifthenelse{\equal{#1}{E}}{}{}%
+    \ifthenelse{\equal{#1}{iere}}{ier}{}%
+  }%
+}

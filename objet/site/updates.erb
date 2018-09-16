@@ -1,0 +1,54 @@
+<%
+# Section qui permet de voir toutes les dernières
+# actualités du site, dans l'ordre
+#
+# Si l'user est inscrit ou abonné, il peut voir les
+# actualisations qui ont eu lieu après sa dernière connexion
+#
+# Des cases à cocher permettent de définir les activités qu'on
+# veut voir, pour filtrer les autres.
+#
+# QUESTION
+#   Est-ce qu'on fonctionne à partir d'une base où l'on tient
+#   à jour toutes les activités, ou alors il faut les relever ?
+#   - une base qui contient toutes les actualisations
+#   - un fichier HTML qui est
+page.description= "Toutes les actualisations faites sur le site de la boite à outils de l'auteur."
+%>
+<h1>Flux des actualisations</h1>
+
+<% if OFFLINE && user.admin? %>
+
+  <% if param(:operation) == 'add_updates' %>
+    <%
+    # On doit ajouter les actualisations
+    # La méthode retourne la liste des toutes les
+    # actualisations ajoutées.
+    raise_unless_admin
+    %>
+    <%= SiteHtml::Updates.add_updates %>
+  <% end %>
+
+  <div class="right small">
+    <%= "Propositions d'actualisations à ajouter".in_a(href: '#updates_propositions') %>
+  </div>
+<% end %>
+
+<p class="italic small">Cette section affiche le flux des actualisations faites sur le site. Si vous êtes inscrit ou abonné sont mis en exergue les dernières actualisations depuis votre dernière connexion.</p>
+
+<%= SiteHtml::Updates.as_ul(from: 1, to: 100) %>
+
+<%
+# Pour l'administrateur, on propose les dernières actualisations
+%>
+<% if OFFLINE && user.admin? %>
+  <hr />
+  <p id="updates_propositions" class="small italic"><%= user.pseudo %>, en tant qu'administrateur, tu trouveras ici des actualisations qui sont
+    peut-être à ajouter.</p>
+  <form class="" action="site/updates" method="POST">
+    <%= 'add_updates'.in_hidden(name: 'operation') %>
+    <%= SiteHtml::Updates.propositions %>
+    <%= 'Ajouter comme update'.in_submit(class: 'btn').in_div(class:'buttons') %>
+  </form>
+
+<% end %>

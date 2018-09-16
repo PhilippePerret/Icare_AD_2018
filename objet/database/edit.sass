@@ -1,0 +1,61 @@
+span#titre_database, span#titre_table
+  display   : inline-block
+
+select#database, span#titre_database
+  width     : 160px
+  min-width : 160px
+
+select#database_table, pan#titre_table
+  width     : 210px
+  min-width : 210px
+
+div#div_table_tools
+  min-height      : 200px
+
+div#div_table_tools, div#div_autres_boutons
+  display         : inline-block
+  width           : 500px
+  // border          : 1px solid green
+  vertical-align  : top
+  padding         : 1em
+  a.action
+    border            : 1px solid #777
+    padding           : 2px 12px
+    background-color  : #CFC
+    color             : green
+    display           : inline-block
+    margin-bottom     : 12px
+
+div#div_db_request
+  a#btn_db_request
+    border              : 1px solid
+    padding             : 2px 12px
+  span.libelle
+    display         : inline-block
+    width           : 78px
+
+input[type="text"].console
+  width               : 700px
+  background-color    : black !important
+  color               : white
+  font-family         : 'Courier New'
+  font-size           : 17.4pt
+
+div#div_request_filter
+  input[type="text"].console
+    width       : 500px
+    font-size   : 15.2pt
+
+pre#mysql_result
+  white-space           : pre-wrap
+  margin-left           : 0 !important
+
+
+// Le formulaire quand c'est une rangée unique qui est éditée pour
+// être modifiée, en général
+form#form_edit_row
+  span.libelle
+    text-align      : left !important
+  span.value
+    input[type="text"].time
+      width         : 160px

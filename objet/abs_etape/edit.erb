@@ -1,0 +1,49 @@
+<%
+#
+# Édition d'une étape de travail
+#
+raise_unless_admin
+%>
+<h1>Étape de travail</h1>
+<h2>Édition/création</h2>
+
+<%# Données générales de l'étape si c'est une édition %>
+<% if ONLINE %>
+  <p class="warning">Puisque l'édition/création se fait en ONLINE, il est impératif de demander, en local, la synchronisation distant -> locale de la table `modules > absetapes` après édition.</p>
+<% else %>
+  <p class='small italic red'>Avant toute édition en OFFLINE, il est vivement recommandé de synchroniser la table locale avec la table distante (bureau > DATABASES > choisir la table `modules > absetapes` > synchroniser distant -> locale).</p>
+<% end %>
+<form id="form_module_etape" action="abs_etape/edit" method="POST">
+  <div><span class="libelle">Module</span><%= menu_modules %></div>
+  <div><span class="libelle">Étape</span><%= menu_etapes_module %></div>
+</form>
+<% if absetape.id %>
+  <div class="right small">
+    <%= 'La voir'.in_a(href: "abs_etape/#{absetape.id}/show", target: :new) %>
+    &nbsp;|&nbsp;
+    <%= 'Voir son module'.in_a(href: "abs_module/#{absetape.abs_module.id}/show", target: :new) %>
+  </div>
+<% end %>
+
+<%= page.separator(40) %>
+
+<%
+site.require 'form_tools'
+form.prefix = 'etape'
+form.objet = absetape
+%>
+<form class="dim2080" action="abs_etape/<%= absetape.id %>/edit" method="POST">
+  <%= 'save_etape'.in_hidden(name: 'operation') %>
+  <%= form.field_text('Titre', 'titre', nil, {class: 'bold'}) %>
+  <%= form.field_text('Numéro', 'numero', nil, {class: 'short bold'}) %>
+  <%= form.field_text('ID', 'id', nil, {class:'short', text_after: explication_identifiant}) %>
+  <%= form.field_select('Module', 'module_id', nil, {values: menu_modules_values })%>
+  <%= form.field_text('Objectif', 'objectif', nil) %>
+  <%= form.field_textarea('Travail', 'travail') %>
+  <%= form.field_textarea('Méthode', 'methode', nil, {placeholder: "Éléments de méthodes proposés"})%>
+  <%= form.field_text('Durée', 'duree', nil, {class: 'short', text_after: 'jours'}) %>
+  <%= form.field_text('Durée max', 'duree_max', nil, {class: 'short', text_after: 'jours'}) %>
+  <%= form.field_textarea('Liens', 'liens', nil, {text_after: champ_liens, onchange: "$.proxy(AbsEtape,'onchange_liens')()", placeholder: "Liens d'aide pour la page."})%>
+  <%= form.field_description(explication_format_liens)%>
+  <%= form.submit_button('Enregistrer') %>
+</form>

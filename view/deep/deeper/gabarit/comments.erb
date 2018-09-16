@@ -1,0 +1,36 @@
+<%
+# Partial pour afficher les commentaires sur la page
+#
+# Rappel : pour activer les commentaires sur une page, il suffit d'ajouter
+# dans le code de la vue :
+#
+#   enable_comments
+%>
+<h4 id="titre_page_comments">Vos commentaires sur cette page</h4>
+<section id="page_comments">
+  <% if user.identified? && site.current_route %>
+    <form id="form_page_comments" class="dim2080" action="page_comments/new?in=site" method="POST">
+      <%
+      site.require 'form_tools'
+      form.prefix= 'pcomments'
+      %>
+      <%= site.current_route.route.in_hidden(name: 'pcomments[route]') %>
+      <%= form.field_textarea("Votre commentaire sur cette page, #{user.pseudo}", 'comment', nil) %>
+      <%= form.submit_button('Publier') %>
+    </form>
+  <% else %>
+    <div id="pcoms_warning_user_unsubscriber">
+      Par mesure de sécurité, il faut être
+      <%= lien.signup('inscrit(e) sur le site') %> pour pouvoir publier un
+      commentaire sur cette page.
+    </div>
+  <% end %>
+  <%
+  # ---------------------------------------------------------------------
+  #
+  #   Dans tous les cas, on affiche la liste des commentaires
+  #
+  # ---------------------------------------------------------------------
+  %>
+  <%= Page::Comments.ul_current_route_comments %>
+</section>

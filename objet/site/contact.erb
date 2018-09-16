@@ -1,0 +1,59 @@
+<%
+# Vue pour écrire à l'administration du site
+# OU à un icarien
+#
+# C'est le paramètre :to (param(:to)) qui détermine si c'est un message
+# pour l'administration ou pour un icarien.
+# Si le message s'adresse à un icarien, une vérification doit être faite
+# pour voir s'il peut vraiment être contacté.
+#
+page.title = "Contact"
+page.description= "Contactez Phil de l'Atelier Icare."
+enable_comments
+%>
+<h1>Contact</h1>
+
+<%=
+if param(:to)
+  if site.current_mail.destinataire
+    dest = site.current_mail.destinataire
+    "Contacter #{dest.pseudo}".in_h3(class: 'bold')
+  else
+    'Vous n’êtes pas autorisé à contacter cet icarien ! Vous pouvez toujours essayer, mais ça ne marchera pas. Bonne chance !'.in_div(class: 'air warning')
+  end
+end
+%>
+
+<%
+if param(:operation) && site.respond_to?(param(:operation).to_sym)
+  site.send(param(:operation).to_sym)
+end
+%>
+
+<% if site.current_mail.sent? %>
+  <%= big_message(["Votre message a été transmis à <strong>#{site.current_mail.destinataire.pseudo}</strong> avec succès.", "Merci à vous."], {ok: true}) %>
+<% else %>
+<%
+  site.require 'form_tools'
+  form.prefix = 'contact'
+%>
+<form id="form_contact" class="dim2080" action="site/contact" method="POST">
+  <%= "envoyer".in_hidden(name:'operation') %>
+  <% unless param(:to).nil? %>
+    <%= param(:to).in_hidden(name: 'to') %>
+  <% end %>
+  <%= form.field_text("Sujet", 'sujet', site.current_mail.subject) %>
+  <%= form.field_textarea("Message", 'message', site.current_mail.message) %>
+  <% if user.identified? %>
+    <%= user.mail.in_hidden(name:'contact[mail]') %>
+    <%= user.mail.in_hidden(name:'contact[mail_confirmation]') %>
+  <% else %>
+    <%= form.field_text("Votre mail", 'mail', site.current_mail.sender) %>
+    <%= form.field_text("Confirmation", 'mail_confirmation', site.current_mail.mail_confirmation) %>
+  <% end %>
+  <%= app.hidden_field_captcha_value %>
+  <%= form.field_text("Antirobot", 'captcha', nil, {class:'short', text_before: "#{site.captcha_question.in_span(id:'captcha_question')} : ".in_span(class:'small')}) %>
+
+  <%= form.submit_button("Envoyer") %>
+</form>
+<% end %>

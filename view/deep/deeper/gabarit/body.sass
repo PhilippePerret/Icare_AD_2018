@@ -1,0 +1,12 @@
+body
+  color             : #2D2D2D
+  strong
+    color             : #3F3F3F
+
+// Les textes toujours justifiés (il faut les détailler, pas
+// comme avant où tout le body était justifié)
+// Ne pas mettre les div. Quand on veut un texte justifié, on
+// le met dans un <p>
+p
+  &:not(.right), &:not(.left)
+    text-align        : justify

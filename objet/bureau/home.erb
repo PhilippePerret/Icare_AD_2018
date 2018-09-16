@@ -1,0 +1,54 @@
+<%
+# Accueil du bureau d'un icarien
+# ------------------------------
+# Ce bureau fonctionne pour tout icarien, qu'il soit actif ou non,
+# reçu ou non, en pause, etc.
+#
+# C'est le centre névralgique de tout auteur
+%>
+<%= Bureau.titre_h1 %>
+<%= page.html_separator(40) %>
+
+<%
+# ---------------------------------------------------------------------
+#
+#   COLONNE DROITE
+#
+# ---------------------------------------------------------------------
+%>
+<div id="bureau_colonne_droite" class="rfloat">
+  <%= Bureau.section_notifications %>
+</div>
+
+
+<%
+# ---------------------------------------------------------------------
+#
+#   COLONNE GAUCHE
+#
+# ---------------------------------------------------------------------
+%>
+<div id="bureau_colonne_gauche" style="margin:0">
+  <%= Bureau.section_statut_auteur %>
+  <%
+  # On affiche soit les infos sur le module courant et sur
+  # l'étape de travail en cours, soit un encart pour commander un
+  # nouveau module, sauf si on est administrateur
+  %>
+  <% if user.admin? %>
+    <%# Cf. le module 'bureau_admin' %>
+    <%= Bureau.section_administrateur %>
+  <% else %>
+    <%= Bureau.section_info_module_et_echeance %>
+  <% end %>
+</div>
+<%# Fin de la colonne gauche %>
+
+<%= page.html_separator %>
+<a name="travail_etape"></a>
+<% if user.actif? && user.icetape.abs_etape.numero < 100 %>
+  <% debug "user.icetape.abs_etape.numero : #{user.icetape.abs_etape.numero.inspect}" %>
+  <p id="bureau_cadre_explication_travail" class="tiny"><%= user.pseudo %>, trouvez ci-dessous le travail à effectuer pour votre étape courante. Si vous voulez en savoir plus sur la constitution de cette page, vous pouvez lire la <%= lien.aide(11, titre: 'page d’aide sur les éléments du bureau') %>.</p>
+<% end %>
+<a name="section_travail_auteur"></a>
+<%= Bureau.section_travail_auteur %>

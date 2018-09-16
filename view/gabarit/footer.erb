@@ -1,0 +1,21 @@
+
+<section id="footer">
+  <% if OFFLINE || user.admin? %>
+    <div id="btns_admin_footer" class="right" style="margin-right:1em"><%= "Debug".in_a(class:'tiny', onclick:"$('section#debug').toggle()") %></div>
+  <% end %>
+  <%= page.permanent_link %>
+  <div id="bande_bas_de_page"></div>
+  <div id="footer_content">
+    <%= "Accueil".in_a(href:"") %>
+    <% if user.identified? %>
+      <%= "Profil".in_a(href:"user/#{user.id}/profil") %>
+    <% else %>
+      <%= "Inscription".in_a(href:'user/signup') %>
+    <% end %>
+    <%= "Contact".in_a(href:'site/contact') %>
+    <%= "Aide".in_a(href:'aide/home') %>
+    <% if site.current_route && site.current_route.context && site.current_route.context.start_with?('unan') %>
+      <%= "“1 An 1 Script”::Aide".in_a(href:'aide/home?in=unan') %>
+    <% end %>
+  </div>
+</section>

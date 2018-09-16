@@ -1,0 +1,83 @@
+<%
+# ÉDITION/CRÉATION DES WATCHERS
+raise_unless_admin
+def menu_types_icariens
+
+  [
+    ['all',     'Tous'],
+    ['actif',   'Actifs'],
+    ['inactif', 'Inactifs'],
+    ['enpause', 'En pause']
+  ].in_select(id: "type_icarien", selected: 'actif', onchange: "$.proxy(Watcher, 'update_user_list')()")
+
+end
+
+def data_param ; @data_param ||= param(:watcher) || Hash.new end
+
+def div_value_and_menu prop, options = nil
+  options ||= Hash.new
+  values_field =
+    case options[:values_field]
+    when FalseClass
+      '&nbsp;'
+    else
+      (options[:select_values] || '').in_select(id: "menu_#{prop}", 'data-prop' => prop, onchange: "$.proxy(Watcher, 'onchoose', this)()")
+    end
+  boutons_field = options[:boutons] || '&nbsp;'
+  (
+    prop.in_div(class: 'div_titre') +
+    (data_param[prop.to_sym] || '').in_input_text(name: "watcher[#{prop}]", id: "watcher_#{prop}").in_div(class: 'div_value') +
+    values_field.in_div(class: 'div_menu') +
+    boutons_field.in_div(class: 'div_boutons')
+  ).in_div(class: 'div_value_menu', id: "div_#{prop}")
+end
+
+# Deux menus sont remplis au chargement :
+# - le menu des users
+# - le menu des objets possibles (ce sont ceux qui contiennent des dossier
+#   '_processus')
+
+# === MENU DES ICARIENTS ===
+dreq = {
+  where:    "SUBSTRING(options,17,1) = '2'",
+  colonnes: [:pseudo]
+}
+user_values =
+  (
+    [['', 'Choisir…']] +
+    dbtable_users.select(dreq).collect do |huser|
+      [huser[:id], "#{huser[:id]} - #{huser[:pseudo]}"]
+    end
+  )
+# === MENU DES OBJETS ===
+objet_values =
+  (
+    [['', 'Choisir…']] +
+    Dir["#{site.folder_objet}/*"].collect do |fpath|
+      File.exist?(File.join(fpath,'lib', '_processus')) || next
+      name = File.basename(fpath)
+      [name, name]
+    end.compact
+  )
+%>
+<form id="form_watcher_edit" action="watcher/edit" method="POST">
+  <%= 'creer_watcher'.in_hidden(name:'opwatcher') %>
+  <%= div_value_and_menu 'user_id', boutons: menu_types_icariens, select_values: user_values %>
+  <%= div_value_and_menu 'objet', select_values: objet_values %>
+  <%= div_value_and_menu 'objet_id' %>
+  <%= div_value_and_menu 'processus' %>
+  <%= div_value_and_menu 'triggered' %>
+  <%= div_value_and_menu 'data', values_field: false %>
+  <%= 'Créer'.in_submit(class: 'btn').in_div(class: 'buttons')%>
+</form>
+
+<h4>Explications</h4>
+<p>
+  Cette section permet de créer des watchers ou de les éditer.
+</p>
+<p>
+  Seuls les objets (dossier `./objet`) possédant des dossiers <code>lib/_processus</code> sont considérés comme des objets pouvant recevoir des watchers.
+</p>
+<p>
+  De la même manière, une fois l'objet choisi, seuls les processus existants (donc les dossiers du dossier <code>lib/_processus</code> de l'objet) sont utilisables. Il faut donc créer le processus avant de pouvoir créer le watcher l'utilisant.
+</p>

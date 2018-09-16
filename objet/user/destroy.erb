@@ -1,0 +1,51 @@
+<%
+# Page appelée quand l'user veut détruire son compte
+%>
+<h1>Destruction de compte</h1>
+
+<% if user.id == site.route.objet_id %>
+<p>
+  <%= user.pseudo %>, nous sommes navrés d'apprendre que vous voulez détruire votre compte sur <%= site.name %>. Mais bien entendu, c'est votre droit le plus strict.
+</p>
+<p>
+  Notez que <strong>cette suppression est définitive</strong> et qu'il sera impossible de revenir en arrière après avoir cliqué sur le bouton “Supprimer mon compte” ci-dessous. Toutes vos informations seront <em>définitivement</em> perdues.
+</p>
+<p>
+  Auriez-vous la gentillesse, afin que nous puissions améliorer les choses, nous indiquer les raisons de votre suppression de compte ? D'avance un grand merci à vous.
+</p>
+<form class="mg10pc small" action="user/<%= user.id %>/destroy" method="POST">
+  <%= "destroy_compte".in_hidden(name:'operation') %>
+  <%= "1".in_hidden(name:'destroy[confirmation_destroy]') %>
+  <span class="libelle">Raison de votre départ</span>
+  <%= User::menu_raison_supp_compte %><br>
+  <span class="libelle">Raison détaillée</span><br>
+  <div class="mg20pc">
+    <textarea name="destroy[raison_detailed]" rows="4" style="width:100%" placeholder="Merci de bien vouloir détailler ici la raison de votre départ"></textarea>
+  </div>
+  <div class="center big air">
+    <%= "Supprimer mon compte".in_submit(class:'btn warning') %>
+  </div>
+</form>
+<%
+
+else
+  # On passe ici quand on n'est pas l'user en question et qu'on
+  # ne peut donc pas détruire le compte. Mais on va le laisser faire
+  # histoire de faire croire au hacker qu'il a trouvé une faille.
+  # Au bout du 50e passage, on lui dit ce qu'on en pense.
+
+  nb = if app.session['hacker_variable_kill'].nil?
+    1
+  else
+    app.session['hacker_variable_kill'].to_i
+  end
+  nb += 1
+  app.session['hacker_variable_kill'] = nb.to_s
+
+  if nb > 50
+
+  end
+%>
+<p>Le compte de l'user #<%= site.route.objet_id %> a été DÉTRUIT avec succès.</p>
+
+<% end %>

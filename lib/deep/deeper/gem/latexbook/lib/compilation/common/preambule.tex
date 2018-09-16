@@ -1,0 +1,36 @@
+% Packages utiles
+\usepackage[french]{babel}
+% Pour demander à frenchb de ne pas s'occuper des listes à
+% puce.
+\frenchbsetup{StandardLists=true}
+
+\usepackage[utf8]{inputenc}
+\usepackage[OT1,T1]{fontenc}
+
+% Pour l'insertion des images
+\usepackage{graphicx}
+
+% Pour la fabrication de l'index
+\usepackage{makeidx}
+% Pour améliorer la mise en page
+\usepackage[]{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead{}
+
+\usepackage{ifthen}
+
+% Pour essayer notamment d'utiliser "orange" comme couleur
+% Pour les couleurs, voir : https://en.wikibooks.org/wiki/LaTeX/Colors
+\usepackage{xcolor}
+
+\usepackage{hyperref}
+
+% Pour les guillemets français
+\usepackage[babel=true]{csquotes}
+% Pour pouvoir définir la mise en forme des références, par exemple un
+% "p." avant le numéro de page.
+\usepackage{varioref} % => \vref au lieu de \ref
+% Pour pouvoir utiliser la font Zapf dingbats qui permet de
+% modifier les puces des listes
+\usepackage{pifont}

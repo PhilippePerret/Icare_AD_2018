@@ -1,0 +1,31 @@
+% Fichier LaTex principal
+\documentclass[11pt,french,a4paper,openany]{book}
+% Possibilité de mettre `twoside` et `a5paper` si on veut
+% faire un petit format A5
+
+% Préambule
+% ----------
+\include{common/preambule}
+\include{assets/define_version_sexuee}
+\include{common/feminines}
+\include{common/commandes}
+% propres.tex est un fichier dynamique qui rassemble les
+% appels aux fichiers du dossier 'assets' propre au livre
+% (donc pas le dossier compilation/assets)
+\include{assets/propres}
+
+\makeindex
+
+% ---------------------------------------------------------------------
+% ---- DÉBUT DU DOCUMENT -----
+
+\begin{document}
+
+% Couverture
+\include{assets/cover}
+
+\tableofcontents
+
+\include{all_sources}
+
+\end{document}

@@ -1,0 +1,22 @@
+-
+  :url:         site/home
+  :lastmod:     false
+  :changefreq:  weekly
+  :priority:    0.5
+
+# -------------- DIVERS PAGES -------------------
+-
+  :url:         calculateur/main
+  :lastmod:     false
+  :changefreq:  never
+  :priority:    0.3
+-
+  :url:         quiz/show
+  :lastmod:     2016-08-10
+  :changefreq:  monthly
+  :priority:    0.4
+-
+  :url:         facture/main
+  :lastmod:     2016-02-01
+  :changefreq:  never
+  :priority:    0.2

@@ -1,0 +1,19 @@
+<%
+# Mail pour un avertissement de dépassement d'échéance de paiement
+# de niveau 3
+
+def nombre_jours_depassement
+  (NOW - icmodule.next_paiement) / 1.day
+end
+%>
+<p>Bonjour <%= pseudo %>,</p>
+<p>
+  C'est le troisième avertissement pour vous informer que votre échéance de paiement est arrivée à terme. Ce paiement était à effectuer il y a maintenant <%= nombre_jours_depassement %> jours.
+</p>
+<p>
+  Merci de procéder au plus vite au paiement de votre module <%= icmodule.abs_module.name %> en <%= lien.bureau('rejoignant votre bureau') %> et en utilisant le formulaire dédié.
+</p>
+<p>
+  En vous remerciant d'avance,
+</p>
+<!-- AVERTISSEMENT ECHEANCE PAIEMENT 3 -->

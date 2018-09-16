@@ -1,0 +1,81 @@
+// Formulaire de login ou d'inscription pour un quidam
+form#form_login_quidam
+  padding       : 1em
+  border        : 1px solid #555
+  border-radius : 1em
+  width         : 24em
+  > div
+    margin      : 14px 0
+    &.div_captcha
+      font-size     : 0.89em
+
+// Table des matières des interlocuteurs (pour owner seulement)
+div#div_interlocuteurs
+  float       : right
+  width       : 300px
+  border      : 1px solid #777
+  padding     : 1em
+  margin      : 0 0 2em 2em
+  min-height  : 200px
+  h4
+    margin    : 0 !important
+    font-size : 17pt
+  div#interlocuteurs
+    font-size   : 13.1pt
+    width       : 100%
+    min-width   : 100%
+    span.pseudo
+      a
+        font-weight     : bold
+      &.as_masked
+        font-style      : italic !important
+        a
+          color           : #BBB !important
+
+// Liste des messages d'une discussion
+// Note : il peut y en avoir plusieurs dans la page
+div.discussion
+  border-bottom      : 1px solid
+  padding-bottom     : 1em
+  margin-bottom      : 2em
+  clear               : both
+  div.btns_discussion
+    text-align      : right
+    font-size       : 0.825em
+    form
+      display       : inline
+      margin-left   : 2em
+  ul.discussion
+    list-style      : none
+    li.mess
+      width       : 60%
+      padding     : 4px 12px 1em 1em
+      border      : 1px solid #777
+      font-size   : 0.87em
+      // Pour le côté propriétaire (owner)
+      &.cotei
+        margin-left   : 0
+      // Pour le côté interlocuteur
+      &.coteo
+        margin-left   : 36%
+
+      div.infos
+        display       : block
+        text-align    : right
+        font-size     : 0.85em
+        // Auteur du message (ou "Vous")
+        span.auteur
+          font-style    : italic
+          color         : #777
+        span.date
+          font-style    : italic
+          color         : #777
+          margin-left   : 2em
+
+// Boite pour laisser un nouveau message
+div.boite_new_message
+  margin-left       : 12em !important
+  width             : 32em
+  padding           : 1em
+  border            : 1px solid #555
+  border-radius     : 1em

@@ -1,0 +1,45 @@
+// Div principal contenant tous les tests d'un fichier
+div.tfile
+  line-height   : 0.9em
+  margin-bottom : 1em // non, pour le mode quiet
+  &.fai 
+    *
+      color     : red
+    div.mess.fai
+      font-weight   : bold
+  &.suc *
+    color     : green
+  // Div contenant le path du fichier courant
+  div.pfile
+    font-size   : 11.2pt
+    font-style  : italic
+    margin-left : -2em
+  // Div contenant tous les success et failures du fichier 
+  // courant
+  div.atests
+    margin-left : 2em
+    
+    // Div contenant le libellé du test courant
+    div.tlib
+      font-size   : 12pt
+      // Si le libellé par défaut doit être marqué
+      div.defname
+        color       : inherit
+        opacity     : 0.75
+        font-size   : 9pt
+        margin-left : 4.6em
+    // Le message
+    div.tcase
+      margin-left : 2em
+      font-size   : 12.3pt
+      &.fai
+        color       : red
+      // Pour forcer les messages de réussite de cas dans un échec
+      // de test
+      &.suc
+        color       : green
+
+  
+// Le div contenant les infos sur le test en bas de fenêtre
+div#test_infos
+  font-size:    12.5px

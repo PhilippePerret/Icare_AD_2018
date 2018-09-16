@@ -1,0 +1,37 @@
+<%
+# Notification permettant à l'icarien/ne de définir le partage des
+# documents original/commentaires de ce ic-document
+%>
+<%
+def div_define_sharing_for type = :original
+  return '' if type == :comments && !icdocument.has?(:comments)
+  (
+    menu_sharing_for(type) + " le document #{type == :original ? 'original sans commentaires' : 'commenté par Phil'}."
+  ).in_div
+end
+def menu_sharing_for type
+  [
+    ['1', 'Partager'],['2', 'Ne pas partager']
+  ].in_select(name:"sharing[#{type}]", id:"sharing_#{type}-#{icdocument.id}")
+end
+def designation_document
+  (
+    "Document : <strong>#{icdocument.original_name}</strong>\n"+
+    "Module   : #{icdocument.icmodule.abs_module.name}\n"+
+    "Étape    : #{icetape.abs_etape.numero} (“#{icetape.abs_etape.titre}”)"
+  ).in_pre
+end
+def lien_explication
+  lien.aide(30, titre: 'Pourquoi est-il si important de partager ?', discret: false).in_div(class: 'small italic')
+end
+%>
+<%=
+  form do
+    'Définition de partage'.in_legend +
+    designation_document +
+    div_define_sharing_for(:original) +
+    div_define_sharing_for(:comments) +
+    lien_explication +
+    'Définir'.in_submit.in_div(class: 'buttons')
+  end
+%>

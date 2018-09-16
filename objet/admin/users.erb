@@ -1,0 +1,59 @@
+<%raise_unless_admin%>
+<%
+Admin.require_module 'users'
+# Vue pour travailler sur les utilisateurs
+#
+# Voir le détail dans users.rb
+#
+%>
+<%
+# Les données opérations pour javascript
+%>
+<script type="text/javascript">
+  DATA_OPERATIONS = <%= Admin::Users::DATA_OPERATIONS.to_json %>
+</script>
+
+<%=
+# ---------------------------------------------------------------------
+#
+#   Un code de retour après le résultat (if any)
+#
+# ---------------------------------------------------------------------
+  Admin::Users.resultat
+%>
+
+<%
+# ---------------------------------------------------------------------
+#
+#   FORMULAIRE POUR DÉFINIR L'OPÉRATION
+#
+# ---------------------------------------------------------------------
+site.require 'form_tools'
+form.prefix = 'opuser'
+
+%>
+<% if OFFLINE %>
+  <p class="warning small">Attention, les opérations ne seront exécutées qu'en OFFLINE.</p>
+<% end %>
+<form id="form_operation_icarien" class="dim2080" action="admin/users" method="POST">
+
+  <%= form.field_raw('Icarien', '', nil, {field: "#{Admin::Users.menu} #{Admin::Users.menu_type_icarien}"}) %>
+  <%= form.field_raw('Opération', '', nil, {field: Admin::Users.menu_operations}) %>
+
+  <%# CHAMP COURT %>
+  <div id="div_short_value" style="display:<%= Admin::Users.short_value.nil? ? 'none' : ''%>;">
+    <%= form.field_text('&nbsp;', 'short_value', param(:short_value), {class: 'short', text_before: ''.in_div(id: 'short_value_explication', class: 'libelle')}) %>
+  </div>
+
+  <%# CHAMP MOYEN %>
+  <div id="div_medium_value" style="display:<%= Admin::Users.medium_value.nil? ? 'none' : ''%>;">
+    <%= form.field_text('&nbsp;', 'medium_value', param(:medium_value), {class: 'milong', text_before: ''.in_div(id: 'medium_value_explication', class: 'libelle')}) %>
+  </div>
+
+  <%# CHAMP LONG %>
+  <div id="div_long_value" style="display:<%= Admin::Users.long_value.nil? ? 'none' : ''%>;">
+    <%= form.field_textarea('&nbsp;', 'long_value', param(:long_value), {text_before: ''.in_div(id: 'long_value_explication', class: 'libelle', style:'z-index:1000')}) %>
+  </div>
+
+  <%= 'Exécuter'.in_submit(class:'btn').in_div(class: 'buttons') %>
+</form>

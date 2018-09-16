@@ -1,0 +1,30 @@
+<%
+# Section principale de paiement
+%>
+<h1>Section de paiement</h1>
+
+<%
+# En fonction du stade du paiement où l'on en est
+# Ça peut être :
+#
+#   * Première arrivée sur la page
+#     ** On n'a pas de module => message alerte
+#     ** On a un module => initialisation du paiement
+#   * Seconde arrivée de la page, après avoir payé
+%>
+
+<%=
+  case param(:op)
+  when NilClass, '' then
+    if user.has_paiement?
+      IcPaiement.init_paiement_et_affiche_formulaire
+    else
+      IcPaiement.aucun_paiement
+    end
+  when "ok"
+    IcPaiement.do_paiement_ok
+  when "cancel"
+    IcPaiement.do_paiement_cancel
+  end
+
+%>

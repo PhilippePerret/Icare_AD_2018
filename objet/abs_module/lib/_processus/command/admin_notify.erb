@@ -1,0 +1,56 @@
+<%
+# Notification administrateur pour attribuer ou non un module d'apprentissage
+%>
+<%
+# TODO Il faut cocher une case pour dire d'envoyer un mail de refus
+# en cas de refus.
+%>
+
+<%
+
+div_refus_id = "div_refus-#{id}"
+
+menu_refus_types = [
+  ['', 'Choisir le refus-type…'],
+  ['2', 'Mauvais travail précédent au sein de l’atelier'],
+  ['1', 'Module plus proposé et bientôt supprimé']
+].in_select(id: "command_refus_type-#{id}", name: 'command[refus_type]')
+%>
+
+<script type="text/javascript">
+var pour_refus = false;
+window.Refuser_commande_module = function(){
+  pour_refus = !pour_refus ;
+  var btn_submit_jid = "input#btn_submit-<%= id %>";
+  var btn_refus_jid = "input#btn_refus-<%= id %>";
+  var div_refus_jid = "div#<%= div_refus_id %>";
+  $(btn_submit_jid).val(pour_refus ? 'Refuser' : 'Attribuer');
+  $(btn_refus_jid).val(pour_refus ? 'Non, accepter' : 'Refuser');
+  $(div_refus_jid)[pour_refus ? 'show' : 'hide']();
+  $('input#command_refus-<%= id %>').val(pour_refus ? '1' : '0')
+}
+window.ne_pas_envoyer_de_mail = function(){
+  var envoyer_mail = !$('input#command_cb_send_mail-<%= id %>')[0].checked ;
+  $('textarea#command_motif_refus-<%= id %>')[envoyer_mail ? 'show' : 'hide']();
+  $('select#command_refus_type-<%= id %>')[envoyer_mail ? 'show' : 'hide']();
+}
+</script>
+<%=
+
+
+  'Commande de module d’apprentissage'.in_legend +
+  form do
+    '0'.in_hidden(name: 'command[refus]', id: "command_refus-#{id}") +
+    "<strong>#{owner.pseudo}</strong> postule pour le module “<strong>#{absmodule.name}</strong>”.".in_div +
+    (
+      menu_refus_types +
+      ''.in_textarea(name: 'command[motif_refus]', id: "command_motif_refus-#{id}", placeholder: "Donner ici le motif du refus si non refus-type (format simple texte/kramdown)") +
+      'Ne pas envoyer le mail de refus (simple suppression du watcher)'.in_checkbox(name: 'command[no_mail]', id: "command_cb_no_mail-#{id}", onclick: "ne_pas_envoyer_de_mail()").in_div
+    ).in_div(id: div_refus_id, class: 'div_refus', display: false) +
+    (
+      'Refuser'.in_button(id: "btn_refus-#{id}", class: 'fleft', onclick: "Refuser_commande_module()") +
+      'Attribuer'.in_submit(id: "btn_submit-#{id}")
+    ).in_div(class: 'buttons')
+  end
+
+%>

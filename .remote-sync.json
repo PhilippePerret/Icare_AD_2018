@@ -1,0 +1,15 @@
+{
+  "uploadOnSave": false,
+  "useAtomicWrites": false,
+  "deleteLocal": false,
+  "hostname": "ssh-icare.alwaysdata.net",
+  "target": "www/",
+  "ignore": [
+    ".**"
+  ],
+  "username": "icare",
+  "keyfile": "/Users/philippeperret/.ssh/id_rsa",
+  "watch": [],
+  "transport": "scp",
+  "port": "22"
+}

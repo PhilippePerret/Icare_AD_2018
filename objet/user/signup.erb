@@ -1,0 +1,47 @@
+<%
+# Nouvelle méthode d'inscription, qui ne crée les choses qu'à
+# la toute fin, et en un seul fichier (sans passer par le fichier
+# create comme avant)
+%>
+<h1>Candidature Icare</h1>
+
+<% if user.identified? %>
+  <p class='big air'>Vous êtes déjà inscrit<%= user.f_e %> à l'atelier Icare, <%= user.pseudo %> !</p>
+<% else %>
+
+<%
+  #
+  # Traitement de l'opération courante, en fonction du state
+  #
+  Signup.traite_operation %>
+
+<%=
+  #
+  # Construction du bandeau indiquant l'étape courante et
+  # permettant de revenir en arrière
+  #
+  Signup.bandeau_states %>
+<%=
+
+  #
+  # Affichage de la page courante
+  #
+
+  # Pour les "page_", cf. le dossier lib/module/signup/states
+  case Signup.state
+  when NilClass, 'identite'
+    Signup.page_form_identite
+  when 'modules'
+    Signup.page_form_modules
+  when 'documents'
+    Signup.page_form_documents
+  when 'confirmation'
+    Signup.page_confirmation
+  end
+
+%>
+
+<%
+end
+# / si ça n'est pas un icarien déjà inscrit
+%>

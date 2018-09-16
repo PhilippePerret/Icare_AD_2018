@@ -1,0 +1,29 @@
+<%
+# Vue pour le paiement
+#
+# Note : concerne seulement le paiement pour l'abonnement aux outils
+# pas au programme 1an1script.
+#
+%>
+<% if user.paiements_ok? %>
+  <%
+    # Si le paiement vient tout juste d'être effectué
+    if user.last_abonnement && user.last_abonnement > (Time.now.to_i.to_i - 3600)
+      # ---------------------------------------------------------------------
+      # L'user passe ici lorsqu'il vient d'effectuer le paiement
+      # de son abonnement au site (dans l'heure)
+      # ---------------------------------------------------------------------
+  %>
+    <%= site.paiement.output %>
+  <%
+    else
+      # Si l'user est déjà abonné depuis plus d'un jour
+  %>
+  <h1>Section de paiement</h1>
+    <p><%= user.pseudo %>, vous êtes à jour de vos paiements, vous n'avez donc rien à payer.</p>
+    <p class="small">Votre prochain paiement devra s'effectuer le <%= user.next_paiement.as_human_date %>.</p>
+  <% end %>
+<% else %>
+  <h1>Section de paiement</h1>
+  <%= site.paiement.output %>
+<% end %>

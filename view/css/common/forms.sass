@@ -1,0 +1,207 @@
+// Par défaut, tous les champs d'édition visible héritent les styles
+// de texte de leur parent
+input[type="text"], input[type="password"], textarea, select, select option, input[type="file"]
+  font-size         : inherit
+  font-family       : inherit
+  font-style        : inherit
+  font-weight       : inherit
+
+input[type="password"], input[type="text"], textarea
+  border-width          : 1px
+  border-style          : solid
+  border-color          : #9CCF9C
+  background-color      : #f4f7fa !important
+  -webkit-autofill      : #f4f7fa !important
+  &:focus
+    border-color        : green
+    background-color    : #f4f7fa !important
+    -webkit-autofill    : #f4f7fa !important
+  &.warning
+    background-color      : #FCC
+
+select > option
+  padding             : 0 16px
+select, select option
+  &.small
+    font-size           : 13.5pt
+    padding             : 0 8px
+  &.exergue
+    background-color    : #3F7E3F
+    color               : white
+  &.inline
+    border              : 1px solid #CCC
+
+form, div
+  // Les différentes tailles entre libellé et value s'obtiennent en
+  // pourcentage dans la classe donnée au formulaire
+  // La classe est 'form<pourcentage libellé><pourcentage value>'
+  // Noter que ça tient aussi pour des div contenant des row et span
+  // libelle et value
+  &.dim5050
+    div.row
+      span.libelle
+        width : 45%
+      span.value
+        width : 50% !important
+        margin-left: 50% !important
+        // input[type="text"], textarea, input[type="password"]
+        //   width   : 46%
+
+  &.dim4060
+    div.row
+      span.libelle
+        width : 40%
+      span.value
+        width : 55% !important
+        margin-left: 45% !important
+        // input[type="text"], textarea, input[type="password"]
+        //   width   : 51%
+  &.dim3070
+    div.row
+      span.libelle
+        width : 30%
+      span.value
+        width : 65% !important
+        margin-left : 35% !important
+        // input[type="text"], textarea, input[type="password"]
+        //   // width   : 61%
+  &.dim2080
+    div.row
+      width: 100%
+      span.libelle
+        width : 20%
+      span.value
+        width : 75% !important
+        margin-left : 25% !important
+        // input[type="text"], textarea, input[type="password"]
+        //   width   : 71%
+  // Quand il n'y a pas de libellé
+  &.dim0100
+    div.row
+      width :  100%
+      span.libelle
+        display     : none
+      span.value
+        width       : 95%
+        // input[type="text"], textarea, input[type="password"]
+        //   width       : 91%
+form
+
+  // Pour mettre des champs en exergue.
+  // Il y a deux types d'exergue : l'exergue d'erreur (rouge) et
+  // l'exergue simple (bleu)
+  div.row
+    &.exergue
+      background-color      : #efefff
+      border                : 1px solid #A4A4FF
+    &.error
+      background-color      : #ffefef
+      border                : 1px solid #FFA4A4
+
+
+  // Pour séparer deux rangées row avec une ligne
+  div.separator
+    border-bottom         : 1px solid
+    margin                : 1em 0
+    width                 : 80%
+
+  // Form de class 'small
+  &.small
+    input[type="submit"]
+      padding             : 0.2em 0.9em
+
+
+  div.buttons
+    margin-top          : 1em
+    text-align          : right
+    padding             : 0 1.7em
+
+  div.row
+    margin-top        : 0.7em
+    &.description
+      margin-top        : 0
+
+    select
+      padding           : 0 0.6em
+
+    span.libelle
+      display           : inline-block
+      font-size         : 14.8pt
+      text-align        : right
+      padding-right     : 20px
+      vertical-align    : top
+
+    span.value
+      display           : inline-block
+
+      span + span
+        margin-left       : 0.5em
+
+      input[type="text"], input[type="password"]
+        width             : 95%
+
+      textarea
+        min-height        : 160px
+        padding           : 8px
+        width             : 100%
+        &.high
+          min-height        : 320px
+
+      &.descfield
+        font-size         : 10.4pt
+        font-style        : italic
+        opacity           : 0.115
+        line-height       : 1.2em !important
+        &:hover
+          opacity            : 1
+
+input[type="text"], input[type="password"]
+  &.short
+    width           : 60px !important
+    text-align      : center !important
+  &.medium
+    width           : 120px !important
+    text-align      : center !important
+  &.milong
+    width           : 50% !important
+    text-align      : left !important
+  + span
+    margin-left       : 0.5em
+
+
+span
+  + input[type="text"], + select
+    margin-right      : 0.5em
+
+// Un label de checkbox doit se trouver éloigné de la case à cocher
+input[type="checkbox"] + label, input[type="radio"] + label
+  margin-left       : 0.5em
+  vertical-align    : middle
+
+// Dans un formulaire, un row.description doit réagir au survol
+// de la souris de son élément précédent
+form
+  div.row:hover + div.row.description
+    span.value
+      opacity : 1
+
+// Pour mettre en exergue le champs contenant l'id
+// @usage class='id_field'
+input[type="text"].id_field
+  background-color  : #006000 !important
+  color             : white
+  font-weight       : bold
+  &:focus
+    background-color  : #009000 !important
+    color             : black
+
+form.inline
+  padding   : 0.3em 1em
+  input[type="button"], input[type="submit"], select, select option
+    font-size   : inherit !important
+    font-family : inherit !important
+  select, select option
+    border      : none
+  input[type="button"], input[type="submit"]
+    border            : 1px solid #555
+    background-color  : white

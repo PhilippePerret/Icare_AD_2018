@@ -1,0 +1,53 @@
+<%
+# Contenu de la page
+# Il est calculé ici notamment pour pouvoir définir l'ajout pour
+# schema.org
+contenu_de_la_page = page.content_route || page.home
+%>
+<div id="content" class="col"<%= page.ajout_schema_org %>>
+  <%=
+  # ------------------------------------------------------------
+  #    Nom de fichier  pour lecteur
+  #    Ce widget propose un champ de saisie avec à l'intérieur
+  #    un nom de fichier que le lecteur peut utiliser pour
+  #    désigner la page courante.
+  # ------------------------------------------------------------
+  page.helper_filename_lecteur if user.admin?
+  %>
+
+  <%
+    unless OFFLINE
+      # Scripts pour FACEBOOK et TWITTER
+      %>
+
+      <% page.add_javascript('./lib/deep/deeper/js/optional/twitter.js') %>
+      <div id="fb-root"></div>
+      <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.6";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+  <% end %>
+
+  <%
+  # ===========================================
+  #     Le contenu véritablement de la page
+  # ===========================================
+  %>
+  <%= contenu_de_la_page %>
+
+  <%
+  # La section commentaires de page, si requis
+  %>
+  <%= page.comments if page.comments? && Page::Comments.display_formulaire? %>
+
+</div>
+
+<%
+# Un bouton pour afficher/masquer la marge gauche
+%>
+<% if user.admin? %>
+  <%= 'Masquer marge'.in_a(id: 'btn_mask_marge', onclick: 'UI.toggle_left_margin()') %>
+<% end %>

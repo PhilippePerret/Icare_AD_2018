@@ -1,0 +1,16 @@
+<%
+#
+self.subject_mail = 'Changement d’étape de travail'
+%>
+<p>
+  Bonjour <%= owner.pseudo %>,
+</p>
+<p>
+  J'ai le plaisir de vous informer que Phil vient de vous faire passer à l'étape <%= next_etape_designation %> de votre module d'apprentissage.
+</p>
+<p>
+  Vous pouvez d'ores et déjà trouver le détail du travail de cette étape sur <%= lien.bureau('votre bureau', online: true) %>.
+</p>
+<p>
+  Bon courage et surtout : bonne inspiration à vous !
+</p>

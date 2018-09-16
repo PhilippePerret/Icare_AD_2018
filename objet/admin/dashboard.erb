@@ -1,0 +1,8 @@
+<%
+# Tableau de bord de l'administrateur
+
+raise_unless_admin
+%>
+<%= Admin.titre_h1 %>
+
+<%= Dashboard.content || 'Aucun retour.'.in_p %>

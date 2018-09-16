@@ -1,0 +1,37 @@
+<%
+# Boite navigation
+# ----------------
+# Pour naviguer dans le quai des documents
+%>
+
+
+<%
+# Noter que "courant" dans tout le quai des docs correspond à une
+# valeur courante ne correspondant pas forcément à la date du jour
+def affichage_trimestre_courant
+  "#{annee_courante} Trimestre #{trimestre_courant}"
+end
+def lien_prev_trimestre
+  ann_prev = 0 + annee_courante
+  tri_prev = trimestre_courant - 1
+  tri_prev > 0 || begin
+    tri_prev = 4
+    ann_prev -= 1
+  end
+  "← #{ann_prev} Trimestre #{tri_prev}".in_a(href: "quai_des_docs/home?an=#{ann_prev}&tri=#{tri_prev}")
+end
+def lien_next_trimestre
+  ann_next = 0 + annee_courante
+  tri_next = trimestre_courant + 1
+  tri_next < 5 || begin
+    tri_next = 1
+    ann_next += 1
+  end
+  "#{ann_next} Trimestre #{tri_next} →".in_a(href: "quai_des_docs/home?an=#{ann_next}&tri=#{tri_next}")
+end
+%>
+<div class="qdd_boite_navigation">
+  <%= lien_prev_trimestre         .in_span(class: 'trim_prev') %>
+  <%= lien_next_trimestre         .in_span(class: 'trim_next') %>
+  <%= affichage_trimestre_courant .in_span(class: 'trim_curr') %>
+</div>

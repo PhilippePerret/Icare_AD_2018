@@ -1,0 +1,44 @@
+<%
+# Outils dans le bureau
+raise_unless_identified
+
+
+def se_rendre_sur_boa route = nil
+  dlink = {href: route_boa(route), target: :new, class: 'small'}
+  "<dd class='right'>#{'→ S’y rendre'.in_a(dlink)}</dd>"
+end
+def se_rendre_sur_scenariopole route = nil
+  dlink = {href: url_scenariopole(route), target: :new, class: 'small'}
+  "<dd class='right'>#{'→ S’y rendre'.in_a(dlink)}</dd>"
+end
+%>
+<%= Bureau.titre_h1('Outils')%>
+<dl>
+  <dt> <%= lien.quai_des_docs 'Le Quai des docs', {target: :new} %></dt>
+  <dd>Le “Quai des docs” est un espace unique de l'atelier Icare où vous pouvez consulter tous les documents produits au sein de l'atelier, document d'exercices ou documents de développement des projets personnels des icariennes et icariens. Cette section contient actuellement <strong><%= dbtable_icdocuments.count %> doubles documents (document original et document commenté par Phil)</strong>.</dd>
+  <dt><%= 'La Boite à outils de l’auteur'.in_a(href: url_boa, target: :new)%></dt>
+  <dd>La Boite à outils de l'auteur rassemble à présent tous les outils d'écriture développés par Phil. Tous les outils ci-dessous appartiennent à cette “boite”.</dd>
+  <dd>Si vous êtes icarien<%= user.f_ne %> en activité (en cours de module) vous bénéficiez d'un accès complet et gratuit au site.</dd>
+  <%= se_rendre_sur_boa %>
+
+  <dt><%= 'Collection Narration'.in_a(href: url_scenariopole('narration'), target: :new) %></dt>
+  <dd>Les cours de Phil, rassemblés en 10 ouvrages en cours de publication.</dd>
+  <dd>Si vous êtes icarien<%= user.f_ne %> en activité (en cours de module) vous bénéficiez d'un accès complet et gratuit à la collection.</dd>
+  <%= se_rendre_sur_scenariopole('narration') %>
+
+  <dt><%= 'Le Scénodico'.in_a(href: url_boa('scenodico/list'), target: :new)%></dt>
+  <dd>Le Scénodico est un dictionnaire des termes scénaristiques et plus généralement des termes et des concepts d'écriture.</dd>
+  <%= se_rendre_sur_boa('scenodico/list') %>
+
+  <dt><%= 'Le Filmodico'.in_a(href: url_boa('filmodico/list'), target: :new)%></dt>
+  <dd>Le Filmodico est un dictionnaire des films utilisés comme illustrations dans les cours ou dans les analyses de films.</dd>
+  <%= se_rendre_sur_boa('filmodico/list') %>
+
+  <dt><%= 'Analyses de films'.in_a(href: url_boa('analyse/list'), target: :new)%></dt>
+  <dd>Diverses analyses de films, de la plus complète jusqu'à la simple prise de note.</dd>
+  <%= se_rendre_sur_boa('analyse/list') %>
+
+  <dt><%= 'Autres outils'.in_a(href: url_boa('tool/list'), target: :new)%></dt>
+  <dd>Vous pouvez encore trouver sur “la Boite” d'autres outils pratiques.</dd>
+  <%= se_rendre_sur_boa('tool/list') %>
+</dl>

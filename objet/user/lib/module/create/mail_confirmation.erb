@@ -1,0 +1,21 @@
+<%
+# Mail de confirmation de l'inscription, pour confirmer le mail
+#
+# C'est l'user qui est bindé à cette vue
+
+# Méthode appelée par le mail de confirmation de l'inscription
+# et du mail pour permettre à l'user de confirmer son inscription.
+# La méthode crée un ticket de confirmation et donne le lien au
+# mail
+def lien_confirmation_inscription
+  code = "User::get(#{id}).confirm_mail"
+  app.create_ticket(nil, code, {user_id: id})
+  app.ticket.link("Confirmation de votre mail").freeze
+end
+
+%>
+<p>Bonjour <%= pseudo %>,</p>
+<p>Merci de bien vouloir confirmer votre adresse-mail en cliquant le lien ci-dessous :</p>
+<p><%= lien_confirmation_inscription %></p>
+<p>Si vous n'aviez pas sollicité d'inscription à <%= site.name %>, il vous suffit d'ignorer ce message.</p>
+<p>Bien à vous,</p>

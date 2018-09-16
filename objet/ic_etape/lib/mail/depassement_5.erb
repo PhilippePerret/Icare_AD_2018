@@ -1,0 +1,19 @@
+<%
+# Mail d'avertissement de niveau 1 lorsque l'échéance est
+# dépassé
+def jours_depassement
+  (NOW - user.icetape.expected_end)/1.day
+end
+%>
+<p><%= user.pseudo %>,</p>
+<p>
+  Malgré nos avertissements, votre échéance est dépassée depuis bien trop longtemps.
+</p>
+<p>
+  L'administration de l'atelier Icare a été informée de cet état de chose et va malheureusement devoir procéder à l'arrêt de votre module d'apprentissage.
+</p>
+<p>
+  Ce message est votre toute dernière chance d'envoyer votre travail ou de modifier votre échéance depuis <%= lien.bureau('votre bureau') %>.
+</p>
+<p>Cordialement,</p>
+<!-- AVERTISSEMENT ECHEANCE ETAPE 5 -->

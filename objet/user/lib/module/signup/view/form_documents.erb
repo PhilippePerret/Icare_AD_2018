@@ -1,0 +1,26 @@
+<%
+# View pour transmettre ses documents
+%>
+<%=
+
+site.require 'form_tools'
+form.prefix = 'signup_documents'
+required_mark = ' <span class="red"><sup>*</sup></span>'
+
+(
+  'save_documents'.in_hidden(name: 'signup[operation]', id: 'signup_operation') +
+  'Afin de finaliser votre inscription, merci de transmettre vos documents de présentation (le fichier de présentation et la lettre de motivation sont requis).'.in_p(class: 'small air') +
+  form.field_file("Votre présentation#{required_mark}", 'presentation') +
+  form.field_file("Lettre de motivation#{required_mark}", 'motivation') +
+  form.field_file("Extrait optionnel", 'extrait') +
+  # 'Enregistrer la candidature'.in_submit(class: 'btn', onclick: "return $.proxy(Signup,'check_documents')()").in_div(class: 'buttons')
+  form.submit_button('Enregistrer la candidature', onclick: "return $.proxy(Signup,'check_documents')()")
+).in_form(
+    class:    'container',
+    id:       'form_documents',
+    file:     true,
+    action:   site.current_route.route,
+    onsubmit: "return $.proxy(Signup,'check_documents')()"
+    )
+
+%>

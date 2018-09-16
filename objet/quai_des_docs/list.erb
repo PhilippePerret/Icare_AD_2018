@@ -1,0 +1,31 @@
+<%
+# Permet d'afficher une liste de documents
+#
+# Cette liste peut être soit celle d'un icarien, d'un trimestre, etc.
+#
+
+raise_unless_identified
+
+def filtre_docs
+  @filtre_docs ||= begin
+    # Par défaut, c'est la liste des documents de l'icarien
+    # courant.
+    { user_id: user.id }
+  end
+end
+def filtre_humain
+  @filtre_humain ||= begin
+    m = Array.new
+    debug "filtre_docs dans filtre_humain : #{filtre_docs.inspect}"
+    filtre_docs[:user_id].nil? || m << "doit appartenir à #{User.new(filtre_docs[:user_id]).pseudo}"
+    m.pretty_join
+  end
+end
+%>
+<%= QuaiDesDocs.titre_h1 %>
+<%= QuaiDesDocs.as_ul(filtre: filtre_docs.dup, full: true) || begin
+
+"Sur le “Quai des docs”, aucun document ne correspond au filtre : #{filtre_humain}.".in_p(class: 'big air')
+
+end
+%>

@@ -1,0 +1,25 @@
+<%
+
+# Le mail pour annoncer à l'user qu'un module lui a été réservé
+
+self.subject_mail = 'Votre candidature a été retenue'
+
+%>
+<p>
+  Bonjour <%= owner.pseudo %>,
+</p>
+<p>
+  J'ai le plaisir de vous annoncer que votre candidature au sein de l'atelier ICARE a définitivement été validée et qu'un module d'apprentissage vient de vous être préparé.
+</p>
+<p>
+  Vous allez donc pouvoir suivre le <strong>module <%= absmodule.name %></strong>.
+</p>
+<p>
+  Pour le commencer, il vous suffit de <%= lien.bureau('rejoindre votre bureau', online: true) %> après vous être identifié<%= owner.f_e %> et de cliquer sur le bouton “Démarrer le module”.
+</p>
+<p class="small">
+  N'hésitez pas à <%= lien.aide('consulter l\'aide de l\'atelier', online: true) %> pour en apprendre plus sur le déroulement d'un module ou à <a href="mailto:<%= site.mail %>">interroger Phil</a> si vous ne trouvez pas de réponse à une question que vous vous posée.
+</p>
+<p>
+  Au plaisir de vous compter parmi nous !
+</p>

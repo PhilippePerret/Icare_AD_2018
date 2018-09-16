@@ -1,0 +1,57 @@
+AddHandler cgi-script .rb
+Options +ExecCGI
+Options -Indexes
+
+DirectoryIndex index.rb
+
+Options +FollowSymlinks
+RewriteEngine on
+
+# === REDIRECTION : EN CHANTIER ===
+# Tout rediriger vers index.html le temps d'installer la nouvelle
+# version de l'atelier. Mais ça doit être valable sauf pour mon IP
+#RewriteCond %{REMOTE_ADDR} !^::1
+#RewriteCond %{REMOTE_ADDR} !^5\.50\.38\.1
+#RewriteRule ^(.*)$ index.html [L]
+
+# === REDIRECTION ANCIENNES ADRESSES ===
+RewriteRule ^LAF=(.*)$ http://www.laboiteaoutilsdelauteur.fr/filmodico/list [R=301,L]
+# Attention : ne surtout pas mettre 'atelier' tout seul car il y a des
+# route définies par "atelier-...."
+RewriteRule ^(index|atelier)\.php(.*)$ http://www.atelier-icare.net [R=301,L]
+RewriteRule ^(gifanime|pure-js-tests)(.*)$ http://www.atelier-icare.net [R=301,L]
+RewriteRule ^(livre_en_ligne|narration)(.*)$ http://www.laboiteaoutilsdelauteur.fr/livre/list?in=cnarration [R=301,L]
+RewriteRule ^(%5Cu0023|\\u0023|#)(.*)$ http://www.laboiteaoutilsdelauteur.fr/livre/list?in=cnarration [R=301,L]
+RewriteRule ^lecteur_evenemencier\.php(.*)$ http://www.laboiteaoutilsdelauteur.fr/analyse/list [R=301,L]
+
+# === FILMODICO ET SCÉNODICO ===
+# Maintenant que Narration vient des pages BOA, on trouve des liens de la forme
+# filmodico/XXX/show ou scenodico/XXX/show qui doivent conduire à des fiches de
+# film ou de dico. Il faut les corriger pour l'application icare.
+RewriteRule ^((?:filmo|sceno)dico/([0-9]+)/show)$ http://www.laboiteaoutilsdelauteur.fr/$1 [QSA,R,L]
+
+# === ROUTES PAR SHORTCUTS ===
+# Par exemple '/bureau' pour '/bureau/home'
+RewriteRule ^(home|accueil)$ site/home [QSA]          # Accueil du site
+RewriteRule ^contact$ site/contact [QSA]              # Formulaire contact
+RewriteRule ^(signup|inscription)$ user/signup [QSA]  # Formulaire inscription
+RewriteRule ^modules$ abs_module/list [QSA]           # Liste modules apprentissage
+RewriteRule ^bureau$ bureau/home [QSA]                # bureau
+RewriteRule ^aide$ aide/home [QSA]                    # aide
+RewriteRule ^(overview|apercu)$ overview/home [QSA]   # Aperçu du site
+RewriteRule ^reussites$ overview/reussites  [QSA]     # Belles réussites
+RewriteRule ^temoignages$ overview/temoignages  [QSA] # Témoignage
+RewriteRule ^quai_des_docs$ quai_des_docs/home  [QSA] # Quai des docs
+RewriteRule ^qdd$ quai_des_docs/home  [QSA]           # Quai des docs
+
+# --- Les routes redirigeant vers BOA ---
+RewriteRule ^citations?$ http://www.laboiteaoutilsdelauteur.fr/citation/1/show [QSA] # citations
+RewriteRule ^(films?|filmodico)$ http://www.laboiteaoutilsdelauteur.fr/filmodico/list [QSA] # filmodico
+RewriteRule ^(dictionnaire|scenodico)$ http://www.laboiteaoutilsdelauteur.fr/scenodico/list [QSA] # scenodico
+
+RewriteRule ^narration$ http://www.scenariopole.fr/narration/home [QSA]     # narration
+RewriteRule ^analyses?$ http://www.laboiteaoutilsdelauteur.fr/analyse/home [QSA]        # analyses
+
+# === FONCTIONNEMENT NORMAL RESTFULL ===
+# Transformation en 'objet/id/method'
+RewriteRule ^([a-z_]+)(?:\/([0-9]+))?\/([a-z0-9_]+)$ index.rb?__o=$1&__i=$2&__m=$3 [QSA,L]

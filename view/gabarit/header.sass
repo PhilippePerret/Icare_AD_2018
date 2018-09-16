@@ -1,0 +1,31 @@
+@import '../css/common/_charte'
+
+// Le bouton pour s'inscrire
+a#btn_signup
+  background-color  : $maincolor  !important
+  color             : white !important
+  font-variant      : small-caps
+
+#header
+  #toprow
+    background-color  : #578088 !important
+    padding           : 0.5rem 1rem
+    z-index           : 100
+
+    #btn_toggle_navbar
+      background-color  : white!important
+
+    // Le titre de l'atelier
+    #site_title
+      font-weight       : bold
+      text-shadow       : 2px 2px #3d4060
+      color           : #fffffd
+      font-family     : inherit
+      font-size       : xx-large
+
+  a, a:link, a:visited, a:hover
+    color : white !important
+    &.disabled
+      font-weight : normal
+      font-style  : italic
+      color : #AAAAAA!important

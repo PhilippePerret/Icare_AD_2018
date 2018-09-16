@@ -1,0 +1,15 @@
+<%
+# Vue affichée lorsque l'user vient de se logguer avec succès
+# s'il n'a pas demandé de redirection après l'identification.
+%>
+<h1>Bienvenue <%= user.pseudo %> !</h1>
+<% if user.admin? %>
+    <p>
+      Bonjour cher administrateur.
+    </p>
+<% else %>
+    <p>Vous êtes l'utilisateur #<%= user.id %> du site.</p>
+<% end %>
+<%
+debug "<- vue user/login.erb"
+%>

@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="utf-8">
+    
+
+    <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window, document, 'script', '_jimdoDataLayer', 'GTM-W7Z39C');
+    </script>
+
+
+    
+    <link rel="dns-prefetch" href="https://u.jimcdn.com/"/>
+    <link rel="dns-prefetch" href="https://assets.jimstatic.com/"/>
+    <link rel="dns-prefetch" href="https://www.google-analytics.com"/>
+    <link rel="preconnect" href="https://jimdo-lc-assets-fr-prod.global.ssl.fastly.net/" crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://u.jimcdn.com/" crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://assets.jimstatic.com/" crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://www.google-analytics.com" crossorigin="anonymous"/>
+    <link rel="preload" href="https://webteam.jimstatic.com/brandon-text/fonts/regular.woff" as="font">
+    <link rel="preload" href="https://webteam.jimstatic.com/brandon-text/fonts/bold.woff" as="font">
+    <link rel="preload" href="https://webteam.jimstatic.com/brandon-text/fonts/light.woff" as="font">
+
+
+    
+<script type="application/ld+json">
+    {"@context":"http://schema.org","@type":"Organization","name":"Jimdo GmbH","url":"https://fr.jimdo.com/","sameAs":["https://www.facebook.com/Jimdo.France","https://twitter.com/Jimdo_fr","https://www.youtube.com/jimdofr"]}
+</script>
+
+    
+
+    <script>
+        (function() {
+            if (window.sessionStorage.getItem('is-font-loaded') === 'true') {
+                document.documentElement.classList.add('is-font-loaded');
+            } else {
+                document.documentElement.classList.remove('is-font-loaded');
+                window.sessionStorage.removeItem('is-font-loaded');
+            }
+        })();
+    </script>
+
+
+    
+
+
+    
+
+    
+
+    <script>
+        var _bb = _bb || [];
+        _bb.push(['cookie domain', 'jimdo.com']);
+        _bb.push(['attribute', 'language', 'fr']);
+
+        (function(){
+            var VISITOR_COOKIE_NAME = 'has_visited_site';
+
+            /**
+             * Returns the cookie value by name, when no cookie is found it will return null
+             ** @var cName string
+             **
+             ** @return string || null
+            */
+            function getCookieValueByName(cName) {
+                var regEx = new RegExp(cName + '=([^;]+)');
+                var cookie = regEx.exec(document.cookie);
+                return cookie ? cookie[1] : null;
+            }
+
+            /**
+             ** Pushes an attribute to Bunchbox
+             ** @var attributeName string
+             ** @var attributeValue string || boolean
+             **
+             ** @return undefined
+            */
+            function pushAttributeToBunchbox(attributeName, attributeValue) {
+                _bb.push(['attribute', attributeName, attributeValue]);
+            }
+
+            /**
+             ** Checks if a cookie exists by name
+             ** @var cName string
+             **
+             ** @return boolean
+            */
+            function cookieExists(cName) {
+                var regEx = new RegExp(cName);
+
+                return regEx.test(document.cookie);
+            }
+
+            /**
+             ** Sets a document.cookie using the given params
+             ** @var cName string
+             ** @var cValue string
+             ** @var cDomain string
+             ** @var cExpires integer
+             ** @var cPath string
+             **
+             ** @return undefined
+            */
+            function setCookie(cName, cValue, cDomain, cExpires, cPath) {
+                var date = new Date(cExpires);
+                var expiryDateGMT = date.toUTCString();
+
+                document.cookie = cName + '=' + cValue + '; domain='
+                + cDomain + '; expires=' + expiryDateGMT
+                + ' ;path=' + cPath;
+            }
+
+            /**
+             ** Returns true if determined amount of minutes has passed since cookie timestamp
+             ** and Date.now(), creates the cookie if none is found
+             ** @var cName string
+             **
+             ** @return boolean
+            */
+            function isReturning(cName) {
+                var timeAmountInMinutes = 30;
+                var cookieValue = parseInt(getCookieValueByName(cName), 10);
+                var elapsedTimeLimit = timeAmountInMinutes * 60 * 1000;
+
+                if (!cookieValue) {
+                    setCookie(
+                        VISITOR_COOKIE_NAME,
+                        Date.now(),
+                        '.jimdo.com',
+                        Date.now() + 365 * 24 * 60 * 60 * 1000,
+                        '/'
+                    );
+                    return false;
+                }
+
+                return cookieValue + elapsedTimeLimit < Date.now();
+            }
+
+            /**
+             ** Handles cookie setting/getting logic and pushes attributes to bunchbox depending on which
+             ** cookies are set.
+             **
+             ** @return undefined
+            */
+            function initVisitorCookieHandling() {
+                var isReturningVisitor = isReturning(VISITOR_COOKIE_NAME);
+
+                if (isReturningVisitor) {
+                    pushAttributeToBunchbox('is_returning_vistor', true);
+                } else {
+                    pushAttributeToBunchbox('is_returning_vistor', false);
+                }
+
+                if (cookieExists('bunchbox_customer_has_bought_product')) {
+                    pushAttributeToBunchbox('customer_has_bought_product', true);
+                } else {
+                    pushAttributeToBunchbox('customer_has_bought_product', false);
+                }
+
+                if (cookieExists('website_created_with_signup_flow')) {
+                    pushAttributeToBunchbox('website_created_with_signup_flow', true);
+                } else {
+                    pushAttributeToBunchbox('website_created_with_signup_flow', false);
+                }
+
+                if (cookieExists('user_created_account')) {
+                    pushAttributeToBunchbox('user_created_account', true);
+                } else {
+                    pushAttributeToBunchbox('user_created_account', false);
+                }
+            }
+
+            initVisitorCookieHandling();
+
+        })();
+
+    </script>
+    <script src="//cdn.bunchbox.co/587e16f425e5a09e4bd647df.min.js"></script>
+
+
+    
+    <script src="//d2wy8f7a9ursnm.cloudfront.net/bugsnag-3.min.js" data-apikey="12e545c5acddbe4febc78f42156bfb07"></script>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#0088C2">
+    
+        <meta name="description" content="Retrouvez ici les conditions d'utilisation Jimdo. Droits et devoirs des utilisateurs. Toutes les informations pratiques et légales.">
+    
+        <meta name="robots" content="index, follow, archive">
+    
+        <meta name="twitter:app:id:iphone" content="588950703">
+    
+        <meta name="twitter:app:country" content="de">
+    
+        <meta name="twitter:app:id:ipad" content="588950703">
+    
+        <meta name="twitter:app:id:googleplay" content="com.jimdo">
+    
+    <link rel="shortcut icon" href="https://jimdo-lc-assets-fr-prod.global.ssl.fastly.net/uxWk0Q4zlf8RKI5fYHzVTEfvd.ico">
+    <title>Conditions d'utilisation de notre service - Jimdo</title>
+    <link rel="canonical" href="https://fr.jimdo.com/info/conditions-d-utilisation/">
+    <link rel="alternate"
+        type="application/rss+xml"
+        title="Blog"
+        href="https://feeds.feedburner.com/jimdo_fr">
+    <link rel="stylesheet" href="https://api.dmp.jimdo-server.com/designs/399/versions/1.6.4/assets/style.8d2ee6132de0c7115d0b.css?1522308699842">
+    <script src="https://api.dmp.jimdo-server.com/designs/399/versions/1.6.4/assets/main.8d2ee6132de0c7115d0b.js?1522308699842" async></script>
+    <style>
+        .tp-meta-links{padding:1em 0;font-size:.8em}@media (min-width:768px){.tp-meta-links{float:left;padding:0;width:50%}}
+    </style>
+    
+    <script>
+        var jimdoData = { websiteId: 'sb5fa15dd7d19416c', isLcJimdoCom: true };
+    </script>
+    <script src="https://a.jimdo.com/app/tracking/common/index/" async></script>
+
+
+</head>
+<body class="cc-page cc-pagemode-default ">
+    <div id="cc-inner" class="cc-content-parent">
+        
+<div class="tp-container" id="tp-container">
+<header id="tp-main-header" class="tp-main-header"><div class="tp-main-header__left">
+<svg class="tp-jimdo-logo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 473.3 103.1" role="img" aria-labelledby="tp-jimdo-logo-title"><title class="" id="tp-jimdo-logo-title">Avec Jimdo, créez facilement votre site internet gratuit</title>
+<a class="tp-jimdo-logo__link" xlink:href="/" tabindex="0" role="link"><rect fill="transparent" x="0" y="0" width="473.3" height="103.1"></rect><g class="tp-jimdo-logo__group-1"><path class="tp-jimdo-logo__char-j" d="M245.8,101c1.3,0,2.4-0.5,3.2-1.4L157.8,2.9c-1.5-1.6-3.8-2-5.4-1c-1.6,1-2.1,2.3-2.1,3.9l0,90.7c0,2.5,2,4.5,4.5,4.5H245.8z"></path><path class="tp-jimdo-logo__char-i" d="M132.3,96.4c0,2.5-2.1,4.6-4.6,4.6h-17.1c-2.5,0-4.6-2.1-4.6-4.6V5.6c0-2.5,2.1-4.6,4.6-4.6h17.1c2.5,0,4.6,2.1,4.6,4.6V96.4z"></path><path class="tp-jimdo-logo__char-m1" d="M5,59.4c-2.8,0-5,2.2-5,5l0,0.7C0,86.2,18.7,103,44,103c30.1,0,44.1-18.3,44.1-44.6c0-19.6,0-52.4,0-52.4c0-2.8-2.2-5-5-5H25.8c-2.8,0-5,2.2-5,5v15.3c0,2.8,2.2,5,5,5h31c2.8,0,5,2.2,5,5V60c0,7-5.7,19-18.3,19c-7.7,0-14.9-6.1-16.9-13.7l-0.4-1.2c-0.9-2.6-3.9-4.7-6.6-4.7H5z"></path></g><g class="tp-jimdo-logo__group-2"><path class="tp-jimdo-logo__char-m2" d="M151.6,99.6c0.8,0.8,2,1.4,3.2,1.4l91,0c2.5,0,4.5-2,4.5-4.5v-91c0-2-1.3-3.2-2.3-3.8c-1-0.5-3.3-0.9-5,0.9L151.6,99.6z"></path><path class="tp-jimdo-logo__char-d" d="M302.3,1c2.8,0,7.2,0.1,10,0.3c0,0,45,2.7,45,49.7s-45,49.7-45,49.7c-2.7,0.2-7.2,0.3-10,0.3h-29c-2.8,0-5-2.2-5-5V6c0-2.8,2.2-5,5-5H302.3z"></path><circle class="tp-jimdo-logo__char-o" cx="422.3" cy="51" r="51"></circle></g><g class="tp-jimdo-logo__group-3"><path class="tp-jimdo-logo__char-m3" d="M246.9,100.8c0.2-0.1,0.5-0.1,0.7-0.2c0.1,0,0.2-0.1,0.3-0.2c0.1-0.1,0.3-0.2,0.4-0.2c0.3-0.2,0.5-0.4,0.7-0.6L200.3,48l-48.7,51.7c0,0,0,0,0,0c0.4,0.4,0.9,0.7,1.4,1c0,0,0,0,0,0c0.2,0.1,0.5,0.2,0.7,0.2c0,0,0.1,0,0.1,0c0.3,0.1,0.6,0.1,0.9,0.1h91c0.3,0,0.6,0,0.9-0.1C246.8,100.9,246.9,100.9,246.9,100.8z"></path></g></a></svg><nav class="tp-main-nav" id="tp-main-nav">
+<div data-container="navigation">
+    <div class="j-nav-variant-nested">
+        <ul class="cc-nav-level-0 j-nav-level-0">
+            
+                <li class="jmd-nav__list-item-0 js-main-nav-item"
+                    id="cc-nav-view-866629714">
+                    <a href="/exemples/"
+                        class="js-main-nav-link"
+                        data-link-title="Inspiration">
+                        Inspiration
+                    </a>
+                </li>
+            
+                <li class="jmd-nav__list-item-0 js-main-nav-item"
+                    id="cc-nav-view-271538314">
+                    <a href="/offres/"
+                        class="js-main-nav-link"
+                        data-link-title="Offres">
+                        Offres
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+</div>
+</nav>
+</div>
+<div class="tp-main-header__right js-main-header-right"><div class="tp-meta-nav js-tp-meta-nav">
+<div class="tp-meta-nav-buttons-wrapper js-tp-meta-nav-buttons-wrapper">
+<a class="tp-meta-nav__btn tp-meta-nav__btn--register js-tp-meta-nav__btn js-tp-meta-nav__btn--register" id="tp-header-signup-link" title="Avec Jimdo, créez facilement votre site internet gratuit" href="https://register.jimdo.com/fr/">S'inscrire </a><a class="tp-meta-nav__btn tp-meta-nav__btn--login js-tp-meta-nav__btn js-tp-meta-nav__btn--login" title="Vous connecter directement à votre site Jimdo" href="https://account.e.jimdo.com/accounts/login/">Connexion</a>
+</div>
+<button type="button" class="tp-meta-nav__btn tp-nav-toggle" id="tp-nav-toggle"><i class="tp-nav-toggle__icon" aria-hidden="true"> </i> <span class="tp-nav-toggle__txt">Navigation</span></button>
+</div></div></header><main class="tp-main"><div class="tp-main__wrap">
+<div class="tp-main__content">
+<!--
+/**
+ * @name Terms of Service
+ */
+-->
+
+<style type="text/css">
+    .wt-cm-section{width:90%;word-wrap:break-word;margin-left:auto;margin-right:auto}@media only screen and (min-width:769px){.wt-cm-section{width:calc(690px + 654 * ((100vw - 768px) / 1152))}}@media only screen and (min-width:1920px){.wt-cm-section{width:74.66667rem}}.wt-cm-page-headline{font-size:1.41667rem;margin:1em 0 0;max-width:45rem}@media only screen and (min-width:700px){.wt-cm-page-headline{font-size:2.02778rem}}.wt-cm-section-content__headline{font-size:1.11111rem;margin:3em 0 1em;max-width:45rem}@media only screen and (min-width:700px){.wt-cm-section-content__headline{font-size:1.41667rem}}.wt-cm-section-content__sub-headline{font-size:1rem;margin:2em 0 0;max-width:45rem}@media only screen and (min-width:700px){.wt-cm-section-content__sub-headline{font-size:1.11111rem}}.wt-cm-section-content__note-paragraph,.wt-cm-section-content__paragraph,.wt-cm-section-content__sub-paragraph{max-width:45rem;margin:1rem 0}.wt-cm-section-content__link{color:#000;text-decoration:none;border-bottom:.05556rem solid #cacedb;transition:color .25s ease-in}.wt-cm-section-content__link:focus,.wt-cm-section-content__link:hover{color:#1ba9e1}.wt-cm-section-content__headline{counter-increment:a;counter-reset:b}.wt-cm-section-content__headline:before{content:counter(a) "."}.wt-cm-section-content__paragraph{position:relative;counter-increment:b;counter-reset:c}.wt-cm-section-content__paragraph:before{display:block;content:counter(a) "." counter(b);font-weight:700}.wt-cm-section-content__paragraph.wt-cm-section-content__paragraph--wrapper:before{content:""}@media only screen and (min-width:700px){.wt-cm-section-content__paragraph{padding-left:2.5rem}.wt-cm-section-content__paragraph:before{position:absolute;left:0}}.wt-cm-section-content__paragraph--wrapper{counter-increment:b;counter-reset:c}.wt-cm-section-content__sub-paragraph{position:relative;counter-increment:c}.wt-cm-section-content__sub-paragraph:before{display:block;content:counter(a) "." counter(b) "." counter(c);font-weight:700}@media only screen and (min-width:700px){.wt-cm-section-content__sub-paragraph{padding-left:2.5rem}.wt-cm-section-content__sub-paragraph:before{position:absolute;left:0}}.wt-cm-section-content__list{padding-left:1rem}.wt-cm-section-content__list-item{margin:1rem 0}.wt-cm-terms-date,.wt-cm-terms-info{width:90%;margin:2.77778rem auto}@media only screen and (min-width:769px){.wt-cm-terms-date,.wt-cm-terms-info{width:calc(690px + 654 * ((100vw - 768px) / 1152))}}@media only screen and (min-width:1920px){.wt-cm-terms-date,.wt-cm-terms-info{width:74.66667rem}}
+</style>
+
+    <section class="wt-cm-section wt-cm-section--terms" id="wt-cm-section-terms">
+    
+        <h1 class="wt-cm-page-headline">
+            Conditions générales d'utilisation Jimdo
+        </h1>
+    
+        <h2 class="wt-cm-section-content__headline">
+            Généralités
+        </h2>
+        <p class="wt-cm-section-content__paragraph">
+            Les présentes Conditions générales d'utilisation (ci-après CGU) définissent les droits et obligations dans le cadre de l'utilisation des services du fournisseur Jimdo GmbH (ci-après désigné par : Jimdo ou « Nous ») et de l'utilisateur Jimdo en rapport avec le recours à nos services et aux autres services, applications, applications mobiles et fonctions proposés par Jimdo, sous réserve qu'aucune autre disposition n'ait été expressément définie par nous.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Seules nos CGU s'appliquent. Toute disposition de l'utilisateur Jimdo contraire ou différant des présentes CGU ne pourra en aucun cas être réputée reconnue, sauf si nous en avons expressément reconnu la validité par écrit. Les présentes CGU s'appliquent aussi lorsque nous fournissons sans réserve des services à l'utilisateur Jimdo tout en ayant connaissance des conditions contraires ou divergentes de celui-ci.
+        </p>
+    
+        <h2 class="wt-cm-section-content__headline">
+            Conclusion du contrat
+        </h2>
+        <p class="wt-cm-section-content__paragraph">
+            Sauf stipulation particulière, un contrat n'entre en vigueur que lorsque la procédure d'enregistrement a été effectuée avec succès. La procédure d'enregistrement n'est effectuée avec succès qu'à partir du moment où nous vous le confirmons par e-mail.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            L'utilisateur Jimdo a à tout moment la possibilité d'imprimer les présentes CGU (texte du contrat). Pour ce faire, vous pouvez utiliser la fonction impression de votre navigateur.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Il n'existe aucun droit à la conclusion d'un contrat. Nous sommes libres de refuser les offres de conclusion de contrats proposées par les utilisateurs Jimdo sans indication de motifs.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Ne peut s'inscrire sur Jimdo que toute personne âgée d'au moins 14 ans révolus. Les mineurs n'ont le droit de s'inscrire qu'avec l'accord de leurs représentants légaux (p.ex. leurs parents). Dans des cas particuliers, nous nous réservons le droit de demander à l'utilisateur Jimdo de nous fournir la preuve de consentement.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            L'utilisation de la fonction e-commerce est réservée aux personnes âgées de 18 ans révolus.
+        </p>
+    
+        <h2 class="wt-cm-section-content__headline">
+            Nos services
+        </h2>
+        <p class="wt-cm-section-content__paragraph">
+            Jimdo met un service en ligne à la disposition de ses utilisateurs. Ce service leur permet de créer un compte utilisateur (compte Jimdo). Ce compte permet aux utilisateurs Jimdo de créer, gérer et modifier une ou plusieurs page(s) Jimdo (nommées ci-après « page(s) Jimdo » ou « page(s) web Jimdo »). Le service mis à disposition permet à l'utilisateur d'adapter le design de sa page web Jimdo, d'y insérer ses propres contenus et/ou de gérer une boutique en ligne.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Jimdo offre différents packs de services à l'utilisateur. Vous trouverez ici, à chaque fois, une vue d'ensemble comprenant la description actuelle des packs de services <a href="/offres/" target="_blank" class="wt-cm-section-content__link">/offres/</a> et <a href="/dolphin/" target="_blank" class="wt-cm-section-content__link">/dolphin/</a>.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Tous les services gratuits mis à disposition par le fournisseur de service peuvent être interrompus à n'importe quel moment. Dans un tel cas, l'utilisateur ne pourra réclamer la poursuite de ce type de service.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Certains packs de services peuvent contenir des publicités. L'utilisateur Jimdo n'est pas autorisé à les modifier, à les supprimer ni à les dissimuler.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Une page Jimdo créée par l'utilisateur est publiée sous un sous-domaine choisi par l'utilisateur ou généré par le système. Les utilisateurs Jimdo ne sont pas autorisés à rediriger tout autre domaine vers une page Jimdo gratuite, ni à afficher la page Jimdo gratuite sur un site Internet externe (cf. intégration via frame ou Iframe).
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Pour assurer la qualité de nos pages, des données sont saisies dans le mode d'édition de toutes les pages Jimdo à l'aide de Google Analytics. La saisie de ces données s'effectue sur la totalité des pages. Nous utilisons les informations collectées afin de corriger les erreurs et d'améliorer encore davantage la convivialité de notre offre. Nous nous réservons le droit de recourir à d'autres systèmes d'analyse web. Nous vous en informerons à chaque fois dans nos déclarations de confidentialité. Lorsque nous avons recours aux systèmes d'analyse web, nous veillons à ce que le prestataire respectif soit minutieusement sélectionné et à ce que les conditions en matière de protection des données soient remplies.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Nous nous réservons le droit d'utiliser à tout moment les services de tiers pour améliorer nos propres services, dans le respect des réglementations applicables à Jimdo.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Pour élargir ses packs de services, Jimdo est en droit de proposer les services de tiers pouvant être intégrés sur les sites Internet de l'utilisateur Jimdo. Le type et l'étendue du recours aux services dépend également des CGU propres aux prestataires tiers, mentionnées séparément. L'utilisation de ces services se fait aux propres risques de l'utilisateur. Jimdo ne saurait être tenu responsable des éventuels dommages résultant du recours aux services proposés par des tiers.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            En fonction du pack de services choisi, nous proposons aux utilisateurs d'intégrer nos outils d'analyse de site web basés sur Google Analytics. Dans ce cas, les utilisateurs obtiennent l'accès à nos données d'analyse web relatives à leurs pages Jimdo respectives.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Jimdo se réserve le droit d'étendre, de modifier, d'interrompre et d'améliorer les services ou fonctions proposés, en particulier lorsque de telles mesures sont de nature à faire progresser la technologie, qu'elles s'avèrent nécessaires et afin de prévenir les abus. Le fournisseur de service ne procédera à de telles modifications que si elles sont raisonnables et acceptables pour l'utilisateur Jimdo, ou si leur exécution est requise par la loi.
+    
+        </p>
+    
+        <h2 class="wt-cm-section-content__headline">
+            Informations personnelles
+        </h2>
+        <p class="wt-cm-section-content__paragraph">
+            L'utilisateur Jimdo certifie que toutes les informations personnelles fournies au fournisseur de service sont vraies et complètes. Dans des cas particuliers, nous nous réservons le droit de demander à l'utilisateur de produire un justificatif d'identité adéquat.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            L'utilisateur Jimdo s'engage à maintenir ses informations personnelles à jour.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Afin d'exclure toute utilisation par des tiers non-autorisés, l'utilisateur Jimdo est tenu de garder ses données d'accès confidentielles. Si l'utilisateur Jimdo a des raisons de croire que des tiers non-autorisés ont eu connaissance des données d'accès ou qu'ils sont en mesure d'en prendre connaissance, il est tenu de nous en informer immédiatement. En outre, l'utilisateur Jimdo s'engage dans ce cas à modifier immédiatement son mot de passe.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            L'utilisateur Jimdo accepte de recevoir une communication électronique de notre part (p.ex. factures, informations contractuelles importantes ou modifications techniques importantes) pour des raisons contractuelles.
+        </p>
+    
+        <h2 class="wt-cm-section-content__headline">
+            Obligations générales de l'utilisateur Jimdo
+        </h2>
+        <p class="wt-cm-section-content__paragraph">
+            L'utilisateur Jimdo est responsable de l'ensemble des contenus qu'il a fournis ou stockés sur sa page Jimdo. Nous n'avons pas l'obligation d'inspecter les pages Jimdo des utilisateurs afin de vérifier qu'elles n'enfreignent pas la loi.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            L'utilisateur Jimdo a l'entière responsabilité de s'assurer que son site respecte les lois en vigueur dans son pays, ainsi que celles de la République fédérale d'Allemagne. Cela s'applique également et explicitement à toute loi et réglementation additionnelle s'appliquant à l'exploitation d'une boutique en ligne.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            L'utilisateur Jimdo s'engage à respecter les obligations des mentions légales en vigueur dans son pays.<br>
+            Les mentions légales (identification du fournisseur)  doivent être mises à disposition des tiers dès la mise en ligne de la page Internet. Lorsqu'une entreprise est un utilisateur Jimdo, il convient toujours de désigner une personne physique comme interlocuteur. Il convient de nous informer immédiatement en cas de changement d'interlocuteur.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Jimdo crée régulièrement des copies de sauvegarde de ses serveurs web (back-up). Certaines pages Jimdo et/ou certains contenus ne peuvent être restaurés à partir de ces back-ups. Il est de la responsabilité de l'utilisateur Jimdo de stocker et de sauvegarder les données et contenus hébergés par les pages Jimdo. Les utilisateurs Jimdo sont tenus de procéder régulièrement à des back-ups de tous les contenus de leur(s) page(s) Jimdo afin d'éviter tout dommage lié à une perte de données. Ceci est particulièrement valable pour les données concernant les produits et les acquéreurs.<br>
+            Vous trouverez plus d'informations à ce sujet dans l'article d'aide suivant : <a href="https://aide.jimdo.com/basiques/questions-fr%C3%A9quentes/comment-sauvegarder-le-contenu-de-mon-site-jimdo/" target="_blank" class="wt-cm-section-content__link">https://aide.jimdo.com/basiques/questions-fr%C3%A9quentes/comment-sauvegarder-le-contenu-de-mon-site-jimdo/</a>
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            L'utilisateur Jimdo n'est autorisé à utiliser les designs fournis par Jimdo que pour sa page Jimdo. Il est expressément interdit de copier la page Jimdo, de la transférer et de l'utiliser sur tout autre serveur que celui du fournisseur de service.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            L'utilisateur Jimdo n'est autorisé à utiliser les contenus des modèles de design organisés par nos soins (images, textes, mise en page, police de caractères) que sur sa page web Jimdo. La publication de ces contenus à un autre endroit, comme dans la presse écrite ou sur d'autres plateformes Internet, n'est pas autorisée.
+        </p>
+    
+        <h2 class="wt-cm-section-content__headline">
+            Actes prohibés
+        </h2>
+        <div class="wt-cm-section-content__paragraph">
+            Il est interdit à l'utilisateur Jimdo d'entreprendre des actes enfreignant les dispositions légales en vigueur, portant atteinte aux droits des tiers ou enfreignant les lois relatives à la protection des mineurs. Il est interdit à l'utilisateur de publier, diffuser, proposer et de faire de la publicité pour :
+    
+            <ul class="wt-cm-section-content__list">
+                <li class="wt-cm-section-content__list-item">
+                    les contenus pornographiques, indécents ou obscènes
+                </li>
+                <li class="wt-cm-section-content__list-item">
+                    les contenus, services et/ou produits illicites et/ou enfreignant les lois relatives à la protection des mineurs, à la protection des données et/ou toute autre loi
+                </li>
+                <li class="wt-cm-section-content__list-item">
+                    les contenus glorifiant ou banalisant la guerre, le terrorisme et autres actes de violence à l'égard des hommes ou des animaux
+                </li>
+                <li class="wt-cm-section-content__list-item">
+                    les contenus insultant ou diffamant les autres utilisateurs ou les tiers en raison de leur âge, origine ethnique ou sociale, langue, religion, handicap, sexe, orientation sexuelle, etc.
+                </li>
+                <li class="wt-cm-section-content__list-item">
+                    les contenus insultants, menaçants ou diffamatoires, ou les contenus destinés à renier d'autres personnes.
+                </li>
+                <li class="wt-cm-section-content__list-item">
+                    les contenus, services et/ou produits légalement protégés ou soumis à des revendications de tiers (p. ex. droits d'auteur) sans détenir la preuve d'y avoir été autorisé.
+                </li>
+            </ul>
+    
+            Ces obligations s'appliquent également aux renvois (« liens hypertexte ») vers les contenus de ce type figurant sur des plateformes ou services externes, ajoutés par l'utilisateur Jimdo sur sa page web.
+        </div>
+        <div class="wt-cm-section-content__paragraph">
+            En outre, indépendamment d'une éventuelle infraction à la loi, les activités suivantes sont interdites lors de la publication de contenus propres à l'utilisateur (ou l'insertion de liens) sur les pages Jimdo :
+    
+            <ul class="wt-cm-section-content__list">
+                <li class="wt-cm-section-content__list-item">
+                    la propagation de virus, chevaux de Troie et autres fichiers malveillants ;
+                </li>
+                <li class="wt-cm-section-content__list-item">
+                    l'envoi de courriers indésirables, spams ou scams ainsi que de chaînes de courriels ;
+                </li>
+                <li class="wt-cm-section-content__list-item">
+                    la diffusion de contenus obscènes ou diffamatoires ou la communication de ceux-ci ; la communication dont le but est d'encourager (de manière explicite ou implicite) les comportements racistes, radicaux, fascistes, fanatiques, haineux, prônant la violence physique ou psychologique ou les actes illicites, ou de porter atteinte aux bonnes mœurs d'une autre manière ;
+                </li>
+                <li class="wt-cm-section-content__list-item">
+                    le harcèlement d'autrui, p.ex. en contactant directement la personne à plusieurs reprises sans obtenir de réaction de sa part ou en ne tenant pas compte de sa réaction, ainsi que l'encouragement d'un tel comportement ;
+                </li>
+                <li class="wt-cm-section-content__list-item">
+                    inviter autrui à communiquer ses mots de passe ou données personnelles dans des buts commerciaux ou illégaux et illicites (phishing) ;
+                </li>
+                <li class="wt-cm-section-content__list-item">
+                    les publications, diffusions, propositions et publicités mettant en scène des systèmes de bonus, services Paid4Mail, services pop-up, systèmes boule de neige ou autres formes de marketing et/ou de publicité similaires ;
+                </li>
+                <li class="wt-cm-section-content__list-item">
+                    proposer des jeux de hasard ou des paris sportifs sans avoir obtenu l'autorisation des autorités compétentes ;
+                </li>
+                <li class="wt-cm-section-content__list-item">
+                    la négociation de crédits ou de crédits privés effectuée dans un cadre commercial sans avoir obtenu l'autorisation des autorités compétentes ;
+                </li>
+            </ul>
+        </div>
+        <p class="wt-cm-section-content__paragraph">
+            De même, tout acte commis avec l'intention de nuire au fonctionnement sans heurts du système Jimdo est interdit.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Si les agissements frauduleux d'un utilisateur Jimdo devaient porter atteinte à Jimdo ou aux droits de tiers (p.ex. par omission, rétractation, rectification, dommages-intérêts etc.), alors cet utilisateur et ses éventuels co-auteurs devront rembourser à Jimdo les frais engendrés par cette conduite. L'utilisateur Jimdo s'engage également à soutenir le fournisseur de service dans toutes les démarches qu'il entreprend afin de prévenir et lutter contre de telles conduites.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            L'envoi d'e-mails à un nombre important de destinataires est formellement interdit (newsletter, mails publicitaires). Les systèmes d'e-mails que nous utilisons réagissent automatiquement à l'envoi de ce type d'e-mails et bloquent l'accès au compte concerné ainsi qu'à la gestion d'e-mails sur la page Jimdo. En cas d'infractions répétées, nous nous réservons le droit de suspendre durablement les accès aux boîtes électroniques.
+        </p>
+    
+        <h2 class="wt-cm-section-content__headline">
+            Enregistrement de nom de domaine, annulation de nom de domaine et changement de fournisseurs
+        </h2>
+        <p class="wt-cm-section-content__paragraph">
+            Lorsque l'utilisateur Jimdo a recours aux packs de services payants, il a la possibilité d'enregistrer ou de transférer des domaines. Dans le but de fournir et/ou d'entretenir des noms de domaine, le fournisseur de service n'œuvrera qu'en agent intermédiaire entre l'utilisateur Jimdo et les organisations respectivement responsables de l'attribution des noms de domaine (« registrar »). Les domaines de premier niveau (par exemple en « .FR » ou « COM ») sont majoritairement gérés par un grand nombre d'organisations différentes, la plupart opérant au niveau national. Chacune de ces organisations a ses propres termes et conditions concernant l'enregistrement et la gestion des noms de domaine. Les termes et conditions d'enregistrement des fournisseurs de domaine appropriés seront donc complémentairement appliqués aux TCG du fournisseur de service. Par exemple, dans le cas d'un nom de domaine de premier niveau en « FR », les termes et conditions d'enregistrement de l'AFNIC seront appliqués et feront partie du contrat. En conséquence, les conditions des organisations d'attribution mises à disposition auprès des organisations respectives s'appliquent pour l'enregistrement d'autres domaines de premier niveau.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            L'utilisateur Jimdo s'engage à fournir des informations correctes et complètes concernant le propriétaire du nom de domaine (« Owner-C ») et le contact administratif (« Admin-C ») au moment de l'enregistrement du nom de domaine. De plus, il est obligatoire de saisir une adresse postale effective (les « boîtes postales » ou les adresses anonymes ne sont pas autorisées), ainsi qu'une adresse e-mail valide et un numéro de téléphone. En cas de modification totale ou partielle de ces données, l'utilisateur Jimdo est tenu de nous en informer immédiatement.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Au moment de la conclusion du contrat, nous donnerons la possibilité à l'utilisateur Jimdo d'enregistrer le nom de domaine souhaité auprès du registrar compétent. Nous sommes en droit de différer l'activation d'un nom de domaine jusqu'à ce que le paiement des honoraires demandés par les services d'enregistrement ait été reçu. Nous ne sommes pas en mesure d'influencer l'attribution d'un nom de domaine par l'organisation compétente. Nous ne pouvons donc ni garantir que le nom de domaine demandé sera attribué à l'utilisateur Jimdo, ni que le nom de domaine est exempt de droits de tiers, et ne pouvons pas garantir non plus de son existence perpétuelle. Toute information donnée par le fournisseur de service concernant la disponibilité d'un nom de domaine est basée sur les informations fournies par des tiers et ne concerne que le moment où cette information a été demandée. Le domaine ne sera pas considéré comme attribué avant l'enregistrement du domaine au nom de l'utilisateur Jimdo, et de son insertion dans la base de données du registraire.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Avant l'enregistrement du nom de domaine, l'utilisateur Jimdo est tenu de vérifier si ledit domaine ne porte pas atteinte à des droits de tiers ou s'il n'enfreint pas les lois en vigueur.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Une modification gratuite du domaine souhaité est fondamentalement exclue une fois l'enregistrement auprès du registrar effectué. Indépendamment de cela, un nouveau domaine peut être enregistré et relié à la page Jimdo à titre payant. Si, pendant le temps nécessaire à la transmission de la demande du nom de domaine au registrar, le nom de domaine se trouve avoir déjà été attribué par ailleurs, l'utilisateur Jimdo sera en droit de choisir un nom de domaine différent. Dans l'hypothèse où certains noms de domaine auraient été annulés par l'utilisateur Jimdo lui-même ou sur décision de justice dans le cadre d'un conflit au sujet de ce nom de domaine, l'utilisateur Jimdo ne sera pas en droit de demander un nom de domaine de substitution gratuitement.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Dans la limite des conditions générales d'utilisation, ainsi que des termes des organisations compétentes, l'utilisateur Jimdo peut transférer les domaines enregistrés par nos soins vers un autre fournisseur, à condition que le nouveau fournisseur offre un nom de domaine de premier niveau correspondant (par ex. « FR ») et qu'il soutient le changement de fournisseur dans la mesure où les circonstances le requièrent et ou les compétences techniques nécessaires peuvent mettre en œuvre ce changement. Si l'utilisateur Jimdo est un consommateur, ce transfert ne sera possible qu'un fois le délai légal de rétractation du contrat à distance écoulé. La relation contractuelle relative à l'un des packs payants restera inchangée dans le cas d'un tel changement de fournisseur. Pour mettre un terme à la relation contractuelle vous reliant à nous, il convient de nous faire parvenir une résiliation séparée. Toutes les déclarations, en particulier les déclarations relatives au nom de domaine, au changement de fournisseurs et à la suppression de nom de domaine, doivent être faites par écrit. Elles peuvent également être effectuées par voie électronique, dans la mesure où cette fonction est proposée dans votre domaine administratif. Dans le cas où nous échouons à accomplir dans les temps la demande de changement de fournisseur en raison d'une demande tardive de la part du nouveau fournisseur ou de l'utilisateur Jimdo, ou car les conditions requises pour le changement de fournisseur ne sont pas remplies, nous (ou le fournisseur de service concerné) sommes expressément autorisés à supprimer (« CLOSE ») le nom de domaine résilié auprès de l'organisation compétente.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            L'utilisateur Jimdo doit avertir immédiatement le fournisseur de service au cas où il perdrait les droits sur un nom de domaine enregistré à son nom.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Dans le cas où des tiers indiquent de manière plausible avoir des droits sur des noms de domaines, nous nous réservons le droit de bloquer le nom de domaine concerné jusqu'à ce que la question litigieuse soit résolue. Si nous sommes dans l'obligation de bloquer un nom de domaine, l'utilisateur est tout de même tenu d'assurer des prestations. L'utilisateur accepte l'ensemble des mesures auxquelles nous devons avoir recours afin d'être en mesure de prendre des dispositions applicables ou des décisions exécutoires. En outre, l'utilisateur Jimdo nous libère de toute prétention de tiers, de l'ensemble des frais en résultant et de toutes conséquences défavorables.
+        </p>
+    
+        <h2 class="wt-cm-section-content__headline">
+            Blocage d'accès
+        </h2>
+        <p class="wt-cm-section-content__paragraph">
+            Nous pouvons bloquer l'accès à nos services de manière temporaire ou permanente s'il existe des indices concrets laissant supposer que l'utilisateur Jimdo enfreint ou a enfreint les CGU et/ou le droit en vigueur ou si nous avons un autre motif légitime pour procéder à un blocage.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Des accès peuvent également être bloqués si l'utilisateur Jimdo accuse un retard de paiement d'honoraires supérieur à 30 jours. Dans ce cas, nous sommes également en droit de supprimer (« CLOSE ») le(s) domaine(s) de l'utilisateur auprès des organisations compétentes.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Lorsqu'un blocage est décidé, nous prenons dûment en considération les intérêts justifiés de toutes les parties concernées.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Dans le cas où l'utilisateur Jimdo omettrait de se connecter à sa page Jimdo gratuite dans les 180 jours, nous sommes en droit de supprimer le site Jimdo et son contenu de manière permanente.
+        </p>
+    
+        <h2 class="wt-cm-section-content__headline">
+            Interruption des services
+        </h2>
+        <p class="wt-cm-section-content__paragraph">
+            Dans la mesure du possible, nous nous efforçons de fournir une utilisation exempte d'interruptions de nos prestations et services. L'utilisateur Jimdo reconnaît cependant que pour des raisons techniques, ainsi qu’à cause de la dépendance de facteurs extérieurs (p. ex. indisponibilité des réseaux de télécommunication, interruption de l'approvisionnement en électricité, défaut matériel ou logiciel), la disponibilité sans interruption des pages web Jimdo ne peut être garantie. Un accès permanent aux pages Jimdo ne peut être exigé. Les restrictions d'accès de nature seulement temporaire ne peuvent pas constituer un motif de réclamation de garantie ou de rupture exceptionnelle du contrat. Le statut actuel de notre système peut être consulté <a href="https://www.jimdo-status.com/" target="_blank" class="wt-cm-section-content__link">ici</a>.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Dans la mesure où nos services sont fournis gratuitement à l'utilisateur Jimdo, celui-ci a le droit d'utiliser nos services uniquement dans le cadre de la disponibilité effectivement mise à sa disposition.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            En ce qui concerne les services payants, nous assurons une accessibilité à 98 % en moyenne annuelle dans notre domaine de responsabilité. Les fenêtres de maintenance ordinaires, pouvant s'étendre sur 4 heures par semaine, ne sont pas considérées comme un manque de disponibilité. Nous nous efforçons d'écourter au maximum le temps de maintenance.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Dans le but d'assurer une bonne utilisation des pages Jimdo, un certain nombre d'améliorations du système est nécessaire. Une vue d'ensemble des conditions actuelles du système est disponible <a href="https://aide.jimdo.com/basiques/questions-fr%C3%A9quentes/quels-sont-les-param%C3%A8tres-requis/" target="_blank" class="wt-cm-section-content__link">ici</a>. FToute responsabilité du fournisseur de service est exclue en cas d'interruptions ou de limitations des services causées par d'autres configurations système.
+        </p>
+    
+        <h2 class="wt-cm-section-content__headline">
+            Conditions de paiement
+        </h2>
+        <p class="wt-cm-section-content__paragraph">
+            L'utilisation des packs de services ainsi que de services supplémentaires / services de tiers entraîne des frais payables d'avance pour une durée contractuelle.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            L'utilisateur Jimdo peut à chaque fois consulter les différents modes de règlement dans les informations produits et/ou dans le processus de commande.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Les factures relatives aux packs de services payants sont mis à la disposition de l'utilisateur Jimdo sous format PDF.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            En l'absence de tout autre accord, le montant facturé doit être réglé à Jimdo dans sa totalité dans les 14 jours suivant la réception de la facture.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            La ponctualité des paiements est déterminée par la réception du montant et par le fait que celui-ci est à notre disposition sans réserve.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Jimdo traite tous les paiements par l'intermédiaire de prestataires de services de paiement externes. Il s'agit notamment, mais pas uniquement, d'Ingenico (Globalcollect), Paypal et Stripe.<br>
+            L'utilisateur Jimdo déclare accepter le fait que Jimdo ne reçoit que les paiements provenant de ces prestataires ou que les prestataires concernés sont autorisés à prélever les montants correspondants. Dans le cas d'un virement, le paiement doit être adressé au prestataire mentionné dans le processus de paiement.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Si un contrat Jimdo mentionne une méthode de paiement enregistrée permettant un prélèvement automatique des frais correspondant à la prolongation d'un contrat, le montant exigible sera automatiquement prélevé (encaissé) par Jimdo le jour de la prolongation du contrat.<br>
+            S'il n'est pas possible de procéder à un prélèvement automatique, nous faisons parvenir un lien de paiement en ligne à l'utilisateur Jimdo le jour de la prolongation du contrat. Le paiement relatif à la nouvelle durée contractuelle doit être effectué par l'intermédiaire de ce lien dans les 14 jours suivant la réception de celui-ci. L'utilisateur Jimdo accepte le prélèvement automatique en choisissant la méthode de paiement souhaitée.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Lorsqu'un paiement par virement est effectué, il convient d'y faire figurer l'objet du paiement que nous avons indiqué. Si l'utilisateur fait figurer un autre objet lors du virement, il doit nous en informer immédiatement et nous faire parvenir un justificatif prouvant que le paiement a bien été effectué. Sur ce justificatif doit figurer, de manière lisible, la totalité des données mentionnées ci-dessous :<br>
+            les coordonnées bancaires du compte d'envoi (IBAN), le nom du titulaire du compte, la date du paiement, le montant, l'objet et les coordonnées bancaires du destinataire (IBAN). L'utilisateur Jimdo est tenu de produire le justificatif de paiement.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            En outre, en cas de retard de paiement, le fournisseur est en droit de déconnecter et de bloquer le site de l'utilisateur Jimdo, et ce tant que les honoraires n'auront pas été payés. Dans ce cas, le fournisseur est également en droit de supprimer (« CLOSE ») le domaine de l'utilisateur Jimdo auprès des organisations compétentes. En acceptant les conditions d'utilisation de Jimdo, l'utilisateur lui donne explicitement le droit d'effectuer ce type de résiliation.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Jimdo ne peut être tenu responsable des pannes, dommages ou pertes de revenus occasionnés par un blocage de la page survenant suite à un non paiement ou à un paiement tardif, dans la mesure où l'erreur ou le retard est à imputer à l'utilisateur Jimdo.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Les paiements sont effectués dans les monnaies nationales respectives, ou en EUR ou USD.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Sauf mention contraire, toutes réductions ou actions promotionnelles s’appliquent uniquement au premier versement lié à votre contrat. La prolongation du contrat s'effectue ensuite au tarif normal valable actuellement. Nous pouvons occasionnellement modifier notre offre ainsi que les prix. Pour les contrats existants et impliquant des services payants, les modifications entreront en vigueur dès le début de la prochaine période contractuelle. Un délai de notification raisonnable d'au moins six semaines sera respecté. Dans la mesure où l'utilisateur Jimdo ne s'oppose pas à ces changements dans les six semaines suivant la réception de la notification, et où il continue à avoir recours à nos services une fois le délai écoulé, les modifications sont considérées comme acceptées. Dans la notification d'amendement, nous informerons l'utilisateur Jimdo de son droit d'objection et des conséquences de celui-ci.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Tous les tarifs incluent la TVA. Le taux de TVA en vigueur est à chaque fois mentionné sur la facture. Si l'utilisateur Jimdo ne réside pas en Allemagne, mais dans un pays de l'Union européenne, il peut ainsi recevoir une facture ne mentionnant pas la TVA. Dans ce cas, l'utilisateur Jimdo doit mentionner un numéro d'identification à la TVA lorsqu'il commande un pack de services payant. La responsabilité de l'imposition incombe alors à l'utilisateur Jimdo (procédure Reverse Change). Les utilisateurs Jimdo résidant hors d'Europe reçoivent une facture nette.
+        </p>
+    
+        <h2 class="wt-cm-section-content__headline">
+            Rejet de débit
+        </h2>
+        <p class="wt-cm-section-content__paragraph">
+            Si un rejet de débit devait survenir du côté de l’utilisateur lors d’un paiement, nous nous réservons le droit de bloquer le(s) site(s) Jimdo concerné(s) et/ou de mettre fin au(x) contrat(s) souscrit(s) pour ce(s) site(s). Ceci concerne également les services supplémentaires tels que les domaines ou comptes e-mail, ainsi que les services de tiers liés à cette page.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Une nouvelle utilisation de la page Jimdo n'est possible qu'une fois que toutes les créances impayées ont été réglées.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Les frais résultant du rejet de débit, d'un paiement refusé ou de l'apparition d'un conflit peuvent être facturés à l'utilisateur Jimdo. En cas de questions relatives à un paiement, l'utilisateur Jimdo peut s'adresser au préalable au service clients.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            En cas de problèmes liés à l'encaissement du montant de la facture, Jimdo se réserve le droit de ne proposer que certaines méthodes de paiement pour le règlement.
+        </p>
+    
+        <h2 class="wt-cm-section-content__headline">
+            Droit de rétractation
+        </h2>
+        <p class="wt-cm-section-content__paragraph">
+            Le consommateur Jimdo peut révoquer le contrat qui le lie avec le fournisseur. Vous trouverez plus d'informations sur cette <a href="https://fr.jimdo.com/info/droit-de-r%C3%A9tractation/" target="_blank" class="wt-cm-section-content__link">page dédiée</a>.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            En cas de révocation de contrat, nous rembourserons le paiement réceptionné dans le cadre du présent contrat immédiatement et au plus tard dans les 14 jours suivant la réception de la révocation. Pour effectuer le remboursement, nous avons recours à la même méthode de paiement que celle utilisée par l'utilisateur Jimdo lors de la transaction d'origine.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Après la fin de la relation contractuelle, Jimdo supprime le(s) domaine(s) de l'utilisateur Jimdo qui n'ont pas été transmis à un nouveau fournisseur, ainsi que les comptes e-mail correspondants (y compris les e-mails se trouvant dans les boîtes de réception).<br>
+            Dans le cadre de la révocation, l'utilisateur Jimdo a la possibilité de désactiver la page Jimdo ou de continuer à l'utiliser dans le cadre d'un nouveau pack de services.
+    
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Si au moment de la révocation, le domaine enregistré sur la page Jimdo est déjà enregistré ou si l'enregistrement a débuté avant que la révocation ne soit déposée, nous nous réservons le droit de facturer les frais relatifs à l'enregistrement de ce domaine à l'utilisateur Jimdo ou de réduire le montant à rembourser.
+        </p>
+    
+        <h2 class="wt-cm-section-content__headline">
+            Responsabilité relative aux contenus
+        </h2>
+        <p class="wt-cm-section-content__paragraph">
+            Nous offrons à l'utilisateur Jimdo la possibilité d'insérer lui-même des contenus sur sa page web Jimdo et ainsi de la mettre à la disposition de tiers. Afin que nous puissions fournir les services liés à la création de la page web avec textes, images et évtl. vidéos, l'utilisateur Jimdo doit accorder à Jimdo GmbH les droits d'utilisation relatifs à la reproduction, au traitement et à la mise à disposition du public de ses contenus. Cela ne signifie pas que nous vendrons à des tiers les contenus appartenant à l'utilisateur. Les droits d'auteur personnels de l'auteur restent inchangés.
+        </p>
+        <div class="wt-cm-section-content__paragraph">
+            En insérant des contenus sur la page web, l'utilisateur Jimdo accorde lors de chaque publication un droit d'utilisation gratuit des différents contenus, notamment :
+    
+            <ul class="wt-cm-section-content__list">
+                <li class="wt-cm-section-content__list-item">
+                    en ce qui concerne l'enregistrement des contenus sur nos serveurs ainsi que leur publication, en particulier leur mise à disposition du public (p.ex. en affichant les contenus sur nos sites Internet)
+                </li>
+                <li class="wt-cm-section-content__list-item">
+                    en ce qui concerne le traitement et la reproduction, dans la mesure où cela est nécessaire pour maintenir ou publier les contenus respectifs
+                </li>
+            </ul>
+        </div>
+        <p class="wt-cm-section-content__paragraph">
+            L'utilisateur Jimdo est entièrement responsable des contenus publiés par ses soins. Jimdo n'est pas tenu de vérifier au préalable l'exhaustivité, l'exactitude, la légalité, l'actualité, la qualité et l'adéquation à un usage particulier des contenus.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            L'utilisateur Jimdo nous déclare et nous garantit qu'il est le seul titulaire de la totalité des droits relatifs aux contenus publiés sur sa page Internet par ses soins, ou bien qu'il est autrement habilité à insérer ces contenus sur sa page Internet (p.ex. en produisant une autorisation effective fournie par le titulaire des droits).
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Nous nous réservons le droit de refuser l'insertion des contenus et/ou de bloquer ou de supprimer les contenus déjà insérés (messages privés compris) sans notification préalable, dans la mesure où l'insertion des contenus par l'utilisateur Jimdo ou les contenus insérés eux-mêmes ont eu pour conséquence une infraction aux présentes CGU ou si des indices concrets permettent de supposer qu'une grave infraction aux présentes CGU pourrait être commise. Dans ce cadre, nous prendrons en considération les intérêts légitimes de l'utilisateur Jimdo et nous prendrons des mesures proportionnées afin de repousser et éliminer cette infraction.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            A la première demande, l'utilisateur Jimdo nous libère de toute prétention de tiers liée à une infraction commise par l'utilisateur Jimdo à l'encontre des dispositions légales, des droits de tiers (en particulier droits individuels, droits d'auteur et droits de marque) ou à l'encontre des obligations, assurances et garanties contractuelles, y compris des frais engendrés par le cours en justice (frais d'avocat et de justice à hauteur du taux légal en vigueur). En cas de prétentions, l'utilisateur Jimdo est tenu de contribuer immédiatement et de manière exhaustive à l'examen des faits et de mettre à notre disposition les données nécessaires de manière appropriée.
+        </p>
+    
+        <h2 class="wt-cm-section-content__headline">
+            Contrats et résiliations
+        </h2>
+        <p class="wt-cm-section-content__paragraph">
+            L'utilisateur Jimdo peut à tout moment supprimer une page web Jimdo gratuite par le biais des paramètres ou du menu de sa page Jimdo.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Sauf indication contraire stipulée dans la description du contrat, la durée de validité de celui-ci est de 12 ou 24 mois pour les packs payants. Ce contrat sera tacitement renouvelé lorsqu'il arrivera à terme pour la même durée, à moins que l'utilisateur n'ait mis fin à ce contrat un mois avant l'expiration de la période contractuelle.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            L'utilisateur Jimdo peut déposer sa demande de résiliation directement dans les paramètres du site web Jimdo qu'il souhaite résilier ou nous l'envoyer sous forme écrite (p.ex. fax, e-mail, courrier). Dans le cas d'une demande de résiliation par e-mail, celle-ci doit être envoyée depuis l'adresse e-mail enregistrée par l'utilisateur sur son site Jimdo en tant qu'adresse de contact. La résiliation peut être déclarée au cours du prochain jour ouvrable ou à la fin de la période contractuelle en cours. En cas de résiliation le jour ouvrable suivant, les conditions prévues au point 14.4 sont particulièrement importantes.
+            <br>
+            Lors d'une résiliation de contrat, tout site Jimdo payant repasse en version gratuite JimdoFree. Seuls les sites JimdoFree peuvent être supprimés directement par l’utilisateur.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            En cas de résiliation ou de suppression de la page avant l'expiration du contrat, il ne sera pas effectué de remboursement des honoraires déjà payés au préalable.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Certains packs de services offrent à l'utilisateur Jimdo la possibilité de commander des services payants supplémentaires. La résiliation d'un ou plusieurs service(s) supplémentaire(s) n'affectera pas la relation contractuelle générale.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            L'utilisateur Jimdo a la possibilité de changer de pack de services. Une mise à jour du pack de services est possible à tout moment. Si l'utilisateur Jimdo souhaite obtenir une version antérieure de son pack de services, il doit le signaler à Jimdo au moins quatre semaines avant l'expiration de la durée contractuelle. Le changement aura alors lieu lors de la prolongation du contrat.
+    
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Nous avons le droit de mettre fin à la relation contractuelle sans indication de motifs avec un préavis de trois mois. Dans pareil cas, les honoraires versés d'avance seront remboursés.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Le droit de résiliation extraordinaire de chaque partie demeure inchangé.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Nous avons notamment le droit de procéder à une rupture exceptionnelle du contrat sans préavis lorsque les faits permettent de penser que l'utilisateur Jimdo s'est, intentionnellement ou par négligence, rendu coupable d'« actes prohibés » au sens des paragraphes 6 et 13 des présentes CGU. De plus, une telle infraction ou un tel manquement à ces obligations contractuelles peut entraîner des poursuites civiles ou pénales à l'encontre de l'utilisateur Jimdo. Dans pareil cas, les honoraires versés d'avance ne seront en principe pas remboursés. L'utilisateur Jimdo est libre de démontrer que le fait de ne pas lui accorder de remboursement n'est pas justifié dans son cas.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Après la fin de la relation contractuelle, nous n'avons plus l'obligation de fournir les services précédemment accordés contractuellement à l'utilisateur Jimdo. Nous sommes en droit de supprimer toutes les informations de l'utilisateur Jimdo présentes sur ces serveurs, y compris les e-mails se trouvant dans la boîte de réception de l'utilisateur Jimdo. Le transfert de la totalité des informations relatives au site Jimdo de l'utilisateur vers le serveur d'un fournisseur de services tiers n'est pas possible. Le stockage et la sauvegarde ponctuels des informations relèvent donc de la responsabilité de l'utilisateur Jimdo. Par ailleurs, nous pouvons, à la fin du contrat, supprimer (« CLOSE ») les domaines de l'utilisateur Jimdo qui n'auraient pas été transférés vers un nouveau fournisseur, en faisant appel à l'organisation compétente pour l'attribution des noms de domaine.
+        </p>
+    
+        <h2 class="wt-cm-section-content__headline">
+            Protection des données
+        </h2>
+        <p class="wt-cm-section-content__paragraph">
+            Nous veillons à ce que les données personnelles des utilisateurs Jimdo ne soient collectées, enregistrées et traitées que si cela est nécessaire pour faire profiter les utilisateurs de nos services et que cela est permis par les dispositions légales ou par l'organe législatif.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Dans le cas où les déclarations d'autorisation relatives à la protection des données de l'utilisateur Jimdo sont collectées dans le cadre du recours à nos services, nous attirons votre attention sur le fait que l'utilisateur peut à tout moment révoquer l'autorisation de collecte et d'utilisation de vos données personnelles à l'avenir.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Si le contrat contient un traitement des données, les utilisateurs Jimdo peuvent demander la conclusion d'un contrat relatif à la transformation des données. Jimdo propose ce service uniquement aux utilisateurs de produits payants.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Les services tels que Jimdo sont constamment soumis à des modifications en ce qui concerne le traitement des données, le recours aux parties tierces ou les services. Jimdo est constamment à la recherche de solutions visant à améliorer les services destinés aux utilisateurs Jimdo.<br>
+            Pour cette raison, nous modifions le cas échéant également les détails relatifs au traitement des données sur nos sites Internet. Vous pouvez consulter à tout moment les informations actuelles relatives à l'objectif, au type et au volume de la saisie, du traitement et de l'utilisation des données personnelles dans nos déclarations de confidentialité disponibles sous <a href="https://fr.jimdo.com/info/charte-de-confidentialite/" target="_blank" class="wt-cm-section-content__link">« Protection des données »</a>. Vous y trouverez surtout aussi des indications relatives aux cookies et services que nous utilisons.
+        </p>
+    
+        <h2 class="wt-cm-section-content__headline">
+            Limitation de responsabilité
+        </h2>
+        <p class="wt-cm-section-content__paragraph">
+            Nous assumons l'entière responsabilité en cas de dommages survenus du fait d'une intention délibérée ou d'une négligence grossière de notre part.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            En cas de négligence légère, nous assumons l'entière responsabilité en cas d'atteinte à la vie, au corps ou à la santé.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            En outre, nous n'assumons la responsabilité que si nous avons enfreint une obligation contractuelle essentielle. Dans l'abstrait, nous entendons par obligations contractuelles essentielles des obligations dont le respect est déterminant pour l'exécution du contrat et que le client doit pouvoir s'attendre à voir régulièrement respectées. Dans ces cas-là, l'étendue de la responsabilité se limite à la compensation du dommage prévisible, se produisant de manière typique. Toutefois, celle-ci se limite au maximum au montant correspondant à une rémunération annuelle pour la page Jimdo.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Dans la mesure où notre responsabilité est exclue ou limitée conformément aux dispositions légales précitées, cela est valable également pour les employés de notre société.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            La responsabilité reste inchangée vis à vis de la responsabilité légale pour le produit.
+        </p>
+    
+        <h2 class="wt-cm-section-content__headline">
+            Dispositions finales
+        </h2>
+        <p class="wt-cm-section-content__paragraph">
+            Dans la mesure où la loi l'autorise, le droit applicable est celui de la République Fédérale d'Allemagne, toute application de la Convention internationale sur la vente de marchandises des Nations Unies est exclue.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Si l'utilisateur Jimdo est un commerçant, une personne morale de droit public ou un fonds spécial de droit public, le siège de notre entreprise est l'unique lieu de juridiction compétent pour tous les litiges en relation avec ce contrat.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Dans l'hypothèse où certaines dispositions individuelles de ce contrat seraient ou deviendraient nulles, la validité des dispositions restantes restera inchangée.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            En cas de divergences résultant de la traduction, c'est la formulation en langue allemande qui fera foi.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Nous nous réservons le droit de modifier les présentes CGU à tout moment. Ces modifications s'appliqueront également au sein des relations contractuelles existantes. Nous informerons l'utilisateur Jimdo de ces changements au moins six semaines avant la date à laquelle ces derniers doivent entrer en vigueur. Dans la mesure où l'utilisateur Jimdo ne s'oppose pas à ces changements dans les six semaines suivant la réception de la notification, et où il continue à avoir recours à nos services une fois le délai écoulé, les modifications sont considérées comme acceptées. Dans la notification d'amendement, nous informerons l'utilisateur Jimdo de son droit d'objection et des conséquences de celui-ci. En cas d'objection, nous nous réservons le droit de mettre fin à la relation contractuelle nous liant à l'utilisateur Jimdo à la date d'entrée en vigueur des modifications prévue.
+        </p>
+        <p class="wt-cm-section-content__paragraph">
+            Sur la page Internet <a href="https://ec.europa.eu/consumers/odr/" target="_blank" class="wt-cm-section-content__link">https://ec.europa.eu/consumers/odr/</a>, la Commission européenne offre la possibilité de mettre en place une procédure de résolution de litiges en ligne destinée aux consommateurs. Jimdo n'est ni disposé ni tenu d'assister à une procédure de résolution de litige devant un organe de conciliation réservé aux consommateurs.
+        </p>
+    
+    </section>
+    
+    <div class="wt-cm-terms-date">
+        Dernière mise à jour : <time datetime="2017-07-18">18/07/2017</time>
+    </div>
+    
+    <div class="wt-cm-terms-info">
+        Les présentes Conditions d'utilisation prennent effet le juillet 2018. Pour accéder à nos Conditions d'utilisation antérieures, <a href="https://fr.jimdo.com/info/archive/conditions-d-utilisation-2010/" target="_blank" class="wt-cm-section-content__link">cliquez ici</a>.
+    </div>
+
+
+
+</div>
+<div class="tp-main__sub-nav"><navigation level="2:3"></navigation></div>
+</div></main><footer id="tp-main-footer" class="tp-main-footer"><div class="tp-main-footer__wrap">
+<div class="tp-main-footer-content">
+<div class="tp-main-footer-content__col"><div class="tp-main-footer-nav">
+<span id="tp-main-footer-nav-about" class="tp-main-footer-nav__title js-tp-main-footer-nav-title">À Propos</span><nav aria-labelledby="tp-main-footer-nav-about" class="tp-main-footer-nav__link-list js-tp-main-footer-nav-list"><a href="/a-propos/" class="tp-main-footer-nav__link">L'histoire de Jimdo </a><a href="/a-propos/notre-equipe/" class="tp-main-footer-nav__link">Équipe </a><a href="/a-propos/presse/" class="tp-main-footer-nav__link">Presse</a></nav>
+</div></div>
+<div class="tp-main-footer-content__col"><div class="tp-main-footer-nav">
+<span id="tp-main-footer-nav-product" class="tp-main-footer-nav__title js-tp-main-footer-nav-title">Offres</span><nav aria-labelledby="tp-main-footer-nav-product" class="tp-main-footer-nav__link-list js-tp-main-footer-nav-list"><span class="tp-main-footer-nav__subtitle">Jimdo Dolphin </span><a href="/dolphin/" class="tp-main-footer-nav__link">Dolphin </a><span class="tp-main-footer-nav__subtitle">Jimdo Creator </span><a href="/offres/" class="tp-main-footer-nav__link">Offres </a><a href="/offres/jimdobusiness/" class="tp-main-footer-nav__link">Business </a><a href="/offres/jimdopro/" class="tp-main-footer-nav__link">Pro</a></nav>
+</div></div>
+<div class="tp-main-footer-content__col"><div class="tp-main-footer-nav">
+<span id="tp-main-footer-nav-inspiration" class="tp-main-footer-nav__title js-tp-main-footer-nav-title">Inspiration</span><nav aria-labelledby="tp-main-footer-nav-inspiration" class="tp-main-footer-nav__link-list js-tp-main-footer-nav-list"><a href="/exemples/" class="tp-main-footer-nav__link">Exemples </a><a href="/blog/" class="tp-main-footer-nav__link">Blog</a></nav>
+</div></div>
+<div class="tp-main-footer-content__col"><div class="tp-main-footer-nav">
+<span id="tp-main-footer-nav-support" class="tp-main-footer-nav__title js-tp-main-footer-nav-title">Aide</span><nav aria-labelledby="tp-main-footer-nav-support" class="tp-main-footer-nav__link-list js-tp-main-footer-nav-list"><a href="https://aide.jimdo.com/" target="_blank" class="tp-main-footer-nav__link"><span class="tp-main-footer-nav__extern-icon tp-social__icon icon-lc-arrow-right"></span> Support Center </a><a href="https://aide.jimdo.com/contact/presales/" target="_blank" class="tp-main-footer-nav__link"><span class="tp-main-footer-nav__extern-icon tp-social__icon icon-lc-arrow-right"></span> Contact</a></nav>
+</div></div>
+</div>
+<div class="tp-main-footer-bottom"><div class="tp-main-footer-bottom__section tp-main-footer-bottom__section--social">
+<svg class="tp-jimdo-logo--footer" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 473.3 103.1" role="img" aria-labelledby="tp-jimdo-logo-title"><title class="" id="tp-jimdo-logo-title">Avec Jimdo, créez facilement votre site internet gratuit</title>
+<rect fill="transparent" x="0" y="0" width="473.3" height="103.1"></rect><g class="tp-jimdo-logo__group-1"><path class="tp-jimdo-logo__char-j" d="M245.8,101c1.3,0,2.4-0.5,3.2-1.4L157.8,2.9c-1.5-1.6-3.8-2-5.4-1c-1.6,1-2.1,2.3-2.1,3.9l0,90.7c0,2.5,2,4.5,4.5,4.5H245.8z"></path><path class="tp-jimdo-logo__char-i" d="M132.3,96.4c0,2.5-2.1,4.6-4.6,4.6h-17.1c-2.5,0-4.6-2.1-4.6-4.6V5.6c0-2.5,2.1-4.6,4.6-4.6h17.1c2.5,0,4.6,2.1,4.6,4.6V96.4z"></path><path class="tp-jimdo-logo__char-m1" d="M5,59.4c-2.8,0-5,2.2-5,5l0,0.7C0,86.2,18.7,103,44,103c30.1,0,44.1-18.3,44.1-44.6c0-19.6,0-52.4,0-52.4c0-2.8-2.2-5-5-5H25.8c-2.8,0-5,2.2-5,5v15.3c0,2.8,2.2,5,5,5h31c2.8,0,5,2.2,5,5V60c0,7-5.7,19-18.3,19c-7.7,0-14.9-6.1-16.9-13.7l-0.4-1.2c-0.9-2.6-3.9-4.7-6.6-4.7H5z"></path></g><g class="tp-jimdo-logo__group-2"><path class="tp-jimdo-logo__char-m2" d="M151.6,99.6c0.8,0.8,2,1.4,3.2,1.4l91,0c2.5,0,4.5-2,4.5-4.5v-91c0-2-1.3-3.2-2.3-3.8c-1-0.5-3.3-0.9-5,0.9L151.6,99.6z"></path><path class="tp-jimdo-logo__char-d" d="M302.3,1c2.8,0,7.2,0.1,10,0.3c0,0,45,2.7,45,49.7s-45,49.7-45,49.7c-2.7,0.2-7.2,0.3-10,0.3h-29c-2.8,0-5-2.2-5-5V6c0-2.8,2.2-5,5-5H302.3z"></path><circle class="tp-jimdo-logo__char-o" cx="422.3" cy="51" r="51"></circle></g><g class="tp-jimdo-logo__group-3"><path class="tp-jimdo-logo__char-m3" d="M246.9,100.8c0.2-0.1,0.5-0.1,0.7-0.2c0.1,0,0.2-0.1,0.3-0.2c0.1-0.1,0.3-0.2,0.4-0.2c0.3-0.2,0.5-0.4,0.7-0.6L200.3,48l-48.7,51.7c0,0,0,0,0,0c0.4,0.4,0.9,0.7,1.4,1c0,0,0,0,0,0c0.2,0.1,0.5,0.2,0.7,0.2c0,0,0.1,0,0.1,0c0.3,0.1,0.6,0.1,0.9,0.1h91c0.3,0,0.6,0,0.9-0.1C246.8,100.9,246.9,100.9,246.9,100.8z"></path></g></svg><p class="tp-main-footer-bottom__statement">Nous aimons les sites web.<br />Nous avons hâte de voir le vôtre.</p>
+<ul class="tp-social__list">
+<li class="tp-social__item"><a class="tp-social__link" target="_blank" href="https://www.facebook.com/Jimdo.France"><i class="tp-social__icon icon-lc-facebook"> </i> <span class="tp-social__txt">Facebook</span></a></li>
+<li class="tp-social__item"><a class="tp-social__link" target="_blank" href="https://plus.google.com/108428597438880471237"><i class="tp-social__icon icon-lc-google-plus-sign"> </i> <span class="tp-social__txt">Google+</span></a></li>
+<li class="tp-social__item"><a class="tp-social__link" target="_blank" href="https://www.twitter.com/Jimdo_fr"><i class="tp-social__icon icon-lc-twitter-bird"> </i> <span class="tp-social__txt">Twitter</span></a></li>
+<li class="tp-social__item"><a class="tp-social__link" target="_blank" href="https://www.youtube.com/jimdofr"><i class="tp-social__icon icon-lc-youtube-sign"> </i> <span class="tp-social__txt">YouTube</span></a></li>
+</ul>
+<em class="tp-main-footer__tax-info"><span class="js-vat-note"> </span></em>
+</div></div>
+
+</div>
+<div class="tp-main-footer-bottom__bar"><div class="tp-main-footer-bottom__bar__wrap">
+<nav class="tp-main-footer-bottom__bar-nav"><a href="/info/mentions-legales/" class="tp-main-footer-bottom__bar-nav__link">Mentions légales </a><a href="/info/charte-de-confidentialite/" class="tp-main-footer-bottom__bar-nav__link">Charte de confidentialité </a><a href="/info/conditions-d-utilisation/" class="tp-main-footer-bottom__bar-nav__link">Conditions d’utilisation</a></nav><div class="tp-main-footer-bottom__language">
+<span class="tp-main-footer-bottom__language__title">Sélectionner la langue</span><div class="tp-main-footer-language-switch">
+<span class="tp-main-footer-language-switch__label">Français <i class="tp-main-footer-language-switch__label-icon icon-lc-chevron-down"> </i> </span><select class="tp-main-footer-language-switch__select js-tp-main-footer-language-switch"><option selected="selected" disabled="disabled">Sélectionner la langue</option>
+<option value="https://www.jimdo.com/?_ncr" class="tp-main-footer-language-switch__option">English</option>
+<option value="https://de.jimdo.com/" class="tp-main-footer-language-switch__option">Deutsch</option>
+<option value="https://it.jimdo.com/" class="tp-main-footer-language-switch__option">Italiano</option>
+<option value="https://es.jimdo.com/" class="tp-main-footer-language-switch__option">Español</option>
+<option value="https://jp.jimdo.com/" class="tp-main-footer-language-switch__option">日本語</option>
+<option value="https://nl.jimdo.com/" class="tp-main-footer-language-switch__option">Nederlands</option>
+<option value="https://se.jimdo.com/" class="tp-main-footer-language-switch__option">Svenska</option></select>
+</div>
+</div>
+</div></div></footer>
+</div>
+<div id="tp-language-list" class="tp-language-list" aria-hidden="true"></div>
+<div id="tp-mobile-navigation" class="tp-mobile-navigation" aria-hidden="true"><div class="tp-mobile-navigation__wrapper">
+
+<div data-container="navigation">
+    <div class="j-nav-variant-nested">
+        <ul class="cc-nav-level-0 j-nav-level-0">
+            
+                <li class="jmd-nav__list-item-0 js-main-nav-item"
+                    id="cc-nav-view-866629714">
+                    <a href="/exemples/"
+                        class="js-main-nav-link"
+                        data-link-title="Inspiration">
+                        Inspiration
+                    </a>
+                </li>
+            
+                <li class="jmd-nav__list-item-0 js-main-nav-item"
+                    id="cc-nav-view-271538314">
+                    <a href="/offres/"
+                        class="js-main-nav-link"
+                        data-link-title="Offres">
+                        Offres
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+</div>
+<div class="tp-mobile-navigation__bottom js-mobile-navigation"><div class="tp-mobile-navigation__signup js-mobile-nav-signup">
+<a class="tp-meta-nav__btn tp-meta-nav__btn--register js-tp-meta-nav__btn js-tp-meta-nav__btn--register" id="tp-header-signup-link" title="Avec Jimdo, créez facilement votre site internet gratuit" href="https://register.jimdo.com/fr/">S'inscrire </a><a class="tp-meta-nav__btn tp-meta-nav__btn--login js-tp-meta-nav__btn js-tp-meta-nav__btn--login" title="Vous connecter directement à votre site Jimdo" href="https://account.e.jimdo.com/accounts/login/">Connexion</a>
+</div></div>
+</div></div>
+
+    </div>
+    
+
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W7Z39C" height="0" width="0" style="display:none; visibility:hidden"></iframe>
+    </noscript>
+
+
+    
+
+
+</body>
+</html>

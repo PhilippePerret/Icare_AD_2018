@@ -1,0 +1,19 @@
+<%
+# Mail informant l'administration du chargement des commentaires de l'icarien
+#
+# Note : ce mail n'est envoyé qu'une seule fois, lorsque tous les documents
+# commentaires ont été downloadé par l'icarien.
+
+self.subject_mail = 'Téléchargement de commentaires'
+
+def designation_etape
+  if inscription?
+    " d'inscription"
+  else
+    " de l'étape #{icetape.abs_etape.numero} de son module “#{icetape.icmodule.abs_module.name}”"
+  end
+end
+%>
+<p>
+  Phil, je t'informe que <%= owner.pseudo %> vient de télécharger tous ses commentaires <%= designation_etape %>.
+</p>

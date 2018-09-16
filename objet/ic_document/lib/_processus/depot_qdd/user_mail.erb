@@ -1,0 +1,24 @@
+<%
+# Mail envoyé au propriétaire des documents pour lui demander de définir
+# leur partage.
+#
+# Note : ce mail n'est envoyé qu'une seule fois, pour tous les documents,
+# même s'il y en a plusieurs (plusieurs paires original/comments, évidemment)
+
+self.subject_mail = 'Définition du partage de documents'
+%>
+<p>
+  Bonjour <%= owner.pseudo %>,
+</p>
+<p>
+  Je vous informe que vos derniers documents de travail viennent d'être déposés sur le <%= lien.quai_des_docs('“Quai des docs”', online: true) %> et que vous devez à présent en définir le <strong>niveau de partage</strong>.
+</p>
+<p>
+  Pour ce faire, il vous suffit de rejoindre <%= lien.bureau('votre bureau', {online: true}) %> et d'utiliser le formulaire adéquat.
+</p>
+<p class='small'>
+  Pourquoi partager ses documents ?… Vous le saurez en visitant cette <%= lien.aide(30, titre: 'page d’aide', online: true) %>.
+</p>
+<p>
+  D'avance merci à vous ! Et bonne continuation au sein de l'atelier.
+</p>

@@ -1,0 +1,9 @@
+<%
+# Notification permettant à l'icarien de démarrer son module
+%>
+<%=
+  form do
+    "#{user.pseudo}, il vous suffit de cliquer sur le bouton ci-dessous pour démarrer votre module d'apprentissage “#{absmodule.name}”.".in_p(class:'medium air') +
+    'Démarrer le module'.in_submit(class: 'big btn').in_div(class: 'center')
+  end
+%>

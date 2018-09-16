@@ -1,0 +1,9 @@
+<%
+# Un bouton doit permettre d'annuler cette commande
+%>
+<%=
+
+  form(action:"watcher/#{id}/remove") do
+    'Annuler ce module'.in_submit.in_div(class: 'buttons')
+  end
+%>

@@ -1,0 +1,23 @@
+<%
+
+def presentation_atelier
+  <<-EOT
+L’ATELIER ICARE est un atelier d’écriture en ligne proposant un ac&shy;com&shy;pa&shy;gne&shy;ment pro&shy;fes&shy;sion&shy;nel de tout pro&shy;jet d’his&shy;toire (scé&shy;na&shy;rio, ro&shy;man, BD…) ainsi qu’un ap&shy;pren&shy;tis&shy;sage de la nar&shy;ration et de la dra&shy;ma&shy;tur&shy;gie, de la simple ini&shy;tia&shy;tion jus&shy;qu’au per&shy;fec&shy;tion&shy;ne&shy;ment.
+  EOT
+end
+def bouton_presentation_complete
+  '➽ PRÉSENTATION COMPLÈTE'.in_a(href: 'overview/home')
+end
+
+%>
+<div id="presentation-atelier" class="container">
+  <div id="presentation-atelier-texte" class="row">
+    <%= presentation_atelier %>
+  </div>
+  <div class="row center">
+    <div class="col">
+      <%= bouton_presentation_complete %>
+    </div>
+  </div>
+</div>
+<%= mobile_separator %>

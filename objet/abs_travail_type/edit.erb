@@ -1,0 +1,41 @@
+<%
+#
+# Édition d'un travail type
+#
+raise_unless_admin
+%>
+<h1>Travail type</h1>
+<h2>Édition/création</h2>
+
+<%# Données générales du travail-type si c'est une édition %>
+<form id="form_choix_travail_type" action="abs_travail_type/edit" method="POST">
+  <div><span class="libelle">Rubrique</span><%= menu_rubriques(onchange: "this.form.submit()") %></div>
+  <div><span class="libelle">Travail-type</span><%= menu_travaux_types %></div>
+</form>
+<% if travailtype.id %>
+  <div class="right small">
+    <%= 'Le voir'.in_a(href: "abs_travail_type/#{travailtype.id}/show", target: :new) %>
+  </div>
+<% end %>
+
+<%= page.separator(40) %>
+
+<%
+site.require 'form_tools'
+form.prefix = 'wtype'
+form.objet = travailtype
+%>
+<form id="form_edit_wtype" class="dim2080" action="abs_travail_type/<%= travailtype.id %>/edit" method="POST">
+  <%= 'save_travail_type'.in_hidden(name: 'operation') %>
+  <%= form.field_raw('Rubrique', 'rubrique', nil, {field: menu_rubriques, text_after: champ_new_rubrique} )%>
+  <%= form.field_text('Nom court', 'short_name', nil, {class: 'milong bold'}) %>
+  <%= form.field_text('ID', 'id', nil, {class:'short', onchange: "$.proxy(AbsTravailType,'onreset_id')(this.value)", text_after: explication_identifiant}) %>
+  <hr />
+  <%= form.field_text('Titre', 'titre', nil, {class: 'bold'}) %>
+  <%= form.field_text('Objectif', 'objectif', nil) %>
+  <%= form.field_textarea('Travail', 'travail') %>
+  <%= form.field_textarea('Méthode', 'methode', nil, {placeholder: "Éléments de méthodes proposés"})%>
+  <%= form.field_textarea('Liens', 'liens', nil, {text_after: champ_liens, onchange: "$.proxy(AbsTravailType,'onchange_liens')()", placeholder: "Liens d'aide pour la page."})%>
+  <%= form.field_description(explication_format_liens)%>
+  <%= form.submit_button('Enregistrer') %>
+</form>

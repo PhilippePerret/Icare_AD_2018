@@ -1,0 +1,147 @@
+body
+  font-family   : Courier
+  font-size     : 14pt
+  margin        : 0 !important
+  padding       : 0 !important
+  width         : 1160px
+
+
+// Générales
+.fright
+  float   : right
+a
+  text-decoration : none
+  color           : inherit
+  
+.red, .warning
+  color   : red
+.green, .ok
+  color   : green
+.bold, .gras
+  font-weight : bold
+
+// Titre principal
+h1
+  font-size         : 1.5em
+  width             : 100%
+  background-color  : #578088
+  color             : white
+  padding           : 0.5em 1em
+  margin            : 0 !important
+
+span.libelle
+  font-style    : italic
+  color         : #777
+  margin-right  : 2em
+span.fvalue
+  float : right
+  font-weight     : bold
+
+*.warning
+  font-weight   : bold
+  color         : red
+  
+// Tous les div des fieldsets
+fieldset
+  &#general_infos, &#frequences, &#data_routes > div
+    margin-top  : 2em
+    legend
+      color       : #777
+      font-style  : italic
+    div
+      // Pour essayer la couleur :
+      // -------------------------
+      // &:nth-child(1)
+      //   background-color  : blue
+      //   color : white
+      &:hover
+        background-color  : #006af8
+        color             : white !important
+// Fieldset des datas de toutes les routes
+fieldset#data_routes
+  > div
+    > div
+      white-space   : pre
+// Fieldset des infos générales
+fieldset#general_infos
+  // C'est plutôt un tableau
+  width     : 500px
+  // div.ligne_value
+  //   border-bottom     : 1px solid
+
+// Fieldset des routes invalides
+fieldset#invalides
+  // Les divs enfants, contenant chacun une route invalide
+  > div.bad_route
+    border        : 1px solid #BBB
+    padding       : 0.5em
+    margin-bottom : 1em
+    position      : relative
+    // Le span contenant le bouton pour fermer le div d'une
+    // route invalide, quand on l'a corrigée
+    span.btn_close
+      display           : inline-block
+      position          : absolute
+      right             : 0px
+      top               : 0px
+      padding           : 4px 8px
+      background-color  : #555
+      color             : white 
+
+    div.main
+      margin-bottom : 1em
+      span.link_url
+        float         : right
+        margin-right  : 2em
+        a
+          text-decoration : none
+      span.route
+        font-weight : bold
+        color       : red !important
+    // Le code brut de la page
+    pre.raw_code
+      height          : 24px
+      overflow        : hidden
+      display         : inline-block
+      width           : 200px
+      white-space     : pre-wrap
+      &:hover
+        display       : block
+        width         : auto
+        height        : auto
+    // Le div contenant le détail des erreurs
+    div.errors_list
+      // Le div qui contient chaque erreur rencontrée
+      div.error
+        font-size   : 0.92em
+        color       : red
+        
+// Fieldset des fréquences d'appel
+fieldset#frequences
+  section.colHigh
+    width   : 40%
+    border  : 1px solid #CCC
+    padding : 1em
+  section.colLow
+    float   : right
+    width   : 40%
+    border  : 1px solid #CCC
+    padding : 1em
+
+  div.stitre
+    font-weight     : bold
+    font-variant    : small-caps
+    text-decoration : underline
+    font-size       : 1.2em
+    margin-bottom   : 1em
+    margin-top      : 0.5em
+  div.ligne_value
+    border-bottom   : 1px solid
+
+// Pour les fieldsets qui doivent réagir au passage de la
+// souris.
+fieldset
+  &#general_infos, &#frequences
+    div:hover
+      *
+        color : white !important

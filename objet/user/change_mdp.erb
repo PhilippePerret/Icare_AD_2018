@@ -1,0 +1,30 @@
+<% raise_unless_identified %>
+<h1>Modifier le mot de passe</h1>
+<form id="form_change_password" class="dim2080" action="user/change_mdp" method="POST">
+  <%= 'change_motdepasse'.in_hidden(name: 'operation') %>
+  <div class="row">
+    <span class="libelle">Nouveau mot de passe</span>
+    <span class="value">
+      <input
+        type="text"
+        id="user_mdp"
+        name="user_mdp"
+        placeholder="Nouveau mot de passe"
+        value="<%= param(:user_mdp) %>"
+        />
+    </span>
+  </div>
+  <div class="row">
+    <span class="libelle">Confirmation</span>
+    <span class="value">
+      <input
+        type="text"
+        id="user_mdp_confirmation"
+        name="user_mdp_confirmation"
+        placeholder="Confirmation du mot de passe"
+        value=""
+        />
+    </span>
+  </div>
+  <%= 'OK'.in_submit(class: 'btn').in_div(class: 'buttons') %>
+</form>

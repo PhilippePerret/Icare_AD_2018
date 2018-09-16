@@ -1,0 +1,42 @@
+<h3>Qu’est-ce que le <em>Quai des docs</em></h3>
+
+<h4>Une richesse incommensurable</h4>
+<p>
+  Le <em>Quai des docs</em> est un espace unique, qui n'existe dans aucune autre école virtuelle ou même “en dur”, qui permet de consulter tous les documents de travail produits par d'autres auteures et auteurs au sein de l'atelier Icare.
+</p>
+
+<p>
+  La richesse pédagogique de cette ressource est incommensurable. Pouvoir lire ce que d'autres auteures ou auteurs ont produit sur une étape de travail par laquelle on passe multiplie par 10 l'efficacité de l'expérience.
+</p>
+
+<p>
+  Il y a deux manières de rejoindre ce Quai des docs. D'abord, par le biais de <%=
+
+  m = 'la section qui lui est réservée sur le site'
+  user.identified? && m = m.in_a(href:'quai_des_docs', target: :new)
+  m
+
+  %>, réservée aux icariens. Ensuite par son <%=
+    m = 'bureau de travail'
+    user.identified? && m = lien.bureau(m)
+    m
+  %>.
+</p>
+
+<h4>Les documents de l'étape de travail</h4>
+<p>
+  L'utilisation la plus pratique du <em>Quai des docs</em> se fait par le bureau personnel de travail : à la fin de chaque énoncé du travail d'étape courant se trouve la liste de tous les documents qui ont été produits et partagés jusqu'à aujourd'hui sur l'étape en question.
+</p>
+
+<h4>Limitation aux icariens à l'essai</h4>
+<p>
+  Notez qu'il faut être <em>vraie icarienne</em> ou <em>vrai icarien</em> pour profiter pleinement de cette ressource. Si vous êtes dans votre premier mois de travail au sein de l'atelier, premier mois toujours <em>à l'essai</em>, seuls 5 documents vous sont accessibles, pour des raisons qu'on comprendra aisément.
+</p>
+
+<h4>Remerciements</h4>
+<p>
+  Nous en profitons pour remercier chaleureusement, ici, toutes les auteurs et tous les auteurs de l'atelier qui offrent leur document à la lecture et favorisent ainsi le partage d'un plus grand savoir et surtout d'un plus grand <em>savoir-faire</em>.
+</p>
+<p>
+  Un grand merci à eux tous !
+</p>

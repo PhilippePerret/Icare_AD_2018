@@ -1,0 +1,11 @@
+<%
+# Mail envoyé à l'icarien en cas de refus et de demande d'envoi du mail
+self.subject_mail = 'Réservation de module refusée'
+%>
+<p>
+  Bonjour <%= owner.pseudo %>,
+</p>
+<p>
+  J'ai le regret de vous annoncer que votre demande concernant le module d'apprentissage “<%= absmodule.name %>” a été rejetée pour le motif suivant :
+</p>
+<%= motif_refus %>

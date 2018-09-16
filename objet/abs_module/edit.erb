@@ -1,0 +1,29 @@
+<%
+# Module d'édition du module d'apprentissage
+raise_unless_admin
+%>
+<%= AbsModule.titre_h1 %>
+<%= AbsModule.menu(selected: absmodule_id) %>
+<%
+# ---------------------------------------------------------------------
+#
+#   FORMULAIRE D'ÉDITION
+#
+# ---------------------------------------------------------------------
+site.require 'form_tools'
+form.prefix = 'absmodule'
+form.objet = absmodule
+
+cb_new_module = 'Créer un nouveau module'.in_checkbox(name:'create_new_module', id: 'cb_create_new_module')
+%>
+<form class="" action="abs_module/<%= absmodule_id %>/edit" method="POST">
+  <%= 'save'.in_hidden(name:'operation') %>
+  <%= form.field_text('Nom', 'name', nil, {class: 'milong', text_after: cb_new_module}) %>
+  <%= form.field_text('QDD ID', 'module_id', nil, {class: 'milong'}) %>
+  <%= form.field_textarea('Résumé', 'short_description')%>
+  <%= form.field_textarea('Description', 'long_description') %>
+  <%= form.field_text('Tarif', 'tarif', nil, {text_after: '€', class: 'short'}) %>
+  <%= form.field_text('Nombre jours', 'nombre_jours', nil, {class: 'short', text_after: 'jours'}) %>
+  <%= form.field_text('Durée humaine', 'hduree', nil, {class: 'milong'}) %>
+  <%= 'Enregistrer'.in_submit(class: 'btn').in_div(class: 'buttons') %>
+</form>

@@ -1,0 +1,66 @@
+div.libelles
+  font-style    : italic
+  font-size     : 0.9em
+  color         : #777
+
+div.lines_paiements
+  display   : inline-block
+  width     : auto
+  border    : 1px solid
+  font-size : 14.1pt
+
+  div.libval
+    padding   : 0 1em
+    &:nth-child(odd)
+      background-color  : #FFF
+    &:nth-child(even)
+      background-color  : #CCF
+    span
+      display   : inline-block
+      &.libelle
+        width       : 340px
+        font-style  : italic
+        color       : #777
+      &.value
+        width       : 100px
+        text-align  : right
+
+
+  div.line_paiement
+    padding   : 0 1em
+    &:nth-child(odd)
+      background-color  : #FFF
+    &:nth-child(even)
+      background-color  : #CCF
+    span
+      display   : inline-block
+    span.id
+      width     : 100px
+      font-size : 11pt
+    span.montant
+      width       : 140px
+      font-weight : bold
+    span.icarien
+      width       : 240px
+    span.date
+      width       : 120px
+    span.suivi
+      width       : 80px
+
+  div.line_payeur
+    padding   : 0 1em
+    &:nth-child(odd)
+      background-color  : #FFF
+    &:nth-child(even)
+      background-color  : #CCF
+    span
+      display     : inline-block
+    span.pseudo
+      width     : 280px
+      overflow  : hidden
+    span.total
+      width       : 140px
+      font-weight : bold
+    span.nombre
+      width       : 140px
+      text-align  : right

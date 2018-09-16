@@ -1,0 +1,18 @@
+<%
+# Formulaire de paiement
+#
+# NOTE C'est l'instance {SiteHtml::Paiement} qui est bindé à la vue
+%>
+<div id="cadre_form_paiement">
+  <p>Cliquez sur le bouton ci-dessous pour rejoindre PayPal et procéder en toute sécurité au <%= description %> (<strong><%= montant_humain %></strong>).</p>
+  <%
+    description_paiement = description || "Paiement de #{montant_humain}"
+  %>
+  <form id="form_paiement" action="<%= url_paypal %>" onclick="this.submit()" method="POST" accept-charset="utf-8">
+    <input type="hidden" name="cmd" value="_express-checkout" />
+    <input type="hidden" name="token" value="<%= token %>" />
+    <input type="hidden" name="useraction" value="commit" />
+    <input type="hidden" name="description" value="<%= description_paiement %>">
+    <img src="<%= site.folder_deep_images %>/logos/paypal.png" />
+  </form>
+</div>

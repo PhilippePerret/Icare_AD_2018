@@ -1,0 +1,31 @@
+<%
+# Notification pour le paiement d'un module. Les différents cas qui peuvent
+# se poser sont les suivants :
+#   - premier module à DD au bout d'un mois
+#   - autre module à DD au démarrage du module
+#   - mensualité d'un module à DI (suivi) immédiatement ou
+#     après un premier mois.
+#
+# La notification est déclenchée par un triggered défini dans le watcher,
+# qui fait qu'elle s'affiche trois jours avant le paiement.
+# L'user a alors 7 jours pour la payer (donc jusqu'à la date J+4)
+# * Passé J+4, le paiement passe au rouge et un mail est envoyé à l'administrateur
+#   On indique dans les données du watcher (data) ces envois
+# * Passé J+14, le paiement devient une alerte, un mail est envoyé à l'user
+#   l'enjoignant à payer et une autre à l'administrateur.
+# * Passé J+31, on procède à la destruction de l'user
+#
+# Note : c'est dans cette notification que se font tous ces calculs, mais
+# avec l'aide du module required.
+
+%>
+<%=
+
+  'Paiement du module'.in_legend +
+  form(action: "ic_paiement/main") do
+    self.id.to_s.in_hidden(name: 'watcher_id') +
+    message_by_state.in_div +
+    'Payer'.in_submit.in_div(class: 'buttons')
+  end
+
+%>

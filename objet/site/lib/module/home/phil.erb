@@ -1,0 +1,30 @@
+<%
+# encoding: UTF-8
+# Fichier permettant d'afficher le profil de Phil
+
+def presentation_phil
+  <<-EOT
+  L’atelier Icare est animé par <a href="http://www.philippeperret.fr" class="bold"
+    target="_new">PHILIPPE PERRET ➹</a>, scénariste pro&shy;fes&shy;sion&shy;nel, romancier
+    (<a href="http://livre.fnac.com/a1451727/Philippe-Perret-Mort-vivant"
+    target='_blank'>mort@vivant</a>, Ed. Anne Carrière), compositeur, musicien et
+    pé&shy;da&shy;go&shy;gue passionné (auteur de
+    <a href="http://www.amazon.fr/Savoir-Rédiger-Presenter-Son-Scenario/dp/1090461054"
+    target="_blank">Savoir rédiger et pré&shy;sen&shy;ter du scénario</a>).
+  EOT
+end
+
+def medaillon
+  '<img id="medaillon" src="view/img/atelier/phil-medaillon.png" />'
+end
+%>
+<div id="presentation_phil" class="container">
+  <div class="row">
+    <div class="col">
+      <%= presentation_phil %>
+    </div>
+    <div class="col-4 no-mobile">
+      <%= medaillon %>
+    </div>
+  </div>
+</div>

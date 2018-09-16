@@ -1,0 +1,77 @@
+/**
+  * Pour faire des menus plus pratiques
+  */
+div.container_myselect
+  position          : relative
+  display           : inline-block
+  min-height        : 1em
+  margin-right      : 24px
+  z-index           : 90
+  div.myselect
+    position          : absolute
+    display           : inline-block
+    border            : 1px solid
+    border-radius     : 0.3em
+    background-color  : white
+    width             : inherit
+    min-width         : inherit
+    z-index           : 90
+    max-height        : 300px
+    min-height        : 1.6em
+    overflow-y        : scroll
+    overflow-x        : hidden
+    div.myoption
+      display           : none
+      padding           : 3px 10.6px 4px
+      width             : inherit
+      min-width         : inherit
+      text-align        : center
+      z-index           : 90
+      &:nth-child(1)
+        border-radius     : 0.3em 0.3em 0 0
+      &:nth-child(-1)
+        border-radius     : 0 0 0.3em 0.3em
+      // L'option visible quand le menu est replié
+      &.selected
+        display           : inline-block
+
+// Les différentes tailles de menus
+$smallsize:     80px + 2*10.6px
+$normalsize:    180px + 2*10.6px
+$mediumsize:    300px + 2*10.6px
+$longsize:      410px + 2*10.6px
+
+div.container_myselect
+  // padding  : 3px 10.6px 4px
+  &.smallsize
+    width     : $smallsize
+    div.myselect
+      min-height : 1em
+      div.myoption
+        padding   : 1px 5.6px 2px
+        font-size : 0.85em
+  &.normalsize
+    width     : $normalsize
+  &.mediumsize
+    width     : $mediumsize
+  &.longsize
+    width     : $longsize
+
+div.container_myselect
+  // &:hover
+  // &:active
+  &.actif
+    z-index     : 92
+    div.myselect
+      div.myoption
+        display     : block
+        z-index     : 92
+        &:hover
+          background-color  : #5F8DFC
+          color             : white
+        &:active
+          background-color  : red
+        &.selected
+          background-color  : #008
+          color             : white
+          z-index           : 92

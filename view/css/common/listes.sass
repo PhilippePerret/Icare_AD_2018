@@ -1,0 +1,153 @@
+// Liste de style Table des matières
+// Note : les titres peuvent être placé dans des h3
+ul.tdm
+  list-style  : none
+  margin      : 0
+  padding     : 0
+  // Style particulier des titres de rubrique
+  // h3
+  // li
+  //   margin-left       : 2em
+//
+// ul, ol
+//   margin-left   : 2em
+
+ul
+  list-style      : none
+  list-style-type : square
+ul, ol
+  &.small
+    line-height     : 1em
+  // li
+  //   margin          : 0.4em 0.0em
+  &.tight
+    li
+      margin          : 0
+
+  // Pour que la liste soit bien espacée, isolée dans la
+  // page (les LI sont également plus espacés)
+  &.free
+    margin          : 6em
+    padding-top     : 4px // note : comportement bizarre, les paddings
+    padding-bottom  : 4px // note : idem
+    li
+      margin  : 1.3em 0
+
+  // Pour avoir une border sur la gauche
+  &.bordure
+    list-style      : none
+    border-left     : 1px solid
+
+// Liste de définitions
+dl
+  font-size           : 0.85em
+  color               : black
+  margin-left         : 2em
+  margin-right        : 4em
+  line-height         : 1.6em
+  dt
+    color               : black !important
+    font-family         : Verdana !important
+    font-size           : 1.15em
+    margin-top          : 1em
+    margin-bottom       : 0.5em
+  dd
+    ul, ol
+      margin          : 0
+      padding         : 0 40px
+
+
+// Tout élément de class .hover réagit au passage de la
+// souris en mettant son opacité à 1 et en inversant sa
+// couleur de fond et de police, comme dans une liste
+.hover
+  &:hover
+    opacity               : 1
+    background-color      : #578088 !important
+    color                 : white !important
+    a
+      color                 : white !important
+// La version grise
+.hover2
+  &:hover
+    opacity               : 1
+    background-color      : #9E9E9E !important
+    color                 : white !important
+
+// Noter que les div.row sont définis en même temps que les
+// formulaires dans form.sass
+div.dim2080, div.dim3070, div.dim4060, div.dim5050, div.dim6040
+  div.row
+    vertical-align  : top
+    // Les div.row sont sensibles au passage de la souris
+    &:hover
+      background-color      : #EBE0FF
+    span.libelle
+      text-align            : right
+      vertical-align        : top
+      display               : inline-block
+    span.value
+      display               : block
+      text-align            : left
+
+
+\:not(form)
+  div.row
+    clear           : left
+    border          : 1px solid #fff
+
+    span.libelle
+      display         : inline-block
+      font-size       : 18px !important
+      // Le width peut être redéfini par les valeurs dimXXXX
+      // cf. plus bas.
+      width           : 100px
+      font-style      : italic
+      color           : #777
+      float           : left
+    span.value
+      display     : block !important
+      // Les marges et width doivent pouvoir être modifiés
+      // par les valeurs div.dimXXX ci-dessous
+      margin-left : 110px
+      // border      : 1px dashed green
+
+
+div.dim2080
+  div.row
+    span.libelle
+      width         : 18%
+    span.value
+      margin-left   : 20%
+      width         : 80%
+div.dim3070
+  div.row
+    span.libelle
+      width         : 28%
+    span.value
+      margin-left   : 30%
+      width         : 70%
+//
+div.dim4060
+  div.row
+    span.libelle
+      width         : 38%
+    span.value
+      margin-left   : 40%
+      width         : 60%
+//
+div.dim5050
+  div.row
+    span.libelle
+      width         : 48%
+    span.value
+      margin-left   : 50%
+      width         : 50%
+//
+div.dim6040
+  div.row
+    span.libelle
+      width         : 58%
+    span.value
+      margin-left   : 60%
+      width         : 40%

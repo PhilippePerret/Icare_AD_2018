@@ -1,0 +1,9 @@
+<%
+# Listing des modules
+%>
+<%= AbsModule.titre_h1 %>
+<ul id="listing_absmodules">
+  <% AbsModule.each_instance(sorted: true) do |amodule| %>
+    <%= amodule.as_li %>
+  <% end %>
+</ul>

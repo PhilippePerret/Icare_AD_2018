@@ -1,0 +1,56 @@
+.relative
+  position: relative
+.absolute
+  position: absolute
+
+.fleft
+  float : left
+  width : auto !important
+.fright
+  float : right
+  width : auto !important
+
+.bgblue
+  background-color        : blue !important
+  color                   : white !important
+
+.bgred
+  background-color        : red !important
+  color                   : white !important
+
+// Un élément "discret" est un élément dont l'opacité est moindre et
+// qui apparait quand on passe sa souris dessus
+.discret
+  opacity : 0.6
+  &:hover
+    opacity : 1
+  &.tres
+    opacity : 0.45
+    &:hover
+      opacity : 0.85
+
+input[type="checkbox"] + label, input[type="radio"] + label
+  &:hover
+    background-color  : #D0FFEE
+
+img.btninfo
+  vertical-align : sub
+
+// Pour supprimer les margin et les paddin horizontaux (h) ou verticaux (v)
+// afin de rapprocher avec les autres éléments
+.tied_h
+  padding-left  : 0 !important
+  padding-right : 0 !important
+  margin-left   : 0 !important
+  margin-bottom : 0 !important
+.tied_v
+  padding-top     : 0 !important
+  padding-bottom  : 0 !important
+  margin-top      : 0 !important
+  margin-bottom   : 0 !important
+
+.masked
+  display : none
+
+.showed
+  display : auto

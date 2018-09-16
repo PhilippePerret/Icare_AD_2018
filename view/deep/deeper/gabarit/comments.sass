@@ -1,0 +1,93 @@
+@import '../../../css/common/charte'
+
+// Le titre "Vos commentaires sur cette page"
+// Rappel : elle est en dehors de la section suivante
+h4#titre_page_comments
+  margin-top        : 6em
+  border-top        : 1px solid #777
+  padding-top       : 0.5em
+  font-style        : italic
+  font-weight       : normal
+  
+// Section contenant toute la partie commentaire de page
+// Principalement
+//  Un formulaire pour entrer un nouveau commentaire
+//  La liste des commentaires validés
+section#page_comments
+  margin          : 1em 4em
+  border          : 1px solid #ccc
+  background-color  : $lightcharte
+  
+  //Formulaire pour entrer un nouveau commentaire
+  form#form_page_comments
+    padding           : 1em 0.4em
+    background-color  : white
+    textarea
+      background-color  : white !important
+      width             : 90%
+      font-size         : 0.9em !important
+    
+  //Div en cas d'user non inscrit
+  div#pcoms_warning_user_unsubscriber
+    padding           : 2em
+    font-size         : 0.89em
+    font-style        : italic
+    background-color  : white
+    
+  //Div en cas d'aucun commentaire
+  div#div_no_page_comment
+    padding           : 2em
+    background-color  : white
+    font-style        : italic
+
+  div#div_lien_autres_coms
+    background-color  : white
+    padding           : 4em 2em 1em
+//Liste des commentaires validés
+// NOTE : Elle n'est pas mise sous section#page_comments car on
+// s'en sert aussi pour la page 'page_comments/list'
+ul#ul_page_comments, ul.ul_page_comments
+  list-style  : none
+  margin      : 0
+  padding     : 0
+  li.pcomment
+    border            : 1px solid #CCC
+    padding           : 0
+    margin            : 1em 0
+    background-color  : white
+    // La route peut être indiquée dans le LI, au-dessus
+    // Elle ressemble à un titre dans le listing de tous les commentaires
+    // sur le site.
+    div.cp_route
+      margin-top    : 3em
+      padding-top   : 1em
+      border-top    : 1px solid #555
+      margin-bottom : 4em
+      font-weight   : bold
+    div.infos
+      background-color  : $darkcharte
+      color             : white
+      font-size         : 0.85em
+      padding           : 4px 1em
+      span.date
+        float       : right
+        font-style  : italic
+        font-size   : 0.9em
+      span.id
+        float         : right
+        font-family   : Georgia
+        margin-right  : 1em
+    // Le div contenant le commentaire
+    div.comment
+      margin-left     : 4em
+      padding         : 2em
+      font-size       : 0.89em
+    // Les boutons en bas du bloc
+    div.boutons
+      margin-left     : 4em
+      margin-top      : 1em
+      margin-bottom   : 0.5em
+      border-top      : 1px solid black
+      text-align      : right
+      &, *
+        font-size       : 0.85em

@@ -1,0 +1,16 @@
+<%
+# Pour voir aussi bien son profil que le profil d'un autre user
+# mais évidemment pas avec les mêmes possibilités
+
+enable_comments
+%>
+<%
+def sous_vue vue_name
+  (site.folder_objet+"user/profil/#{vue_name}.erb").deserb(self)
+end
+%>
+<% if user.identified? %>
+  <%= sous_vue('identified') %>
+<% else %>
+  <%= sous_vue('non_identified') %>
+<% end %>

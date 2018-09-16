@@ -1,0 +1,168 @@
+div.users_overview
+  line-height   : 1.3em
+  font-size     : 16.1pt
+  *
+    line-height   : 1.3em
+  span.date
+    font-size       : 11pt
+    display         : inline-block
+    border          : 1px solid #777
+    padding         : 4px
+    width           : 66px
+    text-align      : center
+    vertical-align  : middle
+
+  // ---------------------------------------------------------------------
+  //  Le div d'un user actif
+  // ---------------------------------------------------------------------
+  div.user_overview
+    margin          : 1em 0 1em 2em
+    span.pseudo
+      font-size       : 1.2em
+      margin-left     : -2em
+    span.module
+      margin-right    : 1em
+
+    // Div contenant l'indication du jour de début et du jour
+    // de fin de l'étape
+    div.startendetape
+      vertical-align      : middle
+      margin              : 0.5em 0
+
+// ---------------------------------------------------------------------
+//  CALENDRIER
+// ---------------------------------------------------------------------
+$cal_width : 1000px
+div.cal
+  min-width     : $cal_width
+  width         : $cal_width
+  max-width     : $cal_width
+  z-index           : 0
+  // border        : 1px dashed red
+  line-height   : 1.2em
+  div.calmonth
+    font-size   : 10.4pt
+    font-weight : bold
+    line-height : 1.2em
+  div.calrow
+    margin-top    : 1em
+    line-height   : 1.8em
+    // height        : 30px // non car contient parfois le mois
+    div.calday
+      display       : inline-block
+      position      : relative
+      width         : 56px
+      height        : 30px
+      border        : 1px solid black
+      font-size     : 11pt
+      text-align    : center
+      z-index       : 0
+      &:hover
+        z-index       : 1
+      // Pour la marque du jour
+      span.markday
+        position      : absolute
+        right         : 3px
+        top           : -3px
+        z-index       : 0
+      &.current
+        background-color    : darkblue
+        color               : white
+        font-weight         : bold
+      // Le pseudo de l'icarien, au-dessus de la marque ronde
+      //  'calmark' (cf. ci-dessous) pour le voir sans souris
+      span.calpseudo
+        position      : absolute
+        top           : -12px
+        font-size     : 10pt
+        color         : purple !important
+        &.farfromnow
+          &:before
+            content   : "🔔"
+            position  : absolute
+            left      : -17px
+      // Les marques de début, travail, commentaire, paiement
+      // Ce sont les marques rondes de couleur, dans le calendrier
+      // Cf. plus bas, car elle est définie pour pouvoir être utilisée
+      // dans la légende du calendrier
+      span.calmark
+        position        : absolute
+        top             : -4px
+        left            : 6px
+        // Le span contenant les informations de la fiche
+        div.etpcard
+          display           : none
+          padding           : 0
+          min-width         : 300px
+          border            : 3px solid
+          background-color  : #555
+          color             : white
+          font-size         : 13.4pt
+          font-weight       : normal
+          div.pseudo
+            font-size         : 15.2pt
+            background-color  : black
+            // margin-bottom     : 8px
+            padding           : 8px
+          div.infoscard
+            text-align        : left
+            font-size         : 12.3pt
+            padding           : 1em
+            // Pour indiquer le démarrage de l'étape
+            div.etpstart
+              // Quand le démarrage de l'étape précède la première date
+              // du calendrier
+              &.farformnow
+                background-color  : darkorange
+                color             : white
+          // L'opération sur l'étape (remise travail, paiement, etc.)
+          div.opecard
+            color       : orange
+            padding     : 0 1em 1em
+            &.overrun
+              padding-top       : 1em
+              background-color  : red
+              color             : white
+        &:hover
+          div.etpcard
+            display           : block
+
+// Pour pouvoir être utilisé en légende
+// Les marques de début, travail, commentaire, paiement
+// Ce sont les marques rondes de couleur, dans le calendrier
+span.calmark
+  display         : inline-block
+  text-align      : center
+  font-style      : normal
+  font-weight     : normal
+  border-radius   : 1em
+  width           : 22px
+  max-width       : 22px
+  height          : 22px
+  max-height      : 22px
+  font-size       : 10.3pt
+  color           : white
+  line-height     : 1.7em
+  z-index         : -1
+  &.start
+    background-color    : #c3eef5
+    color               : #40a700
+  &.work
+    background-color    : purple
+  &.comments
+    background-color    : green
+  &.paiement
+    background-color    : darkblue
+  &.overrun
+    background-color     : red
+    border               : 1px solid red
+
+div#legend_cal
+  margin-top  : 2em
+  border      : 1px solid #999
+  padding     : 1em
+  font-style  : italic
+  font-size   : 0.85em
+  opacity     : 0.3
+  &:hover
+    opacity     : 1

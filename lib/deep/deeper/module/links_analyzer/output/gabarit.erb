@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%= TestedPage::Report.titre %></title>
+    <link rel="stylesheet" href="master.css" media="screen" title="" charset="utf-8">
+    <script type="text/javascript">
+function DOMRemove(element_id, parent_id){
+  document.getElementById(parent_id).removeChild(document.getElementById(element_id));
+}
+function toggleElement(element_id){
+  var e = document.getElementById(element_id);
+  var etat = e.style.display ;
+  var new_etat = etat == 'block' ? 'none' : 'block' ;
+  e.style.display = new_etat
+}
+    </script>
+  </head>
+  <body>
+    <h1><%= TestedPage::Report.titre %></h1>
+
+    <!-- RAPPORT DES DONNÉES GÉNÉRALES -->
+    <fieldset id="general_infos">
+      <legend>Informations générales</legend>
+      <%= TestedPage::Report.general_infos %>
+    </fieldset>
+
+    <!-- RAPPORT DES INVALIDITÉS -->
+    <%= TestedPage::Report.rapport_invalidites %>
+
+    <!-- RAPPORT DES PLUS GRANDES/PETITES FRÉQUENCES -->
+    <fieldset id="frequences">
+      <legend>Fréquence des appels</legend>
+      <%= TestedPage::Report.rapport_frequence %>
+    </fieldset>
+
+    <!-- RAPPORT COMPLET DES ROUTES -->
+    <fieldset id="data_routes">
+      <legend>Données de toutes les routes</legend>
+      <%= TestedPage::Report.data_all_routes %>
+    </fieldset>
+
+  </body>
+</html>

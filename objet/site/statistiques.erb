@@ -1,0 +1,10 @@
+<%
+# Vue pour voir les statistiques de l'atelier
+%>
+<h1>Présentation d’Icare</h1>
+<h2>L’atelier en chiffres</h2>
+<ul class="onglets">
+  <li><%= 'Présentation de l\'atelier'.in_a(href:'overview/home') %></li>
+</ul>
+
+<%= Atelier.statistiques.in_div(id: 'statistiques_atelier') %>

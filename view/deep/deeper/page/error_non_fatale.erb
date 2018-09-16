@@ -1,0 +1,8 @@
+<%
+# Page affichée lorsqu'on utilise raise NonFatalError, "le message d'erreur"
+# Noter que malgré son nom c'est bien le titre "Erreur fatale" qui
+# apparait. Pour le moment, c'est pour distinguer du fait que l'erreur
+# fatale produit une page vierge avec le message.
+%>
+<h1>Erreur non fatale</h1>
+<p class='warning main_error'><%= page.error.message %></p>

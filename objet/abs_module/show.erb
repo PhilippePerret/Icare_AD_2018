@@ -1,0 +1,22 @@
+<%
+# Aperçu d'un module
+
+def absmodule
+  @absmodule ||= AbsModule.new(site.current_route.objet_id || 1)
+end
+%>
+<%= AbsModule.titre_h1("Module “#{absmodule.name}”")%>
+
+<h4>Description courte</h4>
+<%= absmodule.short_description %>
+<% if absmodule.type_suivi? %>
+  <p>
+    Ce module est de type “suivi de projet”, c'est-à-dire qu'il propose un accompagnement sur la durée d'un projet personnel (projet de film ou de roman habituellement). Notez que cela change un point important quant au paiement qui se fait alors mensuellement (<span class='tarif'><%= absmodule.tarif %> € par mois</span> pour le présent module).
+  </p>
+<% else %>
+  <p>
+    C'est un module appelé “à durée déterminée”, c'est-à-dire qu'il se paie et qu'ensuite quelle que soit le temps que l'apprenti-auteur met pour l'achever, 2 mois, 4 mois (durée moyenne), 1 an parfois, le prix est fixe et payé une fois pour toutes, <span class='tarif'><%= absmodule.tarif %> €</span> pour le présent module.
+  </p>
+<% end %>
+<h4>Description détaillée</h4>
+<%= absmodule.long_description %>

@@ -1,0 +1,12 @@
+<% raise_unless_admin %>
+<% Admin.require_module 'paiements' %>
+<%
+# Les opérations doivent être traitées ici pour que tous
+# les modules soient chargés
+case param(:operation)
+when 'afficher'
+  Admin::Paiements.afficher
+end
+
+%>
+<%= Admin::Paiements.output %>

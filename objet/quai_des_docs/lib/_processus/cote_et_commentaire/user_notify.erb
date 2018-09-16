@@ -1,0 +1,51 @@
+<%
+# Notify pour l'user lui permettant de commenter et de coter un
+# document téléchargé.
+def menu_cote type
+  {
+    0 => '- non coté -',
+    5 => 'Indispensable',
+    4 => 'Très intéressant',
+    3 => 'Intéressant',
+    2 => 'Pour le coup d’œil',
+    1 => 'Sans intérêt'
+  }.collect do |n, titre|
+    [n,titre]
+  end.in_select(class: 'menucote', name: "document_#{type}[cote]", id: "document_#{type}_cote")
+end
+
+def table_deux_docs
+  visu_original = icdocument.has?(:original) ? 'visible' : 'hidden'
+  visu_original = "visibility:#{visu_original}"
+  visu_comments = icdocument.has?(:comments) ? 'visible' : 'hidden'
+  visu_comments = "visibility:#{visu_comments}"
+
+  <<-HTML
+<table style="width:100%;text-align:center;margin-top:0">
+  <tr>
+    <th class="center">ORIGINAL</th>
+    <th class="center">COMMENTAIRE</th>
+  </tr>
+  <tr>
+    <td style="#{visu_original}">#{menu_cote(:original)}</td>
+    <td style="#{visu_comments}">#{menu_cote(:comments)}</td>
+  </tr>
+  <tr>
+    <td colspan="2">Bon à noter :</td>
+  </tr>
+  <tr>
+    <td colspan="2"><textarea name="document_coms" id="document_coms"></textarea></td>
+  </tr>
+</table>
+  HTML
+end
+%>
+<%=
+  'Cote et commentaire'.in_legend +
+  form do
+    "Documents de <strong>#{auteur.pseudo}</strong>, #{icetape.designation}.".in_div +
+    table_deux_docs +
+    'Appliquer'.in_submit(class: 'btn').in_div(class: 'buttons')
+  end
+
+%>

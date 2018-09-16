@@ -1,0 +1,64 @@
+<%
+# Affichage d'une étape
+#
+# On ne peut afficher l'étape par ce biais si :
+#   - on est un administrateur
+#   - on est un icarien qui a suivi ou qui suit l'étape
+# On doit pouvoir retrouver une étape de deux manières :
+#   - à l'aide de son identifiant (s'il est défini)
+#   - à l'aide des paramètres `etmod` (ID du module absolu) et
+#     `etnum` (numéro de l'étape)
+#
+raise_unless_identified
+%>
+<%
+def abs_etape
+  @abs_etape ||= begin
+    if site.current_route.objet_id
+      AbsModule::AbsEtape.new( site.current_route.objet_id )
+    elsif param(:etmod) && param(:etnum)
+      module_id = param(:etmod).to_i
+      etape_num = param(:etnum).to_i
+      hetape = dbtable_absetapes.select(where:{module_id: module_id, numero: etape_num}, colonnes: []).first
+      if hetape
+        AbsModule::AbsEtape.new( hetape[:id] )
+      else
+        error "Impossible de trouver l'étape voulue…"
+        redirect_to :last_page
+      end
+    else
+      error "Impossible de trouver l'étape voulue…"
+      redirect_to :last_page
+    end
+  end
+end
+
+# Return true si l'user courant peut voir l'étape (cf. ci-dessus)
+def current_user_is_autorized?
+  user.admin? && (return true)
+  user.actif? && user.icetape.abs_etape.id == abs_etape.id && (return true)
+  user.id.nil? && (return false)
+  dbtable_icetapes.count(where:{user_id: user.id, abs_etape_id: abs_etape.id}) > 0
+end
+%>
+<% if current_user_is_autorized? %>
+
+  <%=
+    site.require_objet 'bureau'
+    Bureau.require_module 'section_current_work'
+    Bureau.abs_current= abs_etape
+    Bureau._section_current_work
+  %>
+
+
+<%
+
+  else
+    #
+    # Pour un user qui n'est pas autorisé à voir l'étape
+    #
+%>
+<p>
+  Malheureusement, vous n'êtes pas autorisé<%= user.f_e %> à consulter cette étape de travail. Vous ne pouvez consulter que celles que vous avez suivies ou que vous suivez actuellement.
+</p>
+<% end %>

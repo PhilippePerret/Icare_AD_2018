@@ -1,0 +1,144 @@
+<%
+raise_unless_admin
+%>
+
+<div class="titres">
+  <span id="titre_database" class="libelle">base</span>
+  <span id="titre_table" class="libelle">table</span>
+</div>
+
+<div>
+  <%
+  # Les deux menus base/table
+  %>
+  <%= Database.as_select %><%# select#database %>
+  <select id="database_table" size="10" onchange="$.proxy(Database,'onchoose_table')()"></select>
+  <%
+  # Cadre pour les boutons
+  %>
+  <div id="div_table_tools">
+    <% if OFFLINE %>
+      <%
+      # Note : c'est par Javascript qu'on récupère la valeur de ce checkbox
+      # et qu'on l'envoie par ajax dans la propriété 'online' qui est mise à
+      # 1 si c'est online et 0 dans le cas contraire.
+      %>
+      <%= 'ONLINE<span class="tiny"> (toutes les opérations se feront sur base distante)</span>'.in_checkbox(name: 'cb_online', id: 'cb_online')%>
+    <% end %>
+    <fieldset>
+      <%= 'Afficher le contenu'.in_a(id: 'btn_afficher_content', class: 'action', onclick: "$.proxy(Database,'set_op_and_submit', 'show_table_content')()") %>
+      <%= '?'.in_a(onclick: "$.proxy(Database,'aide','explication_affiche_contenu')()")%>
+      <div id="div_request_filter">
+        <%= (''.in_input_text(id: 'request_filter', class: 'console', placeholder: 'Clause where ou :id', onchange: "$.proxy(Database,'on_change_filter')()")).in_div %>
+        <%= (''.in_input_text(id: 'request_columns', class: 'console', placeholder: 'colonne 1, colonne 2, ... colonne N')).in_div %>
+      </div>
+      <%= page.html_separator(20)%>
+      <div>
+        <%= [['d2l', 'distant → local'], ['l2d', 'local → distant']].in_select(id: 'sens_synchro') %>
+        <%= 'Synchroniser'.in_a(class: 'action', onclick: "$.proxy(Database,'set_op_and_submit', 'synchronize')()") %>
+        <%= '?'.in_a(onclick: "$.proxy(Database,'aide','explication_synchronisation')()")%>
+      </div>
+    </fieldset>
+  </div>
+</div>
+<div class="right">
+<%= 'Outils'.in_a(onclick:"$('div#div_db_tools').toggle()", class: 'small') %>
+<%= 'Manuel'.in_a(onclick:"$('div#manuel').toggle()", class: 'small') %>
+</div>
+
+
+<div id="div_db_tools" style="display:none">
+  <fieldset>
+    <legend>Outils</legend>
+    <div class="tiny">
+      Choisissez une table pour voir la liste des outils.
+    </div>
+    <div id="div_autres_boutons">
+      <%= 'Compare table online/offline'.in_a(class: 'action', onclick: "$.proxy(Database, 'set_op_and_submit', 'compare_online_offline')()") %>
+      <%= 'Vider (et reset ID)'.in_a(class: 'action warning', onclick: "$.proxy(Database,'want_empty_table')()") %>
+      <%= 'Détruire'.in_a(class: 'action warning', onclick: "$.proxy(Database,'want_drop_table')()") %>
+    </div>
+    <div id="div_db_request">
+      <%= ''.in_input_text(id: 'database_request', class: 'console') %>
+      <%= 'EXEC'.in_a(id: 'btn_db_request', onclick: "$.proxy(Database,'set_op_and_submit', 'exec_db_request')()") %>
+      <%= '?'.in_a(onclick: "$.proxy(Database,'aide','explication_exec')()")%>
+      <%= 'Pure MySQL code (sinon, handy methods, p.e. <code>delete(where:{id: 12})</code>)'.in_checkbox(id: 'cb_pure_mysql_code', class: 'tiny').in_div %>
+    </div>
+
+  </fieldset>
+</div>
+
+
+<%
+# ---------------------------------------------------------------------
+#   POUR LES RÉSULTATS DES OPÉRATIONS
+# ---------------------------------------------------------------------
+%>
+<h4>Résultat de la requête</h4>
+<pre id="mysql_result"></pre>
+
+<%
+# ---------------------------------------------------------------------
+%>
+<div id="manuel" style="display:none;">
+<h4>Manuel</h4>
+<p>
+  Cette section permet d'exécuter des opérations sur les bases de données permettant de traitées les données.
+</p>
+<p>Fonctionnement général :</p>
+<ul>
+  <li>On choisit la base de données dans le premier menu,</li>
+  <li>On choisit la table dans le second menu (les tables de la base choisie sont automatiquement affichées),</li>
+  <li>On écrit le code à exécuter sur la table choisie.</li>
+</ul>
+<p>
+  Par exemple :
+</p>
+<ul>
+  <li>On choisit la base <code>hot</code>,</li>
+  <li>On choisit la table <code>actualites</code>,</li>
+  <li>On écrit le code : <code>select(where:{user_id: 12})</code>,</li>
+  <li>On clique le bouton “EXEC”.</li>
+</ul>
+<p>
+  => Cela affiche toutes les actualités qui concerne l'user d'identifiant #12.
+</p>
+
+<a name="explication_affiche_contenu"></a>
+<h5>Affichage du contenu de la table</h5>
+<p>
+  En cliquant sur “Afficher le contenu” après avoir sélectionné une table, on peut afficher tout le contenu d'une table.
+</p>
+<p>
+  Mais pour un affichage plus ciblé, on peut utiliser les champs “where” et “columns” :
+</p>
+<ul>
+  <li>Le champ “where” permet de filtrer les données en définissant une WHERE CLAUSE. Par exemple <code>{user_id: 12}</code> ou <code>"created_at > #{Time.now.to_i}"</code>. Noter que cette valeur sera évaluée, donc qu'il est impératif de mettre des guillemets pour les chaines ;</li>
+  <li>Mais <strong>plus fort encore</strong>, si le champ WHERE CLAUSE contient seulement un nombre, il est considéré comme l'ID d'une rangée qui peut être mise en édition : toutes ses valeurs sont transformées en champ d'édition (ou seulement les colonnes voulues), on peut ensuite les modifier et les enregistrer ;</li>
+  <li>Le champ “columns” permet de définir les seules colonnes à afficher. Par exemple <code>id, user_id, SUBSTRING(options,16,1) as state</code>.</li>
+</ul>
+
+<a name="explication_synchronisation"></a>
+<h5>Synchronisation</h5>
+
+<p>
+  Cet outil permet de synchroniser les bases locales et distantes, dans le sens qu'on veut. Il suffit de le choisir dans le menu à gauche du bouton d'action.
+</p>
+<p>
+  Cette synchronisation peut être très précise car elle partage avec l'affichage les définitions de la WHERE CLAUSE et des COLONNES.
+</p>
+<p>
+  Pour les colonnes, si elles sont définies, seules ces colonnes seront synchronisées, les autres valeurs resteront intactes.
+</p>
+
+
+<a name="explication_exec"></a>
+<h5>Exécution de code</h5>
+<p>
+  On peut exécuter du code sur la table sélectionnée en utilisant le champ d'édition à côté du bouton “EXEC”.
+</p>
+<p>
+  Ce code peut être du code MYSQL “pur”, mais on peut utiliser les méthodes pratiques habituelles, telles que <code>select(where: {user_id: 15}, colonnes: [:titre, :options])</code> ou <code>count(where:"created_at > #{Time.now.to_i}")</code> (noter l'emploi de #{...} puisqu'on est dans des strings) ou encore <code>insert(created_at: NOW, updated_at: NOW)</code> (noter que c'est du pur code ruby). Ce code s'applique toujours à la table courante, la table ne doit pas être spécifiée dans le code.
+</p>
+
+</div>

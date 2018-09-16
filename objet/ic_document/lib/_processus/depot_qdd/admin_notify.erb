@@ -1,0 +1,26 @@
+<%
+# Notification formulaire permettant à l'administrateur de
+# télécharger les documents fournis sur le QQD
+%>
+<%
+# On retourne le champ pour le document original (toujours) ou pour
+# le document commentaires (s'il existe)
+def div_input_file type = :original
+  type == :original || icdocument.has?(:comments) || (return '')
+  (
+    ((type == :original ? 'Original' : 'Commentaires') + ' : ').in_span(class: 'fleft') +
+    (''.in_input_file(name: "document[#{type}]", id: "document_#{type}-#{icdocument.id}")).in_span
+  ).in_div(class: 'right')
+end
+%>
+<%=
+
+  'Dépôt Quai des docs'.in_legend +
+  form(file: true) do
+    "Document ##{icdocument.id} de l’#{icetape.designation} : <strong>#{icdocument.original_name}</strong> (<strong>#{owner.pseudo}</strong> ##{owner.id})".in_div +
+    div_input_file(:original) +
+    div_input_file(:comments) +
+    'Déposer'.in_submit.in_div(class: 'buttons')
+  end
+
+%>

@@ -1,0 +1,22 @@
+<%
+# On rejoint cette section lorsque l'on est déjà icarien et que l'on
+# veut postuler pour un module.
+# Cela enregistre la demande qui me sera transmise.
+raise_unless_identified
+%>
+<%= AbsModule.titre_h1('Postuler') %>
+<div class="air">
+  <p>
+    <%= user.pseudo %>, vous venez de postuler pour le module “<%= absmodule.name %>” et nous vous remercions de votre confiance.
+  </p>
+  <p>
+    La requête a été transmise à Phil qui vous informera très rapidement de la réponse donnée à votre demande en fonction des disponibilités de l'atelier.
+  </p>
+  <p>
+    En vous remerciant encore de votre confiance,
+  </p>
+  <p>
+    Le Bot dévoué de l'atelier Icare.
+  </p>
+
+</div>

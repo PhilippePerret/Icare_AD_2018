@@ -1,0 +1,12 @@
+<%
+# Aperçu des icariens
+#
+# Portion de calendier qui affiche les démarrages d'étape, les rendus
+# de travaux, les prochains paiements etc.
+#
+raise_unless_admin
+Admin.require_module 'overview'
+%>
+<%= Admin.titre_h1('Calendrier')%>
+
+<%= Admin::Overview.display %>

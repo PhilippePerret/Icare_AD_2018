@@ -1,0 +1,32 @@
+<%
+# Vue partielle à afficher lorsque le paiement a été effectué avec succès
+%>
+<div class="grand_cadre_rond">
+
+  <h1>MERCI, <%= user.pseudo %> ! :-D</h1>
+  <p>Votre paiement a été enregistré avec succès, et nous vous en remercions autant que nous vous en félicitons. ;-)</p>
+  <p class='small'>
+    À présent que vous êtes abonné<%= f_e %> pour un an aux outils du site, vous pouvez :
+    <ul>
+      <li>Consulter l'intégralité des cours de la <%= lien.cnarration("collection Narration") %> ;</li>
+      <li>Consulter l'intégralité des <%= lien.analyses_de_films %> ;</li>
+      <li>Utiliser le <%= "calculateur de structure".in_a(href: 'calculateur/main') %> ;</li>
+      <li>Participer activement au <%= lien.forum_de_discussion %> ;</li>
+      <li>Faire tous les <%= 'quiz'.in_a(href: "quiz/show") %> ;</li>
+      <li>Vous inscrire au <%= lien.unanunscript %> ;</li>
+      <li>… et <%= lien.outils "bien plus encore" %> !</li>
+    </ul>
+  </p>
+  <p class='small'>Vous pouvez à présent retrouver tous ces outils dans votre marge gauche en la survolant lorsque vous êtes identifié<%= f_e %>.</p>
+
+  <h3>Facture</h3>
+  <p>Une facture vous a été expédiée à votre adresse mail : </p>
+  <div style="background-color:#CCC;padding:1em">
+    <%= site.paiement.facture %>
+  </div>
+
+  <h3>Profitez !</h3>
+  <p>
+    Il ne nous reste plus qu'à vous souhaiter de profiter au mieux des nombreuses ressources de <em>La Boite à Outils de l'Auteur</em>, afin que vos travaux d'écriture soient justement à la <em>Auteur</em> (sic) de ce que vous en espérez !
+  </p>
+</div>

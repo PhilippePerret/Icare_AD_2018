@@ -1,0 +1,17 @@
+<%
+# Page affichée lorsque la vue ou le module est protégé par la méthode
+# `raise_unless_admin`
+%>
+<section id="content">
+<h1>Erreur</h1>
+<div class="air">
+  <p class='warning main_error'><%= page.error_message %></p>
+  <% if user.admin? %>
+    <div style='font-family:Courier;font-size:13pt;'>
+    <%= page.error_backtrace %>
+    </div>
+  <% else %>
+    <% debug page.error_backtrace %>
+  <% end %>
+</div>
+</section>

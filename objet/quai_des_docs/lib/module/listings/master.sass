@@ -1,0 +1,81 @@
+
+// Une liste contenant les documents qu'on obtient
+// par la méthode QuaiDesDocs.as_ul(...)
+/**
+  * Tous les styles pour les formulaires de download et autre
+  */
+form.download, .like_form_download
+  border            : 3px solid purple
+  padding           : 8px 38px 8px 8px
+  background-color  : #779
+  color             : white
+  font-size         : 13.7pt
+
+.like_form_download
+  padding-bottom    : 32px
+  
+div.doc_auteur
+  float       : right
+  font-style  : italic
+
+/* Formulaire pour télécharger tous les documents de l'étape */
+form#qdd_all_documents
+  float         : right
+  width         : 260px
+  margin        : 0 0 4em 4em
+
+form#qdd_all_documents > div
+  display         : inline-block
+  vertical-align  : sub
+
+form.download, .like_form_download
+  img.doc_img, img.download
+    float: left
+    vertical-align  : middle
+    margin-right    : 1em
+  /* Div contenant un seul document */
+  div.doc_div
+    clear: both
+
+
+div.doc_div img.doc_img
+  width: 24px
+
+
+ul.qdd_documents
+  clear: both
+
+  li.li_doc_qdd
+    display   : block
+    float     : left
+    overflow  : hidden
+    width     : 90%
+
+    form.download, .like_form_download
+      width   : auto // 320px
+
+  // Bloc d'infos du document (module, étape, …) dans l'affichage
+  // complet.
+  div.bloc_infos
+    font-size     : 0.9em
+    border-width  : 0 2px 1px !important
+    border-color  : #777
+    border-style  : solid
+    padding       : 0 1em
+
+  // Formulaire de partage du document et formulaire de cote
+  div.partage_form, div.cotage_form
+    border-width  : 0 2px 2px 2px !important
+    border-color  : #777
+    border-style  : solid
+    font-size     : 0.9em
+    form
+      width : 92%
+      textarea
+        width             : 98%
+        background-color  : white !important
+  div.cotage_form
+    &.deja_lu, &.deja_lu *
+      background-color      : #DFD !important
+      input[type="submit"]
+        background-color    : white !important

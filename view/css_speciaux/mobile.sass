@@ -1,0 +1,55 @@
+body
+  margin  : 0
+  padding : 0
+  section
+    &#header, &#left_margin, &#footer
+      position      : relative
+  section#header
+    height      : auto
+    div#signinupout_buttons
+      position      : relative
+      display       : block
+      top           : auto
+      left          : auto
+      width         : auto
+      text-align    : left
+      margin-top    : 1em
+      a
+        margin-right  : 4em
+  section#content
+    margin-left   : 0
+    padding-left  : 0
+    margin    : 1em // !important
+    width     : 90% !important
+    div.separation
+      display     : none
+    div, form
+      display     : block
+      // position    : relative
+      position    : static !important
+      float       : none !important
+      width       : 90% !important
+      margin      : 0 !important
+      height      : auto
+      &#presentation_phil
+        height      : auto
+      &#boutons_icariens
+        clear       : both
+        *
+          font-size   : 1.2em !important
+        > div
+          margin-bottom   : 2em !important
+
+  section#footer
+    div#footer_content
+      margin          : 0
+      padding-top     : 1em
+      padding-bottom  : 4em
+      text-align      : left
+      margin-left     : 10%
+      a
+        font-size   : 20pt
+  // Div à ne jamais afficher en mobile
+  div
+    &#div_permanent_link, &#btns_admin_footer
+      display   : none

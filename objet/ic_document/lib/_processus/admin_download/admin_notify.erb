@@ -1,0 +1,23 @@
+<%
+# Notification administrateur pour charger un document envoyé
+# par un icarien sur une étape.
+%>
+<%
+  note_estimative =
+    if icdocument.cote_original.nil?
+      # <= document de présentation
+      '---'
+    else
+      "#{'%.2f' % (icdocument.cote_original * 10)} / 20"
+    end
+%>
+<%=
+
+  "Download #{icdocument.original_name}".in_legend +
+  form do
+    "(#{icdocument.designation})".in_div +
+    "Note estimative de #{icdocument.owner.pseudo} : #{note_estimative}".in_div +
+    'Télécharger'.in_submit(class: '').in_div(class: 'buttons')
+  end
+
+%>

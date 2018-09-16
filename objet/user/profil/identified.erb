@@ -1,0 +1,111 @@
+<%
+# Vue pour un user identifié et/ou administrateur
+%>
+<h1><%= user.id == id ? "Votre profil" : "Profil de #{pseudo}" %></h1>
+<%
+def div_row libelle, value, options = nil
+  options ||= Hash.new
+  options.merge!(class:'row')
+  (
+    libelle.in_span(class:'libelle') +
+    value.in_span(class:'value')
+  ).in_div(options)
+end
+def lien_modifier_mdp
+  @lien_modifier_mdp ||= 'Modifier le mot de passe'.in_a(href:'user/change_mdp')
+end
+%>
+
+<h3>Identité</h3>
+
+<div class="dim3070">
+  <%= div_row('Pseudo'        , pseudo ) %>
+  <%= div_row('Inscription'   , created_at.as_human_date(true, true) ) %>
+  <%
+    grade_user =
+      case true
+      when user.admin?    then "Administra#{f_trice} de niveau #{get_option(:admin)}"
+      when !user.recu?    then "Candidat#{f_e} icarien"
+      when user.alessai?  then "Icarien#{f_ne} à l'essai"
+      else "Vrai#{f_e} icarien#{f_ne}"
+      end
+  %>
+  <%= div_row('Grade site', grade_user) %>
+  <%= div_row('Mot de passe', lien_modifier_mdp) %>
+  <%= div_row('Session ID'    , session_id, {class:'small'} ) %>
+</div>
+
+<%
+# ---------------------------------------------------------------------
+#   PRÉFÉRENCES
+# ---------------------------------------------------------------------
+
+# Choix de la fréquence d'envoi des mails
+def menu_mail_updates
+  [
+    ['0', 'tous les jours'],
+    ['2', 'une fois par semaine'],
+    ['1', 'jamais']
+  ].in_select(name:'prefs[mail_updates]', id: 'prefs_mail_updates', class: 'inline', selected: user.pref_mails_activites )
+end
+
+# Choix de la redirection après l'identification
+def menu_goto_after_signin
+  liste_goto_after_signin.
+    in_select(
+      name:   'prefs[goto_after_login]',
+      id:     'prefs_goto_after_login',
+      class:  'inline',
+      selected: user.pref_goto_after_login # cf. user/options.rb
+      )
+end
+
+def menu_contact
+  menu_contact_for 'contact_mail', user.pref_type_contact
+end
+def menu_contact_world
+  menu_contact_for 'contact_mail_world', user.pref_type_contact_world
+end
+
+def menu_contact_for key, selected
+  [
+    ['0', 'par message et par mail'],
+    ['1', 'par message seulement'],
+    ['2', 'par mail seulement'],
+    ['8', 'aucun contact']
+  ].in_select(id: "prefs_#{key}", name: "prefs[#{key}]", class: 'inline', selected: selected.to_s)
+end
+
+# Les lignes des préférences user
+def lipref libelle, menu, aide_id
+  (
+    libelle.in_span(class: 'lib') +
+    menu.in_span(class: 'menu') +
+    lien.aide(aide_id).in_span(class: 'aide')
+  ).in_div(class: 'lipref')
+end
+form_prefs =
+  (
+    'save_preferences'.in_hidden(name:'operation') +
+    (
+      lipref('Recevoir le mail des dernières actualités', menu_mail_updates, 4) +
+      lipref('Après l’identification, rejoindre la page', menu_goto_after_signin, 1) +
+      lipref('Contact avec les icariens et icariennes', menu_contact, 5) +
+      lipref('Contact avec le reste du monde', menu_contact_world, 6)
+    ).in_div(id: 'liste_preferences') +
+    "Enregistrer".in_submit(class: 'btn small discret').in_div(class: 'buttons')
+  ).in_form(id: 'form_preferences', action: "user/#{user.id}/profil")
+%>
+<%= ("Préférences".in_legend + form_prefs).in_fieldset(id: 'preferences') %>
+
+<% if user.admin? %><%= sous_vue('admin') %><% end %>
+
+
+<%
+# ------------- DESTRUCTION DU COMPTE ---------------
+%>
+<h3>Destruction du compte</h3>
+
+<div class="right air air">
+  <%= "Détruire le compte".in_a(href:"user/#{id}/destroy", class:'btn warning discret') %>
+</div>

@@ -1,0 +1,34 @@
+<%
+# HOME PAGE DU SITE
+#
+# La construction de la page se fait dans :
+# ./objet/site/lib/module/home_page/build.rb
+%>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-5">
+      <%= './objet/site/lib/module/home/atelier.erb'.deserb %>
+    </div>
+    <div class="col-md-7">
+      <div class="row">
+        <%= './objet/site/lib/module/home/boutons.erb'.deserb %>
+      </div>
+      <div class="row">
+        <%= './objet/site/lib/module/home/phil.erb'.deserb %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <%= './objet/site/lib/module/home/citation.erb'.deserb %>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= Home.frequently_asked_questions %>
+    </div>
+    <div class="col">
+      <%= Home.bloc_dernieres_activites %>
+    </div>
+  </div>
+</div>

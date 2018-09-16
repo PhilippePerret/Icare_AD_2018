@@ -1,0 +1,19 @@
+<%
+# Mail d'avertissement de niveau 1 lorsque l'échéance est
+# dépassé
+def jours_depassement
+  (NOW - user.icetape.expected_end)/1.day
+end
+%>
+<p><%= user.pseudo %>,</p>
+<p>
+  Ceci est le 4<sup>e</sup> avertissement concernant votre dépassement d'échéance de travail, qui s'élève aujourd'hui à <%= jours_depassement %> jours !
+</p>
+<p>
+  Nous allons bientôt être obligés de considérer, malheureusement, que vous êtes démissionnaire à l'atelier…
+</p>
+<p>
+  Pour votre information, la prochaine alerte sera votre dernière chance de modifier encore votre échéance ou de remettre votre travail.
+</p>
+<p>Cordialement,</p>
+<!-- AVERTISSEMENT ECHEANCE ETAPE 4 -->

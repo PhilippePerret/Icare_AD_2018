@@ -1,0 +1,90 @@
+<%
+# Formulaire de recherche de documents
+%>
+
+<%
+def icariens
+  @icariens ||= begin
+    drequest = {
+      where: "SUBSTRING(options,4,1) != '1'",
+      order: "LOWER(pseudo) ASC",
+      colonnes: [:pseudo]
+    }
+    dbtable_users.select(drequest).collect do |huser|
+      [huser[:id], huser[:pseudo].capitalize]
+    end
+  end
+end
+def modules
+  @modules ||= begin
+    dbtable_absmodules.select(colonnes: [:name]).collect do |hmod|
+      [hmod[:id], hmod[:name]]
+    end
+  end
+end
+def etapes
+  @etapes ||= begin
+    if param(:qdd) && param(:qdd)[:cb_module_id] == 'on'
+      drequest = {
+        where: "module_id = #{param(:qdd)[:module_id]}",
+        order: 'numero ASC',
+        colonnes: [:numero, :titre]
+      }
+      dbtable_absetapes.select(drequest).collect do |hetape|
+        [hetape[:id], "#{hetape[:numero]} : #{hetape[:titre]}"]
+      end
+    else
+      ''
+    end
+  end
+end
+
+def values_annees
+  @values_annees ||= begin
+    (2005..Time.now.year).to_a.reverse.collect do |annee|
+      [annee, annee]
+    end
+  end
+end
+def values_trimestres
+  @values_trimestres ||= begin
+    [
+      [1, "1 - Janvier à Mars"],
+      [2, "2 - Avril à Juin"],
+      [3, "3 - Juillet à Septembre"],
+      [4, "4 - Octobre à Décembre"]]
+  end
+end
+
+def ligne_form_qdd titre, prop_id, values, options = nil
+  checked = QuaiDesDocs.filtre["cb_#{prop_id}".to_sym] == 'on'
+  (
+    titre.in_checkbox(name: "qdd[cb_#{prop_id}]", id: "qdd_cb_#{prop_id}", checked: checked).in_span(class: 'tit') +
+    values.in_select(
+      name:       "qdd[#{prop_id}]",
+      id:         "qdd_#{prop_id}",
+      class:      'inline',
+      onchange:   "$.proxy(QuaiDesDocs,'onchoose_#{prop_id}')()",
+      selected:   QuaiDesDocs.filtre[prop_id.to_sym].to_i
+    ).in_span(class: 'values')
+  ).in_div(class: 'row')
+end
+%>
+<%
+site.require 'form_tools'
+form.prefix = 'qdd'
+%>
+<fieldset id="fs_form_qdd">
+  <legend class='libelle'>Filtre documents </legend>
+  <form id="form_qdd" class="dim3070" action="quai_des_docs/search" method="POST">
+    <%= 'search_qdd'.in_hidden(name: 'operation') %>
+    <%= ligne_form_qdd('Auteur des documents', 'user_id', icariens) %>
+    <%= ligne_form_qdd('Module d’apprentissage', 'module_id', modules) %>
+    <%= ligne_form_qdd('Étape d’apprentissage', 'etape_id', etapes) %>
+    <%= ligne_form_qdd('Année', 'annee', values_annees) %>
+    <%= ligne_form_qdd('Trimestre', 'trimestre', values_trimestres) %>
+    <%= page.html_separator(20) %>
+    <%= form.submit_button('Chercher les documents') %>
+  </form>
+</fieldset>
+<%= QuaiDesDocs.resultat %>

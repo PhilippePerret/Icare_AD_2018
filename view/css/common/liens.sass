@@ -1,0 +1,83 @@
+@import 'charte'
+
+*[onclick]
+  cursor        : pointer
+
+a, a:hover, a:link, a:visited
+  text-decoration       : none
+  font-weight           : normal
+
+  &.fond
+    color               : $darkcharte !important
+  &.warning
+    color               : red !important
+  &.strong
+    font-weight : bold !important
+
+// Pour les liens sous forme de gros titre avec une première lettre
+// différente comme les liens principaux sur Boite Outils Auteur
+span.first_letter_main_link
+  font-size       : large
+  color           : $darkcharte
+  font-weight     : bold
+span.other_letters_main_link
+  font-size       : large
+  color           : #87D54D
+  font-weight     : bold
+
+a.mainlink
+  &.current
+    opacity        : 0.2
+  &:hover
+    text-decoration   : underline
+
+flash
+  div.messages
+    a
+      color     : #8fa07f
+  div.errors
+    a
+      color     : white
+strong
+  a
+    font-weight : bold
+
+// Deux liens qui se suivent doivent toujours être séparés
+// NON : ÇA DÉCALE TROP LA MISE EN PAGE À PLEIN D'ENDROIT
+// a + a
+//   margin-left   : 0.3em
+
+// Pour hériter de tous les styles supérieurs
+// Mis ici pour les <a> mais peut fonctionner pour n'importe quel
+// élément DOM
+.inherit, .inherit:link, .inherit:visited, .inherit:hover
+  font-size         : inherit !important
+  font-family       : inherit !important
+  font-style        : inherit !important
+  font-weight       : inherit !important
+  color             : inherit !important
+  background-color  : inherit !important
+
+// Le lien du point d'interrogation pour l'aide ou information
+a.lkaide
+  margin          : 0 0.5em 0 0
+  vertical-align  : middle
+
+// Dans la section contenu, on met les liens en orange, sauf pour
+// les onglets
+div#content
+  a
+    &:link, &:visited, &:hover
+      &:not(.btn) // sauf pour les boutons
+        color     : #ee9405 // à peine plus foncé que orange
+  // Les liens en gras
+  .bold, strong
+    a
+      color       : #ce7410 !important
+      font-weight : bold !important
+
+  // Les sections qui ne doivent pas avoir de liens en orange
+  ul.onglets, ul.tdm_in_page
+    a
+      &:link, &:visited, &:hover
+        color     : black

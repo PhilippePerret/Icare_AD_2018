@@ -1,0 +1,79 @@
+<%
+# Actualisation de la sitemap
+raise_unless_admin
+%>
+<h1>Sitemap</h1>
+<p>
+  Site map actualisée.
+</p>
+<p>
+  Nombre d'URLs : <%= sitemap.nombre_total_urls %>
+  <% if sitemap.nombre_total_urls > SiteMap::MAX_URLS %>
+    <div class="warning">
+      Attention ! Le nombre maximum d'URLs est de <%= SiteMap::MAX_URLS %> !
+    </div>
+  <% else %>
+    (nombre max : <%= SiteMap::MAX_URLS %>)
+  <% end %>
+</p>
+<p>
+  Taille du fichier : <%= sitemap.path.size %>
+  <% if sitemap.path.size > SiteMap::MAX_FILE_SIZE %>
+    <div class="warning">
+      Attention ! La taille ne devrait pas excéder <%= SiteMap::MAX_FILE_SIZE %>octets !
+    </div>
+  <% end %>
+</p>
+<h4><%= 'Code du fichier produit'.in_a(onclick: "$('pre#code_xml_sitemap').toggle()") %></h4>
+<pre id='code_xml_sitemap' class='small' style='display:none'>
+<%= SiteMap.instance.path.read.gsub(/</,'&lt;') %>
+</pre>
+
+<h4>Aide</h4>
+<pre class='small'>
+  AIDE POUR LA CONSTITUTION DU FICHIER sitemap.yaml
+  =================================================
+
+  Pour indiquer l'url :
+  ---------------------
+
+    :url:     ./relative/url
+    # Le site.distant_url sera ajouté au début
+
+    :url:     http://mon/url
+    # L'url sera utilisée telle quelle
+
+  Si c'est une collection de page
+  -------------------------------
+
+      :collection: au lieu de :url: et mettre _ID_ à l'endroit où il faut
+      ajouter l'identifiant de la collection.
+      Par exemple : page/_ID_/show?in=cnarration
+      :from:  Le premier nombre
+      :to:    Le dernier nombre
+
+  Pour indiquer la date de dernière modification
+  ----------------------------------------------
+
+  :lastmod:
+
+      Différents formats sont possibles :
+
+      1/ Une date inversée :    YYYY-MM-DD
+      2/ Un fichier dont on prendre la date : ./mon/fichier.txt (doit
+         absolument commencer par un './')
+      3/ false => pas de date de modification
+      4/ true  => C'est la date de l'url qui sera prise en compte
+
+  Pour indiquer une vidéo
+  -----------------------
+
+      :url:           Route de la page, comme toute autre page
+      :video_loc:     Adresse YouTube (ou autre) de la vidéo. C'est la présence
+                      de cette donnée qui détermine qu'il y a une vidéo à
+                      cette location.
+      :video_title:   Le titre de la vidéo
+      :video_description:   Description de la vidéo.
+      :video_thumbnail:     URL de la vignette de la vidéo.
+      
+</pre>

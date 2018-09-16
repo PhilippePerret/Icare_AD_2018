@@ -1,0 +1,17 @@
+<%
+# Mail envoyé à l'icarien en cas d'acceptation de son module.
+
+self.subject_mail = 'Un module vous a été attribué'
+%>
+<p>
+  Bonjour, <%= owner.pseudo %>,
+</p>
+<p>
+  J'ai le plaisir de vous annoncer que le module “<%= absmodule.name %>” vient de vous être réservé à l'atelier Icare.
+</p>
+<p>
+  Vous pouvez le démarrer dès que vous êtes prêt<%= owner.f_e %> en rejoignant <%= lien.bureau('votre bureau', online: true) %>.
+</p>
+<p>
+  Et bonne chance, courage et inspiration pour ce nouveau module de travail !
+</p>

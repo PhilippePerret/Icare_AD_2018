@@ -1,0 +1,19 @@
+<%
+# Mail d'avertissement de niveau 1 lorsque l'échéance est
+# dépassé
+def jours_depassement
+  (NOW - user.icetape.expected_end)/1.day
+end
+%>
+<p><%= user.pseudo %>,</p>
+<p>
+  Un troisième avertissement pour vous informer que vous êtes aujourd'hui en dépassement d'échéance de <%= jours_depassement %> jours concernant votre travail sur l'étape <%= icetape.abs_etape.numero %> de votre module <%= icmodule.abs_module.name %>.
+</p>
+<p>
+  Si vous avez le moindre souci concernant ce travail, n'hésitez surtout pas à <%= lien.contact('en parler avec Phil') %>. Il pourrait par exemple mettre votre module en pause.
+</p>
+<p>
+  Dans le cas contraire, merci de remettre au plus tôt vos documents de travail ou de modifier votre échéance par le biais de <%= lien.bureau('votre bureau') %>.
+</p>
+<p>Bien cordialement,</p>
+<!-- AVERTISSEMENT ECHEANCE ETAPE 3 -->

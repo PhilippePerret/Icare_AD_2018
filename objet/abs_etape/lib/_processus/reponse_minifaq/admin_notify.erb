@@ -1,0 +1,28 @@
+<%
+# Formulaire administrateur pour répondre à une question mini-faq
+raise_unless_admin
+
+%>
+
+<%
+menu_destination = [
+  ['rep', 'Répondre pour la mini-faq'],
+  ['ica', 'Répondre seulement à l’auteur'],
+  ['not', 'Détruire la question']
+].in_select(name: 'minifaq[destination]', id: 'minifaq_destination')
+
+lien_etape = 'voir l’étape'.in_a(href:"abs_etape/#{absetape.id}/show", target: :new)
+
+%>
+<%=
+
+  form do
+    "Question de : #{owner.pseudo} (##{owner.id}) (#{lien_etape}):".in_div +
+    question.to_html.in_div(class: 'question bold') +
+    "Réponse (code ERB — HTML + évaluation)".in_div +
+    ''.in_textarea(name: 'minifaq[reponse]', id: 'minifaq_reponse') +
+    menu_destination +
+    'OK'.in_submit.in_div(class: 'buttons')
+  end
+
+%>

@@ -1,0 +1,70 @@
+<%
+# Notification pour permet à l'icarien de transmettre ses documents.
+%>
+
+<%=
+
+# Le champ pour choisir le fichier ou le champ hidden avec l'ID du
+# icdocument dans le cas où l'user a oublié de donner la note d'estimation
+def input_file idocument, icdoc_id = nil
+  if icdoc_id.nil?
+    ''.in_input_file(name: "work[document#{idocument}][file]", id: "work_document#{idocument}_file")
+  else
+    icdoc_name = dbtable_icdocuments.get(icdoc_id)[:original_name]
+    "Merci de définir la note estimative à attribuer à votre document “#{icdoc_name}” :".in_div(class: 'red') +
+    icdoc_id.in_hidden(name: "work[document#{idocument}][icdocument_id]", id: "work_document#{idocument}_icdocument_id")
+  end
+end
+def menu_note idocument
+  (
+    'Votre propre estimation du document : '.in_span(class: 'tiny') +
+    (0..20).collect{|n| [n, "#{n}/20"]}.in_select(name: "work[document#{idocument}][estimation]", id: "work_document#{idocument}_estimation", selected: param_work_document(idocument)[:estimation].to_i) +
+    lien.aide(10, class: 'tied_h')
+  ).in_div(class: 'right tied_v')
+end
+def param_work_document(idocument)
+  @param_work_documents ||= param(:work) || Hash.new
+  @param_work_documents["document#{idocument}".to_sym] || Hash.new
+end
+
+  # Le formulaire pour transmettre 3 documents
+  @send_work_error = get_send_work_error
+  debug "[user_notify] @send_work_error : #{@send_work_error.inspect}"
+
+  'Envoi du travail'.in_legend +
+  form(file: true) do
+    'Vous pouvez envoyer jusqu’à 5 documents de travail. Cliquez sur le bouton “ + ” pour ajouter des champs.'.in_div(class: 'italic action') +
+    (1..5).collect do |idocument|
+      # Si l'user a déjà soumis le formulaire avec insuccès, le paramètre
+      # :send_work_error contient les documents qui ont été enregistrés mais
+      # dont il faut définir la note (seule erreur possible quand il y a des
+      # document). Si c'est le cas, on a enregistré le document et on demande
+      # juste à l'icarien de donner la note.
+      #
+      # La donnée :send_work_error
+      #   send_work_error => {
+      #     <indice doc 1 à 5> => {
+      #       :note_indefined       true/false
+      #       :id                   ID dans la table
+      #       :name                 Nom original (corrigé)
+      #     }
+      #   }
+      data_icdoc = @send_work_error[idocument] # => ID du icdocument erroné || nil
+      if data_icdoc.nil? || data_icdoc[:note_undefined]
+        icdoc_id = data_icdoc.nil? ? nil : data_icdoc[:id]
+        masked   = !!data_icdoc.nil?
+        (input_file(idocument, icdoc_id) + menu_note(idocument)).in_div(class: "document_work#{masked ? ' masked' : ''}", id: "form_work_file_#{idocument}")
+      else
+        # Si c'est un document qui n'a pas connu d'erreur, on l'a enregistré et
+        # on l'affiche seulement pour que l'user puisse savoir que ce document
+        # a bien été pris en compte.
+        "Document OK : #{data_icdoc[:name]}".in_p
+      end
+    end.join +
+    (
+      '+'.in_a(onclick: "Bureau.add_work_field()", class: 'fleft plus_moins_button', style: 'color: white!important') +
+      'Envoyer le travail'.in_submit(id: 'btn_send_work', class: "btn#{@send_work_error.empty? ? ' invisible' : ''}")
+    ).in_div(class: 'buttons')
+  end
+
+%>

@@ -1,0 +1,16 @@
+<%
+# Mail d'avertissement de niveau 1 lorsque l'échéance est
+# dépassé
+def jours_depassement
+  (NOW - user.icetape.expected_end)/1.day
+end
+%>
+<p><%= user.pseudo %>,</p>
+<p>
+  Un simple message pour vous informer que votre échéance de travail sur l'atelier icare est dépassée de <%= jours_depassement %> jours.
+</p>
+<p>
+  Pour y remédier, deux solutions s'offrent à vous : <strong>remettre votre travail</strong> dans les plus brefs délais ou <strong>modifier votre échéance</strong>. Ces deux opération s'exécutent depuis <%= lien.bureau('votre bureau') %>.
+</p>
+<p>Bien cordialement,</p>
+<!-- AVERTISSEMENT ECHEANCE ETAPE 1 -->

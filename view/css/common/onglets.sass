@@ -1,0 +1,22 @@
+// Des styles pour fabriquer des onglets
+
+// Ils doivent être toujours placés dans un UL de class 'onglets'
+ul.onglets
+  list-style        : none
+  text-align        : right
+  border-top        : 1px solid #777
+  margin-top        : -30px
+  margin-left       : 0
+  padding           : 0
+  padding-top       : 4px
+  padding-right     : 1em
+  font-size         : 12.9pt
+  // Les onglets doivent être placés dans des li
+  li
+    display           : inline-block
+    margin            : 0 0 0 1em
+    a
+      font-family       : Arial,Helvetica
+    // L'onglet activé
+    &.active *
+      color           : #9E9E9E

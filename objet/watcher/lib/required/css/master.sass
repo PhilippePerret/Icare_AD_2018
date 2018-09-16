@@ -1,0 +1,112 @@
+ul.notifications
+  list-style    : none
+  font-size     : 0.75em
+  margin        : 0
+  padding       : 0 0 0 10px
+  &, *
+    line-height   : 1.25em
+    text-align    : left
+  li
+    margin-bottom : 0.3em
+    padding       : 0
+    overflow      : auto // scroll
+
+    // Le titre de la notification
+    legend
+      background-color    : #578088
+      padding             : 6px 0.7em
+      margin              : 0
+      font-size           : 12.5pt
+      display             : inline-block
+      // display             : block
+      &, *
+        color               : white !important
+        letter-spacing      : 0 !important
+
+    > form
+      // De façon générale, tous les div et tous les p à l'intérieur
+      // d'un form de premier niveau ont un padding pour les écarter
+      // du bord
+      > p, > div, > pre
+        padding   : 0.4em 0.6em
+        div, p
+          padding   : 0
+        // La rangée contenant le bouton pour soumettre le formulaire
+        // (et autres)
+        &.buttons
+          margin-top    : 1em
+    // C'est le contenu direct du LI, le formulaire ou le p/div, qui
+    // doit définir le padding
+    > form, > div, > p
+      padding       : 0.4em 0
+      border-left   : 3px solid
+      border-bottom : 2px solid
+
+      a
+        &:hover, &:link, &:visited
+          color   : #0000ff !important
+
+    > div, > p
+      margin           : 0
+      padding          : 1em 1em 12px 1em
+
+    div.tied
+      margin-top      : 0 !important
+      margin-bottom   : 0 !important
+      padding-top     : 0 !important
+      padding-bottom  : 0 !important
+    > div, > p
+      // Une simple notice, c'est aussi le style par défaut
+      &, &.notify
+        background-color    : #c4a17f // #DCA54E
+        color               : black
+        border-color        : #815C20
+
+    // Tous les formulaires
+    form
+      textarea
+        width       : 100%
+        min-height  : 180px
+
+      // des boutons "+" et "-"
+      a.plus_moins_button
+        font-size         : 2.2em
+        border            : 3px solid
+        padding           : 1px 10px 2px
+        line-height       : 0.9em
+        color             : white
+        background-color  : #83B683
+
+    // Un formulaire de class action ou un formulaire de niveau
+    // 1 dans la notification (qui est toujours considéré comme
+    // un formulaire action).
+    form.action, > form
+      // Un formulaire est pratiquement toujours une action à
+      // entreprendre, mais il faut mettre expliciteemnt le
+      // fait que ça en est une en prévision du fait qu'on pourra
+      // avoir des formulaires qui ne sont pas des actions
+      // NOTE La couleur pourra être surclassée si le formulaire
+      // se trouve dans un LI.warning, lorsque la date de l'action
+      // est dépassée. Donc il faut surtout NE PAS METTRE IMPORTANT
+      // à la couleur et au bord.
+      background-color    : #90EE90 // #A7BCEC
+      border-color        : #008000
+      color               : black
+      padding             : 0 0 1em 0
+    form
+      div.buttons
+        margin          : 12px 0 0 0 !important
+        padding-bottom  : 0 !important
+
+        input[type="button"], input[type="submit"]
+          // font-size   : 13pt
+          font-size   : inherit !important
+          padding     : 4px 17px !important
+
+    // POUR UN LI MARQUÉ WARNING
+    &.warning
+      form
+        &.action, &.action *
+          background-color  : crimson
+          border-color      : red
+          color             : white

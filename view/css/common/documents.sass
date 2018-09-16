@@ -1,0 +1,144 @@
+// Module principal pour les types documents
+
+section.document, div.document_legend
+  &:not(.plain)
+    margin-left       : 3.2em
+    margin-right      : 1.2em
+  &.plain
+    margin-left       : 0
+    margin-right      : 0
+
+section.document
+  &:not(.tiny, .small)
+    font-size         : 14.2pt
+
+pre.document.brut
+  line-height       : 1.1em !important
+  padding           : 3.5em !important
+  font-family       : 'Courier New'
+  white-space       : pre-wrap // enlever si on veut forcer à mettre des retours
+  &.plain
+    margin-left     : 0 !important
+    margin-right    : 0 !important
+  &.medium
+    font-size       : 12.7pt
+  &.small
+    font-size       : 9.99pt
+  &.tiny
+    font-size       : 9pt
+  h1, h2, h3, h4, h5
+    margin-bottom     : 0 !important
+  h1, h2
+    margin-top    : 0 !important
+  h3, h4, h5
+    margin-top    : 1em !important
+
+section.document, pre.document
+  margin-top        : 2em
+  margin-bottom     : 2em
+  background-color  : #EDFDF2
+  
+// La class principale
+section.document
+  padding           : 2.1em 2.4em
+  border            : 1px solid #8d8d8d
+  line-height       : 1.3em !important
+    
+  &.events, &.evenemencier
+    font-family       : courier
+    font-size         : 0.95em
+  
+  h1, h2, h3
+    text-align      : left
+  h1
+    font-size       : 1.4em !important
+    margin          : 0.5em -1em 2em !important
+
+  h2
+    font-size       : 1.2em !important
+    margin          : 0.7em 0 0.5em !important
+    color           : black !important
+
+  h3
+    font-size       : 1.0em !important
+    font-weight     : bold !important
+    margin          : 0.5em 0 0.3em !important
+    color           : black !important
+  
+  p, div.p
+    margin-left     : 0em
+  p, div
+    &.rtt1
+      margin-left       : 1.5em
+    &.rtt2
+      margin-left       : 3em
+    &.rtt3
+      margin-left       : 4.5em
+    &.rtt4
+      margin-left       : 6em
+    &.rtt5
+      margin-left       : 7.5em
+    &.rtt6
+      margin-left       : 9em
+  
+  // Propre au type "brut"
+  &.raw
+    white-space       : pre
+    font-family       : monospace
+    
+  // Propre au type évènemencier
+  &.events
+    div.e
+      position        : relative
+    span.t
+      position        : absolute
+      left            : -1em
+      top             : 0
+      
+  // Propre au type SCÉNARIO
+  &.scenario
+    div.intitule, div.personnage
+      font-weight         : bold
+      font-variant        : capitals
+    div.intitule
+      margin-top          : 1.5em
+    div.personnage
+      margin-top          : 1em
+      margin-left         : 11em
+    div.dialogue
+      text-align          : left
+      margin-left         : 9em
+      width               : 17em
+    div.note_jeu
+      text-align          : left
+      margin-left         : 11em
+      font-style          : italic
+      &:before
+        content   : "("
+      &:after
+        content   : ")"
+    div.action
+      margin-left         : 1em
+      text-align          : justify
+      margin-top          : 1em
+    // Pour la traduction du texte si le scénario est en
+    // anglais
+    div.traduction
+      margin-left         : 10em
+      font-size           : 0.80em
+      font-style          : italic
+      margin-top          : 1em
+      &:before
+        content     : "(traduction : "
+        color       : #777
+      &:after
+        content     : ")"
+      
+// La légende (optionnelle) du document ou d'une image
+div.document_legend, div.img_legend
+  font-size           : 0.75em
+  font-style          : italic
+  text-align          : center
+  
+div.document_legend
+  margin-top          : -2em

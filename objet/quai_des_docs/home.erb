@@ -1,0 +1,14 @@
+<%
+# Page principal du quai des docs
+%>
+<%= QuaiDesDocs.titre_h1('Affichage par trimestre') %>
+<% if user.identified? %>
+<%= page.html_separator(60)%>
+  <%= QuaiDesDocs.boite_navigation %>
+  <%= QuaiDesDocs.liste_documents %>
+  <%= page.html_separator(80)%>
+  <%= QuaiDesDocs.boite_navigation %>
+<% else %>
+  <%= QuaiDesDocs.section_non_icarien %>
+  <%# NON ICARIENS %>
+<% end %>

@@ -1,0 +1,44 @@
+<%
+# View pour choisir les modules d'apprentissage optionnés
+%>
+<%
+
+# +selecteds+ Liste des IDs des modules sélectionnés au cours
+# d'un choix précédente
+def liste_modules_checkboxable selecteds = nil
+  site.require_objet('abs_module')
+  cbs_modules = ''
+  AbsModule.each_instance(sorted: true) do |amod|
+    is_checked = param(:modules_checked).include?(amod.id)
+    href        = "abs_module/#{amod.id}/show"
+    cb_name     = "signup_modules[#{amod.id}]"
+    cb_id       = "signup_modules-#{amod.id}"
+    mod_detail  = " (#{'Détail'.in_a(href: href, class: 'small', target: :new)})"
+    mod_name    = amod.name.in_span(class: 'name')
+    mod_tarif   = "#{amod.tarif} €#{amod.type_suivi? ? ' / mois' : ''}".in_span(class: 'tarif')
+    mod_libelle = "#{mod_name} #{mod_tarif} #{mod_detail}"
+    mod_libelle = mod_libelle.in_checkbox(name: cb_name, id: cb_id, checked: is_checked)
+    cbs_modules << mod_libelle.in_div(class: 'container', id: "absmodule-#{amod.id}")
+  end
+  # /fin boucle sur toutes les instances modules
+  return cbs_modules
+end
+
+%>
+<%=
+
+site.require 'form_tools'
+form.prefix = 'signup'
+(
+  'save_modules'.in_hidden(name: 'signup[operation]', id: 'signup_operation') +
+  "Merci de choisir ci-dessous les modules pour lesquels vous postulez. Dans le doute, n'hésitez pas à #{lien.contact("contacter Phil")} pour en discuter avec lui.".in_p(class: 'small') +
+  liste_modules_checkboxable +
+  form.submit_button('Enregistrer et poursuivre l’inscription')
+).in_form(
+    class:    'container',
+    id:       'form_modules',
+    action:   site.current_route.route,
+    onsubmit: "return $.proxy(Signup,'check_modules')()"
+    )
+
+%>

@@ -1,0 +1,41 @@
+<%
+# Fichier ERB affichant la citation de façon responsive
+#
+# Note : elle se trouve déjà dans une container>row
+
+
+def hcitation
+  @hcitation ||= begin
+    hcitation = site.get_a_citation(only_online: true)
+    hcitation ||= {citation: "Ici en online la citation", auteur: "Auteur", id: 1}
+  end
+end
+
+def citation_avec_guillemets
+  image('pictos/apo-open.png', class: 'openapo')  +
+  hcitation[:citation]          +
+  image('pictos/apo-close.png', class: 'closeapo')
+end
+
+def lien_explicitation
+  'Explication de la citation'.in_a(href: "http://www.laboiteaoutilsdelauteur.fr/citation/#{hcitation[:id]}/show", target: :new).in_span(class: 'fleft italic')
+end
+
+%>
+<div class="container ml-3 mr-3">
+  <div class="row italic discret">
+    Au hasard des citations
+  </div>
+  <div class="row ml-3 mr-3">
+    <%= citation_avec_guillemets %>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= lien_explicitation %>
+    </div>
+    <div class="col right">
+      <%= hcitation[:auteur].in_span(class: 'auteur') %>
+    </div>
+  </div>
+</div>
+<%= mobile_separator %>

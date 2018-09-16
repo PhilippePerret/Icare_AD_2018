@@ -1,0 +1,13 @@
+<%
+# Page d'accueil du site
+%>
+<%=
+# Il y a certainement une page home définie dans le
+# dossier objet/site
+home_file = site.folder_objet+'site/home.erb'
+if home_file.exist?
+  page.view('home.erb', site.folder_objet+'site', site)
+else
+  ""
+end
+%>

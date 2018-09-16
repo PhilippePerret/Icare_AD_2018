@@ -1,0 +1,18 @@
+<%
+# Mail transmis à l'user après son paiemnent
+
+self.subject_mail = "Confirmation de votre paiement"
+%>
+<p>
+  Bonjour <%= owner.patronyme %>,
+</p>
+<p>
+  Merci d'avoir procédé au paiement de <%= icpaiement.montant %> € pour <%= votre_module_name %>.
+</p>
+<p>
+  Veuillez trouver ci-dessous votre facture pour ce paiement :
+</p>
+<%= icpaiement.facture_html %>
+<p>
+  Un grand merci pour votre confiance et bonne continuation à l'atelier Icare, <%= owner.pseudo %> !
+</p>

@@ -1,0 +1,11 @@
+<%
+# Mail pour l'administration pour informer du paiement.
+
+self.subject_mail = 'Nouveau paiement'
+%>
+<pre>
+  Paiement de : <%= owner.pseudo %> (#<%= owner.id %>)
+  Montant     : <%= icmodule.abs_module.tarif %> €
+  Module      : <%= icmodule.abs_module.name %>
+  Date        : <%= Time.now.to_i.as_human_date(true, true, ' ', 'à') %>
+<pre>

@@ -1,0 +1,6 @@
+<%
+# Page affichée lorsque la vue ou le module est protégé par la méthode
+# `raise_unless_owner`
+%>
+<h1>Accès réservé</h1>
+<p class='warning access_error'><%= page.message_error_not_owner %></p>

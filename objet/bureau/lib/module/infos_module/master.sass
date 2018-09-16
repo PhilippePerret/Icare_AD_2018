@@ -1,0 +1,52 @@
+/**
+  * Style pour l'affichage des infos du module
+  */
+$bgd_infos_mod: #008080
+// Le fieldset contenant les infos du module/étape courant/e
+fieldset#infos_current_module, fieldset#fs_etape_courante
+  margin    : 1.6em 0
+  padding   : 0 0 1em
+  // border    : none
+  border-width      : 1px
+  border-color      : $bgd_infos_mod
+  background-color  : $bgd_infos_mod
+
+  // Le titre du fieldset (Module courant, Étape courant)
+  > div.titre
+    color             : white // #ffff30
+    padding           : 0.3em 0 0.3em 1em
+    background-color  : #066161
+    font-variant      : small-caps
+
+  > div.infoline
+    background-color  : $bgd_infos_mod
+    padding           : 2px 1em
+    span.libelle
+      float       : left
+      // width       : 90px
+      color       : #ffff30 // #ffd700
+      font-style  : normal
+      display       : inline // car mis à inline-block
+      margin-right  : 0
+    span.value
+      display     : block
+      color       : white
+      margin-left : 100px
+      font-size   : 0.9em
+      form
+        input[type="submit"]
+          font-size   : 12pt
+          padding     : 2px 4px 2px
+          line-height : 1em
+        select
+          option.exergue
+            background-color  : #48c8c8
+    &.warning
+      background-color    : red
+      margin              : 0
+      border-radius       : 0
+      display             : block
+    &.near
+      background-color    : #eb9101
+    &.cool
+      background-color    : #48c8c8

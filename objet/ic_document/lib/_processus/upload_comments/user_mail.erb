@@ -1,0 +1,14 @@
+<%
+self.subject_mail = "Les commentaires sur votre document “#{icdocument.original_name}” vous attendent !"
+%>
+<p>Bonjour <%= owner.pseudo %>,</p>
+
+<p>
+Les commentaires sur votre document <%= icdocument.original_name %> viennent d'être déposés.
+</p>
+<p>
+  Vous pouvez les télécharger depuis <%= lien.bureau('votre bureau', online: true) %>.
+</p>
+<p>
+  Bonne lecture à vous, <%= owner.pseudo %> !
+</p>

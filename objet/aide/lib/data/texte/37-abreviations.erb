@@ -1,0 +1,50 @@
+<h3>Abréviations utilisées dans les commentaires</h3>
+<p class="small italic">
+  Dans les commentaires sur les documents de travail, on peut trouver les abréviations courantes suivantes. Elles sont classées dans l’ordre alphabétique.
+</p>
+<style type="text/css">
+table#abreviations tr td {
+  padding:0 1em;
+}
+table#abreviations thead {
+  margin-bottom:2em;
+}
+table#abreviations thead tr th {
+  font-size:0.85em;
+  font-style:italic;
+  color:#555;
+  text-align:center;
+}
+</style>
+
+<table id="abreviations">
+  <thead>
+    <tr>
+        <th>Abréviation</th>
+        <th>Définition</th>
+        <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<% 
+  tempNarration = "<a href=\"http://www.scenariopole.fr/narration/page/%d\">In Narration</a>"
+
+  [
+    ['IP',  'Incident Perturbateur',              300],
+    ['ID',  'Incident Déclencheur',               301],
+    ['PFA', 'Paradigme de Field Augmenté',        317],
+    ['QDF', 'Question Dramatique Fondamentale',   129],
+    ['RDF', 'Réponse Dramatique Fondamentale',    129],
+  ].each do |abbrev, definition, page_id|
+%>
+<tr>
+  <td><b><%= abbrev %></b></td>
+  <td><%= definition %></td>
+  <td><%= tempNarration % [page_id] %></td>
+</tr>
+<% 
+  end # each abréviation
+%>
+    
+  </tbody>
+</table>

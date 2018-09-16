@@ -1,0 +1,12 @@
+<%
+self.mail_subject = 'Une réponse à votre question'
+%>
+<p>Bonjour <%= owner.pseudo %>,</p>
+
+<p>Phil a donné une réponse à votre question.</p>
+
+<p>Votre question : <%= question.to_html %></p>
+
+<p>Réponse de Phil : <%= reponse %></p>
+
+<%= supplement_si_question_minifaq %>
