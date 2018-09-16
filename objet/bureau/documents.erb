@@ -5,10 +5,14 @@
 raise_unless_identified
 %>
 <%= Bureau.titre_h1('Documents')%>
+<div class="container">
 
-<h3>Derniers commentaires</h3>
+<h5>Derniers commentaires</h5>
 <%= liste_derniers_documents_commented %>
 
-<h3>Documents déposés sur le Quai des docs</h3>
-<%= lien.quai_des_docs('→ Rejoindre le Quai des docs').in_div(class: 'right') %>
+<h5>Documents déposés sur le Quai des docs</h5>
+<%= lien.quai_des_docs('→ Rejoindre le Quai des docs').in_div(class: 'right mb-3') %>
 <%= liste_documents_quai_des_docs %>
+
+</div>
+<!-- container -->

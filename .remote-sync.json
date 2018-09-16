@@ -3,7 +3,7 @@
   "useAtomicWrites": false,
   "deleteLocal": false,
   "hostname": "ssh-icare.alwaysdata.net",
-  "target": "www/",
+  "target": "/home/icare/www/",
   "ignore": [
     ".**"
   ],

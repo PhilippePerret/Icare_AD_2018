@@ -12,9 +12,11 @@ def hcitation
 end
 
 def citation_avec_guillemets
-  image('pictos/apo-open.png', class: 'openapo')  +
-  hcitation[:citation]          +
-  image('pictos/apo-close.png', class: 'closeapo')
+  (
+    image('pictos/apo-open.png', class: 'openapo')  +
+    hcitation[:citation]          +
+    image('pictos/apo-close.png', class: 'closeapo')
+  ).in_p
 end
 
 def lien_explicitation
@@ -27,13 +29,15 @@ end
     Au hasard des citations
   </div>
   <div class="row ml-3 mr-3">
-    <%= citation_avec_guillemets %>
+    <div class="col">
+      <%= citation_avec_guillemets %>
+    </div>
   </div>
   <div class="row">
-    <div class="col">
+    <div class="col-4">
       <%= lien_explicitation %>
     </div>
-    <div class="col right">
+    <div class="col-6 right">
       <%= hcitation[:auteur].in_span(class: 'auteur') %>
     </div>
   </div>

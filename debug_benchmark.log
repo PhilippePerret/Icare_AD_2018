@@ -1,22 +1,36 @@
-=== BENCHMARK DU 16 septembre 2018 à 10:38 ===
-=== Index start : 1537083501.413277 (2018-09-16 10:38:21 +0300)
+=== BENCHMARK DU 16 septembre 2018 à 11:09 ===
+=== Index start : 1537085344.605494 (2018-09-16 11:09:04 +0300)
 
 -> site/config.rb                                       0.000000  0.000000
-<- site/config.rb                                       0.000190  0.000190
--> execute_preambule                                    0.283938  0.284128
-  -> User#do_after_load                                 0.000178  0.284306
-  <- User#do_after_load                                 0.000005  0.284311
-<- execute_preambule                                    0.000003  0.284314
--> required.rb                                         -1.219003 -0.934689
-<- required.rb                                          1.219009  0.284320
--> SiteHtml#output                                      0.000107  0.284427
-  -> SiteHtml#execute_route                             0.000006  0.284433
-  <- SiteHtml#execute_route                             0.000031  0.284464
-  -> Page#preload                                       0.000008  0.284472
-  <- Page#preload                                       0.265862  0.550334
-  -> Page#prebuild_body                                 0.000013  0.550347
-    -> Page#body                                        0.000003  0.550350
-    <- Page#body                                        0.000007  0.550357
-  <- Page#prebuild_body                                 0.000004  0.550361
-  CODE HTML FINAL BUILT                                 0.021155  0.571516
-<- SiteHtml#output                                      0.000012  0.571528
+<- site/config.rb                                       0.000138  0.000138
+-> execute_preambule                                    0.028562  0.028700
+  -> User#proceed_login                                 0.011974  0.040674
+  <- User#proceed_login                                 0.002494  0.043168
+  -> User#do_after_load                                 0.000020  0.043188
+  <- User#do_after_load                                 0.000003  0.043191
+<- execute_preambule                                    0.000004  0.043195
+-> required.rb                                         -0.650407 -0.607212
+<- required.rb                                          0.650412  0.043200
+-> SiteHtml#output                                      0.000144  0.043344
+  -> SiteHtml#execute_route                             0.000007  0.043351
+      | Objet    = "bureau"                                             - 
+      | Objet ID = nil                                                  - 
+      | Method   = "documents"                                          - 
+      | Context  = nil                                  0.000315  0.043666
+    --> user.set_last_connexion                         0.000492  0.044158
+    <-- user.set_last_connexion                         0.018315  0.062473
+    --> iroute.load_required                            0.000036  0.062509
+    <-- iroute.load_required                            0.010834  0.073343
+    --> iroute.load_per_vue                             0.000007  0.073350
+    <-- iroute.load_per_vue                             0.006208  0.079558
+    --> iroute.method_call                              0.000010  0.079568
+    <-- iroute.method_call                              0.000314  0.079882
+  <- SiteHtml#execute_route                             0.000006  0.079888
+  -> Page#preload                                       0.000013  0.079901
+  <- Page#preload                                       0.183655  0.263556
+  -> Page#prebuild_body                                 0.000012  0.263568
+    -> Page#body                                        0.000002  0.263570
+    <- Page#body                                        0.000005  0.263575
+  <- Page#prebuild_body                                 0.000013  0.263588
+  CODE HTML FINAL BUILT                                 0.005502  0.269090
+<- SiteHtml#output                                      0.000006  0.269096

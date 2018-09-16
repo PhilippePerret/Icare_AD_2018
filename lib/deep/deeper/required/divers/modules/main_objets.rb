@@ -42,7 +42,7 @@ module MethodesMainObjet
   end
 
   def sous_titre_displayed sous_titre
-    sous_titre ? sous_titre.in_h2 : ''
+    sous_titre ? sous_titre.in_h4 : ''
   end
 
   # Onglet dans la version responsive, avec un nav bar

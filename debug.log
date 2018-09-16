@@ -7100,3 +7100,100 @@ Objet    = "user"
 Objet ID = 1
 Method   = "deconnexion"
 Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 11:05:58 ===
+
+-- 
+Objet    = "user"
+Objet ID = nil
+Method   = "signin"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 11:06:01 ===
+
+-- 
+Objet    = "user"
+Objet ID = nil
+Method   = "login"
+Context  = nil
+-- kroute = "admin/overview"
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "overview"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 11:06:06 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "visit_as"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 11:06:11 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "visit_as"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 11:06:18 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 16 09 2018 - 11:06:24 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "documents"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 11:06:40 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "documents"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 11:07:21 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "documents"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 11:08:16 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "documents"
+Context  = nil
+
+
+=== DEBUG DU 16 09 2018 - 11:09:04 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "documents"
+Context  = nil
