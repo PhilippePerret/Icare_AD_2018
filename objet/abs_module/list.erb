@@ -2,8 +2,8 @@
 # Listing des modules
 %>
 <%= AbsModule.titre_h1 %>
-<ul id="listing_absmodules">
+<div id="listing_absmodules" class="container">
   <% AbsModule.each_instance(sorted: true) do |amodule| %>
     <%= amodule.as_li %>
   <% end %>
-</ul>
+</div>

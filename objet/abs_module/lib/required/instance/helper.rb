@@ -3,25 +3,36 @@ class AbsModule
 
   def as_li
     (
-      bouton_commande_module +
-      module_name_formated  +
+      module_name_formated.in_div(class:'row')  +
+
       (
-        lien_open_short_description +
-        tarif_formated        +
-        duree_formated        +
-        div_explications
-      ).in_div(class: 'information')
-    ).in_li(id: "absmodule-#{id}", class: 'absmodule')
+        duree_formated.in_div(class: 'col duree') +
+        tarif_formated.in_div(class: 'col') +
+        lien_open_short_description.in_div(class: 'col') +
+        bouton_commande_module.in_div(class: 'col')
+      ).in_div(class: 'row') +
+
+      div_explications.in_div(class: 'row')
+
+    ).in_div(class: 'absmodule')
+    # (
+    #
+    #   bouton_commande_module +
+    #   (
+    #     lien_open_short_description +
+    #     div_explications
+    #   ).in_div(class: 'information')
+    # ).in_div(id: "absmodule-#{id}", class: 'row')
   end
 
   def bouton_commande_module titre = 'Postuler'
     # Direction différente en fonction du fait que l'user est
     # inscrit ou non
     href = (user.identified? ? 'abs_module/command' : 'user/signup') + "?mid=#{id}"
-    titre.in_a(href: href, class: 'btn_command')
+    titre.in_a(href: href, class: 'btn btn-primary')
   end
   def module_name_formated
-    "Module “#{name}”".in_span(class: 'name')
+    "Module “#{name}”".in_h4
   end
   def duree_formated
     if nombre_jours.nil?
@@ -34,7 +45,7 @@ class AbsModule
       '4 mois'
     else
       nombre_jours.to_s
-    end.in_span(class: 'duree')
+    end
   end
 
   def tarif_formated
@@ -47,12 +58,14 @@ class AbsModule
     (
       short_description +
       lien_open_description_longue +
-      div_explication_longue +
-      bouton_commande_module('Postuler pour ce module').in_div(class: 'btn_bottom')
-    ).in_div(id: "div_shortdesc-#{id}", class: 'shortdesc', style: 'display:none')
+      div_explication_longue
+    ).in_div(id: "div_shortdesc-#{id}", class: 'ml-5 shortdesc', style: 'display:none')
   end
   def div_explication_longue
-    long_description.in_div(class: 'longdesc', id: "div_longdesc-#{id}", style: 'display:none')
+    (
+      long_description+
+      bouton_commande_module('Postuler pour ce module').in_div(class: 'btn btn-primary')
+    ).in_div(class: 'ml-5 longdesc', id: "div_longdesc-#{id}", style: 'display:none')
   end
 
   def lien_open_short_description
