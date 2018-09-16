@@ -53,7 +53,7 @@ end
       if data_icdoc.nil? || data_icdoc[:note_undefined]
         icdoc_id = data_icdoc.nil? ? nil : data_icdoc[:id]
         masked   = !!data_icdoc.nil?
-        (input_file(idocument, icdoc_id) + menu_note(idocument)).in_div(class: "document_work#{masked ? ' masked' : ''}", id: "form_work_file_#{idocument}")
+        (input_file(idocument, icdoc_id) + menu_note(idocument)).in_div(style: "#{masked ? 'display:none' : ''};" class: "document_work", id: "form_work_file_#{idocument}")
       else
         # Si c'est un document qui n'a pas connu d'erreur, on l'a enregistré et
         # on l'affiche seulement pour que l'user puisse savoir que ce document

@@ -3,7 +3,7 @@
 # DOIGT_ROUGE = "<span style='color:red;font-size:18pt;'>☛ </span>".freeze
 
 def picto_info
-  @picto_info ||= image('pictos/picto_info.png', {alt:"Infos", class:'btninfo'}).freeze
+  @picto_info ||= image('pictos/picto_info.png', {alt:"Infos", style:'vertical-align:sub;'}).freeze
 end
 
 
@@ -43,7 +43,7 @@ def image_mascotte options = nil
   if points
     app.session['nombre_points_gratuits']      = points
     app.session['session_id_points_gratuits']  = app.session.session_id
-    app.session['raison_points_gratuits']      = options.delete(:raison) 
+    app.session['raison_points_gratuits']      = options.delete(:raison)
     img = "./view/img/mascotte/mascotte-50pc.png".in_image
     img = img.in_a(href: "site/points_abonnement")
     img = (
