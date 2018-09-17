@@ -93,7 +93,7 @@ module MailModuleMethods
     @code_html ||= <<-HTML
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
   "http://www.w3.org/TR/html4/loose.dtd">
-<html><head>#{content_type}#{title}</head><body style="background-color:#578088;">#{ERB.new(body_responsive).result(bind)}</body></html>
+<html><head>#{content_type}#{title}</head><body style="background-color:#578088;max-width:680px;">#{ERB.new(body_responsive).result(bind)}</body></html>
     HTML
   end
 
