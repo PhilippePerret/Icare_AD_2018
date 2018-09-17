@@ -29,10 +29,10 @@ end
 
   # Le formulaire pour transmettre 3 documents
   @send_work_error = get_send_work_error
-  debug "[user_notify] @send_work_error : #{@send_work_error.inspect}"
+  # debug "[user_notify] @send_work_error : #{@send_work_error.inspect}"
 
   'Envoi du travail'.in_legend +
-  form(file: true) do
+  form(file: true, class: 'container') do
     'Vous pouvez envoyer jusqu’à 5 documents de travail. Cliquez sur le bouton “ + ” pour ajouter des champs.'.in_div(class: 'italic action') +
     (1..5).collect do |idocument|
       # Si l'user a déjà soumis le formulaire avec insuccès, le paramètre
@@ -53,7 +53,7 @@ end
       if data_icdoc.nil? || data_icdoc[:note_undefined]
         icdoc_id = data_icdoc.nil? ? nil : data_icdoc[:id]
         masked   = !!data_icdoc.nil?
-        (input_file(idocument, icdoc_id) + menu_note(idocument)).in_div(style: "#{masked ? 'display:none' : ''};" class: "document_work", id: "form_work_file_#{idocument}")
+        (input_file(idocument, icdoc_id) + menu_note(idocument)).in_div(style: "#{masked ? 'display:none' : ''};", class: "document_work", id: "form_work_file_#{idocument}")
       else
         # Si c'est un document qui n'a pas connu d'erreur, on l'a enregistré et
         # on l'affiche seulement pour que l'user puisse savoir que ce document
@@ -61,10 +61,11 @@ end
         "Document OK : #{data_icdoc[:name]}".in_p
       end
     end.join +
-    (
-      '+'.in_a(onclick: "Bureau.add_work_field()", class: 'fleft plus_moins_button', style: 'color: white!important') +
-      'Envoyer le travail'.in_submit(id: 'btn_send_work', class: "btn#{@send_work_error.empty? ? ' invisible' : ''}")
-    ).in_div(class: 'row')
+    '+'.
+      in_a(onclick: "Bureau.add_work_field()", class: 'plus_moins_button ml-3', style: 'color: white!important').
+      in_div(class: 'col').
+      in_div(class: 'row') +
+    'Envoyer le travail'.in_submit(id: 'btn_send_work', class: "btn#{@send_work_error.empty? ? ' invisible' : ''} btn-primary", right: true)
   end
 
 %>

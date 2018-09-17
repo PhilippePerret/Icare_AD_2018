@@ -25,7 +25,7 @@
   form(action: "ic_paiement/main") do
     self.id.to_s.in_hidden(name: 'watcher_id') +
     message_by_state.in_div +
-    'Payer'.in_submit(class: 'btn btn-primary').in_div(class: 'row')
+    'Payer'.in_submit(class: 'btn btn-primary', right: true)
   end
 
 %>

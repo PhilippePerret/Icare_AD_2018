@@ -298,12 +298,23 @@ class String
       in_div(class: 'form-check').
       in_div(class:'form-group')
   end
-  
+
   def in_hidden attrs = nil
     self.in_input(attrs.merge :type => 'hidden')
   end
   # Le String est le nom du bouton
-  def in_submit attrs = nil; "".in_input((attrs||{}).merge :value => self, :type => 'submit') end
+  def in_submit attrs = nil
+    attrs ||= Hash.new
+    a_droite  = attrs.delete(:right)
+    au_centre = attrs.delete(:center)
+    f = "".in_input(attrs.merge(:value => self, :type => 'submit'))
+    # Valeur retournée
+    case true
+    when a_droite   then f.in_div(class: 'right')
+    when au_centre  then f.in_div(class: 'center')
+    else f
+    end
+  end
   def in_button attrs = nil; "".in_input((attrs||{}).merge :value => self, :type => 'button') end
 
   ##
