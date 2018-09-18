@@ -93,7 +93,7 @@ form_prefs =
       lipref('Contact avec les icariens et icariennes', menu_contact, 5) +
       lipref('Contact avec le reste du monde', menu_contact_world, 6)
     ).in_div(id: 'liste_preferences') +
-    "Enregistrer".in_submit(class: 'btn small discret')
+    "Enregistrer".in_submit(class: 'btn small btn-primary mt-3', right: true)
   ).in_form(id: 'form_preferences', action: "user/#{user.id}/profil", class: 'container')
 %>
 <%= ("Préférences".in_legend + form_prefs).in_fieldset(id: 'preferences') %>
@@ -107,5 +107,5 @@ form_prefs =
 <h3>Destruction du compte</h3>
 
 <div class="right air air">
-  <%= "Détruire le compte".in_a(href:"user/#{id}/destroy", class:'btn warning discret') %>
+  <%= "Détruire le compte".in_a(href:"user/#{id}/destroy", class:'btn btn-warning discret') %>
 </div>
