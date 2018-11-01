@@ -32,7 +32,8 @@ class Users
     'arret_module'    => {hname: 'Arrêt d’un module d’apprentissage', long_value: 'Si un texte (en HTML) est écrit ci-dessous, il sera considéré comme le supplément d’un mail à envoyer à l’icarien du module l’informant de l’arrêt/la fin de son module. Dans le cas contraire, le module sera simplement arrêté.'},
     'change_module'   => {hname: 'Changement de module', short_value: 'ID du nouveau module absolu d’apprentissage (on peut le trouver avec l’outils Bureau > Édition des étapes, c’est le nombre entre parenthèses après le nom du module)', medium_value: 'Numéro de la nouvelle étape dans le nouveau module (on peut l’obtenir avec l’outil Burea > Édition des étapes)'},
     'temoignage'      => {hname: 'Nouveau témoignage', short_value: 'ID du témoignage si c’est une modification', medium_value: nil, long_value: "Code HTML du témoignage à ajouter"},
-    'titre_projet'    => {hname: 'Définir le titre du projet', short_value: 'ID du IcModule si ça n’est pas le courant', medium_value: 'Titre du projet (ou rien pour le supprimer)'}
+    'titre_projet'    => {hname: 'Définir le titre du projet', short_value: 'ID du IcModule si ça n’est pas le courant', medium_value: 'Titre du projet (ou rien pour le supprimer)'},
+    'destroy_user'    => {hname: 'Destruction totale d’un icarien', short_value: 'ID de l’icarien si non choisi dans menu', medium_value: nil, long_value: nil}
   }
 class << self
 
@@ -109,11 +110,19 @@ class << self
     Admin.require_module 'operations_user'
     (folder_operation + "#{ope}.rb").require
     method = "exec_#{ope}".to_sym
-    self.respond_to?(method) && self.send(method)
+    if self.respond_to?(method)
+      self.send(method)
+    else
+      add_error 'La méthode %s est inconnue…' % ope
+    end
   end
 
   def folder_operation
     @folder_operation ||= site.folder_objet + 'admin/lib/module/operations_user'
+  end
+
+  def add_error err
+    @suivi << '<span style="color:red">%s</span>' % err
   end
 
 end #/<< self

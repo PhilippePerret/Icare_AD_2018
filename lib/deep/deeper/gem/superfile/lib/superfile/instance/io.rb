@@ -110,7 +110,7 @@ class SuperFile
       bindee = bindee.bind unless bindee.class == Binding
     end
     begin
-      ERB.new( read ).result( bindee )
+      ERB.new( read.force_encoding('utf-8') ).result( bindee )
     rescue Exception => e
       debug e
       ajout_avertissement =

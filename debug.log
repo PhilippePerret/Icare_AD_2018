@@ -7206,3 +7206,2212 @@ Objet    = "user"
 Objet ID = nil
 Method   = "signup"
 Context  = nil
+
+
+=== DEBUG DU 01 11 2018 - 08:58:49 ===
+
+-- 
+Objet    = "user"
+Objet ID = nil
+Method   = "signin"
+Context  = nil
+
+
+=== DEBUG DU 01 11 2018 - 08:59:05 ===
+
+-- 
+Objet    = "user"
+Objet ID = nil
+Method   = "login"
+Context  = nil
+-- kroute = "admin/overview"
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "overview"
+Context  = nil
+
+
+=== DEBUG DU 01 11 2018 - 08:59:17 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 01 11 2018 - 08:59:25 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>nil}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>nil, :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 09:00:04 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 09:01:11 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 09:01:59 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 09:02:21 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 09:02:37 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 09:02:47 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"101"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 09:04:29 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- La méthode destroy_user est inconnue…
+
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/users/users.rb:116:in `execute_operation'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/users/users.rb:128:in `<top (required)>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:120:in `require'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:120:in `require'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:18:in `require'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `block in require_all_in'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `each'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `require_all_in'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/divers/modules/main_objets.rb:73:in `require_module'
+(erb):3:in `result'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `eval'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `result'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/gem/superfile/lib/superfile/instance/io.rb:113:in `deserb'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Vue/inst.rb:27:in `output'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:104:in `content_route'
+(erb):5:in `result'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `eval'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `result'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/gem/superfile/lib/superfile/instance/io.rb:113:in `deserb'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:72:in `content'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:25:in `preload'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/output.rb:35:in `output'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/index.rb:8:in `<main>'
+
+
+=== DEBUG DU 01 11 2018 - 09:04:41 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 01 11 2018 - 09:04:46 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>nil}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>nil, :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 09:05:51 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 09:06:39 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 09:07:44 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 09:07:52 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 09:16:11 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 01 11 2018 - 09:16:20 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+
+
+=== DEBUG DU 01 11 2018 - 09:16:23 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+
+
+=== DEBUG DU 01 11 2018 - 09:16:31 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+-- options: {}
+
+
+=== DEBUG DU 01 11 2018 - 09:16:46 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+-- options: {}
+
+
+=== DEBUG DU 01 11 2018 - 09:16:50 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+-- options: {}
+
+
+=== DEBUG DU 01 11 2018 - 09:16:56 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+-- options: {}
+
+
+=== DEBUG DU 01 11 2018 - 09:17:08 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+
+
+=== DEBUG DU 01 11 2018 - 09:17:12 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+-- options: {}
+
+
+=== DEBUG DU 01 11 2018 - 09:18:26 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+-- options: {}
+
+
+=== DEBUG DU 01 11 2018 - 09:18:37 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+-- options: {}
+
+
+=== DEBUG DU 01 11 2018 - 09:24:00 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 09:27:53 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 09:28:13 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 09:29:50 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- RES: 0
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 09:32:12 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+
+
+=== DEBUG DU 01 11 2018 - 09:36:48 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 09:37:33 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 09:38:13 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 09:38:22 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 09:38:40 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 09:38:46 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 09:40:36 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 09:40:44 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+
+
+=== DEBUG DU 01 11 2018 - 09:40:48 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+-- options: {}
+
+
+=== DEBUG DU 01 11 2018 - 09:41:03 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 09:41:20 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 09:54:09 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+
+
+=== DEBUG DU 01 11 2018 - 09:54:42 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+
+
+=== DEBUG DU 01 11 2018 - 09:54:46 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+-- options: {}
+
+
+=== DEBUG DU 01 11 2018 - 09:55:07 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- /Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/operations_user/destroy_user.rb:85: syntax error, unexpected ')', expecting keyword_end
+
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:120:in `require'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:120:in `require'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:18:in `require'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `block in require_all_in'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `each'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `require_all_in'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/divers/modules/main_objets.rb:73:in `require_module'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/users/users.rb:110:in `execute_operation'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/users/users.rb:132:in `<top (required)>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:120:in `require'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:120:in `require'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:18:in `require'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `block in require_all_in'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `each'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `require_all_in'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/divers/modules/main_objets.rb:73:in `require_module'
+(erb):3:in `result'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `eval'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `result'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/gem/superfile/lib/superfile/instance/io.rb:113:in `deserb'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Vue/inst.rb:27:in `output'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:104:in `content_route'
+(erb):5:in `result'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `eval'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `result'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/gem/superfile/lib/superfile/instance/io.rb:113:in `deserb'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:72:in `content'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:25:in `preload'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/output.rb:35:in `output'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/index.rb:8:in `<main>'
+
+
+=== DEBUG DU 01 11 2018 - 09:55:27 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 10:02:05 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- # ERREUR MYSQL : Field 'created_at' doesn't have a default value
+-- # REQUEST : INSERT INTO users (pseudo, sexe, mail, cpassword, salt, options) VALUES ( ?, ?, ?, ?, ?, ? );
+-- # VALEURS PRÉPARÉES : ["\u00E0 d\u00E9truire", "F", "sonmail@bad.com", "unmotdepassecryptedpourrien", "sonsel", "0000000000000000"]
+-- /Library/Ruby/Gems/2.3.0/gems/mysql2-0.4.10/lib/mysql2/statement.rb:8:in `_execute'
+/Library/Ruby/Gems/2.3.0/gems/mysql2-0.4.10/lib/mysql2/statement.rb:8:in `block in execute'
+/Library/Ruby/Gems/2.3.0/gems/mysql2-0.4.10/lib/mysql2/statement.rb:7:in `handle_interrupt'
+/Library/Ruby/Gems/2.3.0/gems/mysql2-0.4.10/lib/mysql2/statement.rb:7:in `execute'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/mysql/request.rb:390:in `exec'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/mysql/request.rb:64:in `insert'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/mysql/mysql.rb:147:in `insert'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/operations_user/destroy_user.rb:130:in `user_sans_paiement'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/operations_user/destroy_user.rb:25:in `exec_destroy_user'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/users/users.rb:114:in `execute_operation'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/users/users.rb:132:in `<top (required)>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:120:in `require'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:120:in `require'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:18:in `require'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `block in require_all_in'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `each'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `require_all_in'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/divers/modules/main_objets.rb:73:in `require_module'
+(erb):3:in `result'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `eval'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `result'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/gem/superfile/lib/superfile/instance/io.rb:113:in `deserb'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Vue/inst.rb:27:in `output'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:104:in `content_route'
+(erb):5:in `result'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `eval'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `result'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/gem/superfile/lib/superfile/instance/io.rb:113:in `deserb'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:72:in `content'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:25:in `preload'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/output.rb:35:in `output'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/index.rb:8:in `<main>'
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 10:02:34 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 10:02:46 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- # ERREUR MYSQL : Duplicate entry 'à détruire' for key 'pseudo'
+-- # REQUEST : INSERT INTO users (pseudo, sexe, mail, cpassword, salt, options, created_at) VALUES ( ?, ?, ?, ?, ?, ?, ? );
+-- # VALEURS PRÉPARÉES : ["\u00E0 d\u00E9truire", "F", "sonmail@bad.com", "unmotdepassecryptedpourrien", "sonsel", "0000000000000000", 1541055766]
+-- /Library/Ruby/Gems/2.3.0/gems/mysql2-0.4.10/lib/mysql2/statement.rb:8:in `_execute'
+/Library/Ruby/Gems/2.3.0/gems/mysql2-0.4.10/lib/mysql2/statement.rb:8:in `block in execute'
+/Library/Ruby/Gems/2.3.0/gems/mysql2-0.4.10/lib/mysql2/statement.rb:7:in `handle_interrupt'
+/Library/Ruby/Gems/2.3.0/gems/mysql2-0.4.10/lib/mysql2/statement.rb:7:in `execute'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/mysql/request.rb:390:in `exec'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/mysql/request.rb:64:in `insert'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/mysql/mysql.rb:147:in `insert'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/operations_user/destroy_user.rb:130:in `user_sans_paiement'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/operations_user/destroy_user.rb:25:in `exec_destroy_user'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/users/users.rb:114:in `execute_operation'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/users/users.rb:132:in `<top (required)>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:120:in `require'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:120:in `require'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:18:in `require'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `block in require_all_in'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `each'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `require_all_in'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/divers/modules/main_objets.rb:73:in `require_module'
+(erb):3:in `result'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `eval'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `result'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/gem/superfile/lib/superfile/instance/io.rb:113:in `deserb'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Vue/inst.rb:27:in `output'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:104:in `content_route'
+(erb):5:in `result'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `eval'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `result'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/gem/superfile/lib/superfile/instance/io.rb:113:in `deserb'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:72:in `content'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:25:in `preload'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/output.rb:35:in `output'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/index.rb:8:in `<main>'
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 10:05:42 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 10:06:24 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 10:07:21 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+
+
+=== DEBUG DU 01 11 2018 - 10:07:31 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+-- options: {}
+
+
+=== DEBUG DU 01 11 2018 - 10:13:40 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+
+
+=== DEBUG DU 01 11 2018 - 10:13:46 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+-- options: {}
+
+
+=== DEBUG DU 01 11 2018 - 10:13:53 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+-- options: {}
+
+
+=== DEBUG DU 01 11 2018 - 10:14:03 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+-- options: {}
+
+
+=== DEBUG DU 01 11 2018 - 10:14:08 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+-- options: {}
+
+
+=== DEBUG DU 01 11 2018 - 10:16:07 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+
+
+=== DEBUG DU 01 11 2018 - 10:16:11 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+-- options: {}
+
+
+=== DEBUG DU 01 11 2018 - 10:18:33 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+
+
+=== DEBUG DU 01 11 2018 - 10:18:39 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+-- options: {}
+
+
+=== DEBUG DU 01 11 2018 - 10:22:12 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+-- options: {}
+
+
+=== DEBUG DU 01 11 2018 - 10:24:12 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+-- options: {}
+
+
+=== DEBUG DU 01 11 2018 - 10:28:58 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- /Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/operations_user/destroy_user.rb:170: syntax error, unexpected ')', expecting =>
+
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:120:in `require'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:120:in `require'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:18:in `require'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `block in require_all_in'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `each'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `require_all_in'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/divers/modules/main_objets.rb:73:in `require_module'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/users/users.rb:110:in `execute_operation'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/users/users.rb:132:in `<top (required)>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:120:in `require'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:120:in `require'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:18:in `require'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `block in require_all_in'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `each'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `require_all_in'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/divers/modules/main_objets.rb:73:in `require_module'
+(erb):3:in `result'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `eval'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `result'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/gem/superfile/lib/superfile/instance/io.rb:113:in `deserb'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Vue/inst.rb:27:in `output'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:104:in `content_route'
+(erb):5:in `result'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `eval'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `result'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/gem/superfile/lib/superfile/instance/io.rb:113:in `deserb'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:72:in `content'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:25:in `preload'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/output.rb:35:in `output'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/index.rb:8:in `<main>'
+
+
+=== DEBUG DU 01 11 2018 - 10:30:25 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- # ERREUR MYSQL : Field 'updated_at' doesn't have a default value
+-- # REQUEST : INSERT INTO temoignages (user_id, user_pseudo, content, confirmed, created_at) VALUES ( ?, ?, ?, ?, ? );
+-- # VALEURS PRÉPARÉES : [108, "BadGirl", "Le t\u00E9moignage de la bad girl en essai", 1, 1541057425]
+-- /Library/Ruby/Gems/2.3.0/gems/mysql2-0.4.10/lib/mysql2/statement.rb:8:in `_execute'
+/Library/Ruby/Gems/2.3.0/gems/mysql2-0.4.10/lib/mysql2/statement.rb:8:in `block in execute'
+/Library/Ruby/Gems/2.3.0/gems/mysql2-0.4.10/lib/mysql2/statement.rb:7:in `handle_interrupt'
+/Library/Ruby/Gems/2.3.0/gems/mysql2-0.4.10/lib/mysql2/statement.rb:7:in `execute'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/mysql/request.rb:390:in `exec'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/mysql/request.rb:64:in `insert'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/mysql/mysql.rb:147:in `insert'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/operations_user/destroy_user.rb:219:in `user_sans_paiement'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/operations_user/destroy_user.rb:27:in `exec_destroy_user'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/users/users.rb:114:in `execute_operation'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/users/users.rb:132:in `<top (required)>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:120:in `require'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:120:in `require'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:18:in `require'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `block in require_all_in'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `each'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `require_all_in'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/divers/modules/main_objets.rb:73:in `require_module'
+(erb):3:in `result'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `eval'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `result'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/gem/superfile/lib/superfile/instance/io.rb:113:in `deserb'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Vue/inst.rb:27:in `output'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:104:in `content_route'
+(erb):5:in `result'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `eval'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `result'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/gem/superfile/lib/superfile/instance/io.rb:113:in `deserb'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:72:in `content'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:25:in `preload'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/output.rb:35:in `output'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/index.rb:8:in `<main>'
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 10:31:49 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 10:32:23 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+
+
+=== DEBUG DU 01 11 2018 - 10:32:24 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+
+
+=== DEBUG DU 01 11 2018 - 10:32:25 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+
+
+=== DEBUG DU 01 11 2018 - 10:34:08 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 10:40:34 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+-- options: {}
+
+
+=== DEBUG DU 01 11 2018 - 10:44:35 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+
+
+=== DEBUG DU 01 11 2018 - 10:44:39 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+-- options: {}
+
+
+=== DEBUG DU 01 11 2018 - 10:45:20 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+-- options: {}
+
+
+=== DEBUG DU 01 11 2018 - 10:50:38 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+-- options: {}
+
+
+=== DEBUG DU 01 11 2018 - 10:53:00 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 10:58:28 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 10:58:33 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:00:31 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:00:44 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:01:47 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- # ERREUR MYSQL : Duplicate entry 'BadGirl' for key 'pseudo'
+-- # REQUEST : INSERT INTO users (pseudo, sexe, mail, cpassword, salt, options, created_at) VALUES ( ?, ?, ?, ?, ?, ?, ? );
+-- # VALEURS PRÉPARÉES : ["BadGirl", "F", "sonmail@bad.com", "unmotdepassecryptedpourrien", "sonsel", "0000000000000000", 1540195307]
+-- /Library/Ruby/Gems/2.3.0/gems/mysql2-0.4.10/lib/mysql2/statement.rb:8:in `_execute'
+/Library/Ruby/Gems/2.3.0/gems/mysql2-0.4.10/lib/mysql2/statement.rb:8:in `block in execute'
+/Library/Ruby/Gems/2.3.0/gems/mysql2-0.4.10/lib/mysql2/statement.rb:7:in `handle_interrupt'
+/Library/Ruby/Gems/2.3.0/gems/mysql2-0.4.10/lib/mysql2/statement.rb:7:in `execute'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/mysql/request.rb:390:in `exec'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/mysql/request.rb:64:in `insert'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/mysql/mysql.rb:147:in `insert'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/operations_user/destroy_user.rb:183:in `user_sans_paiement'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/operations_user/destroy_user.rb:32:in `exec_destroy_user'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/users/users.rb:114:in `execute_operation'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/users/users.rb:132:in `<top (required)>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:120:in `require'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:120:in `require'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:18:in `require'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `block in require_all_in'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `each'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `require_all_in'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/divers/modules/main_objets.rb:73:in `require_module'
+(erb):3:in `result'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `eval'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `result'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/gem/superfile/lib/superfile/instance/io.rb:113:in `deserb'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Vue/inst.rb:27:in `output'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:104:in `content_route'
+(erb):5:in `result'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `eval'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `result'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/gem/superfile/lib/superfile/instance/io.rb:113:in `deserb'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:72:in `content'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:25:in `preload'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/output.rb:35:in `output'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/index.rb:8:in `<main>'
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:02:26 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:02:57 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:03:04 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- # ERREUR MYSQL : Field 'updated_at' doesn't have a default value
+-- # REQUEST : INSERT INTO frigo_discussions (owner_id, user_id, user_mail, user_pseudo, options, created_at) VALUES ( ?, ?, ?, ?, ?, ? );
+-- # VALEURS PRÉPARÉES : [1, 111, "phil@atelier-icare.net", "Phil", "1", 1540195385]
+-- /Library/Ruby/Gems/2.3.0/gems/mysql2-0.4.10/lib/mysql2/statement.rb:8:in `_execute'
+/Library/Ruby/Gems/2.3.0/gems/mysql2-0.4.10/lib/mysql2/statement.rb:8:in `block in execute'
+/Library/Ruby/Gems/2.3.0/gems/mysql2-0.4.10/lib/mysql2/statement.rb:7:in `handle_interrupt'
+/Library/Ruby/Gems/2.3.0/gems/mysql2-0.4.10/lib/mysql2/statement.rb:7:in `execute'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/mysql/request.rb:390:in `exec'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/mysql/request.rb:64:in `insert'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/mysql/mysql.rb:147:in `insert'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/operations_user/destroy_user.rb:275:in `user_sans_paiement'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/operations_user/destroy_user.rb:32:in `exec_destroy_user'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/users/users.rb:114:in `execute_operation'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/users/users.rb:132:in `<top (required)>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:120:in `require'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:120:in `require'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:18:in `require'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `block in require_all_in'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `each'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `require_all_in'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/divers/modules/main_objets.rb:73:in `require_module'
+(erb):3:in `result'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `eval'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `result'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/gem/superfile/lib/superfile/instance/io.rb:113:in `deserb'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Vue/inst.rb:27:in `output'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:104:in `content_route'
+(erb):5:in `result'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `eval'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `result'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/gem/superfile/lib/superfile/instance/io.rb:113:in `deserb'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:72:in `content'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:25:in `preload'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/output.rb:35:in `output'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/index.rb:8:in `<main>'
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:04:00 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- # ERREUR MYSQL : Duplicate entry 'BadGirl' for key 'pseudo'
+-- # REQUEST : INSERT INTO users (pseudo, sexe, mail, cpassword, salt, options, created_at) VALUES ( ?, ?, ?, ?, ?, ?, ? );
+-- # VALEURS PRÉPARÉES : ["BadGirl", "F", "sonmail@bad.com", "unmotdepassecryptedpourrien", "sonsel", "0000000000000000", 1540195440]
+-- /Library/Ruby/Gems/2.3.0/gems/mysql2-0.4.10/lib/mysql2/statement.rb:8:in `_execute'
+/Library/Ruby/Gems/2.3.0/gems/mysql2-0.4.10/lib/mysql2/statement.rb:8:in `block in execute'
+/Library/Ruby/Gems/2.3.0/gems/mysql2-0.4.10/lib/mysql2/statement.rb:7:in `handle_interrupt'
+/Library/Ruby/Gems/2.3.0/gems/mysql2-0.4.10/lib/mysql2/statement.rb:7:in `execute'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/mysql/request.rb:390:in `exec'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/mysql/request.rb:64:in `insert'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/mysql/mysql.rb:147:in `insert'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/operations_user/destroy_user.rb:183:in `user_sans_paiement'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/operations_user/destroy_user.rb:32:in `exec_destroy_user'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/users/users.rb:114:in `execute_operation'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/users/users.rb:132:in `<top (required)>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:120:in `require'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:120:in `require'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:18:in `require'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `block in require_all_in'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `each'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `require_all_in'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/divers/modules/main_objets.rb:73:in `require_module'
+(erb):3:in `result'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `eval'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `result'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/gem/superfile/lib/superfile/instance/io.rb:113:in `deserb'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Vue/inst.rb:27:in `output'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:104:in `content_route'
+(erb):5:in `result'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `eval'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `result'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/gem/superfile/lib/superfile/instance/io.rb:113:in `deserb'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:72:in `content'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:25:in `preload'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/output.rb:35:in `output'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/index.rb:8:in `<main>'
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:04:11 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:04:20 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:04:26 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:04:31 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"99"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:05:24 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>""}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"actif"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:05:27 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>""}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:08:55 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"106"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:09:14 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"106"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:10:12 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- short_value.to_s (99) == icarien_id.to_s (99)
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"106"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:10:21 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- short_value.to_s (90) == icarien_id.to_s (90)
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"106"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:10:59 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- short_value.to_s (90) == icarien_id.to_s (106)
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"106"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:11:13 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"106"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:11:25 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"106"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:11:36 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- # ERREUR MYSQL : Duplicate entry 'BadGirl' for key 'pseudo'
+-- # REQUEST : INSERT INTO users (pseudo, sexe, mail, cpassword, salt, options, created_at) VALUES ( ?, ?, ?, ?, ?, ?, ? );
+-- # VALEURS PRÉPARÉES : ["BadGirl", "F", "sonmail@bad.com", "unmotdepassecryptedpourrien", "sonsel", "0000000000000000", 1540195896]
+-- /Library/Ruby/Gems/2.3.0/gems/mysql2-0.4.10/lib/mysql2/statement.rb:8:in `_execute'
+/Library/Ruby/Gems/2.3.0/gems/mysql2-0.4.10/lib/mysql2/statement.rb:8:in `block in execute'
+/Library/Ruby/Gems/2.3.0/gems/mysql2-0.4.10/lib/mysql2/statement.rb:7:in `handle_interrupt'
+/Library/Ruby/Gems/2.3.0/gems/mysql2-0.4.10/lib/mysql2/statement.rb:7:in `execute'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/mysql/request.rb:390:in `exec'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/mysql/request.rb:64:in `insert'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/mysql/mysql.rb:147:in `insert'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/operations_user/destroy_user.rb:192:in `user_sans_paiement'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/operations_user/destroy_user.rb:30:in `exec_destroy_user'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/users/users.rb:114:in `execute_operation'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/users/users.rb:132:in `<top (required)>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:120:in `require'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:120:in `require'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:18:in `require'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `block in require_all_in'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `each'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `require_all_in'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/divers/modules/main_objets.rb:73:in `require_module'
+(erb):3:in `result'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `eval'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `result'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/gem/superfile/lib/superfile/instance/io.rb:113:in `deserb'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Vue/inst.rb:27:in `output'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:104:in `content_route'
+(erb):5:in `result'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `eval'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `result'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/gem/superfile/lib/superfile/instance/io.rb:113:in `deserb'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:72:in `content'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:25:in `preload'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/output.rb:35:in `output'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/index.rb:8:in `<main>'
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"106"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:12:07 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>""}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:12:28 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- short_value.to_s (113) == icarien_id.to_s (113)
+-- # ERREUR MYSQL : Unknown column 'user_id' in 'where clause'
+-- # REQUEST : SELECT COUNT(*) FROM frigo_messages WHERE user_id = ?;
+-- # VALEURS PRÉPARÉES : [113]
+-- /Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/mysql/request.rb:408:in `prepare'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/mysql/request.rb:408:in `prepared_statement'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/mysql/request.rb:390:in `exec'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/mysql/request.rb:144:in `count'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/mysql/mysql.rb:165:in `count'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/operations_user/destroy_user.rb:145:in `nombre_in_db'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/operations_user/destroy_user.rb:150:in `delete_in_db'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/operations_user/destroy_user.rb:109:in `destroy_user_other_things'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/operations_user/destroy_user.rb:48:in `exec_destroy_user'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/users/users.rb:114:in `execute_operation'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/users/users.rb:132:in `<top (required)>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:120:in `require'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:120:in `require'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:18:in `require'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `block in require_all_in'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `each'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `require_all_in'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/divers/modules/main_objets.rb:73:in `require_module'
+(erb):3:in `result'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `eval'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `result'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/gem/superfile/lib/superfile/instance/io.rb:113:in `deserb'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Vue/inst.rb:27:in `output'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:104:in `content_route'
+(erb):5:in `result'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `eval'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `result'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/gem/superfile/lib/superfile/instance/io.rb:113:in `deserb'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:72:in `content'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:25:in `preload'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/output.rb:35:in `output'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/index.rb:8:in `<main>'
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"113"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:20:44 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- /Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/operations_user/destroy_user.rb:108: syntax error, unexpected ')', expecting =>
+
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:120:in `require'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:120:in `require'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:18:in `require'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `block in require_all_in'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `each'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `require_all_in'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/divers/modules/main_objets.rb:73:in `require_module'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/users/users.rb:110:in `execute_operation'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/users/users.rb:132:in `<top (required)>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:120:in `require'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:120:in `require'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:18:in `require'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `block in require_all_in'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `each'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `require_all_in'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/divers/modules/main_objets.rb:73:in `require_module'
+(erb):3:in `result'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `eval'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `result'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/gem/superfile/lib/superfile/instance/io.rb:113:in `deserb'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Vue/inst.rb:27:in `output'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:104:in `content_route'
+(erb):5:in `result'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `eval'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `result'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/gem/superfile/lib/superfile/instance/io.rb:113:in `deserb'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:72:in `content'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:25:in `preload'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/output.rb:35:in `output'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/index.rb:8:in `<main>'
+
+
+=== DEBUG DU 01 11 2018 - 11:21:04 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- short_value.to_s (113) == icarien_id.to_s (113)
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"113"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:21:57 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- short_value.to_s (113) == icarien_id.to_s (113)
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"113"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:22:42 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- short_value.to_s (113) == icarien_id.to_s (113)
+-- discussion_ids: 10
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"113"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:24:01 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- short_value.to_s (113) == icarien_id.to_s (113)
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"113"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:24:15 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"113"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:24:29 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>""}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:25:43 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- short_value.to_s (115) == icarien_id.to_s (115)
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"115"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:26:11 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+-- options: {}
+
+
+=== DEBUG DU 01 11 2018 - 11:26:30 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+-- options: {}
+
+
+=== DEBUG DU 01 11 2018 - 11:26:36 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+-- options: {}
+
+
+=== DEBUG DU 01 11 2018 - 11:26:45 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"115"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:27:14 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+-- options: {}
+
+
+=== DEBUG DU 01 11 2018 - 11:27:27 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+-- options: {}
+
+
+=== DEBUG DU 01 11 2018 - 11:28:19 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- # ERREUR MYSQL : Duplicate entry 'BadGirl' for key 'pseudo'
+-- # REQUEST : INSERT INTO users (pseudo, sexe, mail, cpassword, salt, options, created_at) VALUES ( ?, ?, ?, ?, ?, ?, ? );
+-- # VALEURS PRÉPARÉES : ["BadGirl", "F", "sonmail@bad.com", "unmotdepassecryptedpourrien", "sonsel", "0000000000000000", 1540196899]
+-- /Library/Ruby/Gems/2.3.0/gems/mysql2-0.4.10/lib/mysql2/statement.rb:8:in `_execute'
+/Library/Ruby/Gems/2.3.0/gems/mysql2-0.4.10/lib/mysql2/statement.rb:8:in `block in execute'
+/Library/Ruby/Gems/2.3.0/gems/mysql2-0.4.10/lib/mysql2/statement.rb:7:in `handle_interrupt'
+/Library/Ruby/Gems/2.3.0/gems/mysql2-0.4.10/lib/mysql2/statement.rb:7:in `execute'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/mysql/request.rb:390:in `exec'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/mysql/request.rb:64:in `insert'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/mysql/mysql.rb:147:in `insert'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/operations_user/destroy_user.rb:206:in `user_sans_paiement'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/operations_user/destroy_user.rb:30:in `exec_destroy_user'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/users/users.rb:114:in `execute_operation'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/users/users.rb:132:in `<top (required)>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:120:in `require'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:120:in `require'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:18:in `require'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `block in require_all_in'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `each'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `require_all_in'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/divers/modules/main_objets.rb:73:in `require_module'
+(erb):3:in `result'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `eval'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `result'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/gem/superfile/lib/superfile/instance/io.rb:113:in `deserb'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Vue/inst.rb:27:in `output'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:104:in `content_route'
+(erb):5:in `result'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `eval'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `result'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/gem/superfile/lib/superfile/instance/io.rb:113:in `deserb'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:72:in `content'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:25:in `preload'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/output.rb:35:in `output'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/index.rb:8:in `<main>'
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"115"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:28:35 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>""}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:28:46 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- short_value.to_s (116) == icarien_id.to_s (101)
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"101"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:29:02 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- short_value.to_s (116) == icarien_id.to_s (116)
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"116"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:29:15 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+-- options: {}
+
+
+=== DEBUG DU 01 11 2018 - 11:29:20 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+-- options: {}
+
+
+=== DEBUG DU 01 11 2018 - 11:29:53 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+-- options: {}
+
+
+=== DEBUG DU 01 11 2018 - 11:30:49 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- short_value.to_s () == icarien_id.to_s (116)
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"116"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:31:00 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>""}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:31:13 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- short_value.to_s (118) == icarien_id.to_s (118)
+-- ---- discussion_ids : 15
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"118"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:32:41 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>""}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:32:48 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"101"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:32:57 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+-- options: {}
+
+
+=== DEBUG DU 01 11 2018 - 11:33:01 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+-- options: {}
+
+
+=== DEBUG DU 01 11 2018 - 11:33:05 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+-- options: {}
+
+
+=== DEBUG DU 01 11 2018 - 11:33:13 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+-- options: {}
+
+
+=== DEBUG DU 01 11 2018 - 11:33:26 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- short_value.to_s () == icarien_id.to_s (101)
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"101"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 11:33:35 ===
+
+-- 
+Objet    = "database"
+Objet ID = nil
+Method   = "edit"
+Context  = nil
+-- options: {}
+
+
+=== DEBUG DU 01 11 2018 - 17:28:27 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- param(:backto) mis à "admin/users"
+-- 
+Objet    = "user"
+Objet ID = nil
+Method   = "signin"
+Context  = nil
+
+
+=== DEBUG DU 01 11 2018 - 17:28:42 ===
+
+-- 
+Objet    = "user"
+Objet ID = nil
+Method   = "login"
+Context  = nil
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>nil}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>nil, :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 17:28:54 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- # ERREUR MYSQL : Duplicate entry 'BadGirl' for key 'pseudo'
+-- # REQUEST : INSERT INTO users (pseudo, sexe, mail, cpassword, salt, options, created_at) VALUES ( ?, ?, ?, ?, ?, ?, ? );
+-- # VALEURS PRÉPARÉES : ["BadGirl", "F", "sonmail@bad.com", "unmotdepassecryptedpourrien", "sonsel", "0000000000000000", 1540218535]
+-- /Library/Ruby/Gems/2.3.0/gems/mysql2-0.4.10/lib/mysql2/statement.rb:8:in `_execute'
+/Library/Ruby/Gems/2.3.0/gems/mysql2-0.4.10/lib/mysql2/statement.rb:8:in `block in execute'
+/Library/Ruby/Gems/2.3.0/gems/mysql2-0.4.10/lib/mysql2/statement.rb:7:in `handle_interrupt'
+/Library/Ruby/Gems/2.3.0/gems/mysql2-0.4.10/lib/mysql2/statement.rb:7:in `execute'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/mysql/request.rb:390:in `exec'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/mysql/request.rb:64:in `insert'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/mysql/mysql.rb:147:in `insert'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/operations_user/destroy_user.rb:208:in `user_sans_paiement'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/operations_user/destroy_user.rb:30:in `exec_destroy_user'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/users/users.rb:114:in `execute_operation'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/objet/admin/lib/module/users/users.rb:132:in `<top (required)>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:120:in `require'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:120:in `require'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:18:in `require'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `block in require_all_in'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `each'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/require.rb:70:in `require_all_in'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/divers/modules/main_objets.rb:73:in `require_module'
+(erb):3:in `result'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `eval'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `result'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/gem/superfile/lib/superfile/instance/io.rb:113:in `deserb'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Vue/inst.rb:27:in `output'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:104:in `content_route'
+(erb):5:in `result'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `eval'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `result'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/gem/superfile/lib/superfile/instance/io.rb:113:in `deserb'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:72:in `content'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:25:in `preload'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/output.rb:35:in `output'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/index.rb:8:in `<main>'
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"101"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 17:33:13 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- short_value.to_s () == icarien_id.to_s (101)
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"101"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 17:33:23 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>""}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 17:33:28 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"119"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 17:39:29 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- ---- discussion_ids : {:id=>17}
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"119"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 17:39:47 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- ---- discussion_ids : [{:id=>17}, {:id=>18}]
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"119"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 17:41:35 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- ---- discussion_ids : [17, 18]
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"119"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 17:42:17 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- short_value.to_s (119) == icarien_id.to_s (119)
+-- ---- discussion_ids : [17, 18]
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"119"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 17:43:24 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- short_value.to_s (119) == icarien_id.to_s (119)
+-- ---- discussion_ids : [17, 18]
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"119"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 17:43:38 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- short_value.to_s () == icarien_id.to_s (119)
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"119"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 17:43:43 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>""}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 17:43:56 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- short_value.to_s () == icarien_id.to_s (121)
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"121"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 17:44:11 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- short_value.to_s (12) == icarien_id.to_s (121)
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"121"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 01 11 2018 - 17:44:17 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "users"
+Context  = nil
+-- short_value.to_s (121) == icarien_id.to_s (121)
+-- ---- discussion_ids : [19, 20]
+-- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"121"}
+-- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
+-- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
