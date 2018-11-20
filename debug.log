@@ -9415,3 +9415,220 @@ Context  = nil
 -- attrs : {:id=>"opuser_user_id", :name=>"opuser[user_id]", :selected=>"121"}
 -- attrs : {:name=>"opuser[type_icarien]", :id=>"opuser_type_icarien", :onchange=>"$.proxy(Dashboard,'onchoose_type_icarien')()", :selected=>"all"}
 -- attrs : {:id=>"opuser_ope", :name=>"opuser[ope]", :onchange=>"$.proxy(Dashboard,'on_choose_operation')()", :selected=>"destroy_user", :size=>"long"}
+
+
+=== DEBUG DU 20 11 2018 - 07:35:49 ===
+
+-- 
+Objet    = "user"
+Objet ID = nil
+Method   = "signin"
+Context  = nil
+
+
+=== DEBUG DU 20 11 2018 - 07:36:01 ===
+
+-- 
+Objet    = "user"
+Objet ID = nil
+Method   = "login"
+Context  = nil
+-- kroute = "admin/overview"
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "overview"
+Context  = nil
+
+
+=== DEBUG DU 20 11 2018 - 07:36:04 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 20 11 2018 - 07:36:42 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 20 11 2018 - 07:36:52 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 20 11 2018 - 07:37:13 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 20 11 2018 - 07:37:59 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 20 11 2018 - 07:38:32 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 20 11 2018 - 07:38:56 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- (erb):26: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
+; _erbout.concat(( if user.admin? ).to_s); _erbout.concat "\n        "
+                                   ^
+(erb):29: syntax error, unexpected keyword_else, expecting end-of-input
+;  else ; _erbout.concat "\n        "
+       ^
+
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `eval'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `result'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/gem/superfile/lib/superfile/instance/io.rb:113:in `deserb'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Vue/inst.rb:27:in `output'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:104:in `content_route'
+(erb):5:in `result'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `eval'
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/erb.rb:864:in `result'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/gem/superfile/lib/superfile/instance/io.rb:113:in `deserb'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:72:in `content'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Page/vues.rb:25:in `preload'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/lib/deep/deeper/required/Site/output.rb:35:in `output'
+/Users/philippeperret/Sites/AlwaysData/Icare_AD_2018/index.rb:8:in `<main>'
+
+
+=== DEBUG DU 20 11 2018 - 07:39:37 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 20 11 2018 - 07:40:47 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 20 11 2018 - 07:41:05 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 20 11 2018 - 07:41:17 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "visit_as"
+Context  = nil
+
+
+=== DEBUG DU 20 11 2018 - 07:41:21 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "visit_as"
+Context  = nil
+
+
+=== DEBUG DU 20 11 2018 - 07:41:24 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+-- user.icetape.abs_etape.numero : 71
+
+
+=== DEBUG DU 20 11 2018 - 07:41:36 ===
+
+-- 
+Objet    = "user"
+Objet ID = 101
+Method   = "deconnexion"
+Context  = nil
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 20 11 2018 - 07:41:41 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "visit_as"
+Context  = nil
+
+
+=== DEBUG DU 20 11 2018 - 07:41:58 ===
+
+-- 
+Objet    = "admin"
+Objet ID = nil
+Method   = "visit_as"
+Context  = nil
+
+
+=== DEBUG DU 20 11 2018 - 07:42:01 ===
+
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil
+
+
+=== DEBUG DU 20 11 2018 - 07:42:10 ===
+
+-- 
+Objet    = "user"
+Objet ID = 5
+Method   = "deconnexion"
+Context  = nil
+-- 
+Objet    = "bureau"
+Objet ID = nil
+Method   = "home"
+Context  = nil

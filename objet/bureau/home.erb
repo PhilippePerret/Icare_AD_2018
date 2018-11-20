@@ -19,30 +19,25 @@
 
   <div class="row">
 
-    <div id="statut-auteur" class="col mb-2">
+    <div id="statut-auteur" class="col-md-6 mb-2">
       <%= Bureau.section_statut_auteur %>
+      <div id="info-module-courant" style="margin-top:2em;">
+        <%=
+          if user.admin?
+            Bureau.section_administrateur
+          else
+            Bureau.section_info_module_et_echeance
+          end
+        %>
+      </div>
     </div>
     <!-- col -->
 
-    <div id="notifications" class="col">
+    <div id="notifications" class="col-md-6">
       <%= Bureau.section_notifications %>
     </div>
     <!-- col -->
 
-  </div>
-  <!-- row -->
-
-
-  <div id="info-module-courant" class="row">
-    <div class="col col-md-6">
-      <% if user.admin? %>
-        <%# Cf. le module 'bureau_admin' %>
-        <%= Bureau.section_administrateur %>
-      <% else %>
-        <%= Bureau.section_info_module_et_echeance %>
-      <% end %>
-    </div>
-    <!-- col -->
   </div>
   <!-- row -->
 
