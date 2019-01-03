@@ -11,6 +11,8 @@ class << self
   # Arrêt du module d'apprentissage
   def exec_arret_module
 
+    @icarien_id = param_opuser[:user_id].to_i
+    @icarien    = User.new(@icarien_id)
     icarien.icmodule || begin
       error "L'icarien#{icarien.f_ne} #{icarien.pseudo} n’a pas de module courant…"
       return false

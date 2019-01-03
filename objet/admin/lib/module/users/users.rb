@@ -71,7 +71,7 @@ class << self
   end
   # Icarien visé par l'opération
   def icarien ; @icarien ||= User.new(user_id) end
-  def user_id ; @user_id ||= param_opuser[:user_id].to_i end
+  def user_id ; param_opuser[:user_id].to_i end
   alias :icarien_id :user_id
 
   # ---------------------------------------------------------------------

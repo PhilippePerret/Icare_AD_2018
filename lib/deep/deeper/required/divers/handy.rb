@@ -25,6 +25,21 @@ def send_error_to_admin args
     else {exception: args}
     end
 
+  # Le user concerné n'est pas forcément le user courant. Il n'y a
+  # d'ailleurs pas toujours un user courant.
+  # Il peut alors être défini dans args[:user]
+  if args.key?(:user) && args[:user].respond_to?(:pseudo)
+    cuser = args[:user]
+    user_identification = '%{pseudo} (%{id})' % {pseudo: cuser.pseudo, id: cuser.id}
+    user_ip = cuser.ip
+  elsif user.identified?
+    user_identification = '%{pseudo} (%{id})' % {pseudo: user.pseudo, id: user.id}
+    user_ip = user.ip
+  else
+    user_identification = '- inconnu -'
+    user_ip = '- inconnue -'
+  end
+
   message, backtrace =
     case args[:exception]
     when String then [args[:exception], '']
@@ -33,13 +48,11 @@ def send_error_to_admin args
 
 
   message = <<-HTML
-<p>Erreur sur #{site.name}</p>
+<div>Erreur sur #{site.name}</div>
+<div>Date : #{Time.now.to_i.as_human_date(true, true, ' ', 'à')}</div>
 <p>
-  Date : #{Time.now.to_i.as_human_date(true, true, ' ', 'à')}
-</p>
-<p>
-  User : #{user.identified? ? "#{user.pseudo} (#{user.id})" : '- inconnu -'}<br>
-  User IP : #{user.ip}
+  User : #{user_identification}<br>
+  User IP : #{user_ip}
 </p>
 <pre style="font-size:11pt">
   MESSAGE : #{message}

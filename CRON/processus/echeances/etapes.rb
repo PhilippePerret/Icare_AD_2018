@@ -72,6 +72,31 @@ class User
   def lire_mail_echeance_etape level_warn
     pmail = (IcModule::IcEtape.folder+"lib/mail/depassement_#{level_warn}.erb")
     pmail.deserb(self.bind)
+  rescue Exception => e
+    # Une erreur se produit ici avec jour_depassement et un expected_end
+    # qui est inconnu.
+
+    # On transforme la trace en string
+    trace_erreur = e.backtrace.unshift(e.message).join("\n")
+    # On définit les informations utilisateur
+    user_info = '%{pseudo} (%{id})' % {self.pseudo, self.id}
+    # On prendra le niveau d'alerte
+    alerte_niveau = 'Niveau d’alerte : %s' % level_warn.to_s
+
+    site.send_mail_to_admin(
+      subject:  'Erreur dans `lire_mail_echeance_etape`',
+      formated:  true,
+      message: <<-HTML
+      <pre>
+        ERREUR AVEC : #{user_info}
+        ERREUR :
+        #{trace_erreur}
+        POUR INFO :
+        #{alerte_niveau}
+      </pre>
+      HTML
+      )
+
   end
 
 end

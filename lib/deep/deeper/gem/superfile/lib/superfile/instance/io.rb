@@ -113,13 +113,16 @@ class SuperFile
       ERB.new( read.force_encoding('utf-8') ).result( bindee )
     rescue Exception => e
       debug e
-      ajout_avertissement =
-        begin
-          send(:send_error_to_admin, {exception: e, file: self.path.to_s, from: 'Déserbage d’un SuperFile'})
-          '<div class="small">Nous venons d’informer l’administration de ce problème. Il sera résolu rapidement. Merci de votre indulgence et de votre patience.</div>'
-        rescue
-          ''
+      ajout_avertissement = ''
+      begin
+        data_error_sent = {exception: e, file: self.path.to_s, from: 'Déserbage d’un SuperFile'}
+        if bindee.respond_to?(:pseudo)
+          data_error_sent.merge!(user: bindee)
         end
+        send(:send_error_to_admin, data_error_sent)
+        ajout_avertissement = '<div class="small">Nous venons d’informer l’administration de ce problème. Il sera résolu rapidement. Merci de votre indulgence et de votre patience.</div>'
+      rescue
+      end
       # Le message affiché dans la page, en fonction du fait qu'on est
       # administrateur, online ou non.
       if user.admin? || OFFLINE
