@@ -154,14 +154,16 @@ class App
     _adm != nil || return
     fpath   = _adm_folder + _adm
     if fpath.exist?
-      if fpath.read == param(:sid)
+      if fpath.read == (param(:sid)||param(:ssid))
+        # Note : param(:ssid) a été ajouté pour se connecter avec la command
+        # icare CLI.
         fpath.remove
         flash 'Autoconnexion user réussie.'
         debug "Autologin de #{param(:uid).to_i}"
         User.new(param(:uid).to_i).autologin
         return true
       else
-        raise "Le numérod de session ne correspond pas."
+        raise "Le numéro de session ne correspond pas (attendu: #{(param(:sid)||param(:ssid)).inspect}, trouvé dans le fichier: #{fpath.read.inspect})."
       end
     else
       raise "le fichier #{fpath} n'existe pas ou plus."

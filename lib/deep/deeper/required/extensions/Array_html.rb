@@ -21,7 +21,7 @@ class ::Array
   end
 
   def in_my_select attrs = nil
-    debug "attrs : #{attrs.inspect}"
+    # debug "attrs : #{attrs.inspect}"
     selected = attrs[:selected].nil_if_empty
     # Si aucun menu n'est sélectionné, il faut choisir
     # le premier (obligatoirement, sinon on ne verrait pas

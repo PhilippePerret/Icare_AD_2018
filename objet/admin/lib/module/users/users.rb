@@ -70,7 +70,15 @@ class << self
     @type_icarien ||= (param_opuser[:type_icarien]||'all').to_sym
   end
   # Icarien visé par l'opération
-  def icarien ; @icarien ||= User.new(user_id) end
+  def icarien
+    @icarien ||= begin
+      if user_id.nil?
+        nil
+      else
+        User.new(user_id)
+      end
+    end
+  end
   def user_id ; param_opuser[:user_id].to_i end
   alias :icarien_id :user_id
 
@@ -78,7 +86,7 @@ class << self
 
   # Un menu pour choisir un user
   def menu
-    User.values_select(type_icarien => true).in_my_select(id: 'opuser_user_id', name: 'opuser[user_id]', selected: param_opuser[:user_id])
+  ([[0, 'Choisir l’icarien…']] + User.values_select(type_icarien => true)).in_my_select(id: 'opuser_user_id', name: 'opuser[user_id]', selected: param_opuser[:user_id])
   end
   def menu_type_icarien
     [
