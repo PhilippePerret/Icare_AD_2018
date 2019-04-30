@@ -18,4 +18,7 @@ class IcModule
   def type_suivi?
     @is_module_suivi ||= abs_module.type_suivi?
   end
+  def type_coaching?
+    @is_module_coaching ||= abs_module.type_coaching?
+  end
 end #/Icmodule

@@ -133,7 +133,7 @@ class Paiements
   def line_paiement hdata
     user    = User.get(hdata[:user_id])
     umodule = IcModule.new(hdata[:icmodule_id])
-    if umodule.type_suivi?
+    if umodule.type_suivi? || umodule.type_coaching?
       @paiements_modules_suivis << hdata
     else
       @paiements_modules_apprentissage << hdata
@@ -143,7 +143,7 @@ class Paiements
     hdata.merge!(
       pseudo:   user.pseudo,
       date:     Time.at(hdata[:created_at]).strftime('%d %m %Y'),
-      suivi:    (umodule.type_suivi? ? 'OUI' : 'NON')
+      suivi:    ((umodule.type_suivi? || umodule.type_coaching?) ? 'OUI' : 'NON')
     )
     template_line_paiement % hdata
   end

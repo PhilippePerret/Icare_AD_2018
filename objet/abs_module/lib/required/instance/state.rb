@@ -3,8 +3,17 @@ class AbsModule
 
   # True si c'est un module de type suivi
   def type_suivi?
-    @is_type_suivi = nombre_jours.nil? if @is_type_suivi === nil
+    if @is_type_suivi === nil
+      @is_type_suivi = nombre_jours.nil?
+    end
     @is_type_suivi
+  end
+
+  def type_coaching?
+    if @is_type_coaching === nil
+      @is_type_coaching = (id == 12)
+    end
+    @is_type_coaching
   end
 
   # TRUE si c'est un module à rythme intensif
