@@ -1,22 +1,22 @@
-=== BENCHMARK DU 19 janvier 2019 à 04:22 ===
-=== Index start : 1547860942.6908019 (2019-01-19 04:22:22 +0300)
+=== BENCHMARK DU 15 juillet 2019 à 09:56 ===
+=== Index start : 1563173789.553042 (2019-07-15 09:56:29 +0300)
 
 -> site/config.rb                                       0.000000  0.000000
-<- site/config.rb                                       0.000075  0.000075
--> execute_preambule                                    0.049254  0.049329
-  -> User#do_after_load                                 0.000048  0.049377
-  <- User#do_after_load                                 0.000003  0.049380
-<- execute_preambule                                    0.000001  0.049381
--> required.rb                                         -0.527222 -0.477841
-<- required.rb                                          0.527224  0.049383
--> SiteHtml#output                                      0.000024  0.049407
-  -> SiteHtml#execute_route                             0.000002  0.049409
-  <- SiteHtml#execute_route                             0.000015  0.049424
-  -> Page#preload                                       0.000006  0.049430
-  <- Page#preload                                       0.013612  0.063042
-  -> Page#prebuild_body                                 0.000011  0.063053
-    -> Page#body                                        0.000004  0.063057
-    <- Page#body                                        0.000006  0.063063
-  <- Page#prebuild_body                                 0.000003  0.063066
-  CODE HTML FINAL BUILT                                 0.003074  0.066140
-<- SiteHtml#output                                      0.000005  0.066145
+<- site/config.rb                                       0.000276  0.000276
+-> execute_preambule                                    0.080989  0.081265
+  -> User#do_after_load                                 0.000064  0.081329
+  <- User#do_after_load                                 0.000003  0.081332
+<- execute_preambule                                    0.000001  0.081333
+-> required.rb                                         -0.650535 -0.569202
+<- required.rb                                          0.650538  0.081336
+-> SiteHtml#output                                      0.000058  0.081394
+  -> SiteHtml#execute_route                             0.000003  0.081397
+  <- SiteHtml#execute_route                             0.000022  0.081419
+  -> Page#preload                                       0.000008  0.081427
+  <- Page#preload                                       0.015643  0.097070
+  -> Page#prebuild_body                                 0.000010  0.097080
+    -> Page#body                                        0.000003  0.097083
+    <- Page#body                                        0.000005  0.097088
+  <- Page#prebuild_body                                 0.000004  0.097092
+  CODE HTML FINAL BUILT                                 0.002290  0.099382
+<- SiteHtml#output                                      0.000004  0.099386

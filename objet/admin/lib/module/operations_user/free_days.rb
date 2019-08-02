@@ -9,6 +9,25 @@ class << self
   # On peut également indiquer une raison dans :long_value
   def exec_free_days
 
+    if icarien.id == 0
+      debug 'L’ID de l’icarien ne devrait pas être nil. Il faut le choisir dans le menu.'
+      @icarien_id = param_opuser[:user_id].to_i
+      @icarien    = User.new(@icarien_id)
+    end
+
+    icarien.icmodule || begin
+      debug "Pas de module courant… Ça n'est peut-être pas le bon icarien"
+      @icarien_id = param_opuser[:user_id].to_i
+      debug "Je prends l'icarien ##{@icarien_id}"
+      @icarien    = User.new(@icarien_id)
+      debug "Icarien : #{icarien.pseudo} (#{@icarien.pseudo}), ##{icarien.id} (##{@icarien.id})"
+    end
+
+    icarien.icmodule || begin
+      error "L'icarien#{icarien.f_ne} #{icarien.pseudo} (#{icarien.id}) n’a pas de module courant…"
+      return false
+    end
+
     old_paiement = icarien.icmodule.next_paiement
     new_paiement = old_paiement + nombre_jours_gratuits.days
 

@@ -1,0 +1,12 @@
+table#choix_icarien {
+  margin: 1em;
+}
+table#choix_icarien tr td {
+  vertical-align:middle;
+}
+
+section#resultats {
+  margin: 2em;
+  font-family: monospace;
+  font-size:14.2pt;
+}

@@ -13,6 +13,7 @@ class << self
       'WATCHERS'.in_a(href: 'watcher/edit').in_div +
 
       'Gestion Icariens'.in_h3 +
+      'Check et réparation Icarien'.in_a(href: 'admin/user_checks').in_div +
       'Aperçu général'.in_a(href: 'admin/overview').in_div +
       'Opérations ICARIEN/S…'.in_a(href: 'admin/users').in_div +
       'Mailing list'.in_a(href: 'admin/mailing').in_div +
