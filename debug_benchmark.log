@@ -1,22 +1,649 @@
-=== BENCHMARK DU 15 juillet 2019 à 09:56 ===
-=== Index start : 1563173789.553042 (2019-07-15 09:56:29 +0300)
+=== BENCHMARK DU 3 août 2019 à 16:46 ===
+=== Index start : 1564840002.1971881 (2019-08-03 16:46:42 +0300)
 
 -> site/config.rb                                       0.000000  0.000000
-<- site/config.rb                                       0.000276  0.000276
--> execute_preambule                                    0.080989  0.081265
-  -> User#do_after_load                                 0.000064  0.081329
-  <- User#do_after_load                                 0.000003  0.081332
-<- execute_preambule                                    0.000001  0.081333
--> required.rb                                         -0.650535 -0.569202
-<- required.rb                                          0.650538  0.081336
--> SiteHtml#output                                      0.000058  0.081394
-  -> SiteHtml#execute_route                             0.000003  0.081397
-  <- SiteHtml#execute_route                             0.000022  0.081419
-  -> Page#preload                                       0.000008  0.081427
-  <- Page#preload                                       0.015643  0.097070
-  -> Page#prebuild_body                                 0.000010  0.097080
-    -> Page#body                                        0.000003  0.097083
-    <- Page#body                                        0.000005  0.097088
-  <- Page#prebuild_body                                 0.000004  0.097092
-  CODE HTML FINAL BUILT                                 0.002290  0.099382
-<- SiteHtml#output                                      0.000004  0.099386
+<- site/config.rb                                       0.000150  0.000150
+-> execute_preambule                                    0.033167  0.033317
+  -> User#do_after_load                                 0.008201  0.041518
+  <- User#do_after_load                                 0.000007  0.041525
+<- execute_preambule                                    0.000002  0.041527
+-> required.rb                                         -0.757110 -0.715583
+<- required.rb                                          0.757113  0.041530
+-> SiteHtml#output                                      0.000086  0.041616
+  -> SiteHtml#execute_route                             0.000005  0.041621
+      | Objet    = "admin"                                              - 
+      | Objet ID = nil                                                  - 
+      | Method   = "user_checks"                                        - 
+      | Context  = nil                                  0.000107  0.041728
+    --> user.set_last_connexion                         0.000132  0.041860
+    <-- user.set_last_connexion                         0.004663  0.046523
+    --> iroute.load_required                            0.000042  0.046565
+    <-- iroute.load_required                            0.035827  0.082392
+    --> iroute.load_per_vue                             0.000008  0.082400
+    <-- iroute.load_per_vue                             0.000206  0.082606
+    --> iroute.method_call                              0.000003  0.082609
+    <-- iroute.method_call                              0.000292  0.082901
+  <- SiteHtml#execute_route                             0.000004  0.082905
+  -> Page#preload                                       0.000013  0.082918
+
+      | @request: SELECT * FROM users WHERE id = 101;   0.026131  0.109049
+
+      | @request: SELECT * FROM users WHERE id = 101;   0.001576  0.110625
+
+      | @request: SELECT * FROM icmodules WHERE id = 112;  0.030125  0.140750
+
+      | @request: SELECT * FROM icmodules WHERE id = 112;  0.001361  0.142111
+
+      | @request: SELECT * FROM absmodules WHERE id = 7;  0.001488  0.143599
+
+      | @request: SELECT * FROM absmodules WHERE id = 7;  0.001373  0.144972
+
+      | @request: SELECT * FROM watchers WHERE user_id = 101 AND objet = 'ic_module' AND objet_id = 112 AND processus = 'paiement' ORDER BY created_at ASC;  0.001336  0.146308
+
+      | @request: SELECT * FROM watchers WHERE user_id = 101 AND objet = 'ic_module' AND objet_id = 112 AND processus = 'paiement' ORDER BY created_at ASC;  0.001434  0.147742
+      | @data_correct = {                                               - 
+      | "hot" =>                                                        - 
+      | {                                                               - 
+      | "watchers" =>                                                   - 
+      | {                                                               - 
+      | :insert => [{:user_id=>101, :objet=>"ic_module", :objet_id=>112, :triggered=>1527603582, :created_at=>1564840002, :updated_at=>1564840002}]                  - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                               0.001631  0.149373
+      | @data_correct = {                                               - 
+      | "hot" =>                                                        - 
+      | {                                                               - 
+      | "watchers" =>                                                   - 
+      | {                                                               - 
+      | :insert => [{:user_id=>101, :objet=>"ic_module", :objet_id=>112, :triggered=>1527603582, :created_at=>1564840002, :updated_at=>1564840002}, "triggered"]                  - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                               0.000191  0.149564
+
+      | @request: SELECT * FROM icetapes WHERE id = 728;  0.000060  0.149624
+
+      | @request: SELECT * FROM icetapes WHERE id = 728;  0.001633  0.151257
+      | @data_correct = {                                               - 
+      | "hot" =>                                                        - 
+      | {                                                               - 
+      | "watchers" =>                                                   - 
+      | {                                                               - 
+      | :insert => [{:user_id=>101, :objet=>"ic_module", :objet_id=>112, :triggered=>1527603582, :created_at=>1564840002, :updated_at=>1564840002}, "triggered"]                  - 
+      | }                                                               - 
+      | }                                                               - 
+      | "modules" =>                                                    - 
+      | {                                                               - 
+      | "icetapes" =>                                                   - 
+      | {                                                               - 
+      | 728 =>                                                          - 
+      | {                                                               - 
+      | "icmodule_id" => 112                                            - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                               0.001731  0.152988
+
+      | @request: SELECT * FROM icdocuments WHERE id = 840;  0.000105  0.153093
+
+      | @request: SELECT * FROM icdocuments WHERE id = 840;  0.001660  0.154753
+      | @data_correct = {                                               - 
+      | "hot" =>                                                        - 
+      | {                                                               - 
+      | "watchers" =>                                                   - 
+      | {                                                               - 
+      | :insert => [{:user_id=>101, :objet=>"ic_module", :objet_id=>112, :triggered=>1527603582, :created_at=>1564840002, :updated_at=>1564840002}, "triggered"]                  - 
+      | }                                                               - 
+      | }                                                               - 
+      | "modules" =>                                                    - 
+      | {                                                               - 
+      | "icetapes" =>                                                   - 
+      | {                                                               - 
+      | 728 =>                                                          - 
+      | {                                                               - 
+      | "icmodule_id" => 112                                            - 
+      | }                                                               - 
+      | }                                                               - 
+      | "icdocuments" =>                                                - 
+      | {                                                               - 
+      | 840 =>                                                          - 
+      | {                                                               - 
+      | "user_id" => 101                                                - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                               0.002222  0.156975
+      | @data_correct = {                                               - 
+      | "hot" =>                                                        - 
+      | {                                                               - 
+      | "watchers" =>                                                   - 
+      | {                                                               - 
+      | :insert => [{:user_id=>101, :objet=>"ic_module", :objet_id=>112, :triggered=>1527603582, :created_at=>1564840002, :updated_at=>1564840002}, "triggered"]                  - 
+      | }                                                               - 
+      | }                                                               - 
+      | "modules" =>                                                    - 
+      | {                                                               - 
+      | "icetapes" =>                                                   - 
+      | {                                                               - 
+      | 728 =>                                                          - 
+      | {                                                               - 
+      | "icmodule_id" => 112                                            - 
+      | }                                                               - 
+      | }                                                               - 
+      | "icdocuments" =>                                                - 
+      | {                                                               - 
+      | 840 =>                                                          - 
+      | {                                                               - 
+      | "user_id" => 101                                                - 
+      | "icmodule_id" => 112                                            - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                               0.000191  0.157166
+      | @data_correct = {                                               - 
+      | "hot" =>                                                        - 
+      | {                                                               - 
+      | "watchers" =>                                                   - 
+      | {                                                               - 
+      | :insert => [{:user_id=>101, :objet=>"ic_module", :objet_id=>112, :triggered=>1527603582, :created_at=>1564840002, :updated_at=>1564840002}, "triggered"]                  - 
+      | }                                                               - 
+      | }                                                               - 
+      | "modules" =>                                                    - 
+      | {                                                               - 
+      | "icetapes" =>                                                   - 
+      | {                                                               - 
+      | 728 =>                                                          - 
+      | {                                                               - 
+      | "icmodule_id" => 112                                            - 
+      | }                                                               - 
+      | }                                                               - 
+      | "icdocuments" =>                                                - 
+      | {                                                               - 
+      | 840 =>                                                          - 
+      | {                                                               - 
+      | "user_id" => 101                                                - 
+      | "icmodule_id" => 112                                            - 
+      | "abs_module_id" => 7                                            - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                               0.000233  0.157399
+      | @data_correct = {                                               - 
+      | "hot" =>                                                        - 
+      | {                                                               - 
+      | "watchers" =>                                                   - 
+      | {                                                               - 
+      | :insert => [{:user_id=>101, :objet=>"ic_module", :objet_id=>112, :triggered=>1527603582, :created_at=>1564840002, :updated_at=>1564840002}, "triggered"]                  - 
+      | }                                                               - 
+      | }                                                               - 
+      | "modules" =>                                                    - 
+      | {                                                               - 
+      | "icetapes" =>                                                   - 
+      | {                                                               - 
+      | 728 =>                                                          - 
+      | {                                                               - 
+      | "icmodule_id" => 112                                            - 
+      | }                                                               - 
+      | }                                                               - 
+      | "icdocuments" =>                                                - 
+      | {                                                               - 
+      | 840 =>                                                          - 
+      | {                                                               - 
+      | "user_id" => 101                                                - 
+      | "icmodule_id" => 112                                            - 
+      | "abs_module_id" => 7                                            - 
+      | "icetape_id" => 728                                             - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                               0.000194  0.157593
+      | @data_correct = {                                               - 
+      | "hot" =>                                                        - 
+      | {                                                               - 
+      | "watchers" =>                                                   - 
+      | {                                                               - 
+      | :insert => [{:user_id=>101, :objet=>"ic_module", :objet_id=>112, :triggered=>1527603582, :created_at=>1564840002, :updated_at=>1564840002}, "triggered"]                  - 
+      | }                                                               - 
+      | }                                                               - 
+      | "modules" =>                                                    - 
+      | {                                                               - 
+      | "icetapes" =>                                                   - 
+      | {                                                               - 
+      | 728 =>                                                          - 
+      | {                                                               - 
+      | "icmodule_id" => 112                                            - 
+      | }                                                               - 
+      | }                                                               - 
+      | "icdocuments" =>                                                - 
+      | {                                                               - 
+      | 840 =>                                                          - 
+      | {                                                               - 
+      | "user_id" => 101                                                - 
+      | "icmodule_id" => 112                                            - 
+      | "abs_module_id" => 7                                            - 
+      | "icetape_id" => 728                                             - 
+      | "abs_etape_id" => 254                                           - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                               0.000195  0.157788
+
+      | @request: SELECT * FROM watchers WHERE user_id = 101 AND objet = "ic_document" AND objet_id = 840 AND processus = "upload_comments" ORDER BY created_at ASC;  0.000053  0.157841
+
+      | @request: SELECT * FROM watchers WHERE user_id = 101 AND objet = "ic_document" AND objet_id = 840 AND processus = "upload_comments" ORDER BY created_at ASC;  0.002017  0.159858
+      | @data_correct = {                                               - 
+      | "hot" =>                                                        - 
+      | {                                                               - 
+      | "watchers" =>                                                   - 
+      | {                                                               - 
+      | :insert => [{:user_id=>101, :objet=>"ic_module", :objet_id=>112, :triggered=>1527603582, :created_at=>1564840002, :updated_at=>1564840002}, "triggered", {:user_id=>101, :objet=>"ic_document", :objet_id=>840, :processus=>"upload_comments", :created_at=>1564840002, :updated_at=>1564840002}]                  - 
+      | }                                                               - 
+      | }                                                               - 
+      | "modules" =>                                                    - 
+      | {                                                               - 
+      | "icetapes" =>                                                   - 
+      | {                                                               - 
+      | 728 =>                                                          - 
+      | {                                                               - 
+      | "icmodule_id" => 112                                            - 
+      | }                                                               - 
+      | }                                                               - 
+      | "icdocuments" =>                                                - 
+      | {                                                               - 
+      | 840 =>                                                          - 
+      | {                                                               - 
+      | "user_id" => 101                                                - 
+      | "icmodule_id" => 112                                            - 
+      | "abs_module_id" => 7                                            - 
+      | "icetape_id" => 728                                             - 
+      | "abs_etape_id" => 254                                           - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                               0.002006  0.161864
+
+      | @request: SELECT * FROM watchers WHERE objet = "ic_document" AND objet_id = 840 AND processus != "upload_comments" ORDER BY created_at ASC;  0.000032  0.161896
+
+      | @request: SELECT * FROM watchers WHERE objet = "ic_document" AND objet_id = 840 AND processus != "upload_comments" ORDER BY created_at ASC;  0.001532  0.163428
+      | @data_correct = {                                               - 
+      | "hot" =>                                                        - 
+      | {                                                               - 
+      | "watchers" =>                                                   - 
+      | {                                                               - 
+      | :insert => [{:user_id=>101, :objet=>"ic_module", :objet_id=>112, :triggered=>1527603582, :created_at=>1564840002, :updated_at=>1564840002}, "triggered", {:user_id=>101, :objet=>"ic_document", :objet_id=>840, :processus=>"upload_comments", :created_at=>1564840002, :updated_at=>1564840002}]                  - 
+      | :delete => [12]                                                 - 
+      | }                                                               - 
+      | }                                                               - 
+      | "modules" =>                                                    - 
+      | {                                                               - 
+      | "icetapes" =>                                                   - 
+      | {                                                               - 
+      | 728 =>                                                          - 
+      | {                                                               - 
+      | "icmodule_id" => 112                                            - 
+      | }                                                               - 
+      | }                                                               - 
+      | "icdocuments" =>                                                - 
+      | {                                                               - 
+      | 840 =>                                                          - 
+      | {                                                               - 
+      | "user_id" => 101                                                - 
+      | "icmodule_id" => 112                                            - 
+      | "abs_module_id" => 7                                            - 
+      | "icetape_id" => 728                                             - 
+      | "abs_etape_id" => 254                                           - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                               0.001702  0.165130
+      | @data_correct = {                                               - 
+      | "hot" =>                                                        - 
+      | {                                                               - 
+      | "watchers" =>                                                   - 
+      | {                                                               - 
+      | :insert => [{:user_id=>101, :objet=>"ic_module", :objet_id=>112, :triggered=>1527603582, :created_at=>1564840002, :updated_at=>1564840002}, "triggered", {:user_id=>101, :objet=>"ic_document", :objet_id=>840, :processus=>"upload_comments", :created_at=>1564840002, :updated_at=>1564840002}]                  - 
+      | :delete => [12, 14]                                             - 
+      | }                                                               - 
+      | }                                                               - 
+      | "modules" =>                                                    - 
+      | {                                                               - 
+      | "icetapes" =>                                                   - 
+      | {                                                               - 
+      | 728 =>                                                          - 
+      | {                                                               - 
+      | "icmodule_id" => 112                                            - 
+      | }                                                               - 
+      | }                                                               - 
+      | "icdocuments" =>                                                - 
+      | {                                                               - 
+      | 840 =>                                                          - 
+      | {                                                               - 
+      | "user_id" => 101                                                - 
+      | "icmodule_id" => 112                                            - 
+      | "abs_module_id" => 7                                            - 
+      | "icetape_id" => 728                                             - 
+      | "abs_etape_id" => 254                                           - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                               0.000114  0.165244
+
+      | @request: SELECT * FROM icdocuments WHERE id = 841;  0.000124  0.165368
+
+      | @request: SELECT * FROM icdocuments WHERE id = 841;  0.001968  0.167336
+      | @data_correct = {                                               - 
+      | "hot" =>                                                        - 
+      | {                                                               - 
+      | "watchers" =>                                                   - 
+      | {                                                               - 
+      | :insert => [{:user_id=>101, :objet=>"ic_module", :objet_id=>112, :triggered=>1527603582, :created_at=>1564840002, :updated_at=>1564840002}, "triggered", {:user_id=>101, :objet=>"ic_document", :objet_id=>840, :processus=>"upload_comments", :created_at=>1564840002, :updated_at=>1564840002}]                  - 
+      | :delete => [12, 14]                                             - 
+      | }                                                               - 
+      | }                                                               - 
+      | "modules" =>                                                    - 
+      | {                                                               - 
+      | "icetapes" =>                                                   - 
+      | {                                                               - 
+      | 728 =>                                                          - 
+      | {                                                               - 
+      | "icmodule_id" => 112                                            - 
+      | }                                                               - 
+      | }                                                               - 
+      | "icdocuments" =>                                                - 
+      | {                                                               - 
+      | 840 =>                                                          - 
+      | {                                                               - 
+      | "user_id" => 101                                                - 
+      | "icmodule_id" => 112                                            - 
+      | "abs_module_id" => 7                                            - 
+      | "icetape_id" => 728                                             - 
+      | "abs_etape_id" => 254                                           - 
+      | }                                                               - 
+      | 841 =>                                                          - 
+      | {                                                               - 
+      | "user_id" => 101                                                - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                               0.002921  0.170257
+      | @data_correct = {                                               - 
+      | "hot" =>                                                        - 
+      | {                                                               - 
+      | "watchers" =>                                                   - 
+      | {                                                               - 
+      | :insert => [{:user_id=>101, :objet=>"ic_module", :objet_id=>112, :triggered=>1527603582, :created_at=>1564840002, :updated_at=>1564840002}, "triggered", {:user_id=>101, :objet=>"ic_document", :objet_id=>840, :processus=>"upload_comments", :created_at=>1564840002, :updated_at=>1564840002}]                  - 
+      | :delete => [12, 14]                                             - 
+      | }                                                               - 
+      | }                                                               - 
+      | "modules" =>                                                    - 
+      | {                                                               - 
+      | "icetapes" =>                                                   - 
+      | {                                                               - 
+      | 728 =>                                                          - 
+      | {                                                               - 
+      | "icmodule_id" => 112                                            - 
+      | }                                                               - 
+      | }                                                               - 
+      | "icdocuments" =>                                                - 
+      | {                                                               - 
+      | 840 =>                                                          - 
+      | {                                                               - 
+      | "user_id" => 101                                                - 
+      | "icmodule_id" => 112                                            - 
+      | "abs_module_id" => 7                                            - 
+      | "icetape_id" => 728                                             - 
+      | "abs_etape_id" => 254                                           - 
+      | }                                                               - 
+      | 841 =>                                                          - 
+      | {                                                               - 
+      | "user_id" => 101                                                - 
+      | "icmodule_id" => 112                                            - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                               0.000410  0.170667
+      | @data_correct = {                                               - 
+      | "hot" =>                                                        - 
+      | {                                                               - 
+      | "watchers" =>                                                   - 
+      | {                                                               - 
+      | :insert => [{:user_id=>101, :objet=>"ic_module", :objet_id=>112, :triggered=>1527603582, :created_at=>1564840002, :updated_at=>1564840002}, "triggered", {:user_id=>101, :objet=>"ic_document", :objet_id=>840, :processus=>"upload_comments", :created_at=>1564840002, :updated_at=>1564840002}]                  - 
+      | :delete => [12, 14]                                             - 
+      | }                                                               - 
+      | }                                                               - 
+      | "modules" =>                                                    - 
+      | {                                                               - 
+      | "icetapes" =>                                                   - 
+      | {                                                               - 
+      | 728 =>                                                          - 
+      | {                                                               - 
+      | "icmodule_id" => 112                                            - 
+      | }                                                               - 
+      | }                                                               - 
+      | "icdocuments" =>                                                - 
+      | {                                                               - 
+      | 840 =>                                                          - 
+      | {                                                               - 
+      | "user_id" => 101                                                - 
+      | "icmodule_id" => 112                                            - 
+      | "abs_module_id" => 7                                            - 
+      | "icetape_id" => 728                                             - 
+      | "abs_etape_id" => 254                                           - 
+      | }                                                               - 
+      | 841 =>                                                          - 
+      | {                                                               - 
+      | "user_id" => 101                                                - 
+      | "icmodule_id" => 112                                            - 
+      | "abs_module_id" => 7                                            - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                               0.000781  0.171448
+      | @data_correct = {                                               - 
+      | "hot" =>                                                        - 
+      | {                                                               - 
+      | "watchers" =>                                                   - 
+      | {                                                               - 
+      | :insert => [{:user_id=>101, :objet=>"ic_module", :objet_id=>112, :triggered=>1527603582, :created_at=>1564840002, :updated_at=>1564840002}, "triggered", {:user_id=>101, :objet=>"ic_document", :objet_id=>840, :processus=>"upload_comments", :created_at=>1564840002, :updated_at=>1564840002}]                  - 
+      | :delete => [12, 14]                                             - 
+      | }                                                               - 
+      | }                                                               - 
+      | "modules" =>                                                    - 
+      | {                                                               - 
+      | "icetapes" =>                                                   - 
+      | {                                                               - 
+      | 728 =>                                                          - 
+      | {                                                               - 
+      | "icmodule_id" => 112                                            - 
+      | }                                                               - 
+      | }                                                               - 
+      | "icdocuments" =>                                                - 
+      | {                                                               - 
+      | 840 =>                                                          - 
+      | {                                                               - 
+      | "user_id" => 101                                                - 
+      | "icmodule_id" => 112                                            - 
+      | "abs_module_id" => 7                                            - 
+      | "icetape_id" => 728                                             - 
+      | "abs_etape_id" => 254                                           - 
+      | }                                                               - 
+      | 841 =>                                                          - 
+      | {                                                               - 
+      | "user_id" => 101                                                - 
+      | "icmodule_id" => 112                                            - 
+      | "abs_module_id" => 7                                            - 
+      | "icetape_id" => 728                                             - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                               0.000258  0.171706
+      | @data_correct = {                                               - 
+      | "hot" =>                                                        - 
+      | {                                                               - 
+      | "watchers" =>                                                   - 
+      | {                                                               - 
+      | :insert => [{:user_id=>101, :objet=>"ic_module", :objet_id=>112, :triggered=>1527603582, :created_at=>1564840002, :updated_at=>1564840002}, "triggered", {:user_id=>101, :objet=>"ic_document", :objet_id=>840, :processus=>"upload_comments", :created_at=>1564840002, :updated_at=>1564840002}]                  - 
+      | :delete => [12, 14]                                             - 
+      | }                                                               - 
+      | }                                                               - 
+      | "modules" =>                                                    - 
+      | {                                                               - 
+      | "icetapes" =>                                                   - 
+      | {                                                               - 
+      | 728 =>                                                          - 
+      | {                                                               - 
+      | "icmodule_id" => 112                                            - 
+      | }                                                               - 
+      | }                                                               - 
+      | "icdocuments" =>                                                - 
+      | {                                                               - 
+      | 840 =>                                                          - 
+      | {                                                               - 
+      | "user_id" => 101                                                - 
+      | "icmodule_id" => 112                                            - 
+      | "abs_module_id" => 7                                            - 
+      | "icetape_id" => 728                                             - 
+      | "abs_etape_id" => 254                                           - 
+      | }                                                               - 
+      | 841 =>                                                          - 
+      | {                                                               - 
+      | "user_id" => 101                                                - 
+      | "icmodule_id" => 112                                            - 
+      | "abs_module_id" => 7                                            - 
+      | "icetape_id" => 728                                             - 
+      | "abs_etape_id" => 254                                           - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                               0.000214  0.171920
+
+      | @request: SELECT * FROM watchers WHERE user_id = 101 AND objet = "ic_document" AND objet_id = 841 AND processus = "upload_comments" ORDER BY created_at ASC;  0.000044  0.171964
+
+      | @request: SELECT * FROM watchers WHERE user_id = 101 AND objet = "ic_document" AND objet_id = 841 AND processus = "upload_comments" ORDER BY created_at ASC;  0.002052  0.174016
+      | @data_correct = {                                               - 
+      | "hot" =>                                                        - 
+      | {                                                               - 
+      | "watchers" =>                                                   - 
+      | {                                                               - 
+      | :insert => [{:user_id=>101, :objet=>"ic_module", :objet_id=>112, :triggered=>1527603582, :created_at=>1564840002, :updated_at=>1564840002}, "triggered", {:user_id=>101, :objet=>"ic_document", :objet_id=>840, :processus=>"upload_comments", :created_at=>1564840002, :updated_at=>1564840002}, {:user_id=>101, :objet=>"ic_document", :objet_id=>841, :processus=>"upload_comments", :created_at=>1564840002, :updated_at=>1564840002}]                  - 
+      | :delete => [12, 14]                                             - 
+      | }                                                               - 
+      | }                                                               - 
+      | "modules" =>                                                    - 
+      | {                                                               - 
+      | "icetapes" =>                                                   - 
+      | {                                                               - 
+      | 728 =>                                                          - 
+      | {                                                               - 
+      | "icmodule_id" => 112                                            - 
+      | }                                                               - 
+      | }                                                               - 
+      | "icdocuments" =>                                                - 
+      | {                                                               - 
+      | 840 =>                                                          - 
+      | {                                                               - 
+      | "user_id" => 101                                                - 
+      | "icmodule_id" => 112                                            - 
+      | "abs_module_id" => 7                                            - 
+      | "icetape_id" => 728                                             - 
+      | "abs_etape_id" => 254                                           - 
+      | }                                                               - 
+      | 841 =>                                                          - 
+      | {                                                               - 
+      | "user_id" => 101                                                - 
+      | "icmodule_id" => 112                                            - 
+      | "abs_module_id" => 7                                            - 
+      | "icetape_id" => 728                                             - 
+      | "abs_etape_id" => 254                                           - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                               0.002173  0.176189
+
+      | @request: SELECT * FROM watchers WHERE objet = "ic_document" AND objet_id = 841 AND processus != "upload_comments" ORDER BY created_at ASC;  0.000035  0.176224
+
+      | @request: SELECT * FROM watchers WHERE objet = "ic_document" AND objet_id = 841 AND processus != "upload_comments" ORDER BY created_at ASC;  0.001797  0.178021
+      | @data_correct = {                                               - 
+      | "hot" =>                                                        - 
+      | {                                                               - 
+      | "watchers" =>                                                   - 
+      | {                                                               - 
+      | :insert => [{:user_id=>101, :objet=>"ic_module", :objet_id=>112, :triggered=>1527603582, :created_at=>1564840002, :updated_at=>1564840002}, "triggered", {:user_id=>101, :objet=>"ic_document", :objet_id=>840, :processus=>"upload_comments", :created_at=>1564840002, :updated_at=>1564840002}, {:user_id=>101, :objet=>"ic_document", :objet_id=>841, :processus=>"upload_comments", :created_at=>1564840002, :updated_at=>1564840002}]                  - 
+      | :delete => [12, 14, 12]                                         - 
+      | }                                                               - 
+      | }                                                               - 
+      | "modules" =>                                                    - 
+      | {                                                               - 
+      | "icetapes" =>                                                   - 
+      | {                                                               - 
+      | 728 =>                                                          - 
+      | {                                                               - 
+      | "icmodule_id" => 112                                            - 
+      | }                                                               - 
+      | }                                                               - 
+      | "icdocuments" =>                                                - 
+      | {                                                               - 
+      | 840 =>                                                          - 
+      | {                                                               - 
+      | "user_id" => 101                                                - 
+      | "icmodule_id" => 112                                            - 
+      | "abs_module_id" => 7                                            - 
+      | "icetape_id" => 728                                             - 
+      | "abs_etape_id" => 254                                           - 
+      | }                                                               - 
+      | 841 =>                                                          - 
+      | {                                                               - 
+      | "user_id" => 101                                                - 
+      | "icmodule_id" => 112                                            - 
+      | "abs_module_id" => 7                                            - 
+      | "icetape_id" => 728                                             - 
+      | "abs_etape_id" => 254                                           - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                               0.002227  0.180248
+      | @data_correct = {                                               - 
+      | "hot" =>                                                        - 
+      | {                                                               - 
+      | "watchers" =>                                                   - 
+      | {                                                               - 
+      | :insert => [{:user_id=>101, :objet=>"ic_module", :objet_id=>112, :triggered=>1527603582, :created_at=>1564840002, :updated_at=>1564840002}, "triggered", {:user_id=>101, :objet=>"ic_document", :objet_id=>840, :processus=>"upload_comments", :created_at=>1564840002, :updated_at=>1564840002}, {:user_id=>101, :objet=>"ic_document", :objet_id=>841, :processus=>"upload_comments", :created_at=>1564840002, :updated_at=>1564840002}]                  - 
+      | :delete => [12, 14, 12, 14]                                     - 
+      | }                                                               - 
+      | }                                                               - 
+      | "modules" =>                                                    - 
+      | {                                                               - 
+      | "icetapes" =>                                                   - 
+      | {                                                               - 
+      | 728 =>                                                          - 
+      | {                                                               - 
+      | "icmodule_id" => 112                                            - 
+      | }                                                               - 
+      | }                                                               - 
+      | "icdocuments" =>                                                - 
+      | {                                                               - 
+      | 840 =>                                                          - 
+      | {                                                               - 
+      | "user_id" => 101                                                - 
+      | "icmodule_id" => 112                                            - 
+      | "abs_module_id" => 7                                            - 
+      | "icetape_id" => 728                                             - 
+      | "abs_etape_id" => 254                                           - 
+      | }                                                               - 
+      | 841 =>                                                          - 
+      | {                                                               - 
+      | "user_id" => 101                                                - 
+      | "icmodule_id" => 112                                            - 
+      | "abs_module_id" => 7                                            - 
+      | "icetape_id" => 728                                             - 
+      | "abs_etape_id" => 254                                           - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                               0.000133  0.180381
+  <- Page#preload                                       0.000257  0.180638
+  -> Page#prebuild_body                                 0.000007  0.180645
+    -> Page#body                                        0.000003  0.180648
+    <- Page#body                                        0.000005  0.180653
+  <- Page#prebuild_body                                 0.000012  0.180665
+  CODE HTML FINAL BUILT                                 0.003210  0.183875
+<- SiteHtml#output                                      0.000005  0.183880

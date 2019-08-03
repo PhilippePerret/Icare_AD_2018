@@ -6,7 +6,32 @@ table#choix_icarien tr td {
 }
 
 section#resultats {
-  margin: 2em;
+  margin: 2em 4em;
   font-family: monospace;
   font-size:14.2pt;
+  white-space: pre-wrap;
+}
+
+section#resultats div.data-error {
+  color:red;
+  font-weight:bold;
+}
+section#resultats div.data-error:before {
+  content: '# ';
+}
+
+section#resultats div.title {
+  margin-left: -2em;
+  font-weight: bold;
+}
+
+section#resultats div.action {
+  font-style:italic;
+  font-size:0.91em;
+}
+
+section#resultats div.solution {
+  font-weight: bold;
+  color: orange;
+  font-size: 0.91em;
 }

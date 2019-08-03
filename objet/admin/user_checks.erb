@@ -1,7 +1,8 @@
 <% raise_unless_admin %>
 <% Admin.require_module 'user_checks' %>
 <div id="" class="explication">
-  Cette section permet de checker les valeurs générales d'un icarien et, le cas échéant, de proposer de réparer les erreurs qu'on a pu lui trouver.
+  <p>Cette section permet de checker les valeurs générales d'un icarien et, le cas échéant, de proposer de réparer les erreurs qu'on a pu lui trouver.</p>
+  <p>DB = valeur dans la database / MT = valeur obtenue par méthode</p>
 </div>
 <fieldset>
   <form action="admin/user_checks" method="POST">
@@ -15,6 +16,6 @@
 </fieldset>
 <section id="resultats">
   <form action="admin/user_checks" method="POST"><%=
-    Admin.output
+    Admin::Checker.operate
 %></form>
 </section>

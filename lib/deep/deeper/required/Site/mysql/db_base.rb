@@ -75,6 +75,7 @@ class DBM_BASE
     end
 
     def resultat_brut
+      debug "@request: #{@request}"
       begin
         if prepared_values.nil?
           # Exécution "directe" de la requête
