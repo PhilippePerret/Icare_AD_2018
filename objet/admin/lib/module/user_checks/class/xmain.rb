@@ -5,6 +5,7 @@ class Checker
 class << self
 
   require_relative('_module_messages')
+  require_relative '_module_handy'
   include MessagesMethods
   include HandyCheckerMethods
 

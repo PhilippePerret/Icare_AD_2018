@@ -5,6 +5,9 @@ class Admin
 class Checker
 class IcEtape
 
+  require_relative '_module_messages'
+  require_relative '_module_props'
+  require_relative '_module_handy'
   include MessagesMethods
   include CheckerPropsModule
   include HandyCheckerMethods
@@ -18,12 +21,13 @@ class << self
 
 end #/<< self Admin::Checker::IcEtape
 
-  attr_reader :id
+  attr_reader :id, :icarien
   attr_reader :icmodule
 
   # param {Admin::Checker::IcModule} icmodule Module d'apprentissage testé
   def initialize icmodule
     @icmodule = icmodule
+    @icarien  = icmodule.icarien
   end
 
   # Test de l'étape comme première étape du module courant

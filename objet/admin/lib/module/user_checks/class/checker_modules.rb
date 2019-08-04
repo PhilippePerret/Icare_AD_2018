@@ -5,6 +5,9 @@ class Admin
 class Checker
 class IcModule
 
+  require_relative '_module_messages'
+  require_relative '_module_props'
+  require_relative '_module_handy'
   include MessagesMethods
   include CheckerPropsModule
   include HandyCheckerMethods
@@ -12,16 +15,17 @@ class IcModule
 class << self
 
   # Check de l'icmodule courant
-  def check_icmodule_as_current(icmodule_id)
-    new(icmodule_id).check_as_current
+  def check_icmodule_as_current(icarien, icmodule_id)
+    new(icarien, icmodule_id).check_as_current
   end
 
 end #/self
 
-  attr_reader :id
+  attr_reader :id, :icarien
 
-  def initialize id
-    @id = id
+  def initialize icarien, id
+    @icarien  = icarien # instance Admin::Checker::Icarien
+    @id       = id
   end
 
   def check_as_current
@@ -44,7 +48,7 @@ end #/self
       add_error "La date de création du module est inférieure à l'inscription de l'icarien…"
       sol_msg = "Mettre sa date de création après la date d'inscription de l'icarien."
       @created_at = data[:created_at] = data_user[:created_at] + 1000
-      correct('dc-to-dum', sol_msg, 'modules', 'icmodules', id, 'created_at', data_user[:created_at] + 1000)
+      correct('ctime-to-ctime_inscription', sol_msg, 'modules', 'icmodules', id, 'created_at', data_user[:created_at] + 1000)
     end
 
     # TEST Pour générer l'erreur
@@ -68,9 +72,6 @@ end #/self
       sol_msg = "Mettre #{icarien.id}"
       correct('fix-module-user_id', sol_msg, 'modules','icmodules', id, 'user_id', icarien.id)
     end
-
-    # Vérification de l'étape courante
-
 
     # Si c'est un module à durée indéterminée
     check_module_as_suivi if module_suivi?
@@ -148,7 +149,10 @@ end #/self
       watcher_next_paiement = watchers_paiement[0]
     end
 
-    # Ici, si l'id du prochain paiement n'est pas défini
+    # On efface ce watcher
+    if watcher_next_paiement[:id]
+      icarien.all_watchers.delete(watcher_next_paiement[:id])
+    end
 
     # TEST Pour générer la première erreur
     # watcher_next_paiement[:triggered] = now - 90.days

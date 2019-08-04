@@ -27,6 +27,8 @@ module HandyCheckerMethods
     case watchers.count
     when 1 then  # OK
       add_check '', "Le watcher a été trouvé, unique", true
+      # On l'efface dans la liste des watchers
+      icarien.all_watchers.delete(watchers.first[:id])
     when 0 then
       # Il faut ajouter un nouveau watcher
       add_check '', "Aucun watcher n'a été trouvé", false
@@ -38,11 +40,8 @@ module HandyCheckerMethods
       # Il faut prendre le dernier et détruire les autres
       lastw = watchers.pop
       add_check '', "Plusieurs watchers ont été trouvés…", false
-      watchers.each do |dataw|
-        sol_id  = "keeponly-1watcher-#{newdata[:processus]}-#{dataw[:id]}"
-        sol_msg = "Il ne faut conserver que le watcher ##{lastw[:id]}."
-        correct(sol_id, sol_msg, db, tb, dataw[:id], 'DELETE')
-      end
+      # On l'efface dans la liste des watchers
+      icarien.all_watchers.delete(lastw[:id])
     end
   end
 

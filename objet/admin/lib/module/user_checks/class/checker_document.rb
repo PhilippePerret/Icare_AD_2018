@@ -4,15 +4,17 @@ class Document
 
   require_relative '_module_messages'
   require_relative '_module_props'
+  require_relative '_module_handy'
   include MessagesMethods
   include CheckerPropsModule
   include HandyCheckerMethods
 
-  attr_reader :icetape, :id
+  attr_reader :icetape, :id, :icarien
 
   def initialize icetape, id
     @id = id
     @icetape = icetape
+    @icarien = icetape.icarien
   end
 
   # Check du document
@@ -343,24 +345,7 @@ class Document
     cond = h2sql_condition(tempnew)
     dwatchers = site.db_execute('hot', "SELECT * FROM watchers WHERE #{cond} ORDER BY created_at ASC")
     traite_only_one_watchers(dwatchers,'hot', 'watchers', tempnew)
-    # Il faut voir si le document ne possède pas d'autres watchers qui trainent
-    # TODO
-    cond = h2sql_condition({objet:'ic_document', objet_id:id})
-    cond += " AND processus != \"#{process}\""
-    dwatchers = site.db_execute('hot', "SELECT * FROM watchers WHERE #{cond} ORDER BY created_at ASC")
 
-    # TEST Pour générer l'erreur suivante
-    dwatchers = [{id:12},{id:14}]
-    # /TEST
-
-    # On propose de supprimer les watchers incohérents
-    if dwatchers.count > 0
-      add_error("Le document contient des watchers incohérents")
-      sol_msg = "Détruire les watchers incohérents (#{dwatchers.collect{|h|h[:id]}.join(', ')})"
-      dwatchers.each do |hwatcher|
-        correct("kill-watcher-#{hwatcher[:id]}-doc-#{id}", sol_msg, 'hot','watchers', hwatcher[:id],'DELETE')
-      end
-    end
   end
 
   def temp_watcher_processus process

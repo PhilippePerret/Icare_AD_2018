@@ -31,6 +31,7 @@ class Icarien
 
   require_relative '_module_messages'
   require_relative '_module_props'
+  require_relative '_module_handy'
   include MessagesMethods
   include CheckerPropsModule
   include HandyCheckerMethods
@@ -52,11 +53,14 @@ class Icarien
 
   def check
 
+    # On commence par récupérer tous les watchers concernant l'icarien
+    get_all_watchers_icarien
+
     add_title "Check de #{pseudo} (##{id})"
     add_info 'Pseudo', "#{pseudo.in_span(class: 'bold')}"
     add_info 'ID', "#{"##{id}".in_span(class: 'bold')}"
 
-    ok = options_in_db == icarien.options
+    ok = options_in_db == options
     add_check 'Options (DB)', "#{options_in_db}", ok
     unless ok
       add_error "La valeur des options ne correspond pas, entre la base et la méthode"
@@ -70,6 +74,7 @@ class Icarien
     ok = actif? === (bit_state_db == 2)
     add_check 'Actif ?', "MT:#{actif? ? 'OUI' : 'NON'} DB:#{bit_state_db == 2 ? 'OUI' : 'NON'}", ok
     add_error "La valeur du bit d'état pose un problème" unless ok
+
 
     if actif?
       check_icarien_as_actif
@@ -89,22 +94,52 @@ class Icarien
     #   => des tests plus poussés
     # icarien.inactif? => true s'il est inactif d'après ses bits
 
-    check_all_watchers_icarien
+    # On signale tous les watchers qui semble incohérents
+    # ----------------------------------------------------
+    check_all_remained_watchers_icarien
 
   end
 
   # On check tous les watchers de l'icarien et on signale les watchers
   # incohérent
-  def check_all_watchers_icarien
+  # Pour ce faire, on relève tous les watchers et on les met dans une table
+  # @all_watchers qui sera vidée à mesure qu'on trouve les watchers suivant
+  # le statut de l'icarien, de son module, etc.
+  def get_all_watchers_icarien
     watchers = site.db_execute('hot',"SELECT * FROM watchers WHERE user_id = #{id}")
-    # pas de problème s'il n'y a aucun watcher (quoi que…)
-    return if watchers.count === 0
-    watchers.each do |hwatcher|
-      add 'Watcher', hwatcher.inspect
+    @all_watchers = {}
+    watchers.each do |watcher|
+      @all_watchers.merge!(watcher[:id] => watcher)
     end
   end
 
+  # On vérifie les watchers restants
+  #
+  # Noter qu'ils ne sont pas forcément tous incohérents. Par exemple, les
+  # watchers pour attribuer une note et un commentaire à un document ne sont
+  # pas vérifiés avant
+  def check_all_remained_watchers_icarien
+    @all_watchers.each do |wid, watcher|
+      next if is_watcher_coherent(watcher)
+      sol_msg "Détruire le watcher incohérent #{wid} (#{watcher.inspect})"
+      correct("destroy-watcher-#{wid}", sol_msg, 'hot','watchers',wid,'DELETE')
+    end
+  end
 
+  # Retourne true si le watcher de données +hdata+ est cohérent
+  def is_watcher_coherent hdata
+    case hdata[:processus]
+    when 'paiement'         then false # le bon a été supprimé au cours du check
+    when 'send_work'        then false # idem
+    when 'admin_download'   then false # idem
+    when 'upload_comments'  then false # idem
+    when 'define_partage'   then false # idem
+    when 'depot_qdd'        then false # idem
+    when 'user_download_comments'  then false # idem
+    else
+      true
+    end
+  end
   # Check de l'icarien lorsqu'il est actif
   def check_icarien_as_actif
     add_title '⇒ Check Icarien actif'
@@ -112,10 +147,10 @@ class Icarien
     @_icmodule_id = data[:icmodule_id]
 
     # TEST Pour générer l'erreur suivante
-    @_icmodule_id = nil
+    # @_icmodule_id = nil
 
     if @_icmodule_id
-      icmodule = Admin::Checker::IcModule.new(@_icmodule_id)
+      icmodule = Admin::Checker::IcModule.new(self, @_icmodule_id)
       add 'IcModule ID', icmodule.id
     else
       add_error "Pas de icmodule_id dans la donnée de l'user…"
@@ -135,7 +170,7 @@ class Icarien
       end
     end
 
-    Admin::Checker::IcModule.check_icmodule_as_current(@_icmodule_id)
+    Admin::Checker::IcModule.check_icmodule_as_current(self, @_icmodule_id)
 
   end
 
