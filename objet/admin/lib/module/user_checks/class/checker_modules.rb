@@ -25,7 +25,7 @@ end #/self
   end
 
   def check_as_current
-    add_title "🦋 Check du module d’apprentissage ##{id} en tant que module courant de #{icarien.pseudo}"
+    add_title "⇒ 🦋 Check du module d’apprentissage ##{id} en tant que module courant de #{icarien.pseudo}"
 
     add_info 'Création',   fdate(data[:created_at])
     add_info 'Démarrage',  fdate(data[:started_at])
@@ -37,27 +37,27 @@ end #/self
       add_fatal_error "Le ended_at du module devrait être null, si c'est le module courant…"
     end
 
-    # Pour générer l'erreur
+    # TEST Pour générer l'erreur
     # @created_at = data_user[:created_at] - 1000
 
     if data_user[:created_at] > created_at
       add_error "La date de création du module est inférieure à l'inscription de l'icarien…"
-      add_solution 'dc-to-dum', "Mettre sa date de création après la date d'inscription de l'icarien."
+      sol_msg = "Mettre sa date de création après la date d'inscription de l'icarien."
       @created_at = data[:created_at] = data_user[:created_at] + 1000
-      correct('modules', 'icmodules', id, 'created_at', data_user[:created_at] + 1000)
+      correct('dc-to-dum', sol_msg, 'modules', 'icmodules', id, 'created_at', data_user[:created_at] + 1000)
     end
 
-    # Pour générer l'erreur
+    # TEST Pour générer l'erreur
     # @created_at = updated_at + 1000
 
     if created_at > updated_at
       add_error "La date de création du module est supérieur à sa date de dernière modification…"
-      add_solution 'dcm-to-dum', "Mettre sa date de création à sa date de dernière modification."
+      sol_msg = "Mettre sa date de création à sa date de dernière modification."
       @created_at = data[:created_at] = updated_at
-      correct('modules', 'icmodules', id, 'created_at', updated_at)
+      correct('dcm-to-dum', sol_msg, 'modules', 'icmodules', id, 'created_at', updated_at)
     end
 
-    # Pour générer l'erreur
+    # TEST Pour générer l'erreur
     # data[:user_id] = 12
 
     user_id_ok = data[:user_id] == icarien.id
@@ -65,8 +65,8 @@ end #/self
 
     unless user_id_ok
       add_error "Le user_id du module est mauvais (#{data[:user_id]} au lieu de #{icarien.id})"
-      add_solution 'fix-module-user_id', "Mettre #{icarien.id}"
-      correct('modules','icmodules', id, 'user_id', icarien.id)
+      sol_msg = "Mettre #{icarien.id}"
+      correct('fix-module-user_id', sol_msg, 'modules','icmodules', id, 'user_id', icarien.id)
     end
 
     # Vérification de l'étape courante
@@ -101,9 +101,9 @@ end #/self
       # de date de prochain paiement.
       unless options[0].to_i < 1
         add_error "Aucune date de prochain paiement trouvée."
-        @next_paiement = data[:next_paiement] = found_next_paiement_current_module
-        add_solution 'next-paiement', "Mettre la date de paiement à un mois de la dernière, ou un mois du début du module (#{Time.at(next_paiement).strftime('%d %m %Y')})."
-        correct('modules','icmodules', id, 'next_paiement', next_paiement)
+        @next_paiement = data[:next_paiement] = calcTimeNextPaiement
+        sol_msg = "Mettre la date de paiement au #{fdate next_paiement} (#{raison_time_next_paiement})."
+        correct('next-paiement', sol_msg, 'modules','icmodules', id, 'next_paiement', next_paiement)
       end
     end
 
@@ -129,25 +129,26 @@ end #/self
     # /FIN TEST
 
     if watchers_paiement.count == 0
+      time_next_paiement = calcTimeNextPaiement
       add_error "Aucun watcher de prochain paiement n'existe pour ce module."
-      add_solution 'add-watcher-paiement', "Ajouter un watcher de prochain paiement en date du #{Time.at(next_paiement).strftime('%d %m %Y')} (calculé à partir du dernier paiement ou du départ du module)."
-      watcher_next_paiement = {user_id: icarien.id, objet:'ic_module', objet_id:id, triggered:next_paiement, created_at:now, updated_at:now}
-      correct('hot','watchers', nil, watcher_next_paiement)
+      sol_msg = "Ajouter un watcher de prochain paiement en date du #{fdate(time_next_paiement)} (#{raison_time_next_paiement})."
+      watcher_next_paiement = {user_id: icarien.id, objet:'ic_module', objet_id:id, triggered:time_next_paiement, created_at:now, updated_at:now}
+      correct('add-watcher-paiement', sol_msg, 'hot','watchers', nil, watcher_next_paiement)
     elsif watchers_paiement.count > 1
       # Trop de watchers de paiement
       add_error "Il y a trop de watchers de paiements pour ce module."
       # On enlève le dernier et on supprime tous les autres
       watcher_next_paiement = watchers_paiement.pop
       first_id_watchers_paiement = watcher_next_paiement[:id]
-      watchers_sup = [] # pour le message
+      sol_msg = "Ne garder que le dernier watcher de paiement (##{first_id_watchers_paiement}) et supprimer les autres (#{watchers_paiement.collect{|h|h[:id]}.join(', ')})."
       watchers_paiement.each do |hwatcher|
-        correct('hot', 'watchers', hwatcher[:id], 'DELETE')
-        watchers_sup << "##{hwatcher[:id]}"
+        correct("uniq-watcher-paiement-#{hwatcher[:id]}", sol_msg, 'hot', 'watchers', hwatcher[:id], 'DELETE')
       end
-      add_solution('uniq-watcher-paiement', "Ne garder que le dernier watcher de paiement (##{first_id_watchers_paiement}) et supprimer les autres (#{watchers_sup.join(', ')}).")
     else
       watcher_next_paiement = watchers_paiement[0]
     end
+
+    # Ici, si l'id du prochain paiement n'est pas défini
 
     # TEST Pour générer la première erreur
     # watcher_next_paiement[:triggered] = now - 90.days
@@ -158,22 +159,48 @@ end #/self
     # On regarde quand même pour voir si la date n'est pas absurde, c'est-à-dire
     # trop ancienne ou trop dans le futur (plus de deux mois)
     trigtime = watcher_next_paiement[:triggered]
-    ftrigtime = Time.at(trigtime).strftime('%d %m %Y')
     if trigtime < now - 30.days || trigtime > now + 60.days
       if trigtime < now - 30.days
-        add_error "La date de prochain paiement est révolue depuis trop longtemps (#{ftrigtime})."
+        add_error "La date de prochain paiement est révolue depuis trop longtemps (#{dateof(trigtime)})."
       elsif trigtime > now + 60.days
-        add_error "La date de prochain paiement est trop lointaine dans le futur (#{ftrigtime})"
+        add_error "La date de prochain paiement est trop lointaine dans le futur (#{dateof(trigtime)})"
       end
       new_trig_time = now + 20.days
-      add_solution('rectif-next-paiement-time', "Mettre une date de prochain paiement plus cohérente (20 jours à partir de maintenant => #{Time.at(new_trig_time).strftime('%d %m %Y')}).")
-      correct('hot', 'watchers', watcher_next_paiement[:id], 'triggered', new_trig_time)
+      if watcher_next_paiement[:id]
+        # Seulement si l'id du watcher est défini, donc qu'il existe
+        # Sinon, il faudra passer une première fois créer le nouveau watcher et
+        # une seconde pour obtenir son ID
+        sol_msg = "Mettre une date de prochain paiement plus cohérente (20 jours à partir de maintenant => #{Time.at(new_trig_time).strftime('%d %m %Y')})."
+        correct('rectif-next-paiement-time', sol_msg, 'hot', 'watchers', watcher_next_paiement[:id], 'triggered', new_trig_time)
+      end
     end
 
   end
 
   # ---------------------------------------------------------------------
   #   Méthodes de données
+
+  # Retourne une date de prochain paiement réaliste. Elle est calculée en
+  # priorité sur la date du dernier paiement, mais si cette date n'existe pas
+  # ou est trop lointaine, on se sert de la date courante
+  def calcTimeNextPaiement
+    if last_paiement_time && (last_paiement_time + 30.days > now)
+      @raison_time_next_paiement = "calculé d'après le dernier paiement"
+      return last_paiement_time + 30.days
+    elsif data[:paiements].to_s == ''
+      if data[:started_at] + 31.days > now
+        @raison_time_next_paiement = "calculé d'après la date de démarrage du module"
+        return data[:started_at] + 31.days
+      end
+    end
+    # Sinon, on la calcule à partir de maintenant
+    @raison_time_next_paiement = "calculé à partir de la date courante"
+    now + 5.days
+  end
+
+  # Retourne la raison qui a permis de calculer la date de prochain paiement
+  # Note : défini dans calcTimeNextPaiement ci-dessus
+  def raison_time_next_paiement; @raison_time_next_paiement end
 
   # Méthode qui cherche un icmodule pour l'icarien, qui aurait son ended_at à
   # null, signifiant qu'il n'est pas terminé.
@@ -185,31 +212,21 @@ end #/self
     return icmodules.first
   end
 
-  # Méthode qui retourne une prochaine date de paiement, pour réparer une
-  # mauvaise donnée ou une donnée manquante
-  def found_next_paiement_current_module
-
-    # TEST Pour forcer l'utilisation de la date de démarrage
-    # data[:paiements] = nil
-
-    last_paiement =
-      if data[:paiements] && data[:paiements] != ''
-        id_last = data[:paiements].split(' ').last.to_i
-        data_paiement = site.db_execute('users',"SELECT created_at FROM paiements WHERE id = #{id_last}",)[0]
-        data_paiement[:created_at]
-      else
-        # Si aucun paiement n'a encore été effectué, on prend la date
-        # de démarrage du module
-        data[:started_at]
-      end
-     last_paiement + 31.days
-  end
-
   # --- Propriétés pour simplifier le code
 
   # Retourne true si c'est un module de suivi
   def module_suivi?
     @is_module_suivi ||= data_absmodule[:nombre_jours].nil?
+  end
+
+  # Retourne, si elle existe, la date de dernier paiement
+  def last_paiement_time
+    @last_paiement_time ||= begin
+      if data[:paiements].to_s != ''
+        id_last_paiement = data[:paiements].split(' ').last.to_i
+        site.db_execute('users',"SELECT created_at FROM paiements WHERE id = #{id_last_paiement}",)[0][:created_at]
+      end
+    end
   end
 
   # Retourne les données de l'IcModule du module courant de l'icarien, ou null

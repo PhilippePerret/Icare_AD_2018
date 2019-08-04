@@ -30,9 +30,10 @@ module HandyCheckerMethods
     when 0 then
       # Il faut ajouter un nouveau watcher
       add_check '', "Aucun watcher n'a été trouvé", false
-      add_solution("+watcher-#{newdata[:objet]}-#{newdata[:objet_id]}-#{newdata[:processus]}", "Créer le watcher '#{newdata[:processus]}'")
+      sol_id  = "+watcher-#{newdata[:objet]}-#{newdata[:objet_id]}-#{newdata[:processus]}"
+      sol_msg = "Créer le watcher '#{newdata[:processus]}'"
       newdata.merge!(created_at:now, updated_at:now)
-      correct(db, tb, nil, newdata)
+      correct(sol_id, sol_msg, db, tb, nil, newdata)
     else
       # Il faut prendre le dernier et détruire les autres
       lastw = whatchers.pop

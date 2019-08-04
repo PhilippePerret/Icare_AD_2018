@@ -32,23 +32,32 @@ end #/<< self Admin::Checker::IcEtape
     add_title "🗂 Check de l'étape courante du module courant (##{icmodule.id})"
     add_info 'IcEtape ID', "##{id}"
 
-    add_check '', "Cette ic-étape existe", exists?
+    success = "Cette ic-étape existe"
+    failure = "Cette ic-étape devrait exister"
+    add_check 'Existence', exists? ? success : failure, exists?
     unless exists?
       add_fatal_error "L'ic-étape n'existe pas, je ne peux pas poursuivre."
-      # TODO : trouver une étape qui peut correspondre
+      new_icetape = findNewIcEtapeForModule
+      if new_icetape
+        sol_msg = "Mettre l'ic-étape courante du module à l'étape ##{new_icetape}"
+        correct("chg-icetape-#{id}", sol_msg, 'modules','icmodules', icmodule.id, 'icetape_id', new_icetape)
+      else
+        add_fatal_error "Aucune étape précédente n'est candidate et il est impossible de créer automatiquement une nouvelle ic-étape (on ne peut pas connaitre son étape absolue)."
+        add_fatal_error "Il faut créer l'ic-étape manuellement et relancer le check."
+      end
       return
     end
 
     # TEST Pour générer l'erreur suivante
-    icmodule_id = 12
+    # icmodule_id = 12
 
     ok = icmodule_id == icmodule.id
     success = "L'ic-module de l'étape est bien l'ic-module qui la contient"
     failure = "L'ic-module de l'étape devrait être ##{icmodule.id}, or c'est ##{icmodule_id}"
     add_check('IcModule', ok ? success : failure, ok)
     unless ok
-      add_solution "set-module-etape-#{id}", "Mettre l'icmodule_id de l'étape à ##{icmodule.id}"
-      correct('modules','icetapes', id, 'icmodule_id', icmodule.id)
+      sol_msg = "Mettre l'icmodule_id de l'étape à ##{icmodule.id}"
+      correct("set-module-etape-#{id}", sol_msg, 'modules','icetapes', id, 'icmodule_id', icmodule.id)
     end
 
     # TEST Pour générer l'erreur suivante
@@ -57,8 +66,8 @@ end #/<< self Admin::Checker::IcEtape
     unless start_after_start_module?
       add_error "La date de démarrage de l'étape est antérieure à la date de démarrage du module…"
       start_etape = icmodule.data[:started_at] + 1.day
-      add_solution 'rectif-start-etape', "Mettre la date de démarrage de l'étape un jour après le démarrage du module (#{fdate(start_etape)})"
-      correct('modules','icetapes', id, 'started_at', start_etape)
+      sol_msg = "Mettre la date de démarrage de l'étape un jour après le démarrage du module (#{fdate(start_etape)})"
+      correct('rectif-start-etape', sol_msg, 'modules','icetapes', id, 'started_at', start_etape)
     end
 
     # # TEST Pour générer l'erreur suivante
@@ -89,7 +98,6 @@ end #/<< self Admin::Checker::IcEtape
     add_check '', 'Contenue par l’ic-module', contained_by_icmodule?
     unless contained_by_icmodule?
       add_error "Cette ic-étape n'est pas contenue par l'ic-module…"
-      add_solution "add-etape-#{id}", "Ajouter cette étape à l'ic-module"
       add_self_to_icmodule
     end
 
@@ -112,7 +120,8 @@ end #/<< self Admin::Checker::IcEtape
     case status
     when 0
       add_error "Le status de l'étape ne devrait jamais valoir 0"
-      add_solution 'status-1-icetape', "Passer le status de l'étape à 1"
+      sol_msg = "Passer le status de l'étape à 1"
+      correct('status-1-icetape', sol_msg, 'modules','icetapes', id, 'status', 1)
     when 1
       # Un watcher pour remettre son travail doit exister
       err, solution = no_watcher_send_work?(temp_data.merge(processus:'send_work'))
@@ -120,7 +129,6 @@ end #/<< self Admin::Checker::IcEtape
         add_check 'Watcher', "Un watcher pour remettre son travail existe", true
       else
         add_error err
-        add_solution 'watcher-send-work', solution
       end
     else
       # Pour tous les autres cas, ce sont les documents de l'étape qu'il faut
@@ -182,8 +190,25 @@ end #/<< self Admin::Checker::IcEtape
       new_icetapes << id
     end
     added || new_icetapes << id
-    correct('modules','icmodules', icmodule.id, 'icetapes', new_icetapes.join(' '))
+    sol_msg = "Ajouter cette étape à l'ic-module"
+    correct("add-etape-#{id}", sol_msg, 'modules','icmodules', icmodule.id, 'icetapes', new_icetapes.join(' '))
   end
+
+
+  # Méthode appelée lorsque l'ic-étape indiquée n'existe pas
+  # Dans ce cas, il faut définir comme étape courante la dernière étape du
+  # module, mais en vérifiant qu'elle ne soit pas finie.
+  def findNewIcEtapeForModule
+    id_last_icetape = icmodule.icetapes.split(' ').last
+    return if id_last_icetape.nil?
+    last_icetape = Admin::Checker::IcEtape.new(id_last_icetape)
+    if last_icetape.ended_at.nil?
+      id_last_icetape
+    else
+      # L'ic-étape est terminée
+    end
+  end
+
 
   # ---------------------------------------------------------------------
   #   Propriétés volatiles utiles

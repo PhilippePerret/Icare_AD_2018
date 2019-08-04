@@ -17,8 +17,10 @@ module MessagesMethods
     msg << str.in_div(data)
   end
   def add label, str, data = nil
-    label = label.ljust(20)
-    msg << "#{label} : #{str}".in_div(data)
+    data ||= {}
+    data.merge!(class:'res')
+    label = "#{label} ".ljust(40,'.')
+    msg << (label.in_span(class:'label') + "#{str}".in_div(class:'texte')).in_div(data)
   end
   def add_title str
     msg << str.in_div(class: 'title')
@@ -49,8 +51,8 @@ module MessagesMethods
     msg << "#{str}".in_checkbox({name:sol_id, checked:true}).in_div(class:'solution')
   end
 
-  def correct db_suffix, tbl_name, id, column, value = nil
-    Admin::Checker.correct(db_suffix, tbl_name, id, column, value)
+  def correct sol_id, sol_msg, db_suffix, tbl_name, id, column, value = nil
+    Admin::Checker.correct(sol_id, sol_msg, db_suffix, tbl_name, id, column, value)
   end
 
 end #/Module

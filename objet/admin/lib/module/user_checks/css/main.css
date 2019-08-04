@@ -6,10 +6,27 @@ table#choix_icarien tr td {
 }
 
 section#resultats {
-  margin: 2em 4em;
-  font-family: monospace;
-  font-size:14.2pt;
-  white-space: pre-wrap;
+  margin: 2em 3em;
+  font-family: arial;
+  /* white-space: pre-wrap; */
+}
+section#resultats * {
+  font-size:11.8pt;
+}
+
+section#resultats div.res {
+  display:grid;
+  grid-template-columns: 140px 480px;
+  grid-template-rows: auto;
+}
+section#resultats div.res span.label {
+  grid-column:1;
+  overflow:hidden;
+  white-space:nowrap;
+  margin-right:8px;
+}
+section#resultats div.res span.texte {
+  grid-column:2;
 }
 
 section#resultats div.data-error {
@@ -22,6 +39,7 @@ section#resultats div.data-error:before {
 
 section#resultats div.title {
   margin-left: -2em;
+  margin-top: 1em;
   font-weight: bold;
 }
 
@@ -34,4 +52,5 @@ section#resultats div.solution {
   font-weight: bold;
   color: orange;
   font-size: 0.91em;
+  margin-left:46em;
 }

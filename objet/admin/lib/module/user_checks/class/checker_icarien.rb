@@ -11,8 +11,8 @@ class << self
   # Méthode qui check l'icarien
   def check_icarien
     add_title "Check de #{icarien.pseudo} (##{icarien.id})"
-    add 'Pseudo', "#{icarien.pseudo}", {class: 'bold'}
-    add 'ID', "##{icarien.id}", {class: 'bold'}
+    add_info 'Pseudo', "#{icarien.pseudo.in_span(class: 'bold')}"
+    add_info 'ID', "#{"##{icarien.id}".in_span(class: 'bold')}"
     ok = options_in_db == icarien.options
     add_check 'Options (DB)', "#{options_in_db}", ok
     unless ok
@@ -51,25 +51,30 @@ class << self
 
   # Check de l'icarien lorsqu'il est actif
   def check_icarien_as_actif
-    add_title 'Check Icarien actif'
+    add_title '⇒ Check Icarien actif'
     # L'icarien a-t-il un module défini dans son enregistrement
     @_icmodule_id = data_user_in_db[:icmodule_id]
+
+    # TEST Pour générer l'erreur suivante
+    @_icmodule_id = nil
+
     if @_icmodule_id
       icmodule = Admin::Checker::IcModule.new(@_icmodule_id)
       add 'IcModule ID', icmodule.id
     else
       add_error "Pas de icmodule_id dans la donnée de l'user…"
       add_action "Je cherche un icmodule pour cet icarien…"
-      @data_icmodule = check_for_icmodule
+      @data_icmodule = found_icmodule
       if @data_icmodule
         @_icmodule_id = @data_icmodule[:id]
-        add_solution "IcModule #{@_icmodule_id} trouvé. Corriger la propriété icmodule_id de l'user avec cette valeur."
-        correct('users','users', icarien.id, 'icmodule_id', @_icmodule_id)
+        sol_id  = 'user-set-icmodule_id'
+        sol_msg = "IcModule #{@_icmodule_id} trouvé. Réparer user#icmodule_id avec cette valeur."
+        correct(sol_id, sol_msg, 'users','users', icarien.id, 'icmodule_id', @_icmodule_id)
       else
         add_error "Aucun icmodule trouvé, je dois renoncer. GRAVE ERREUR."
-        add_solution "L'icarien doit être marqué inactif."
+        sol_msg = "L'icarien doit être marqué inactif."
         @new_options[16] = 4
-        correct('users','users', icarien.id, 'options', new_options)
+        correct('user-set-inactif', sol_msg, 'users','users', icarien.id, 'options', new_options)
         return
       end
     end
@@ -93,11 +98,40 @@ class << self
     add_error "Je ne sais pas encore traiter un icarien en attente."
   end
 
+  # ---------------------------------------------------------------------
+  #   Méthodes de correction
+
+  # Recherche un icmodule pour l'icarien courant
+  # On prend le dernier trouvé, ou rien
+  def found_icmodule
+    icmodules = site.db_execute('modules',"SELECT * FROM icmodules WHERE user_id = #{icarien_id} ORDER BY created_at ASC")
+    # On boucle sur les modules pour en trouver un qui n'est pas fini, sinon,
+    # on prend le dernier
+    candidats     = []
+    lastest_date  = 0
+    last_icmodule = nil
+    icmodules.each do |icmodule|
+      if icmodule[:options][0].to_i < 3
+        # => Canditat possible
+        candidats << icmodule
+      elsif lastest_date < (icmodule[:started_at] || icmodule[:created_at])
+        last_icmodule = icmodule
+        lastest_date  = icmodule[:started_at] || icmodule[:created_at]
+      end
+    end
+
+    if candidats.empty?
+      last_icmodule
+    else
+      candidats.last # ils sont classés par date de création (<)
+    end
+  end
 
   # ---------------------------------------------------------------------
   # ---------------------------------------------------------------------
   # ---------------------------------------------------------------------
   #   Méthodes de données
+
   def icmodule_id
     @_icmodule_id
   end

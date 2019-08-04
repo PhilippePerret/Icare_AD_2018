@@ -23,11 +23,20 @@ class << self
   # Si aucun icarien n'est choisi, on indique d'en choisir un dans le menu
   def operate
     @msg = []
-    if icarien_id
-      init_check
-      check_icarien
+    if param(:fname_corrections) && param(:corrections_confirmed)
+      # Quand on a fait un premier check et qu'on procède aux corrections
+      execute_corrections
+    elsif param(:fname_corrections)
+      confirm_corrections
     else
-      @msg << "Choisir l'icarien à checker".in_div
+      if icarien_id
+        init_check
+        check_icarien
+        save_corrections_todo
+        @main_bouton_name = "Confirmer les corrections choisies"
+      else
+        @msg << "Choisir l'icarien à checker".in_div
+      end
     end
     return @msg.join('')
   end
@@ -38,9 +47,36 @@ class << self
     @solution_keys = {}
   end
 
+  # Méthode qui sauve les corrections à faire (@data_correct) pour les
+  # exécuter si l'administration le réclame
+  def save_corrections_todo
+    corrections = @data_correct.to_json
+    File.open(fpath_corrections,'wb'){|f| f.write corrections}
+  end
+
+  # Retourne le nom du fichier de corrections
+  def fname_corrections
+    @fname_corrections ||= param(:fname_corrections) || "check-user-#{now}.json"
+  end
+  def fpath_corrections
+    @fpath_corrections ||= File.join(site.folder_tmp,fname_corrections)
+  end
+
+
+  def main_bouton_name
+    @main_bouton_name
+  end
+
   # Méthode pour ajouter une donnée à corriger
-  # @param {String}   db_suffix Suffixe de la base (par exemple 'users' ou 'modules')
-  #                     C'est ce qui sera ajouté à 'icare_' pour trouver la base
+  # @param {String}   solution_id
+  #                   L'id de la solution, pour savoir si la case est cochée et
+  #                   qu'il faut l'appliquer.
+  # @param {String}   solution_msg
+  #                   Le message de la solution proposée (sera affiché avec une
+  #                   checkbox pour l'appliquer)
+  # @param {String}   db_suffix
+  #                   Suffixe de la base (par exemple 'users' ou 'modules')
+  #                   C'est ce qui sera ajouté à 'icare_' pour trouver la base
   # @param {String}   tbl_name  Nom de la table dans la base
   # @param {Integer}  id        Identifiant de l'enregistrement à modifier
   #                             Si cet argument est nil, c'est une insertion de
@@ -52,21 +88,23 @@ class << self
   #                             ou  "DELETE" pour détruire la donnée d'identifiant id
   # @param {String}   value     La nouvelle valeur à mettre
   #                             OU  nil quand insertion ou suppression
-  def correct(db_suffix, tbl_name, id, column, value = nil)
+  def correct(solution_id, solution_msg, db_suffix, tbl_name, id, column, value = nil)
+    add_solution(solution_id, solution_msg)
     @data_correct[db_suffix] || @data_correct.merge!(db_suffix => {})
     @data_correct[db_suffix][tbl_name] || @data_correct[db_suffix].merge!(tbl_name => {})
-    if id
+    unless id === nil
       if column != 'DELETE'
         @data_correct[db_suffix][tbl_name][id] || @data_correct[db_suffix][tbl_name].merge!(id => {})
-        @data_correct[db_suffix][tbl_name][id].merge!(column => value)
+        @data_correct[db_suffix][tbl_name][id].merge!(column => {value:value, solution_id:solution_id})
       else
         @data_correct[db_suffix][tbl_name][:delete] || @data_correct[db_suffix][tbl_name].merge!(delete: [])
-        @data_correct[db_suffix][tbl_name][:delete] << id
+        @data_correct[db_suffix][tbl_name][:delete] << {value:id, solution_id:solution_id}
       end
     else
-      # Insertion d'une donnée
+      # <= id est nil
+      # => Insertion d'une donnée
       @data_correct[db_suffix][tbl_name][:insert] || @data_correct[db_suffix][tbl_name].merge!(insert: [])
-      @data_correct[db_suffix][tbl_name][:insert] << column
+      @data_correct[db_suffix][tbl_name][:insert] << column.merge(solution_id:solution_id)
     end
 
     debug("@data_correct = #{@data_correct.pretty_inspect}")

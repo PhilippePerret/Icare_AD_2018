@@ -15,7 +15,16 @@
   </form>
 </fieldset>
 <section id="resultats">
-  <form action="admin/user_checks" method="POST"><%=
-    Admin::Checker.operate
-%></form>
+  <form action="admin/user_checks" method="POST">
+    <%= Admin::Checker.operate %>
+    <input type="hidden" name="fname_corrections" value="<%= Admin::Checker.fname_corrections %>">
+    <div class="air">
+      <!-- pour passer au-dessus des boutons ci-dessous -->
+    </div>
+    <% if Admin::Checker.main_bouton_name %>
+      <div style="position:fixed;left:0;bottom:0;text-align:right;width:100%;margin:auto;background-color:grey;padding:4px 1%;">
+        <input type="submit" value="<%= Admin::Checker.main_bouton_name %>" class="btn-primary">
+      </div>
+    <% end %>
+  </form>
 </section>
