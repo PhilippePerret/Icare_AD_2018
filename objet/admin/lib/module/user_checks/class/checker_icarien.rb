@@ -37,6 +37,7 @@ class Icarien
   include HandyCheckerMethods
 
   attr_reader :instance_user
+  attr_reader :all_watchers
 
   # icarien est l'instance User de l'icarien
   def initialize icarien
@@ -78,7 +79,7 @@ class Icarien
 
     if actif?
       check_icarien_as_actif
-    elsif icarien.alessai?
+    elsif alessai?
       check_icarien_a_l_essai
     elsif en_attente?
       check_icarien_en_attente
@@ -121,7 +122,7 @@ class Icarien
   def check_all_remained_watchers_icarien
     @all_watchers.each do |wid, watcher|
       next if is_watcher_coherent(watcher)
-      sol_msg "Détruire le watcher incohérent #{wid} (#{watcher.inspect})"
+      sol_msg = "Détruire le watcher incohérent #{wid} (#{watcher.inspect})"
       correct("destroy-watcher-#{wid}", sol_msg, 'hot','watchers',wid,'DELETE')
     end
   end
@@ -133,9 +134,10 @@ class Icarien
     when 'send_work'        then false # idem
     when 'admin_download'   then false # idem
     when 'upload_comments'  then false # idem
-    when 'define_partage'   then false # idem
     when 'depot_qdd'        then false # idem
     when 'user_download_comments'  then false # idem
+      
+    when 'define_partage'   then true # Il peut rester longtemps
     else
       true
     end

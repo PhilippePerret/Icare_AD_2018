@@ -26,12 +26,12 @@ module HandyCheckerMethods
   def traite_only_one_watchers watchers, db = nil, tb = nil, newdata
     case watchers.count
     when 1 then  # OK
-      add_check '', "Le watcher a été trouvé, unique", true
+      add_check 'Watcher', "Le bon watcher a été trouvé", true
       # On l'efface dans la liste des watchers
       icarien.all_watchers.delete(watchers.first[:id])
     when 0 then
       # Il faut ajouter un nouveau watcher
-      add_check '', "Aucun watcher n'a été trouvé", false
+      add_check 'Watcher', "Aucun watcher n'a été trouvé", false
       sol_id  = "+watcher-#{newdata[:objet]}-#{newdata[:objet_id]}-#{newdata[:processus]}"
       sol_msg = "Créer le watcher '#{newdata[:processus]}'"
       newdata.merge!(created_at:now, updated_at:now)
@@ -39,7 +39,7 @@ module HandyCheckerMethods
     else
       # Il faut prendre le dernier et détruire les autres
       lastw = watchers.pop
-      add_check '', "Plusieurs watchers ont été trouvés…", false
+      add_check 'Watcher', "Plusieurs watchers ont été trouvés… On prend le dernier et les autres seront supprimés.", false
       # On l'efface dans la liste des watchers
       icarien.all_watchers.delete(lastw[:id])
     end

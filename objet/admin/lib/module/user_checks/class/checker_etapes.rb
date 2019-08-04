@@ -68,7 +68,7 @@ end #/<< self Admin::Checker::IcEtape
     # @started_at = data[:started_at] = icmodule.started_at - 10.days
 
     unless start_after_start_module?
-      add_error "La date de démarrage de l'étape est antérieure à la date de démarrage du module…"
+      add_error "La date de démarrage de l'étape (#{fdate(started_at)}) est antérieure à la date de démarrage du module (#{fdate(icmodule.started_at)})…"
       start_etape = icmodule.data[:started_at] + 1.day
       sol_msg = "Mettre la date de démarrage de l'étape un jour après le démarrage du module (#{fdate(start_etape)})"
       correct('rectif-start-etape', sol_msg, 'modules','icetapes', id, 'started_at', start_etape)
@@ -172,7 +172,7 @@ end #/<< self Admin::Checker::IcEtape
   # Retourne true si le démarrage de l'étape survient bien après le
   # démarrage du module.
   def start_after_start_module?
-    started_at > icmodule.started_at
+    started_at >= icmodule.started_at
   end
 
   # Retourne true si l'icmodule contient bien cette étape

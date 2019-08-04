@@ -312,32 +312,12 @@ class Document
   def check_watcher_by_etape_status
     # En fonction du status de l'étape, on doit trouver un watcher particulier
     case icetape.status
-    when 2 then check_when_sended_but_not_adminloaded
-    when 3 then check_when_adminloaded
-    when 4 then check_when_send_comments
-    when 5 then check_when_userloaded
-    when 6 then check_if_watcher_define_sharing
+    when 2 then check_watcher('admin_download')
+    when 3 then check_watcher('upload_comments')
+    when 4 then check_watcher('user_download_comments')
+    when 5 then check_watcher('depot_qdd')
+    when 6 then check_watcher('define_partage')
     end
-  end
-
-  def check_when_sended_but_not_adminloaded
-    check_watcher('admin_download')
-  end
-
-  def check_when_adminloaded
-    check_watcher('upload_comments')
-  end
-
-  def check_when_send_comments
-    check_watcher('user_download_comments')
-  end
-
-  def check_when_userloaded
-    check_watcher('define_partage')
-  end
-
-  def check_if_watcher_define_sharing
-    check_watcher('depot_qdd')
   end
 
   def check_watcher process
