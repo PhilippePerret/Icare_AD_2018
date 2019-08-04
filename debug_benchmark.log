@@ -1,40 +1,373 @@
-=== BENCHMARK DU 4 août 2019 à 09:27 ===
-=== Index start : 1564900065.554448 (2019-08-04 09:27:45 +0300)
+=== BENCHMARK DU 4 août 2019 à 15:12 ===
+=== Index start : 1564920742.252734 (2019-08-04 15:12:22 +0300)
 
 -> site/config.rb                                       0.000000  0.000000
-<- site/config.rb                                       0.000150  0.000150
--> execute_preambule                                    0.085484  0.085634
-  -> User#do_after_load                                 0.006654  0.092288
-  <- User#do_after_load                                 0.000007  0.092295
-<- execute_preambule                                    0.000003  0.092298
--> required.rb                                         -0.717702 -0.625404
-<- required.rb                                          0.717706  0.092302
--> SiteHtml#output                                      0.000051  0.092353
-  -> SiteHtml#execute_route                             0.000005  0.092358
+<- site/config.rb                                       0.000440  0.000440
+-> execute_preambule                                    0.049656  0.050096
+  -> User#do_after_load                                 0.080527  0.130623
+  <- User#do_after_load                                 0.000024  0.130647
+<- execute_preambule                                    0.000004  0.130651
+-> required.rb                                         -1.064317 -0.933666
+<- required.rb                                          1.064322  0.130656
+-> SiteHtml#output                                      0.000066  0.130722
+  -> SiteHtml#execute_route                             0.000004  0.130726
       | Objet    = "admin"                                              - 
       | Objet ID = nil                                                  - 
       | Method   = "user_checks"                                        - 
-      | Context  = nil                                  0.000102  0.092460
-    --> user.set_last_connexion                         0.000154  0.092614
-    <-- user.set_last_connexion                         0.003779  0.096393
-    --> iroute.load_required                            0.000072  0.096465
-    <-- iroute.load_required                            0.014385  0.110850
-    --> iroute.load_per_vue                             0.000007  0.110857
-    <-- iroute.load_per_vue                             0.000203  0.111060
-    --> iroute.method_call                              0.000003  0.111063
-    <-- iroute.method_call                              0.000277  0.111340
-  <- SiteHtml#execute_route                             0.000003  0.111343
-  -> Page#preload                                       0.000011  0.111354
+      | Context  = nil                                  0.000107  0.130833
+    --> user.set_last_connexion                         0.000124  0.130957
+    <-- user.set_last_connexion                         0.012324  0.143281
+    --> iroute.load_required                            0.000034  0.143315
+    <-- iroute.load_required                            0.030411  0.173726
+    --> iroute.load_per_vue                             0.000008  0.173734
+    <-- iroute.load_per_vue                             0.000219  0.173953
+    --> iroute.method_call                              0.000004  0.173957
+    <-- iroute.method_call                              0.000289  0.174246
+  <- SiteHtml#execute_route                             0.000004  0.174250
+  -> Page#preload                                       0.000013  0.174263
 
-      | ---- value = {"icmodule_id"=>{"value"=>112, "solution_id"=>"user-set-icmodule_id"}}  0.040728  0.152082
+      | @request: SELECT * FROM users WHERE id = 101;   0.041496  0.215759
 
-      | ---- value = [{"user_id"=>101, "objet"=>"ic_module", "objet_id"=>112, "triggered"=>1565332053, "created_at"=>1564900053, "updated_at"=>1564900053, "solution_id"=>"add-watcher-paiement"}, {"user_id"=>101, "objet"=>"ic_document", "objet_id"=>840, "processus"=>"upload_comments", "created_at"=>1564900053, "updated_at"=>1564900053, "solution_id"=>"+watcher-ic_document-840-upload_comments"}, {"user_id"=>101, "objet"=>"ic_document", "objet_id"=>841, "processus"=>"upload_comments", "created_at"=>1564900053, "updated_at"=>1564900053, "solution_id"=>"+watcher-ic_document-841-upload_comments"}]  0.000146  0.152228
+      | @request: SELECT * FROM users WHERE id = 101;   0.002978  0.218737
 
-      | ---- value = [{"value"=>12, "solution_id"=>"kill-watcher-12-doc-840"}, {"value"=>14, "solution_id"=>"kill-watcher-14-doc-840"}, {"value"=>12, "solution_id"=>"kill-watcher-12-doc-841"}, {"value"=>14, "solution_id"=>"kill-watcher-14-doc-841"}]  0.000223  0.152451
-  <- Page#preload                                       0.000169  0.152620
-  -> Page#prebuild_body                                 0.000007  0.152627
-    -> Page#body                                        0.000002  0.152629
-    <- Page#body                                        0.000004  0.152633
-  <- Page#prebuild_body                                 0.000009  0.152642
-  CODE HTML FINAL BUILT                                 0.002463  0.155105
-<- SiteHtml#output                                      0.000006  0.155111
+      | @request: SELECT * FROM icmodules WHERE user_id = 101 ORDER BY created_at ASC;  0.055476  0.274213
+
+      | @request: SELECT * FROM icmodules WHERE user_id = 101 ORDER BY created_at ASC;  0.002968  0.277181
+      | @data_correct = {                                               - 
+      | "users" =>                                                      - 
+      | {                                                               - 
+      | "users" =>                                                      - 
+      | {                                                               - 
+      | 101 =>                                                          - 
+      | {                                                               - 
+      | "icmodule_id" =>                                                - 
+      | {                                                               - 
+      | :value => 112                                                   - 
+      | :solution_id => "user-set-icmodule_id"                          - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                               0.004574  0.281755
+
+      | @request: SELECT * FROM icmodules WHERE id = 112;  0.000119  0.281874
+
+      | @request: SELECT * FROM icmodules WHERE id = 112;  0.002024  0.283898
+
+      | @request: SELECT * FROM users WHERE id = 101;   0.002855  0.286753
+
+      | @request: SELECT * FROM users WHERE id = 101;   0.002544  0.289297
+
+      | @request: SELECT * FROM absmodules WHERE id = 7;  0.002265  0.291562
+
+      | @request: SELECT * FROM absmodules WHERE id = 7;  0.005048  0.296610
+
+      | @request: SELECT * FROM watchers WHERE user_id = 101 AND objet = 'ic_module' AND objet_id = 112 AND processus = 'paiement' ORDER BY created_at ASC;  0.002981  0.299591
+
+      | @request: SELECT * FROM watchers WHERE user_id = 101 AND objet = 'ic_module' AND objet_id = 112 AND processus = 'paiement' ORDER BY created_at ASC;  0.001933  0.301524
+
+      | @request: SELECT created_at FROM paiements WHERE id = 326;  0.001773  0.303297
+
+      | @request: SELECT created_at FROM paiements WHERE id = 326;  0.002001  0.305298
+      | @data_correct = {                                               - 
+      | "users" =>                                                      - 
+      | {                                                               - 
+      | "users" =>                                                      - 
+      | {                                                               - 
+      | 101 =>                                                          - 
+      | {                                                               - 
+      | "icmodule_id" =>                                                - 
+      | {                                                               - 
+      | :value => 112                                                   - 
+      | :solution_id => "user-set-icmodule_id"                          - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                                               - 
+      | "hot" =>                                                        - 
+      | {                                                               - 
+      | "watchers" =>                                                   - 
+      | {                                                               - 
+      | :insert => [{:user_id=>101, :objet=>"ic_module", :objet_id=>112, :triggered=>1565352742, :created_at=>1564920742, :updated_at=>1564920742, :solution_id=>"add-watcher-paiement"}]                  - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                               0.002091  0.307389
+
+      | @request: SELECT * FROM icetapes WHERE id = 728;  0.000174  0.307563
+
+      | @request: SELECT * FROM icetapes WHERE id = 728;  0.001924  0.309487
+
+      | @request: SELECT * FROM icdocuments WHERE id = 840;  0.003758  0.313245
+
+      | @request: SELECT * FROM icdocuments WHERE id = 840;  0.003734  0.316979
+
+      | @request: SELECT * FROM watchers WHERE user_id = 101 AND objet = "ic_document" AND objet_id = 840 AND processus = "upload_comments" ORDER BY created_at ASC;  0.004054  0.321033
+
+      | @request: SELECT * FROM watchers WHERE user_id = 101 AND objet = "ic_document" AND objet_id = 840 AND processus = "upload_comments" ORDER BY created_at ASC;  0.003105  0.324138
+      | @data_correct = {                                               - 
+      | "users" =>                                                      - 
+      | {                                                               - 
+      | "users" =>                                                      - 
+      | {                                                               - 
+      | 101 =>                                                          - 
+      | {                                                               - 
+      | "icmodule_id" =>                                                - 
+      | {                                                               - 
+      | :value => 112                                                   - 
+      | :solution_id => "user-set-icmodule_id"                          - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                                               - 
+      | "hot" =>                                                        - 
+      | {                                                               - 
+      | "watchers" =>                                                   - 
+      | {                                                               - 
+      | :insert => [{:user_id=>101, :objet=>"ic_module", :objet_id=>112, :triggered=>1565352742, :created_at=>1564920742, :updated_at=>1564920742, :solution_id=>"add-watcher-paiement"}]                  - 
+      | :delete => [{:value=>432, :solution_id=>"keeponly-1watcher-upload_comments-432"}]                  - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                               0.003455  0.327593
+      | @data_correct = {                                               - 
+      | "users" =>                                                      - 
+      | {                                                               - 
+      | "users" =>                                                      - 
+      | {                                                               - 
+      | 101 =>                                                          - 
+      | {                                                               - 
+      | "icmodule_id" =>                                                - 
+      | {                                                               - 
+      | :value => 112                                                   - 
+      | :solution_id => "user-set-icmodule_id"                          - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                                               - 
+      | "hot" =>                                                        - 
+      | {                                                               - 
+      | "watchers" =>                                                   - 
+      | {                                                               - 
+      | :insert => [{:user_id=>101, :objet=>"ic_module", :objet_id=>112, :triggered=>1565352742, :created_at=>1564920742, :updated_at=>1564920742, :solution_id=>"add-watcher-paiement"}]                  - 
+      | :delete => [{:value=>432, :solution_id=>"keeponly-1watcher-upload_comments-432"}, {:value=>434, :solution_id=>"keeponly-1watcher-upload_comments-434"}]                  - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                               0.000248  0.327841
+      | @data_correct = {                                               - 
+      | "users" =>                                                      - 
+      | {                                                               - 
+      | "users" =>                                                      - 
+      | {                                                               - 
+      | 101 =>                                                          - 
+      | {                                                               - 
+      | "icmodule_id" =>                                                - 
+      | {                                                               - 
+      | :value => 112                                                   - 
+      | :solution_id => "user-set-icmodule_id"                          - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                                               - 
+      | "hot" =>                                                        - 
+      | {                                                               - 
+      | "watchers" =>                                                   - 
+      | {                                                               - 
+      | :insert => [{:user_id=>101, :objet=>"ic_module", :objet_id=>112, :triggered=>1565352742, :created_at=>1564920742, :updated_at=>1564920742, :solution_id=>"add-watcher-paiement"}]                  - 
+      | :delete => [{:value=>432, :solution_id=>"keeponly-1watcher-upload_comments-432"}, {:value=>434, :solution_id=>"keeponly-1watcher-upload_comments-434"}, {:value=>436, :solution_id=>"keeponly-1watcher-upload_comments-436"}]                  - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                               0.000184  0.328025
+
+      | @request: SELECT * FROM watchers WHERE objet = "ic_document" AND objet_id = 840 AND processus != "upload_comments" ORDER BY created_at ASC;  0.000033  0.328058
+
+      | @request: SELECT * FROM watchers WHERE objet = "ic_document" AND objet_id = 840 AND processus != "upload_comments" ORDER BY created_at ASC;  0.002920  0.330978
+      | @data_correct = {                                               - 
+      | "users" =>                                                      - 
+      | {                                                               - 
+      | "users" =>                                                      - 
+      | {                                                               - 
+      | 101 =>                                                          - 
+      | {                                                               - 
+      | "icmodule_id" =>                                                - 
+      | {                                                               - 
+      | :value => 112                                                   - 
+      | :solution_id => "user-set-icmodule_id"                          - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                                               - 
+      | "hot" =>                                                        - 
+      | {                                                               - 
+      | "watchers" =>                                                   - 
+      | {                                                               - 
+      | :insert => [{:user_id=>101, :objet=>"ic_module", :objet_id=>112, :triggered=>1565352742, :created_at=>1564920742, :updated_at=>1564920742, :solution_id=>"add-watcher-paiement"}]                  - 
+      | :delete => [{:value=>432, :solution_id=>"keeponly-1watcher-upload_comments-432"}, {:value=>434, :solution_id=>"keeponly-1watcher-upload_comments-434"}, {:value=>436, :solution_id=>"keeponly-1watcher-upload_comments-436"}, {:value=>12, :solution_id=>"kill-watcher-12-doc-840"}]                  - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                               0.002210  0.333188
+      | @data_correct = {                                               - 
+      | "users" =>                                                      - 
+      | {                                                               - 
+      | "users" =>                                                      - 
+      | {                                                               - 
+      | 101 =>                                                          - 
+      | {                                                               - 
+      | "icmodule_id" =>                                                - 
+      | {                                                               - 
+      | :value => 112                                                   - 
+      | :solution_id => "user-set-icmodule_id"                          - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                                               - 
+      | "hot" =>                                                        - 
+      | {                                                               - 
+      | "watchers" =>                                                   - 
+      | {                                                               - 
+      | :insert => [{:user_id=>101, :objet=>"ic_module", :objet_id=>112, :triggered=>1565352742, :created_at=>1564920742, :updated_at=>1564920742, :solution_id=>"add-watcher-paiement"}]                  - 
+      | :delete => [{:value=>432, :solution_id=>"keeponly-1watcher-upload_comments-432"}, {:value=>434, :solution_id=>"keeponly-1watcher-upload_comments-434"}, {:value=>436, :solution_id=>"keeponly-1watcher-upload_comments-436"}, {:value=>12, :solution_id=>"kill-watcher-12-doc-840"}, {:value=>14, :solution_id=>"kill-watcher-14-doc-840"}]                  - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                               0.000138  0.333326
+
+      | @request: SELECT * FROM icdocuments WHERE id = 841;  0.000022  0.333348
+
+      | @request: SELECT * FROM icdocuments WHERE id = 841;  0.001604  0.334952
+
+      | @request: SELECT * FROM watchers WHERE user_id = 101 AND objet = "ic_document" AND objet_id = 841 AND processus = "upload_comments" ORDER BY created_at ASC;  0.002129  0.337081
+
+      | @request: SELECT * FROM watchers WHERE user_id = 101 AND objet = "ic_document" AND objet_id = 841 AND processus = "upload_comments" ORDER BY created_at ASC;  0.002283  0.339364
+      | @data_correct = {                                               - 
+      | "users" =>                                                      - 
+      | {                                                               - 
+      | "users" =>                                                      - 
+      | {                                                               - 
+      | 101 =>                                                          - 
+      | {                                                               - 
+      | "icmodule_id" =>                                                - 
+      | {                                                               - 
+      | :value => 112                                                   - 
+      | :solution_id => "user-set-icmodule_id"                          - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                                               - 
+      | "hot" =>                                                        - 
+      | {                                                               - 
+      | "watchers" =>                                                   - 
+      | {                                                               - 
+      | :insert => [{:user_id=>101, :objet=>"ic_module", :objet_id=>112, :triggered=>1565352742, :created_at=>1564920742, :updated_at=>1564920742, :solution_id=>"add-watcher-paiement"}]                  - 
+      | :delete => [{:value=>432, :solution_id=>"keeponly-1watcher-upload_comments-432"}, {:value=>434, :solution_id=>"keeponly-1watcher-upload_comments-434"}, {:value=>436, :solution_id=>"keeponly-1watcher-upload_comments-436"}, {:value=>12, :solution_id=>"kill-watcher-12-doc-840"}, {:value=>14, :solution_id=>"kill-watcher-14-doc-840"}, {:value=>433, :solution_id=>"keeponly-1watcher-upload_comments-433"}]                  - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                               0.003107  0.342471
+      | @data_correct = {                                               - 
+      | "users" =>                                                      - 
+      | {                                                               - 
+      | "users" =>                                                      - 
+      | {                                                               - 
+      | 101 =>                                                          - 
+      | {                                                               - 
+      | "icmodule_id" =>                                                - 
+      | {                                                               - 
+      | :value => 112                                                   - 
+      | :solution_id => "user-set-icmodule_id"                          - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                                               - 
+      | "hot" =>                                                        - 
+      | {                                                               - 
+      | "watchers" =>                                                   - 
+      | {                                                               - 
+      | :insert => [{:user_id=>101, :objet=>"ic_module", :objet_id=>112, :triggered=>1565352742, :created_at=>1564920742, :updated_at=>1564920742, :solution_id=>"add-watcher-paiement"}]                  - 
+      | :delete => [{:value=>432, :solution_id=>"keeponly-1watcher-upload_comments-432"}, {:value=>434, :solution_id=>"keeponly-1watcher-upload_comments-434"}, {:value=>436, :solution_id=>"keeponly-1watcher-upload_comments-436"}, {:value=>12, :solution_id=>"kill-watcher-12-doc-840"}, {:value=>14, :solution_id=>"kill-watcher-14-doc-840"}, {:value=>433, :solution_id=>"keeponly-1watcher-upload_comments-433"}, {:value=>435, :solution_id=>"keeponly-1watcher-upload_comments-435"}]                  - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                               0.000275  0.342746
+      | @data_correct = {                                               - 
+      | "users" =>                                                      - 
+      | {                                                               - 
+      | "users" =>                                                      - 
+      | {                                                               - 
+      | 101 =>                                                          - 
+      | {                                                               - 
+      | "icmodule_id" =>                                                - 
+      | {                                                               - 
+      | :value => 112                                                   - 
+      | :solution_id => "user-set-icmodule_id"                          - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                                               - 
+      | "hot" =>                                                        - 
+      | {                                                               - 
+      | "watchers" =>                                                   - 
+      | {                                                               - 
+      | :insert => [{:user_id=>101, :objet=>"ic_module", :objet_id=>112, :triggered=>1565352742, :created_at=>1564920742, :updated_at=>1564920742, :solution_id=>"add-watcher-paiement"}]                  - 
+      | :delete => [{:value=>432, :solution_id=>"keeponly-1watcher-upload_comments-432"}, {:value=>434, :solution_id=>"keeponly-1watcher-upload_comments-434"}, {:value=>436, :solution_id=>"keeponly-1watcher-upload_comments-436"}, {:value=>12, :solution_id=>"kill-watcher-12-doc-840"}, {:value=>14, :solution_id=>"kill-watcher-14-doc-840"}, {:value=>433, :solution_id=>"keeponly-1watcher-upload_comments-433"}, {:value=>435, :solution_id=>"keeponly-1watcher-upload_comments-435"}, {:value=>437, :solution_id=>"keeponly-1watcher-upload_comments-437"}]                  - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                               0.000314  0.343060
+
+      | @request: SELECT * FROM watchers WHERE objet = "ic_document" AND objet_id = 841 AND processus != "upload_comments" ORDER BY created_at ASC;  0.000239  0.343299
+
+      | @request: SELECT * FROM watchers WHERE objet = "ic_document" AND objet_id = 841 AND processus != "upload_comments" ORDER BY created_at ASC;  0.002157  0.345456
+      | @data_correct = {                                               - 
+      | "users" =>                                                      - 
+      | {                                                               - 
+      | "users" =>                                                      - 
+      | {                                                               - 
+      | 101 =>                                                          - 
+      | {                                                               - 
+      | "icmodule_id" =>                                                - 
+      | {                                                               - 
+      | :value => 112                                                   - 
+      | :solution_id => "user-set-icmodule_id"                          - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                                               - 
+      | "hot" =>                                                        - 
+      | {                                                               - 
+      | "watchers" =>                                                   - 
+      | {                                                               - 
+      | :insert => [{:user_id=>101, :objet=>"ic_module", :objet_id=>112, :triggered=>1565352742, :created_at=>1564920742, :updated_at=>1564920742, :solution_id=>"add-watcher-paiement"}]                  - 
+      | :delete => [{:value=>432, :solution_id=>"keeponly-1watcher-upload_comments-432"}, {:value=>434, :solution_id=>"keeponly-1watcher-upload_comments-434"}, {:value=>436, :solution_id=>"keeponly-1watcher-upload_comments-436"}, {:value=>12, :solution_id=>"kill-watcher-12-doc-840"}, {:value=>14, :solution_id=>"kill-watcher-14-doc-840"}, {:value=>433, :solution_id=>"keeponly-1watcher-upload_comments-433"}, {:value=>435, :solution_id=>"keeponly-1watcher-upload_comments-435"}, {:value=>437, :solution_id=>"keeponly-1watcher-upload_comments-437"}, {:value=>12, :solution_id=>"kill-watcher-12-doc-841"}]                  - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                               0.002682  0.348138
+      | @data_correct = {                                               - 
+      | "users" =>                                                      - 
+      | {                                                               - 
+      | "users" =>                                                      - 
+      | {                                                               - 
+      | 101 =>                                                          - 
+      | {                                                               - 
+      | "icmodule_id" =>                                                - 
+      | {                                                               - 
+      | :value => 112                                                   - 
+      | :solution_id => "user-set-icmodule_id"                          - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                                               - 
+      | "hot" =>                                                        - 
+      | {                                                               - 
+      | "watchers" =>                                                   - 
+      | {                                                               - 
+      | :insert => [{:user_id=>101, :objet=>"ic_module", :objet_id=>112, :triggered=>1565352742, :created_at=>1564920742, :updated_at=>1564920742, :solution_id=>"add-watcher-paiement"}]                  - 
+      | :delete => [{:value=>432, :solution_id=>"keeponly-1watcher-upload_comments-432"}, {:value=>434, :solution_id=>"keeponly-1watcher-upload_comments-434"}, {:value=>436, :solution_id=>"keeponly-1watcher-upload_comments-436"}, {:value=>12, :solution_id=>"kill-watcher-12-doc-840"}, {:value=>14, :solution_id=>"kill-watcher-14-doc-840"}, {:value=>433, :solution_id=>"keeponly-1watcher-upload_comments-433"}, {:value=>435, :solution_id=>"keeponly-1watcher-upload_comments-435"}, {:value=>437, :solution_id=>"keeponly-1watcher-upload_comments-437"}, {:value=>12, :solution_id=>"kill-watcher-12-doc-841"}, {:value=>14, :solution_id=>"kill-watcher-14-doc-841"}]                  - 
+      | }                                                               - 
+      | }                                                               - 
+      | }                                               0.000350  0.348488
+
+      | @request: SELECT * FROM watchers WHERE user_id = 101;  0.000038  0.348526
+
+      | @request: SELECT * FROM watchers WHERE user_id = 101;  0.007365  0.355891
+  <- Page#preload                                       0.014860  0.370751
+  -> Page#prebuild_body                                 0.000015  0.370766
+    -> Page#body                                        0.000004  0.370770
+    <- Page#body                                        0.000007  0.370777
+  <- Page#prebuild_body                                 0.000016  0.370793
+  CODE HTML FINAL BUILT                                 0.020094  0.390887
+<- SiteHtml#output                                      0.000008  0.390895

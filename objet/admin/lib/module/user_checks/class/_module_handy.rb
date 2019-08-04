@@ -36,10 +36,13 @@ module HandyCheckerMethods
       correct(sol_id, sol_msg, db, tb, nil, newdata)
     else
       # Il faut prendre le dernier et détruire les autres
-      lastw = whatchers.pop
+      lastw = watchers.pop
       add_check '', "Plusieurs watchers ont été trouvés…", false
-      add_solution("keep-only-one-watcher-#{newdata[:processus]}", "Il ne faut conserver que le watcher ##{lastw[:id]}.")
-      watchers.each { |dataw| correct(db, tb, dataw[:id], 'DELETE') }
+      watchers.each do |dataw|
+        sol_id  = "keeponly-1watcher-#{newdata[:processus]}-#{dataw[:id]}"
+        sol_msg = "Il ne faut conserver que le watcher ##{lastw[:id]}."
+        correct(sol_id, sol_msg, db, tb, dataw[:id], 'DELETE')
+      end
     end
   end
 

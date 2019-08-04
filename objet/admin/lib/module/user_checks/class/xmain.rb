@@ -125,6 +125,17 @@ class << self
   #   Méthodes de check des modules
   #   cf. checker_modules.rb
 
+  # Pour signaler que les corrections ont été confirmés par l'administrateur
+  def corrections_confirmed; @corrections_confirmed end
+
+  # Les données de la correction
+  # Note : elles sont différentes suivant qu'il s'agit de la confirmation
+  # ou de l'exécution (mais je ne sais pas encore si c'est une bonne chose)
+  def data_corrections
+    @data_corrections ||= begin
+      JSON.parse(File.read(fpath_corrections))
+    end
+  end
 
 
 end #/<< self

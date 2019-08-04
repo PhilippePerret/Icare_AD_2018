@@ -14,9 +14,15 @@ class << self
     @main_bouton_name = "Procéder à la réparation"
     add_raw '&nbsp;'.in_div
     @fname_corrections = param(:fname_corrections)
+    # La table pour mettre les nouvelles corrections à effectuer (celles qu'il
+    # faut vraiment faire)
+    ndc = {}
     data_corrections.each do |db, data_db|
+      ndc.merge!(db => {})
       data_db.each do |tb_name, tb_data|
+        ndc[db].merge!(tb_name => {})
         tb_data.each do |kid, value|
+          ndc[db][tb_name].merge!(kid => [])
           debug "---- value = #{value.inspect}"
           case kid
           when 'insert'
@@ -24,8 +30,10 @@ class << self
             # value est un array des données à insérer
             value.each do |hvalue|
               solution_id = hvalue.delete('solution_id')
-              solution_id || next
               checked = param(solution_id)
+              if checked
+                ndc[db][tb_name][kid] << hvalue
+              end
               css = checked ? 'green bold' : 'red'
               msg = "#{checked ? 'OUI' : 'NON'} : #{solution_id}".in_div(class:css)
               add 'INSERT', "#{msg}#{hvalue.inspect.in_div}"
@@ -39,8 +47,10 @@ class << self
               solution_id = hvalue.delete('solution_id')
               # Id de la donnée à détruire
               data_id = hvalue['value']
-              solution_id || next
               checked = param(solution_id)
+              if checked
+                ndc[db][tb_name][kid] << hvalue
+              end
               checked ? solutions_oui << solution_id : solutions_non << solution_id
               checked ? data_id : nil
             end.compact
@@ -58,6 +68,9 @@ class << self
               solution_id = svalue.delete('solution_id')
               real_value  = svalue.delete('value')
               checked = param(solution_id)
+              if checked
+                ndc[db][tb_name][kid] << {id:kid, property:prop, value:real_value}
+              end
               str1 = "#{checked ? 'OUI' : 'NON'} : #{solution_id}".in_div(class: checked ? 'green bold' : 'red')
               str2 = "Mettre #{prop} à #{real_value}".in_div
               add 'MODIFY', "#{str1}#{str2}"
@@ -66,13 +79,12 @@ class << self
         end
       end
     end
+    # On enregistre les données choisies
+    File.open(fpath_corrections,'wb'){|f| f.write ndc.to_json}
+    # On indique que c'est confirmé
+    @corrections_confirmed = true
   end
 
-  def data_corrections
-    @data_corrections ||= begin
-      JSON.parse(File.read(fpath_corrections))
-    end
-  end
 end #/<< self
 end #/Checker
 end #/Admin

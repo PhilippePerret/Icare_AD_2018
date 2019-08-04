@@ -14,6 +14,7 @@ class << self
     @main_bouton_name = nil
     add_raw '&nbsp;'.in_div
     @fname_corrections = param(:fname_corrections)
+    debug "---- data_corrections = #{data_corrections.pretty_inspect}"
     data_corrections.each do |db, data_db|
       data_db.each do |tb_name, tb_data|
         tb_data.each do |kid, value|
@@ -22,44 +23,41 @@ class << self
             # Insertion de données
             # value est un array des données à insérer
             value.each do |hvalue|
-              solution_id = hvalue.delete('solution_id')
-              checked = param(solution_id)
-              checked || next # on la saute si pas choisie
-              css = checked ? 'green bold' : 'red'
-              msg = "#{solution_id}".in_div(class:css)
-              add 'INSERT', "#{msg}#{hvalue.inspect.in_div}"
+              columns = []
+              values  = hvalue.collect do |prop, val|
+                columns << "#{prop} = ?"
+                val
+              end
+              request = "INSERT INTO #{tb_name} SET #{columns.join(', ')}"
+              if exec_operation(db, request, values)
+                add 'INSERT', "#{db}.#{tb_name} #{hvalue.inspect}… OK".in_div(class:'green bold')
+              end
             end
           when 'delete'
             # Destruction de donnée
             # value est un array des données à détruire
-            solutions_oui = solutions_non = []
-            ids = value.collect do |hvalue|
-              # Id de la solution (pour vérifier s'il faut procéder à l'opération)
-              solution_id = hvalue.delete('solution_id')
-              checked = param(solution_id)
-              checked || next
-              # Id de la donnée à détruire
-              data_id = hvalue['value']
-              checked ? solutions_oui << solution_id : solutions_non << solution_id
-              checked ? data_id : nil
-            end.compact
-            unless ids.empty?
-              css = checked ? 'green bold' : 'red'
-              msg_oui = "#{solutions_oui.join(', ')}".in_div(class:'green bold')
-              add 'DELETE', "#{msg_oui}"
+            # Les ids à détruire
+            ids = value.collect{|h|h['value']}.uniq
+            request = "DELETE FROM #{tb_name} WHERE id IN (#{ids.join(', ')})"
+            if exec_operation(db, request)
+              add 'DELETE', "#{db}.#{tb_name} IDS: #{ids.inspect}… OK".in_div(class:'green bold')
             end
           else
             # kid est l'identifiant de la donnée à modifier
             # value est le hash de données à modifier avec en clé la propriété et
             # en valeur un hash {:value, :solution_id}
-            value.collect do |prop, svalue|
-              solution_id = svalue.delete('solution_id')
-              real_value  = svalue.delete('value')
-              checked = param(solution_id)
-              checked || next
-              str1 = "#{solution_id}".in_div(class: checked ? 'green bold' : 'red')
-              str2 = "Mettre #{prop} à #{real_value}".in_div
-              add 'MODIFY', "#{str1}#{str2}"
+            # Préparation de la requête
+            request = "UPDATE #{tb_name} SET "
+            values  = []
+            modifs  = []
+            value.each do |hvalue|
+              request += "#{hvalue['property']} = ?"
+              values << hvalue['value']
+              modifs << "#{hvalue['property']} = #{hvalue['value']}"
+            end
+
+            if exec_operation(db, request, values)
+              add 'MODIFY', "#{db}.#{tb_name} ##{kid} : #{modifs.join(', ')}… OK".in_div(class:'green bold')
             end
           end
         end
@@ -67,11 +65,17 @@ class << self
     end
   end
 
-  def data_corrections
-    @data_corrections ||= begin
-      JSON.parse(File.read(fpath_corrections))
-    end
+  def exec_operation(db, request, values = nil)
+    debug "Request: #{request} / values = #{values.inspect}"
+    res = site.db_execute( db, request, {values: values} )
+    debug "retour : #{res.inspect}"
+    return true
+  rescue Exception => e
+    add 'ERROR', ("Avec la requête #{request} dans #{db}".in_div + e.message).in_div(class:'red bold')
+    debug e
+    return false
   end
+
 end #/<< self
 end #/Checker
 end #/Admin
