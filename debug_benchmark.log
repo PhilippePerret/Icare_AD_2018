@@ -1,151 +1,22 @@
-=== BENCHMARK DU 4 août 2019 à 15:59 ===
-=== Index start : 1564923545.946012 (2019-08-04 15:59:05 +0300)
+=== BENCHMARK DU 14 août 2019 à 17:27 ===
+=== Index start : 1565792855.403423 (2019-08-14 17:27:35 +0300)
 
 -> site/config.rb                                       0.000000  0.000000
-<- site/config.rb                                       0.000193  0.000193
--> execute_preambule                                    0.159341  0.159534
-  -> User#do_after_load                                 0.051291  0.210825
-  <- User#do_after_load                                 0.000006  0.210831
-<- execute_preambule                                    0.000003  0.210834
--> required.rb                                         -1.190818 -0.979984
-<- required.rb                                          1.190821  0.210837
--> SiteHtml#output                                      0.000045  0.210882
-  -> SiteHtml#execute_route                             0.000004  0.210886
-      | Objet    = "admin"                                              - 
-      | Objet ID = nil                                                  - 
-      | Method   = "user_checks"                                        - 
-      | Context  = nil                                  0.000083  0.210969
-    --> user.set_last_connexion                         0.000223  0.211192
-    <-- user.set_last_connexion                         0.008135  0.219327
-    --> iroute.load_required                            0.000049  0.219376
-    <-- iroute.load_required                            0.038124  0.257500
-    --> iroute.load_per_vue                             0.000009  0.257509
-    <-- iroute.load_per_vue                             0.000284  0.257793
-    --> iroute.method_call                              0.000006  0.257799
-    <-- iroute.method_call                              0.000297  0.258096
-  <- SiteHtml#execute_route                             0.000005  0.258101
-  -> Page#preload                                       0.000013  0.258114
-
-      | @request: SELECT * FROM watchers WHERE user_id = 101;  0.100825  0.358939
-
-      | @request: SELECT * FROM watchers WHERE user_id = 101;  0.003721  0.362660
-
-      | @request: SELECT * FROM users WHERE id = 101;   0.006374  0.369034
-
-      | @request: SELECT * FROM users WHERE id = 101;   0.002530  0.371564
-
-      | @request: SELECT * FROM icmodules WHERE id = 112;  0.034735  0.406299
-
-      | @request: SELECT * FROM icmodules WHERE id = 112;  0.006365  0.412664
-
-      | @request: SELECT * FROM users WHERE id = 101;   0.005120  0.417784
-
-      | @request: SELECT * FROM users WHERE id = 101;   0.002256  0.420040
-
-      | @request: SELECT * FROM absmodules WHERE id = 7;  0.002929  0.422969
-
-      | @request: SELECT * FROM absmodules WHERE id = 7;  0.002201  0.425170
-
-      | @request: SELECT * FROM watchers WHERE user_id = 101 AND objet = 'ic_module' AND objet_id = 112 AND processus = 'paiement' ORDER BY created_at ASC;  0.002727  0.427897
-
-      | @request: SELECT * FROM watchers WHERE user_id = 101 AND objet = 'ic_module' AND objet_id = 112 AND processus = 'paiement' ORDER BY created_at ASC;  0.002520  0.430417
-
-      | @request: SELECT created_at FROM paiements WHERE id = 326;  0.002282  0.432699
-
-      | @request: SELECT created_at FROM paiements WHERE id = 326;  0.002014  0.434713
-      | @data_correct = {                                               - 
-      | "hot" =>                                                        - 
-      | {                                                               - 
-      | "watchers" =>                                                   - 
-      | {                                                               - 
-      | :insert => [{:user_id=>101, :objet=>"ic_module", :objet_id=>112, :triggered=>1565355546, :created_at=>1564923546, :updated_at=>1564923546, :solution_id=>"add-watcher-paiement"}]                  - 
-      | }                                                               - 
-      | }                                                               - 
-      | }                                               0.002067  0.436780
-
-      | @request: SELECT * FROM icetapes WHERE id = 728;  0.000096  0.436876
-
-      | @request: SELECT * FROM icetapes WHERE id = 728;  0.003348  0.440224
-
-      | @request: SELECT * FROM icdocuments WHERE id = 840;  0.002818  0.443042
-
-      | @request: SELECT * FROM icdocuments WHERE id = 840;  0.001843  0.444885
-
-      | @request: SELECT * FROM watchers WHERE user_id = 101 AND objet = "ic_document" AND objet_id = 840 AND processus = "upload_comments" ORDER BY created_at ASC;  0.002576  0.447461
-
-      | @request: SELECT * FROM watchers WHERE user_id = 101 AND objet = "ic_document" AND objet_id = 840 AND processus = "upload_comments" ORDER BY created_at ASC;  0.002463  0.449924
-
-      | @request: SELECT * FROM icdocuments WHERE id = 841;  0.003269  0.453193
-
-      | @request: SELECT * FROM icdocuments WHERE id = 841;  0.001921  0.455114
-
-      | @request: SELECT * FROM watchers WHERE user_id = 101 AND objet = "ic_document" AND objet_id = 841 AND processus = "upload_comments" ORDER BY created_at ASC;  0.003785  0.458899
-
-      | @request: SELECT * FROM watchers WHERE user_id = 101 AND objet = "ic_document" AND objet_id = 841 AND processus = "upload_comments" ORDER BY created_at ASC;  0.003596  0.462495
-      | @data_correct = {                                               - 
-      | "hot" =>                                                        - 
-      | {                                                               - 
-      | "watchers" =>                                                   - 
-      | {                                                               - 
-      | :insert => [{:user_id=>101, :objet=>"ic_module", :objet_id=>112, :triggered=>1565355546, :created_at=>1564923546, :updated_at=>1564923546, :solution_id=>"add-watcher-paiement"}]                  - 
-      | :delete => [{:value=>432, :solution_id=>"destroy-watcher-432"}]                  - 
-      | }                                                               - 
-      | }                                                               - 
-      | }                                               0.005955  0.468450
-      | @data_correct = {                                               - 
-      | "hot" =>                                                        - 
-      | {                                                               - 
-      | "watchers" =>                                                   - 
-      | {                                                               - 
-      | :insert => [{:user_id=>101, :objet=>"ic_module", :objet_id=>112, :triggered=>1565355546, :created_at=>1564923546, :updated_at=>1564923546, :solution_id=>"add-watcher-paiement"}]                  - 
-      | :delete => [{:value=>432, :solution_id=>"destroy-watcher-432"}, {:value=>433, :solution_id=>"destroy-watcher-433"}]                  - 
-      | }                                                               - 
-      | }                                                               - 
-      | }                                               0.000227  0.468677
-      | @data_correct = {                                               - 
-      | "hot" =>                                                        - 
-      | {                                                               - 
-      | "watchers" =>                                                   - 
-      | {                                                               - 
-      | :insert => [{:user_id=>101, :objet=>"ic_module", :objet_id=>112, :triggered=>1565355546, :created_at=>1564923546, :updated_at=>1564923546, :solution_id=>"add-watcher-paiement"}]                  - 
-      | :delete => [{:value=>432, :solution_id=>"destroy-watcher-432"}, {:value=>433, :solution_id=>"destroy-watcher-433"}, {:value=>434, :solution_id=>"destroy-watcher-434"}]                  - 
-      | }                                                               - 
-      | }                                                               - 
-      | }                                               0.000288  0.468965
-      | @data_correct = {                                               - 
-      | "hot" =>                                                        - 
-      | {                                                               - 
-      | "watchers" =>                                                   - 
-      | {                                                               - 
-      | :insert => [{:user_id=>101, :objet=>"ic_module", :objet_id=>112, :triggered=>1565355546, :created_at=>1564923546, :updated_at=>1564923546, :solution_id=>"add-watcher-paiement"}]                  - 
-      | :delete => [{:value=>432, :solution_id=>"destroy-watcher-432"}, {:value=>433, :solution_id=>"destroy-watcher-433"}, {:value=>434, :solution_id=>"destroy-watcher-434"}, {:value=>435, :solution_id=>"destroy-watcher-435"}]                  - 
-      | }                                                               - 
-      | }                                                               - 
-      | }                                               0.000302  0.469267
-      | @data_correct = {                                               - 
-      | "hot" =>                                                        - 
-      | {                                                               - 
-      | "watchers" =>                                                   - 
-      | {                                                               - 
-      | :insert => [{:user_id=>101, :objet=>"ic_module", :objet_id=>112, :triggered=>1565355546, :created_at=>1564923546, :updated_at=>1564923546, :solution_id=>"add-watcher-paiement"}]                  - 
-      | :delete => [{:value=>432, :solution_id=>"destroy-watcher-432"}, {:value=>433, :solution_id=>"destroy-watcher-433"}, {:value=>434, :solution_id=>"destroy-watcher-434"}, {:value=>435, :solution_id=>"destroy-watcher-435"}, {:value=>436, :solution_id=>"destroy-watcher-436"}]                  - 
-      | }                                                               - 
-      | }                                                               - 
-      | }                                               0.000276  0.469543
-      | @data_correct = {                                               - 
-      | "hot" =>                                                        - 
-      | {                                                               - 
-      | "watchers" =>                                                   - 
-      | {                                                               - 
-      | :insert => [{:user_id=>101, :objet=>"ic_module", :objet_id=>112, :triggered=>1565355546, :created_at=>1564923546, :updated_at=>1564923546, :solution_id=>"add-watcher-paiement"}]                  - 
-      | :delete => [{:value=>432, :solution_id=>"destroy-watcher-432"}, {:value=>433, :solution_id=>"destroy-watcher-433"}, {:value=>434, :solution_id=>"destroy-watcher-434"}, {:value=>435, :solution_id=>"destroy-watcher-435"}, {:value=>436, :solution_id=>"destroy-watcher-436"}, {:value=>437, :solution_id=>"destroy-watcher-437"}]                  - 
-      | }                                                               - 
-      | }                                                               - 
-      | }                                               0.000296  0.469839
-  <- Page#preload                                       0.006706  0.476545
-  -> Page#prebuild_body                                 0.000014  0.476559
-    -> Page#body                                        0.000004  0.476563
-    <- Page#body                                        0.000007  0.476570
-  <- Page#prebuild_body                                 0.000017  0.476587
-  CODE HTML FINAL BUILT                                 0.019757  0.496344
-<- SiteHtml#output                                      0.000010  0.496354
+<- site/config.rb                                       0.000166  0.000166
+-> execute_preambule                                    0.165074  0.165240
+  -> User#do_after_load                                 0.000058  0.165298
+  <- User#do_after_load                                 0.000002  0.165300
+<- execute_preambule                                    0.000001  0.165301
+-> required.rb                                         -1.168685 -1.003384
+<- required.rb                                          1.168702  0.165318
+-> SiteHtml#output                                      0.000029  0.165347
+  -> SiteHtml#execute_route                             0.000002  0.165349
+  <- SiteHtml#execute_route                             0.000016  0.165365
+  -> Page#preload                                       0.000005  0.165370
+  <- Page#preload                                       0.279875  0.445245
+  -> Page#prebuild_body                                 0.000011  0.445256
+    -> Page#body                                        0.000003  0.445259
+    <- Page#body                                        0.000006  0.445265
+  <- Page#prebuild_body                                 0.000003  0.445268
+  CODE HTML FINAL BUILT                                 0.023122  0.468390
+<- SiteHtml#output                                      0.000007  0.468397

@@ -2,6 +2,9 @@
 * Nicolas Dufourg   : crapette
 * Emmanuelle Badina : crapette
 
+* Penser à une re-structuration progressive du site (notamment au niveau du graphisme)
+* Implémenter la possibilité de répondre aux mails directement sur le site.
+
 ## BUGS
 
 * Dans l'édition des étapes/travaux-types, s'assurer que les balises FILM soient bien formatées. Contrairement à BOA où elles ressemblent à FILM[Ali2001], sur l'atelier, elles doivent ressembler à FILM[256|Ali] donc FILM[<id>|<titre>]. S'assurer qu'on peut les avoir sous cette forme avec le code.
@@ -12,7 +15,6 @@
 ## À FAIRE RAPIDEMENT
 
 * Faire un backup de tous les documents QDD actuels et zipper
-* Corrections de Marion sur les étapes
 * Pouvoir synchroniser les étapes de travail locales avec les distantes (en faisant très attention — mais normalement, c'est la synchro de bases de données qui devrait être utilisé)
 
 ## TESTS À FAIRE
