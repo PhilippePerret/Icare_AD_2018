@@ -1,5 +1,5 @@
 # encoding: UTF-8
-site.require_all_in('./objet/site/lib/module/updates')
+site.require_all_in('./objet/site/updates')
 
 =begin
 

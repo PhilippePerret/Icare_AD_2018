@@ -6,8 +6,7 @@ raise_unless_admin
 
 =end
 require 'yaml'
-
-Dir['./objet/site/lib/module/sitemap/**/*.rb'].each{|m| require m}
+site.require_all_in('./objet/site/sitemap')
 
 class SiteMap
   include Singleton

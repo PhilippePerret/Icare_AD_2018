@@ -1,3 +1,4 @@
+* # Les fichiers JS ne se chargent plus, depuis la N0004
 * # Empêcher un même message (comme le message d'accueil) de s'afficher plusieurs fois.
 
 * Traduire les titres de mails en reprenant la formule dans la version nodejs du site

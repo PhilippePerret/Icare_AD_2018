@@ -16,15 +16,17 @@
     <title><%= page.title %></title>
   </head>
   <body>
-    <!-- Entête permanent du site, sans modification -->
-    <div id="header" class="container-fluid">
-      <%= './view/gabarit/top_row.erb'.deserb(self.bind) %>
-    </div>
-
+    <% debug "Route = '#{site.route.route}'" %>
+    <% unless site.route?('') %>
+      <!-- Entête permanent du site, sans modification -->
+      <div id="header" class="container-fluid">
+        <%= './view/gabarit/top_row.erb'.deserb(self.bind) %>
+      </div>
+    <% end %>
     <!-- Tant que l'utilisateur n'est pas identifié, on lui présente
     le bouton d'enregistrement
     -->
-    <% unless user.identified? || site.route?('user/signin') || site.route?('user/signup') %>
+    <% unless site.route?('') || user.identified? || site.route?('user/signin') || site.route?('user/signup') %>
       <div class="container-fluid right mt-2 mb-2">
         <div class="col center-mobile">
           <%= 'poser&nbsp;sa&nbsp;candidature'.in_a(href: 'user/signup', id: 'btn_signup', class: 'btn main') %>
