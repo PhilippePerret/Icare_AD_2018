@@ -21,7 +21,7 @@ class Console
 
 <p>Insérer le code suivant dans le document pour utiliser les fonctions de rédaction ci-dessous :</p>
 <pre>
-  <code>site.require_module 'kramdown'</code>
+  <code>site.require_module('Kramdown')</code>
   <code>SuperFile::new("path/to/the/file.md").kramdown</code>
   <code># => Produit le code HTML du fichier</code>
 </pre>

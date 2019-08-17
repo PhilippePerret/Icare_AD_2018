@@ -109,7 +109,7 @@ User.init # charge les librairies du dossier objet/user
 
 ONLY_REQUIRE || begin
   if site.ajax?
-    site.require_module('ajax')
+    site.require_module('Ajax')
   else
     require './lib/preambule'
     execute_preambule

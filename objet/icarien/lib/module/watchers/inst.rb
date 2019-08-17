@@ -7,8 +7,6 @@
   des watchers
 
 =end
-site.require_module 'watchers'
-
 class Watchers
 
   # {User} possesseur des watchers

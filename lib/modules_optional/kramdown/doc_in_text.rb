@@ -21,7 +21,7 @@ NOTES
     Note : La méthode est implémentée ci-dessous.
 
     Syntaxe :
-        site.require_module 'kramdown'
+        site.require_module('Kramdown')
         code = code.mef_document(<:latex|:html>)
 
   * Le traitement doit se faire avant le traitement Kramdown proprement

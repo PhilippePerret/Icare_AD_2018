@@ -15,7 +15,7 @@ class Console
 
   def run_a_test args = nil
     @args = args
-    site.require_module 'test'
+    site.require_module('Test')
     if args == nil || args == 'run'
       # Il faut jouer le fichier ./test/run.rb
       inst = SiteHtml::TestSuite::new(nil)
@@ -34,7 +34,7 @@ class Console
   # TODO: C'est à implémenter, pour le moment, +options+ ne sert à
   # rien.
   def show_db_after_tests options = nil
-    site.require_module 'test'
+    site.require_module('Test')
     SiteHtml::TestSuite.display_db_after_test( options )
     return ""
   end

@@ -14,7 +14,7 @@ class Aide
     # inspect
     case fextension
     when '.md'
-      site.require_module 'kramdown'
+      site.require_module('Kramdown')
       fpath.kramdown
     when '.erb'
       fpath.deserb

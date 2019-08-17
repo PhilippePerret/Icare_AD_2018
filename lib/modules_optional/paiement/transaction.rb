@@ -7,7 +7,7 @@ class Paiement
   # C'est la méthode principale qui doit être appelée
   # par la vue qui contient le traitement du paiement.
   # Pour l'utiliser, il suffit de mettre dans la vue :
-  #   site.require_module 'paiement'
+  #   site.require_module('Paiement')
   #   site.paiement.make_transaction
   #
   def make_transaction data_transaction

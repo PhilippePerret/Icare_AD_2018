@@ -33,7 +33,10 @@ class SiteHtml
 
   # Requiert tout ce qui se trouve dans le dossier module
   # +module_name+, i.e. les modules ruby, css et javascript.
-  # Le dossier module se trouve à l'adresse : './lib/deep/deeper/module/'
+  # Le dossier module se trouve à l'adresse : './lib/modules_optional/'
+  #
+  # Plus tard, il faudra que la méthode puisse fouiller dans plusieur
+  # dossier où pourront se trouver les modules, comme avec $PATH.
   #
   def require_module module_name
     dos = folder_optional_modules + module_name

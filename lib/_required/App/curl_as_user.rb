@@ -2,7 +2,7 @@
 class App
 
   def visit_as user_id, options = nil
-    site.require_module 'visit_as'
+    site.require_module('Visit_as')
     _visit_as user_id, options
   end
 

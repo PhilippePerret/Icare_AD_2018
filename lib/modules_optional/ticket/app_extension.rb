@@ -38,7 +38,7 @@ class App
 
   # La table contentant les tickets
   # On peut l'obtenir par `app.table_tickets` mais il faut :
-  # site.require_module 'ticket'
+  # site.require_module('Ticket')
   def table_tickets
     @table_tickets ||= site.dbm_table(:hot, 'tickets')
   end

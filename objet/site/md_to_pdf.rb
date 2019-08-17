@@ -36,7 +36,7 @@ class FileMD
   def to_pdf
     debug "-> to_pdf"
     debug "   * Chargement module 'kramdown' (SuperFile)"
-    site.require_module 'kramdown'
+    site.require_module('Kramdown')
 
 
     # Création du fichier HTML

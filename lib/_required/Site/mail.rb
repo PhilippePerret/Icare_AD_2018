@@ -4,7 +4,7 @@ class SiteHtml
   # @usage:   site.send_mail(data_mail)
   # Cf. module/Site/mail.rb pour le détail
   def send_mail data_mail
-    site.require_module 'mail'
+    site.require_module('Mail')
     resultat = exec_send_mail( data_mail )
     if resultat === true
       # Tout s'est bien passé

@@ -349,7 +349,7 @@ gels:
     description:  Remet le site dans l'état du gel '&lt;nom-du-gel&gt;'.
     note:         Il s'agit principalement des base de données et du dossier `./data`
   -
-    command:      "site.require_module('gel'); Gel::gel('&lt;nom-gel&gt;', {options})"
+    command:      "site.require_module('Gel'); Gel.gel('&lt;nom-gel&gt;', {options})"
     description:  Procède à un gel avec des options.
     note:         Tournure plus complexe à utiliser si des options doivent être transmises. Cf. le manuel sur les gels et les dégels pour plus de détails sur les options.
 # ---------------------------------------------------------------------

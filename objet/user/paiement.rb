@@ -13,7 +13,7 @@
 unless user.identified?
   redirect_to 'user/signup'
 else
-  site.require_module 'paiement'
+  site.require_module('Paiement')
 
   # # La méthode de consignation du paiement
   # class SiteHtml::Paiement

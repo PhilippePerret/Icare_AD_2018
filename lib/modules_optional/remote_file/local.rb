@@ -11,7 +11,7 @@ données pour le filmodico et le scénodico
 
 @usage
 
-    site.require_module 'remove_file'
+    site.require_module('Remove_file')
 
     rfile = RFile::new("./to/local/path.ext")
     # => Instance de fichier RFile

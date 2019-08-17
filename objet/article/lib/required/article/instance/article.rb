@@ -28,7 +28,7 @@ class Article
   def output
     case extension
     when '.md'
-      site.require_module 'kramdown'
+      site.require_module('Kramdown')
       path.kramdown
     when '.erb'
       path.deserb

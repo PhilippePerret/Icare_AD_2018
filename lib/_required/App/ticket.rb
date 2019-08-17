@@ -14,7 +14,7 @@ class App
     # Pour éviter les redoublements de traitement au cours d'un même
     # chargement de page.
     return if param(:tckid).nil? || @ticket_already_checked
-    site.require_module 'ticket'
+    site.require_module('Ticket')
     @ticket_already_checked = true
     execute_ticket(param(:tckid))
   end
@@ -29,7 +29,7 @@ class App
   # prises autrement, par exemple l'user_id lorsque c'est une création
   # d'user et qu'il n'y a donc pas de user courant.
   def create_ticket tid, tcode, options = nil
-    site.require_module 'ticket'
+    site.require_module('Ticket')
     tid ||= begin
       require 'securerandom'
       SecureRandom.hex

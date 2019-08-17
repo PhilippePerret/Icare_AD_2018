@@ -6,7 +6,7 @@ avec Kramdown.
 
 @usage
 
-  site.require_module 'kramdown'
+  site.require_module('Kramdown')
 
   <superfile>.kramdown[ <{options}>]
 

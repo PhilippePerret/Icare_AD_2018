@@ -28,7 +28,7 @@ class User
   # Requiert tous les modules utiles aux autorisations compliquées
   def require_modules_autorisation
     Dir["./lib/app/module/user_autorisation/**/*.rb"].each{ |m| require m }
-    site.require_module 'user_autorisation'
+    site.require_module('User_autorisation')
   end
 
   # Retourne true si l'user possède une autorisation qui

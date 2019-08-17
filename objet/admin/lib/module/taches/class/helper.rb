@@ -54,7 +54,7 @@ class << self
       taches:       taches
     }
 
-    site.require_module 'pastille'
+    site.require_module('Pastille')
     ipastille = SiteHtml::Pastille::new
     ipastille.set data_pastille
     ipastille.output

@@ -17,7 +17,7 @@ class LaTexBook
   # données du fichier `book_data.rb` (qui peut même ne
   # pas exister si toutes les données sont transmises)
   def build options = nil
-    site.require_module 'kramdown'
+    site.require_module('Kramdown')
 
     # La même instance LaTexBook peut servir à produire
     # plusieurs livre différents (qui partagent presque

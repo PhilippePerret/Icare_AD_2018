@@ -7,7 +7,7 @@
 =end
 module MethodesTravail
 
-  site.require_module 'kramdown'
+  site.require_module('Kramdown')
 
   # {String} Le travail de l'étape, formaté
   def travail_formated

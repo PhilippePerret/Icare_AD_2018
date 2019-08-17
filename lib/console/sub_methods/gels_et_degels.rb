@@ -7,7 +7,7 @@ class Console
 
   # Retourne la liste des gels
   def affiche_liste_des_gels
-    site.require_module('gel')
+    site.require_module('Gel')
     t = Dir["#{Gel::folder}/*"].collect do |path|
       File.basename(path)
     end.join("\n").in_pre
@@ -16,7 +16,7 @@ class Console
   end
 
   def gel gel_name
-    site.require_module('gel')
+    site.require_module('Gel')
     if Gel::gel(gel_name)
       "Le site a été gelé dans `#{gel_name}`."
     else
@@ -25,7 +25,7 @@ class Console
   end
 
   def degel gel_name
-    site.require_module('gel')
+    site.require_module('Gel')
     if Gel::degel(gel_name)
       "Le gel `#{gel_name}` a été degelé."
     else

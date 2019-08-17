@@ -5,7 +5,7 @@
 #   Méthode d'helper d'une instance d'un fichier de test
 #
 # ---------------------------------------------------------------------
-site.require_module 'kramdown'
+site.require_module('Kramdown')
 
 class SiteHtml
 class TestSuite
