@@ -36,7 +36,7 @@ class << self
   # ---------------------------------------------------------------------
 
   def clean_up_log_debug
-    fp = SuperFile.new('./debug.log')
+    fp = SuperFile.new('./tmp/debug/debug.log')
     fp.exist? || return
     fp.remove
     log "  - Destruction du fichier debug.log"

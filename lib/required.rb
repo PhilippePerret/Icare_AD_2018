@@ -87,18 +87,19 @@ rescue Exception => e
 end
 require 'json'
 
+# On requiert tous les modules utiles
+require_folder './lib/modules_common'
+require_folder './lib/_required'
+
+site.require_gem 'superfile'
+# defined?(SuperFile)|| raise("La class SuperFile n'est pas définie.")
 
 # Le site
-require_folder './lib/deep/deeper/first_required'
-require_folder './lib/deep/deeper/required/divers'
-require_folder './lib/deep/deeper/required/Site'
-require_folder './lib/deep/deeper/required'
-site.require_gem 'superfile'
-# Requérir les librairies propres à l'application
-require_folder './lib/app/handy'
-require_folder './lib/app/required'
 require_folder './objet/site/lib/required'
+
+
 site.require_config
+app.require_config
 
 User.init # charge les librairies du dossier objet/user
 

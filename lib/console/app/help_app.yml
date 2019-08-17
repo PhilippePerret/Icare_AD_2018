@@ -1,0 +1,455 @@
+# ---------------------------------------------------------------------
+#     AIDE PROPRE À L'APPLICATION
+# ---------------------------------------------------------------------
+
+# LIENS
+# Ce sont tous les liens qu'on peut insérer dans les textes
+# à l'aide de `lien.<something>`
+liens:
+  -
+    type:           TITLE
+    description: |
+      "Liens `lien.&lt;something&gt;`"
+  -
+    command:        lien.&lt;methode&gt;[ {String} TITRE][, {Hash} OPTIONS]
+    description: |
+      Hormis les commandes précisées, toutes ces méthodes peuvent recevoir
+      les deux arguments ci-dessus, en premier le titre et en second un
+      hash d'options qui permet de renseigner les attributs de la balise.
+
+      Parfois, on peut même n'envoyer que l'attribut OPTIONS.
+  -
+    command:        "`lien.cnarration` ou `lien.cnarration OPTIONS`"
+    description:    Un lien vers la collection Narration
+    note: |
+      OPTIONS peut contenir `:to` qui peut avoir la valeur : :recherche, :home, :livres
+  -
+    command:        lien.unanunscript
+    description:    Lien vers le programme ÉCRIRE UN FILM/ROMAN EN UN AN
+  -
+    command:        lien.unanunscript_subscribe
+    description:    Souscription au programme UN AN
+  -
+    command:        "`lien.analyses_de_films` ou `lien.analyses`"
+    description:    Analyses de film
+  -
+    command:        lien.collecteur_analyse
+    description:    Collecteur de l'analyse de film.
+  -
+    command:        "`lien.outils`"
+    description:    Lien pour rejoindre la liste des outils
+  -
+    command:        "`lien.forum` ou `lien.forum_de_discussion`"
+    description:    Lien vers le forum de discussion.
+  -
+    command:        lien.scenodico
+    description:    Lien pour rejoindre le scénodico
+  -
+    command:        "`balise mot &lt;extrait mot &gt;`"
+    description:    Retourne les liens vers les mots correspondant à l'extrait.
+  -
+    command:        lien.filmodico
+    description:    Lien vers le filmodico
+  -
+    command:        "`balise film &lt;extrait de titre&gt;`"
+    description:    Retourne les liens vers les films correspondant à l'extrait de titre.
+
+# ---------------------------------------------------------------------
+#   SCÉNODICO
+# ---------------------------------------------------------------------
+scenodico:
+  -
+    type:           TITLE
+    description:    Scénodico
+  -
+    command:        "balise mot &lt;mot ou portion de mot&gt;"
+    description:    Retourne la balise MOT pour le mot demandé.
+    note:           Si le mot commence par un accent ou un caractère diacritique, il faut supprimer cette lettre pour pouvoir trouver le mot.
+  -
+    command:        "`nouveau mot` ou `new mot`"
+    description:    Conduit au formulaire pour entrer un nouveau mot.
+  -
+    command:        goto|aller sceno|scenodico
+    description:    Permet de rejoindre le scénodico.
+    type:           GOTO
+  -
+    command:        goto|aller dico|dictionnaire
+    description:    Permet de rejoindre directement la liste des mots.
+    type:           GOTO
+
+  -
+    command:        goto|aller nouveau_mot
+    description:    Rejoint le formulaire pour créer un nouveau mot du scénodico.
+
+# ---------------------------------------------------------------------
+# FILMODICO
+# ---------------------------------------------------------------------
+filmodico:
+  -
+    type:           TITLE
+    description:    Filmodico
+  -
+    command:        balise film &lt;titre ou portion de titre&gt;
+    description:    Retourne la balise FILM pour le film demandé, ou les balises si plusieurs films correspondent à la demande.
+    note:           "Attention : Si le titre du film commence par un accent ou un diacritique, il FAUT ne pas mettre cette lettre."
+  -
+    command:        goto|aller filmo|filmodico
+    description:    Permet de rejoindre l'accueil du filmodico
+
+  -
+    command:        goto|aller nouveau_film
+    description:    Rejoint directement le formulaire de création d'un nouveau film
+  -
+    command:        list filmodico
+    description:    Affiche la liste des films du Filmodico, c'est-à-dire le contenu de la table.
+
+# ---------------------------------------------------------------------
+#   NARRATION
+# ---------------------------------------------------------------------
+narration:
+  -
+    type:           TITLE
+    description:    Collection Narration
+  -
+    command:        smart tdms narration
+    description: |
+      Affiche les tables des matières en version intelligente.
+    note: |
+      La version intelligente signifie qu'est indiqué le nombre de pages,
+      le niveau de développement, etc.
+  -
+    command:        (open|ouvrir) page narration &lt;page ID|portion titre&gt;
+    description: |
+      Ouvrir le fichier physique (markdown) de la page d'ID ou de portion titre donné en argument.
+    note: |
+      On peut utiliser aussi les verbes `ouvre` ou `ouvrir`.<br>L'éditeur utilisé dépend de la définition de `site.markdown_application` dans le fichier `./objet/site/config.rb`.
+  -
+    command:        edit page narration &lt;Page Ref&gt;
+    description:    Met la page donné en référence en édition. La référence peut être l'ID de la page ou une portion de titre.
+    note: |
+      Si plusieurs pages correspondent à la référence, la commande retourne une liste des pages avec leur titre et un lien permettant de les éditer.
+  -
+    command:        creer|create page narration in:LIVRE_REF handler:REL/PATH titre:LE TITRE
+    description: |
+      Créer la page dans le livre LIVRE_REF (id ou dossier — on peut l'obtenir avec aide livres narration) avec le path relatif REL/PATH et le titre donné.
+    note: |
+      On peut ajouter aussi :
+        <ul>
+          <li>`description: ...` pour la description</li>
+          <li>`after: ID_PAGE` pour définir après quelle page mettre cette page</li>
+          <li>`niveau: NIVEAU_DE_0_A_9` pour définir le niveau de développement</li>
+        </ul>
+  -
+    command:        '&lt;relecture&gt;Portion en relecture&lt;/relecture&gt;'
+    description: |
+      Permet d'indiquer à Marion une portion de texte à relire dans une
+      page qui a déjà été achevée.
+    note: |
+      Penser à remettre la page en relecture.
+      TODO: Il faudrait un type spécial pour indiquer que c'est juste
+      une relecture partielle, pas complète.
+  -
+    command:        recherche narration
+    description:    Rejoindre le formulaire de recherche dans la collection Narration.
+  -
+    command:        creer|create chapitre narration in:LIVRE_REF titre:TITRE CHAPITRE after:PAGE_ID_OPTIONNELLE
+    description: |
+      Créer le chapitre de titre donné.
+    note: |
+      le LIVRE_REF est le nom du dossier ou l'ID du livre.<br>
+      Noter que la commande
+      produira un lien à cliquer pour ajouter le chapitre dans la table des matières.
+  -
+    command:        "`etat des lieux narration` ou `inventory narration`"
+    description: |
+      Renvoie à la page de la collection qui affiche un état des lieux de la collection et notamment des pages.
+  -
+    command:        creer|create sous-chapitre narration in:LIVRE_REF titre:TITRE SOUS-CHAPITRE after:PAGE_ID_OPTIONNELLE
+    description:    Créer le sous-chapitre dans le livre donné en référence (nom dossier ou id).
+    note: |
+      Noter que la commande produira un lien à cliquer pour ajouter le chapitre dans la table des matières.
+  -
+    command:        goto|aller &lt;destination&gt;
+    description:    Rejoindre une section de la collection narration. cf. ci-dessous les valeurs possibles.
+    note: |
+      On peut utiliser :
+        <ul class='small'>
+          <li>goto|aller page narration &lt;ID page|portion titre&gt;</li>
+          <li>goto|aller admin narration : Administration de la collection</li>
+          <li>goto|aller narration : accueil</li>
+          <li>goto|aller new_page_narration : formulaire de nouvelle page</li>
+          <li>goto|aller livres_narration : liste des livres</li>
+          <li>goto|aller livre_&lt;livre-désignant&gt; : rejoindre un livre en particulier</li>
+        </ul>
+  -
+    command:        nouvelle|new page narration
+    description:    Conduit au formulaire pour créer une nouvelle page
+  -
+    command:        Narration sur Icare, version livre
+    description: |
+      On peut maintenant rediriger les pages de la version livre de Narration sur icare en définissant le résumé de la page à : <code>collection::&lt;id de la page de la collection&gt;.
+
+      Il suffit ensuite de synchroniser la table sur le site distant.
+  -
+    command:        check|vérifier pages narration out
+    description: |
+      Vérifie 1/ que toutes les fichiers physiques (fichiers) sont consignés dans la DB et 2/ que tous les enregistrements de pages et de titres sont utilisés dans les livres.
+  -
+    command:        pages narration niveau &lt;niveau&gt;
+    description:    |
+      Affiche les pages dont le niveau de développement correspond à &lt;niveau&gt;.
+      <ul>
+        <li>1 : Page juste créée (donc vide)</li>
+        <li>3 : Page esquissée</li>
+        <li>4 : Page développée</li>
+        <li>5 : Page presque achevée</li>
+        <li>6 : Page à lire par le lecteur (Marion)</li>
+        <li>7 : Page à corriger par l'auteur</li>
+        <li>8 : Page corrigée à relire pour dernière correction</li>
+        <li>9 : Page à corriger pour BAT</li>
+        <li>a : BAT</li>
+      </ul>
+  -
+    command:        balise livre &lt;référence livre&gt;
+    description:    Permet d'obtenir une balise avec un lien vers le livre de la collection OU un livre de bibliographie.
+    note: |
+      La référence au livre peut être diverse, par exemple `balise livre documents` ou `balise livre auteur` ou `balise livre themes`.
+
+      Pour un livre de la bibliographie (Cnarration::BIBLIOGRPAHIE), la référence donnée
+      peut être indifféremment un bout de l'ID, du titre ou de l'auteur.
+      Par exemple `balise livre SRPS` pour le SRPS.
+
+  -
+    command:        balise page &lt;portion du titre&gt;
+    description: |
+      Retourne une balise référence à copier-coller dans le texte
+      d'une page.
+  -
+    command:        "`balise question`"
+    description:    Retourne le code CHECKUP[&lt;question&gt;] pour placer une question dans le document qui sera reprise dans le checkup.
+    note:   |
+      Utiliser la commande `balise checkup` pour obtenir la balise à placer dans la page checkup.
+
+      Noter qu'on peut utiliser le snippet `q` dans TextMate pour obtenir ce code.
+  -
+    command:        "`balise checkup`"
+    description: |
+      Produit la balise `PRINT_CHECKUP[&lt;groupe&gt;]` à placer dans la page de checkup à la fin des livres.
+    note: |
+      Le &lt;groupe&gt; est déterminé par le second argument des balises CHECKUP qui permettent d'entrer les questions.
+
+      Noter qu'on peut utiliser le snippet `checkup` dans TextMate pour obtenir ce code.
+
+  -
+    command:        narration (sortie|output|export) latex[ ref_book]
+    description: |
+      Permet d'exporter la collection en version Latex à partir des
+      fichiers établis en Markdown/kramdown.
+      Si `ref_book` est défini, c'est un ID ou le nom symbolique du
+      livre qui doit être sorti.
+    note: |
+      La commande crée un dossier où sont déposés tous les fichiers
+      latex et il suffit de les compiler pour obtenir le PDF.
+      Plus tard, peut-être que la compilation sera faite automatiquement.
+
+# ---------------------------------------------------------------------
+#   CITATIONS
+# ---------------------------------------------------------------------
+citations:
+  -
+    type:         TITLE
+    description:  Les Citations
+  -
+    command:      new citation
+    description: |
+      Pour créer une nouvelle citation.
+  -
+    command:      goto citation/&lt;ID&gt;/show
+    description: |
+      Pour afficher la citation d'identifiant ID
+  -
+    command:      goto citation/&lt;ID&gt;/edit
+    description: |
+      Pour éditer la citation d'identifiant ID.
+
+# ---------------------------------------------------------------------
+#   ANALYSE DE FILM
+# ---------------------------------------------------------------------
+analyse:
+  -
+    type:           TITLE
+    description:    Les Analyses de film
+  -
+    command:        fonctionnement analyses
+    description:    Un rappel du fonctionnement des analyses de film sur le site.
+    note:           Ce rappel s'adresse aux administrateurs, pas aux lecteurs.
+  -
+    command:        aide analyse
+    description:    Affiche l'aide pour les analyses de film.
+    implement:      |
+      Ajouter les nouvelles aides au fichier '/Users/philippeperret/Sites/WriterToolbox/lib/modules_optional/console/console_aides/analyse.rb'.
+  -
+    command:        build manuel analyse(s)
+    description:    Construit le manuel PDF de l'analyste
+
+  -
+    command:        list films
+    description:    Affiche le contenu de la table analyse.films.
+    note:           Noter qu'il s'agit de la table pour les films analysés, pas la table Filmodico, même si les deux tables sont synchronisés.
+  -
+    command:        (inventory|etat des lieux|état des lieux) analyses
+    description:  |
+      Produit un état des lieux des analyses pour voir où en sont les
+      analyses en cours, etc.
+
+  -
+    command:        film TM to timeline &lt;/Users/path/to/fichier.film&gt;
+    description:    Prend un film TM et en tire une timeline des scènes.
+  -
+    command:        (lien|balise) analyse &lt;portion titre&gt;
+    description: |
+      Produit des liens pour rejoindre l'analyse voulue.
+    note: |
+      La portion peut être celle du titre, du titre français ou
+      de l'identifiant du film voulu.<br>
+      La sortie se fait sous plusieurs formats (markdown et mail)
+  -
+    command:        (affiche|afficher) analyse &lt;portion titre&gt;
+    description:  |
+      Affiche l'analyse demandée.
+    note: |
+      La portion peut être celle du titre, du titre français ou
+      de l'identifiant du film voulu.
+
+# ---------------------------------------------------------------------
+# PROGRAMME ÉCRIRE UN FILM/ROMAN EN UN AN
+# ---------------------------------------------------------------------
+unan:
+  -
+    type:           TITLE
+    description:    Le Programme ÉCRIRE UN FILM/ROMAN EN UN AN
+  -
+    command:        goto|aller unanunscript
+    description:    Rejoindre la section du programme ÉCRIRE UN FILM/ROMAN EN UN AN
+  -
+    command:        Unan points
+    description: |
+      Affiche l'évolution des points sur l'année.
+      Doit permettre de régler les différents grades et messages à obtenir.
+  -
+    command:        unan build manuel auteur(e|s)?
+    description:    Produit les manuels pour les auteurs
+    note: |
+      C'est la fin de "auteur" qui détermine ce qu'il faudra produire
+      exactement :<ul>
+      <li>auteur => Manuel pour les hommes,</li>
+      <li>auteure => Manuel pour les femmes,</li>
+      <li>auteurs => Manuel pour les deux sexes.</li>
+      </ul>
+  -
+    command:        run change_pday_benoit
+    description: |
+      Pour passer Benoit à un jour-programme particulier.
+    note: |
+      Cf. le script ./lib/console/console_scripts/change_pday_benoit.rb pour
+      faire les réglages du changement (avant qu'on puisse envoyer des
+      arguments)
+  -
+    command:        unan send me rapport|report &lt;pseudo|ID&gt;
+    description:    M'envoie le rapport quotidien de l'auteur désigné par pseudo ou ID
+    note: |
+      Si pseudo ou ID n'est pas précisé, le programme retourne la
+      liste des auteurs suivant le programme en ONLINE afin de pouvoir
+      en choisir un.
+  -
+    command:        detruire programme &lt;pseudo|id&gt;
+    description: |
+      Détruit le programme ÉCRIRE UN FILM/ROMAN EN UN AN de l'user désigné.
+    note: |
+      Il faut une confirmation pour que ça fonctionne, elle se fait par le
+      biais du numéro de facture qu'il faut ajouter au bout de la commande.
+  -
+    command:        "detruire programmes de `&lt;pseudo&gt;|&lt;id&gt;"
+    description:    Détruit tous les programmes “UN AN” de l'user.
+    note:           Cette commande ne peut s'utiliser qu'en OFFLINE.
+  -
+    command:        set benoit to pday &lt;x p-day (1-start)&gt;
+    description:    |
+      Passe Benoit à ce jour-programme, en réglant tout ce qu'il faut régler.
+  -
+    command:        set benoit to pday &lt;x p-day&gt; with {&lt;params&gt;}
+    description:    "Même que précédente mais en définissant des paramètres supplémentaires."
+    note: |
+      Ces paramètres peuvent être : <ul>
+        <li>`rythme` : Le rythme choisi, de 1 à 9</li>
+        <li>`just_in_time` : Si true, l'heure sera mise juste au début du jour, ce qui fait que les travaux précédents devraient être en retard.</li>
+      </ul>
+  -
+    command:        get &lt;chose&gt; of &lt;autre_chose&gt; &lt;id&gt;
+    description: |
+      Obtient la chose (work, page de cours, p-day etc.) de l'autre chose (work, page de cours, p-day, etc.).
+      La chose ou l'autre chose peuvent être : work|pday|page_cours|exemple|quiz
+    note:           "En plus, produit une ligne qui permet d'éditer, d'afficher ou de détruire l'élément voulu."
+  -
+    command:        "`Unan état des lieux` ou `Unan inventory`"
+    description:    |
+      Procède à un état des lieux du programme ÉCRIRE UN FILM/ROMAN EN UN AN, c'est-à-dire consulte les tables pour faire le rapport. C'est en quelques sortes une version simplifiée de l'affichage de toutes les tables.
+  -
+    command:        Unan repare
+    description:  |
+      Répare le programme ÉCRIRE UN FILM/ROMAN EN UN AN. Utile souvent après les tests, pour détruire les choses qui ne l'ont pas été à la fin des tests. Mais normalement, maintenant, avec les gels, ça doit être inutile.
+  -
+    command:        Unan init program for &lt;ID de user existant&gt;
+    description:    Pour initier un programme pour un utilisateur existant.
+    note:           La commande fait plusieurs vérification, notamment l'existence de l'utilisateur et le fait qu'il ne soit pas déjà en train de suivre un programme (qu'il faudrait arrêter avant de poursuivre).
+  -
+    command:        unan nouveau|new pday
+    description:    "Conduit au formulaire pour créer un nouveau P-Day."
+  -
+    command:        unan nouveau|new work
+    description:    "Conduit au formulaire pour créer un nouveau travail (Word)."
+  -
+    command:        unan nouvelle|new page
+    description:    Conduit au formulaire pour créer une nouvelle page de cours.
+  -
+    command:        unan nouveau|new qcm
+    description:    Conduit au formulaire pour construire un nouveau Quiz.
+  -
+    command:        unan nouvelle|new question
+    description:    Conduit au formulaire pour créer une nouvelle question
+  -
+    command:        unan nouveau|new exemple
+    description:    Conduit au formulaire pour créer un nouvel exemple.
+  -
+    command:        Autres commandes sur les tables
+    description: |
+      On peut trouver d'autres commandes à appliquer aux tables en utilisant les
+      commandes des tables générales. Ces commandes permettent notamment de
+      modifier si nécessaire le schéma des tables existantes en procédant à un
+      backup préliminaire et en modifiant ensuite les tables.
+    note: |
+      Pour le moment, ces commandes n'ont pas encore été mises en commandes
+      générales, on peut les trouver ci-dessous.
+
+# ---------------------------------------------------------------------
+#   ATELIER ICARE
+# ---------------------------------------------------------------------
+icare:
+  -
+    type:           TITLE
+    description:    L’Atelier ICARE
+  -
+    command:        set icarien &lt;pseudo|ID&gt; (actif|on)
+    description: |
+      Permet de définir que l'icarien désigné par le pseudo est un
+      icarien actif et qu'il peut donc consulter entièrement le site.
+    note: |
+      L'ID est celui sur le BOA, pas sur l'atelier
+  -
+    command:        set icarien &lt;pseudo|ID&gt; (inactif|off)
+    description: |
+      Permet de définir que l'icarien désigné par le pseudo ou l'ID
+      est un icarien inactif et qu'il n'a plus d'accès complet au
+      site.
+    note: |
+      L'ID est celui sur le BOA, pas sur l'atelier

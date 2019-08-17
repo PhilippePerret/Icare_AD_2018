@@ -183,7 +183,7 @@ end #/<<self
 
     def full_url
       @full_url ||= begin
-        sandbox? ? App::LOCAL_FULL_URL : 'http://www.atelier-icare.net'
+        sandbox? ? App.config.local_full_url : 'http://www.atelier-icare.net'
       end
     end
 
