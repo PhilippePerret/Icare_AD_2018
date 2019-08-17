@@ -1,3 +1,5 @@
+* mettre la configuration propre aux mails dans ./config/mails.rb et faire une méthode `Mail.require_config`.
+
 * mailnoiduzep@chez.com / monmotdepasse
 * Nicolas Dufourg   : crapette
 * Emmanuelle Badina : crapette
