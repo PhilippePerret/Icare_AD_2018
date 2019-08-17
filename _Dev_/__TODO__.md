@@ -1,3 +1,7 @@
+* # Empêcher un même message (comme le message d'accueil) de s'afficher plusieurs fois.
+
+* Traduire les titres de mails en reprenant la formule dans la version nodejs du site
+
 * mettre la configuration propre aux mails dans ./config/mails.rb et faire une méthode `Mail.require_config`.
 
 * mailnoiduzep@chez.com / monmotdepasse

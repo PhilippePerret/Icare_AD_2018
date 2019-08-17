@@ -1,0 +1,53 @@
+<%
+=begin
+
+  HOME PAGE DU SITE
+
+  Depuis la version 2019, la page d'accueil est totalement différente
+  des autres pages du site, pour correspondre à l'esthétisme actuel, très
+  aéré
+
+  La construction de la page se fait dans :
+  ./objet/site/lib/module/home_page/build.rb
+=end
+%>
+<section id="header_home">
+  <div class="common-tools">
+    <a href="overview">EN SAVOIR PLUS</a>
+    <a href="signup">S’INSCRIRE</a>
+    <a href="user/login">S’IDENTIFIER</a>
+  </div>
+</section>
+<div class="big-in-cadre">
+  <img src="view/img/papillon-base-logo.png" id="papillon" />
+  <span id="titre_site">Atelier Icare</span>
+  <div class="small">L’écriture dans tous ses états (*)</div>
+</div>
+<div class="mini">(*) aussi bien dans la forme (roman, scénario, BD, etc.) que dans le fond (pitch, résumé, synopsis, scénario, etc.).
+</div>
+<hr class="big">
+
+<div class="cadre in-cadre">
+  <%= './objet/site/lib/module/home/atelier.erb'.deserb %>
+  <%= './objet/site/lib/module/home/phil.erb'.deserb %>
+</div>
+
+<div class="in-cadre">
+  <%= './objet/site/lib/module/home/boutons.erb'.deserb %>
+</div>
+
+<div id="div-citation" class="cadre in-cadre">
+  <%= './objet/site/lib/module/home/citation.erb'.deserb %>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <%= Home.frequently_asked_questions %>
+    </div>
+    <div class="col">
+      <%= Home.bloc_dernieres_activites %>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+</script>

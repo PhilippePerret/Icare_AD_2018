@@ -129,8 +129,17 @@ class Page
 
   # Pour charger une vue
   #
-  # @syntaxe    page.view(<file name>, <dossier objet>, <bindee>)
+  # @syntaxe    page.view(<file name|affixe>, <dossier objet>, <bindee>)
+  #
+  # Note : avec la version de 2019, +relpath+ peut être un nom de dossier
+  # qui contient un fichier erb de même affixe. Par sécurité, on teste même
+  # les fichiers contenant '.erb' à la fin pour voir s'ils n'ont pas été
+  # remplacés par des dossiers. Cette opération a été faite pour simplifier
+  # le rangement, en rassemblant dans un même dossier tous les fichiers .css,
+  # .sass, .js, .erb de même affixe.
+  #
   def view relpath, dossier = nil, bindee = nil
+    dossier, relpath = Vue.normalize(dossier, relpath)
     Vue.new(relpath, dossier, bindee).output
   end
   alias :vue :view
@@ -139,7 +148,7 @@ class Page
   # Ne pas confondre avec le débug qui se construit avec la
   # méthode handy `debug` et qui est construit dans App/debug.rb
   def section_debug
-    (site.folder_gabarit + 'debug.erb').deserb( site )
+    (site.folder_gabarit + 'debug/debug.erb').deserb( site )
   end
 
   def add_css arr_css

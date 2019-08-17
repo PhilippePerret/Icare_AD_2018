@@ -11,7 +11,7 @@ class Vue
   attr_reader :folder
 
   def initialize relpath, folder = nil, bindee = nil
-    relpath += ".erb" unless relpath.end_with?('.erb')
+    folder, relpath = Vue.normalize(folder, relpath)
     @relpath = relpath
     @folder  = folder || site.folder_objet
     @bindee  = bindee

@@ -1,4 +1,4 @@
-Dernière : N0003
+Dernière : N0004
 
 N0001
 
@@ -38,3 +38,27 @@ N0003
     'masked_discussions' qui contient la liste des discussions qui sont
     à masquer (identifiant). Cette liste est actualisée dès que la visibilité
     d'un interlocuteur est modifié.
+
+N0004
+
+    Modification d'aout 2019
+    À présent, au lieu d'avoir ça dans les dossiers :
+      gabarit > header.css
+                header.erb
+                header.js
+                header.sass
+                footer.css
+                footer.erb
+                footer.sass
+    On peut avoir :
+      gabarit > header >  header.css
+                          header.erb
+                          header.js
+                          header.sass
+                footer >  footer.css
+                          footer.erb
+                          footer.sass
+
+    Mais pour ne pas changer tous les codes, on teste pour savoir ce qui est
+    envoyé. Et par exemple, on peut avoir un appel à `gabarit/header.erb` qui
+    sera transformé en `gabarit/header/header.erb`.
