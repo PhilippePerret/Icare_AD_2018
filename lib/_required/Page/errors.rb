@@ -102,7 +102,7 @@ class Page
       pfolder
     else
       # Sinon le dossier du fichier par défaut
-      site.folder_deeper_view + 'page'
+      site.folder_error_pages + 'page'
     end
   end
 end

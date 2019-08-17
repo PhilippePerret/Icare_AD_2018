@@ -66,9 +66,6 @@ class SiteHtml
   # ---------------------------------------------------------------------
   #   Images
   # ---------------------------------------------------------------------
-  def folder_deep_images
-    @folder_deep_images ||= get_and_build_folder( folder_images + 'deep' )
-  end
   def folder_images
     @folder_images ||= get_and_build_folder('./view/img')
   end
@@ -109,50 +106,26 @@ class SiteHtml
   #   Vues (hors vue d'objet)
   # ---------------------------------------------------------------------
 
-  # Le dossier gabarit, mais dans le dossier view
-  def folder_custom_gabarit
-    @folder_custom_gabarit ||= folder_view + 'gabarit'
-  end
   def folder_gabarit
-    @folder_gabarit ||= folder_deeper_view + 'gabarit'
+    @folder_gabarit ||= folder_view + 'gabarit'
   end
-
-  def folder_deeper_view
-    @folder_deeper_view ||= folder_deep_view + 'deeper'
+  def folder_error_pages
+    @folder_error_pages ||= folder_view + 'error_pages'
   end
-  def folder_deep_view
-    @folder_deep_view ||= folder_view + 'deep'
+  def folder_user_view
+    @folder_user_view ||= folder_objet + 'user/vues'
   end
   def folder_view
     @folder_view ||= SuperFile.new('./view')
   end
 
   # ---------------------------------------------------------------------
-  #   Modules
-  # ---------------------------------------------------------------------
-  def folder_deeper_module
-    @folder_deeper_module ||= folder_deeper + 'module'
-  end
-  alias :folder_module :folder_deeper_module
-
-  def folder_deeper_javascript
-    @folder_deeper_javascript ||= folder_deeper + 'js'
-  end
-  # ---------------------------------------------------------------------
   #   Librairie
   # ---------------------------------------------------------------------
   def folder_optional_modules
     @folder_optional_modules ||= folder_lib + 'modules_optional'
   end
-  def folder_lib_per_route
-    @folder_lib_per_route ||= folder_lib_optional + '_per_route'
-  end
-  def folder_lib_optional
-    @folder_lib_optional ||= folder_deeper + 'optional'
-  end
-  def folder_deeper
-    @folder_deeper ||= folder_lib + "deep/deeper"
-  end
+
   def folder_lib
     @folder_lib ||= SuperFile.new('./lib')
   end

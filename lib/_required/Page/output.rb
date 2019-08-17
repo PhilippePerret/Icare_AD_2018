@@ -93,21 +93,13 @@ class Page
 
   def hotlinks
     @hotlinks ||= begin
-      Vue.new('hotlinks', site.folder_custom_gabarit).output
+      raise "Pas de vue 'hotlinks' dans le dossier gabarit"
+      Vue.new('hotlinks', site.folder_gabarit).output
     rescue Exception => e
       self.fatal_error = e
       "[PROBLÈME DE HOT-LINKS : #{e.message}]"
     end
   end
   # /hotlinks
-
-  def user_links
-    @user_links ||= begin
-      Vue.new('user_links', site.folder_custom_gabarit).output
-    rescue Exception => e
-      self.fatal_error = e
-      "[PROBLÈME DE USER-LINKS : #{e.message}]"
-    end
-  end
 
 end

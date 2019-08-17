@@ -6,12 +6,11 @@ class SiteHtml
 
   # Path du dossier qui contient ce module
   def folder_module_mail
-    @folder_module_mail ||= site.folder_deeper_module + 'mail'
+    @folder_module_mail ||= site.folder_optional_modules + 'Mail'
   end
 
 class Mail
   class << self
-
 
     # Style du body (en fait du body ET du div conteneur principal)
     # Inséré dans une balise DIV contenant tout le mail

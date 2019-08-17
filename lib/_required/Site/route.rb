@@ -279,9 +279,6 @@ class SiteHtml
       # debug "-> Route::all_folders_lib_required"
       @all_folders_lib_required ||= begin
         folders = Array.new
-        # Le dossier ./lib/deep/deeper/required/<objet cam>
-        folders << folder_restsite
-        # Le dossier ./objet/<objet>/lib/required (même si un
         # contexte est défini)
         folders << folder_required_from_route
         unless context.nil?
@@ -490,12 +487,6 @@ class SiteHtml
     # défini ou d'après la route seule dans le cas contraire)
     def folder_lib
       @folder_lib ||= path_in_objet + 'lib'
-    end
-
-    # Le dossier dans les librairies RestSite, si c'est un
-    # objet universel.
-    def folder_restsite
-      @folder_restsite ||= site.folder_lib_optional + "_per_route/#{segment_path}"
     end
 
     private

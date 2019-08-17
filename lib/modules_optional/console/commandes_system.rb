@@ -41,7 +41,7 @@ class Console
     end
 
     def synchro_sfile
-      @synchro_sfile ||= (site.folder_deeper + 'module/synchronisation/synchronisation.rb')
+      @synchro_sfile ||= (site.folder_optional_modules + 'Synchronisation/synchronisation.rb')
     end
 
 end #/Console

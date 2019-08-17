@@ -45,7 +45,7 @@ class Page
   # view/deep/gabarit/header.erb
   def header
     @header ||= begin
-      vue = Vue.new('header', site.folder_custom_gabarit)
+      vue = Vue.new('header', site.folder_gabarit)
       vue.output
     rescue Exception => e
       self.fatal_error = e
@@ -55,7 +55,7 @@ class Page
 
   def footer
     @footer ||= begin
-      vue = Vue.new('footer', site.folder_custom_gabarit)
+      vue = Vue.new('footer', site.folder_gabarit)
       if vue.exist?
         vue.output
       else
@@ -104,7 +104,7 @@ class Page
           site.current_route.vue.output
         else
           # C'est ici qu'on passe en cas de mauvaise route.
-          (site.folder_deeper_view + 'page/error_unknown_route.erb').deserb()
+          (site.folder_error_pages + 'error_unknown_route.erb').deserb()
         end
       else
         # L'accueil
@@ -124,7 +124,7 @@ class Page
   # de l'user. Elle n'est affichée que si l'utilisateur
   # n'est pas identifié
   def login_box
-    self.vue('user/login_form', site.folder_deeper_view)
+    self.vue('login_form', site.folder_user_view)
   end
 
   # Pour charger une vue

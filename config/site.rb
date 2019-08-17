@@ -2,7 +2,7 @@
 =begin
 
 Pour ajouter des options, les ajouter aussi au fichier :
-    ./lib/deep/deeper/required/Site/config.rb
+    ./config/site.rb
 
 On peut tester une valeur simplement par :
 
