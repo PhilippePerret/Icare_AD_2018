@@ -8,7 +8,7 @@ end
 
 
 def picto_doigt color
-  "<img src='./view/img/pictos/finger_#{color}.png' class='pdoigt' />".freeze
+  Dom.image("pictos/finger_#{color}.png", class:'pdoigt').freeze
 end
 DOIGT         = picto_doigt('black')
 DOIGT_ROUGE   = picto_doigt('red')
@@ -19,10 +19,10 @@ ARROW         = "<span style='font-family:\"Lucida Grande\",Helvetica,sans-serif
 ARROW_RED     = "<span class='red' style='font-family:\"Lucida Grande\",Helvetica,sans-serif;font-size:30px;vertical-align:bottom;'>→</span>"
 ARROW_BLUE    = "<span class='blue' style='font-family:\"Lucida Grande\",Helvetica,sans-serif;font-size:30px;vertical-align:bottom;'>→</span>"
 
-FLASH = "<img src='./view/img/pictos/flash.png' class='pflash' />".freeze
+FLASH = "<img src='./_view/img/pictos/flash.png' class='pflash' />".freeze
 
 def picto_punaise color
-  "<img src='./view/img/pictos/punaise_#{color}.png' class='ppunaise' />".freeze
+  Dom.image("pictos/punaise_#{color}.png", class:'ppunaise').freeze
 end
 PUNAISE_ROUGE = picto_punaise('red')
 PUNAISE_WHITE = picto_punaise('white')
@@ -44,14 +44,14 @@ def image_mascotte options = nil
     app.session['nombre_points_gratuits']      = points
     app.session['session_id_points_gratuits']  = app.session.session_id
     app.session['raison_points_gratuits']      = options.delete(:raison)
-    img = "./view/img/mascotte/mascotte-50pc.png".in_image
+    img = Dom.image('mascotte/mascotte-50pc.png')
     img = img.in_a(href: "site/points_abonnement")
     img = (
       img +
       'cliquez-moi…'.in_div(style: 'font-size:9pt;text-align:center;color:#777')
     ).in_div(options)
   else
-    img = "./view/img/mascotte/mascotte-50pc.png".in_image(options)
+    img = Dom.image('mascotte/mascotte-50pc.png', options)
   end
   return img
 end

@@ -19,14 +19,14 @@ end
 # l'année correspondante
 def annee_of_time time = nil
   time != nil || time = Time.now
-  time.instance_of?(Fixnum) && time = Time.at(time)
+  time.instance_of?(Integer) && time = Time.at(time)
   time.year
 end
 # Reçoit un temps (soit {Time}, soit un nombre de secondes) et retourne
 # l'index 1-start du trimestre correspondant
 def trimestre_of_time time = nil
   time != nil || time = Time.now
-  time.instance_of?(Fixnum) && time = Time.at(time)
+  time.instance_of?(Integer) && time = Time.at(time)
   1 + ((time.month - 1)/ 3)
 end
 

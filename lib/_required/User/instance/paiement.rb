@@ -7,7 +7,7 @@ Toutes les méthodes concernant les paiements
 class User
 
 
-  # {Fixnum} Date (timestamp) de prochain paiement
+  # {Integer} Date (timestamp) de prochain paiement
   # Noter que cette méthode, pour le moment, ne doit être appelée
   # que si l'user a déjà procédé à un paiement.
   def next_paiement
@@ -19,7 +19,7 @@ class User
     end
   end
 
-  # Retourne le timestamp Fixnum du dernier paiement
+  # Retourne le timestamp Integer du dernier paiement
   # pour un abonnement au site
   def last_abonnement
     @last_abonnement ||= begin

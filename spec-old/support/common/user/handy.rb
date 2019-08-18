@@ -234,7 +234,7 @@ def remove_users upto = :all
     colonnes: []
   }
   case upto
-  when Fixnum then drequest.merge!(limit: upto)
+  when Integer then drequest.merge!(limit: upto)
   when :all
     # Rien à faire
   end

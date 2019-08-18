@@ -13,7 +13,7 @@ La table `site_hot.last_dates` permet de consigner des dates de dernières opér
 
 Par défaut, le temps est le temps courant, sinon il peut être spécifié par `<time>`.
 
-Noter que c'est un timestamp qui est enregistré ({Fixnum}), pas une date.
+Noter que c'est un timestamp qui est enregistré ({Integer}), pas une date.
 
 <a name='recupererunedernieredatede'></a>
 
@@ -26,4 +26,4 @@ Noter que c'est un timestamp qui est enregistré ({Fixnum}), pas une date.
 
 Retourne la dernière date correspondant à la clé `<key>` et retourne la valeur `<default value>` dans le cas où cette clé ne serait pas encore enregistrée.
 
-Noter que c'est un timestamp qui est enregistré ({Fixnum}), pas une date. C'est un Fixnum, nombre de secondes, qui est retourné.
+Noter que c'est un timestamp qui est enregistré ({Integer}), pas une date. C'est un Integer, nombre de secondes, qui est retourné.

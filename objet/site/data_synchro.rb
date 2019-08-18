@@ -59,7 +59,7 @@ class Synchro
     [
       './lib/deep/deeper/module/synchronisation/',
       './LOCAL_CRON/',
-      './view/img/CHANTIER',
+      './_view/img/CHANTIER',
       './lib/deep/deeper/module/links_analyzer/output/routes_msh/',
       './data/qdd'
     ]
@@ -83,8 +83,8 @@ class Synchro
     {
       'CRON'      => { extensions: COMMON_EXTENSIONS, dir: :l2s},
       'lib'       => { extensions: COMMON_EXTENSIONS, dir: :l2s},
-      'objet'     => { extensions: COMMON_EXTENSIONS, dir: :l2s},
-      'view'      => { extensions: COMMON_EXTENSIONS, dir: :l2s},
+      '_objet'    => { extensions: COMMON_EXTENSIONS, dir: :l2s},
+      '_view'     => { extensions: COMMON_EXTENSIONS, dir: :l2s},
       'data'      => { extensions: COMMON_EXTENSIONS, dir: :l2s},
       'hot'       => { extensions: COMMON_EXTENSIONS, dir: :l2s},
       'database'  => {extensions: ['db', 'rb'], dir: :l2s}

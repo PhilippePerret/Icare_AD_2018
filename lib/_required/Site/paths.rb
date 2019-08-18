@@ -67,7 +67,7 @@ class SiteHtml
   #   Images
   # ---------------------------------------------------------------------
   def folder_images
-    @folder_images ||= get_and_build_folder('./view/img')
+    @folder_images ||= get_and_build_folder('./_view/img')
   end
   # ---------------------------------------------------------------------
   #   Database
@@ -116,7 +116,7 @@ class SiteHtml
     @folder_user_view ||= folder_objet + 'user/vues'
   end
   def folder_view
-    @folder_view ||= SuperFile.new('./view')
+    @folder_view ||= SuperFile.new('./_view')
   end
 
   # ---------------------------------------------------------------------

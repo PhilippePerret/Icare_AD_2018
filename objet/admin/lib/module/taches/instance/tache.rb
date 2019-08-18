@@ -168,7 +168,7 @@ class Tache
   # un désignant comme "auj", "dem", "today", "aujourd'hui", etc.
   def test_echeance_tache eche
     return nil if eche.nil_if_empty.nil? || eche == "null"
-    eche = Data.date_humaine_to_date_real( eche, "%d %m %Y")
+    eche = PHData.date_humaine_to_date_real( eche, "%d %m %Y")
     jour, mois, annee = eche.split(' ').collect{ |e| e.to_i }
     if jour.nil? || mois.nil? || annee.nil?
       raise "L'échéance de la tâche doit être sous la forme JJ MM AA ou être un identifiant comme `dem` pour demain, ou définir `+ nombre_de_jour`, etc. (demander l'aide avec `aide taches`)."

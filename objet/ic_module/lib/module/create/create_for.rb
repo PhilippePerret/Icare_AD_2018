@@ -21,7 +21,7 @@ class << self
   # `start` enclenchée par l'user.
   #
   # +owner+         {User} Propriétaire du module d'apprentissage
-  # +abs_module_id+ {Fixnum} IDentifiant du module d'apprentissage
+  # +abs_module_id+ {Integer} IDentifiant du module d'apprentissage
   #
   # RETURN L'instance IcModule du module initié.
   #

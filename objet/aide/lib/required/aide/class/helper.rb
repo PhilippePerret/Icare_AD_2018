@@ -19,7 +19,7 @@ class Aide
         else
           route =
             case route
-            when Fixnum then "aide/#{route}/show"
+            when Integer then "aide/#{route}/show"
             else route
             end
           ditem[:hname].in_a(href:route).in_li(class:'page')

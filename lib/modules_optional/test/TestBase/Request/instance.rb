@@ -282,7 +282,7 @@ SET #{values_set}
       case specs
       when NilClass
         nil
-      when Fixnum
+      when Integer
         "id = #{specs}"
       else
         specs.collect do |k,v|

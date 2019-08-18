@@ -24,7 +24,7 @@ class Ranking
     # commande cUrl (car on appelle la page et on l'enregistre)
     attr_reader :file_path
 
-    # {Fixnum} Index du premier found dans ce fichier (de 10 en 10)
+    # {Integer} Index du premier found dans ce fichier (de 10 en 10)
     attr_reader :index_first_found
 
     # {String} Le texte recherché, en version humaine

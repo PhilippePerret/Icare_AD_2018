@@ -10,7 +10,7 @@
       param(:property)
         :name     Le nom de la propriété
         :value    La valeur de la propriété
-        :type     Le type ('String', 'Fixnum', 'Float')
+        :type     Le type ('String', 'Integer', 'Float')
 
         (qui peuvent être placés dans un formulaire par exemple)
 
@@ -29,7 +29,7 @@ begin
 
   property[:value] =
     case property[:type]
-    when 'Fixnum' then property[:value].to_i
+    when 'Integer' then property[:value].to_i
     when 'Float'  then property[:value].to_f
     else property[:value]
     end

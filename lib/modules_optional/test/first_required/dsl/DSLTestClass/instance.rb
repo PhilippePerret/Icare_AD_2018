@@ -11,7 +11,7 @@ class DSLTestMethod
   # possédant la méthode de test.
   attr_reader :__tfile
 
-  # {Fixnum} Indice de la test-méthode courante dans le
+  # {Integer} Indice de la test-méthode courante dans le
   # fichier.
   attr_reader :indice_test_method
 

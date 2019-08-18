@@ -1,5 +1,5 @@
 # encoding: UTF-8
-class ::Fixnum
+class Integer
   DUREE_MINUTE  = 60
   DUREE_HEURE   = 60 * DUREE_MINUTE
   DUREE_JOUR    = 24 * DUREE_HEURE
@@ -28,7 +28,7 @@ class ::Fixnum
     return iso
   end
 
-  # Retourne le Fixnum qui est un nombre de secondes sous
+  # Retourne le Integer qui est un nombre de secondes sous
   # forme d'un Hash contenant :
   #   :seconds      Les secondes
   #   :minutes      Les minutes
@@ -237,7 +237,7 @@ class ::Fixnum
   # Retourne le timestamp sous forme de date pour l'enregistrement
   # dans le calendrier en date inversée
   # Par exemple, l'heure 8 09 2015 - 10:15 retournera 20150908
-  # Noter que c'est un Fixnum qui est retourné, pas un String
+  # Noter que c'est un Integer qui est retourné, pas un String
   def as_cal_date
     Time.at(self).strftime('%Y%m%d').to_i
   end

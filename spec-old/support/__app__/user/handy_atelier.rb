@@ -51,7 +51,7 @@ class User
   #   :next_paiement      On peut définir explicitement la date de prochain
   #                       paiement (même nil)
   #   :since              Nombre de jours depuis le départ
-  #   :started_at         {Fixnum} Alternative à :since, en précisant la
+  #   :started_at         {Integer} Alternative à :since, en précisant la
   #                       date exacte en secondes.
   #   :etapes             {STRING} Liste des identifiants d'ic-étapes
   #                       déjà accomplies séparés par des espaces.

@@ -139,7 +139,7 @@ class IcModule::IcEtape::IcDocument
       else '' end
 
     (
-      '<img src="view/img/icones/document_pdf.png" class="doc_img" />' +
+      Dom.img('icones/document_pdf.png', class: 'doc_img') +
       doc_name_displayed.in_span(class: 'doc_name') +
       info_own_documents_always_displayed
     ).in_div class: 'doc_div', title: "Télécharger le document #{doc_name_displayed} (#{arr_docs})…"

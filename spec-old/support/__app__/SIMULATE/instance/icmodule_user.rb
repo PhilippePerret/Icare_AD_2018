@@ -17,7 +17,7 @@ class Simulate
   # +args+
   #   :test       Si true, on teste que tout soit OK
   #               Par défaut : false
-  #   :module     {Fixnum} L'ID du module d'apprentissage attribué
+  #   :module     {Integer} L'ID du module d'apprentissage attribué
   #               Par défaut : 1
   #   :password   {String} Le mot de passe du nouveau user
   #   ... et toutes les propriétés possibles de l'user, :sexe, :naissance, etc.

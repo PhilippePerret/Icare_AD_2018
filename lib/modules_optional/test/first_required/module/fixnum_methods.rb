@@ -1,6 +1,6 @@
 # encoding: UTF-8
 
-class Fixnum
+class Integer
 
   # Affirme que le nombre courant est égal au nombre
   # passé en argument

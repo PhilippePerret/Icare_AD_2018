@@ -211,7 +211,7 @@ RSpec.configure do |config|
 
     # Un Array contenant les instances ou les identifiants des
     # users qu'il faudra détruire à la fin des tests.
-    # On peut y mettre indifféremment des Identifiants (Fixnum),
+    # On peut y mettre indifféremment des Identifiants (Integer),
     # des instances user ({User}) ou des Hash de données (contenant
     # au moins :id)
     $users_2_destroy = Array.new
@@ -270,7 +270,7 @@ RSpec.configure do |config|
     #     case ref_u
     #     when Hash   then ref_u[:id]
     #     when User   then ref_u.id
-    #     when Fixnum then ref_u
+    #     when Integer then ref_u
     #     else
     #       nil
     #     end
@@ -390,7 +390,7 @@ RSpec.configure do |config|
     str =
       case str
       when String then str.strip
-      when Fixnum, Float then str
+      when Integer, Float then str
       when Hash, Array then str.pretty_inspect
       else
         if str.respond_to?(:message)

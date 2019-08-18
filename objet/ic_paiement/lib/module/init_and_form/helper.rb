@@ -17,7 +17,7 @@ class IcPaiement
       token.in_hidden(name: 'token')              +
       'commit'.in_hidden(name: 'useraction')      +
       objet.in_hidden(name: 'description')        +
-      '<img src="view/img/logo/paypal.png" />'
+      Dom.image('logo/paypal.png')
     ).in_form(id: 'form_paiement', class: 'cadre', action: self.class.url_paypal, onclick: 'this.submit()').
       in_div(class: 'center')
   end

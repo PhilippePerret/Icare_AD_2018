@@ -11,7 +11,7 @@ class TestFile
 class << self
 
   # Instance de la Test-Méthode courante, utile par exemple
-  # pour les TString ou les TFixnum lorsqu'on fait :
+  # pour les TString ou les TInteger lorsqu'on fait :
   #   str = TString.new(self, "mon string")
   #   sousstr = str[3]  # <= un TString qui prendra la méthode self
   #

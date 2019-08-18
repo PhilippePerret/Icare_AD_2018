@@ -7,7 +7,7 @@
 class SiteHtml
 class Pastille
 
-  # {Fixnum} Le nombre à afficher dans la pastille
+  # {Integer} Le nombre à afficher dans la pastille
   attr_accessor :nombre
 
   # Le fond de la pastille, entre 'red', 'blue', 'green'

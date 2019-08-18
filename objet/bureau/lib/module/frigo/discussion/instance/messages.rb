@@ -66,7 +66,7 @@ class Discussion
   # va générer le mail.
   #
   def avertir_owner_or_interlocuteur(message)
-    message.instance_of?(Fixnum) && message = Frigo::Discussion::Message.new(message)
+    message.instance_of?(Integer) && message = Frigo::Discussion::Message.new(message)
     tomail, pseudo, autre, sujet_mail, votre =
       if frigo.owner?
 

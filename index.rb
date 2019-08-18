@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby
+#!/Users/philippeperret/.rbenv/versions/2.6.3/bin/ruby
 # encoding: UTF-8
 # Pour le benchmarking, on inscrit le temps courant dans un
 # fichier

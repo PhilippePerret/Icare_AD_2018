@@ -23,7 +23,7 @@ class Console
 
     balise image &lt;path/to/image.ext&gt;[ erb]
 
-    Path relatif à partir de ./view/img/
+    Path relatif à partir de ./_view/img/
     Ou pour Narration : ./data/unan/pages_semidyn/cnarration/img/
 
     Si `erb` (ou `ERB`) à la fin, c'est une balise ERB
@@ -36,7 +36,7 @@ POUR INSÉRER UN LIEN DANS UNE PAGE :
     Seul le path est une donnée obligatoire.
     Il peut se trouver, dans l'ordre :
       1. Tel quel (le path fourni est le path depuis la base du site)
-      2. Dans le dossier image du site : ./view/img/
+      2. Dans le dossier image du site : ./_view/img/
       3. Dans le dossier narration : ./unan/pages_demisyn/cnarration/img
       4. Dans un dossier livre si `subfolder` est fourni
       5. Dans le dossier analyses : ./data/analyse/image/
@@ -68,7 +68,7 @@ POUR INSÉRER UN LIEN DANS UNE PAGE :
         relpath, fin = relpath.split(' ')
         # Afin d'éviter les erreurs bêtes, on signale une erreur si
         # l'image n'existe pas.
-        fullpath = "./view/img/#{relpath}"
+        fullpath = "./_view/img/#{relpath}"
         if File.exist?(fullpath)
           # res = image(relpath)
           res = "IMAGE[#{relpath}]"

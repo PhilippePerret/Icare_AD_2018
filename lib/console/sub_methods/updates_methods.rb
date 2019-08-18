@@ -20,7 +20,7 @@ class Console
     when /^show online$/
       flash "Pas encore implémenté"
     else
-      site.new_update(Data::by_semicolon_in( params ))
+      site.new_update(PHData::by_semicolon_in( params ))
     end
     return ""
   end

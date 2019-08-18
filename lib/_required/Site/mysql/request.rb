@@ -237,7 +237,7 @@ DELETE FROM #{dbm_table.name}
       elsif params.key?(:id)
         @params.merge!(where: { id: params.delete(:id) } )
       end
-    when Fixnum # un nombre donné comme premier argument
+    when Integer # un nombre donné comme premier argument
       @params = { where: { id: params } }
     when String # un string donné comme premier argument => condition
       @params = { where: params }
@@ -304,9 +304,9 @@ DELETE FROM #{dbm_table.name}
     offset = params[:offset] || params[:from]
     case offset
     when NilClass then ''
-    when Fixnum   then "OFFSET #{offset}"
+    when Integer   then "OFFSET #{offset}"
     else
-      raise 'La classe OFFSET doit être un nombre (Fixnum)'
+      raise 'La classe OFFSET doit être un nombre (Integer)'
     end
   end
 
@@ -346,12 +346,12 @@ DELETE FROM #{dbm_table.name}
   # Provoque une erreur si +params+, c'est-à-dire le
   # deuxième argument transmis à l'instanciation ne définit pas
   # de référence à une rangée par :
-  #   - Fixnum                L'ID de la rangée
-  #   - {id: Fixnum}          Définition par hash
+  #   - Integer                L'ID de la rangée
+  #   - {id: Integer}          Définition par hash
   #   - {where: 'condition'}  La clause where définie dans le hash
   #
   def params_contains_id_or_raise
-    return true if params.instance_of?(Fixnum)
+    return true if params.instance_of?(Integer)
     if params.instance_of?(Hash) && (params.key?(:where) || params.key?(:id))
       true
     else

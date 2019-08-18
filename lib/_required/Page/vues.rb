@@ -42,7 +42,7 @@ class Page
 
   # {StringHTML} Retourne le code HTML pour l'entête du
   # site. C'est le code qui se trouve dans le fichier :
-  # view/deep/gabarit/header.erb
+  # _view/deep/gabarit/header.erb
   def header
     @header ||= begin
       vue = Vue.new('header', site.folder_gabarit)

@@ -54,7 +54,7 @@ new_rows = Array.new
 rows.each do |hdata|
   new_rows << hdata
   hdata.each do |k, v|
-    next if k.instance_of?(Fixnum)
+    next if k.instance_of?(Integer)
     column_list_done || begin
       puts "Ajout de colonne : #{k.inspect}"
       colonnes.merge!(k => {name: k, max: k.to_s.length + 1})
@@ -89,7 +89,7 @@ rows.each do |hdata|
   next if [9,75, 83].include?(hdata['user_id'])
 
   hdata.each do |k, v|
-    next if k.instance_of?(Fixnum)
+    next if k.instance_of?(Integer)
     # Les rangées à passer
     arr << v.to_s.gsub(/\n/,'\\n').ljust(colonnes[k][:max])
   end

@@ -30,7 +30,7 @@ class Object
   def defaultize_sujet_or_value foo, foo_value
     foo_value =
       case foo_value
-      when String, Fixnum, Float, Hash, Array, TrueClass, FalseClass, NilClass
+      when String, Integer, Float, Hash, Array, TrueClass, FalseClass, NilClass
         foo_value.inspect
       else
         class_name = foo_value.instance_of?(Class) ? foo_value.name : foo_value.class.name
@@ -145,14 +145,14 @@ class Object
 
   # Méthode qui retourne true si self contient +value+ et
   # false dans le cas contraire, quel que soit self (String,
-  # Fixnum, etc.)
+  # Integer, etc.)
   def __test_has?(value, strict = false)
     case self
-    when Fixnum, Float
+    when Integer, Float
       raise "Impossible de traiter l'appartenance pour un objet de classe #{self.class}."
     when String
       case value
-      when String, Fixnum, Float
+      when String, Integer, Float
         value = value.to_s
         ( self =~ (strict ? /#{value}/ : /#{value}/i) ) != nil
       else

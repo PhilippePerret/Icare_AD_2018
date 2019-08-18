@@ -19,7 +19,7 @@ class TestFile
   # C'est le nom général, défini par exemple par `test_route`
   attr_reader :test_name
 
-  # {Fixnum} Indice du fichier test courant dans la suite
+  # {Integer} Indice du fichier test courant dans la suite
   # complète des tests.
   attr_accessor :itest_file
 
@@ -29,7 +29,7 @@ class TestFile
   attr_reader :success_tests
   attr_reader :failure_tests
 
-  # {Fixnum} Indice de la test-méthode courant.
+  # {Integer} Indice de la test-méthode courant.
   attr_accessor :itest_method
 
   # +tsuite+  SiteHtml::TestSuite courante (possédant ce fichier)

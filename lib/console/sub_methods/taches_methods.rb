@@ -55,7 +55,7 @@ class Console
     def create_tache data_str
       site.require_objet 'admin'
       ::Admin.require_module 'taches'
-      data_tache = Data.by_semicolon_in data_str
+      data_tache = PHData.by_semicolon_in data_str
       data_tache.merge!(updated_at: Time.now.to_i)
       itache = ::Admin::Taches::Tache.new
       itache.instance_variable_set('@data2save', data_tache)
@@ -77,7 +77,7 @@ class Console
       raise "Cette tache est inconnue." unless itache.exist?
 
       # On transforme les données string en hash de données
-      htache = Data::by_semicolon_in tache_data_str
+      htache = PHData::by_semicolon_in tache_data_str
 
       # On fait quelques corrections et vérifications
       htache.merge!(echeance: htache.delete(:le)) if htache.key?(:le)

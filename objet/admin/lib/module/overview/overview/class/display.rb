@@ -144,7 +144,7 @@ class << self
         end
       # debug "content : #{content.inspect}"
       if njour == 0
-        t << "<div class='calmonth'>#{Fixnum::MOIS_LONG[thisdate.month]}</div>"
+        t << "<div class='calmonth'>#{Integer::MOIS_LONG[thisdate.month]}</div>"
       end
       jour_courant = now.month == thisdate.month && now.day == thisdate.day
 
@@ -155,7 +155,7 @@ class << self
         # commence une nouvelle rangée de jours
         t << '</div>'
         t << '<div class= "calrow">'
-        t << "<div class='calmonth'>#{Fixnum::MOIS_LONG[thisdate.month]}</div>"
+        t << "<div class='calmonth'>#{Integer::MOIS_LONG[thisdate.month]}</div>"
       elsif thisdate.day == 16
         # On commence simplement une nouvelle rangée
         t << '</div>'

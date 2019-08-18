@@ -84,7 +84,7 @@ class << self
         val =
           case typ
           when 'String'   then val
-          when 'Fixnum'   then val.to_i
+          when 'Integer'   then val.to_i
           when 'Decimal'  then val.to_f
           when 'Date'     then Date.new(val) # bon ?
           when 'Time'     then Time.new(val) # bon ?

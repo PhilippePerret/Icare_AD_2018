@@ -34,7 +34,7 @@ class SuperFile
   alias :folder :dirname
     
 
-  # {Fixnum|Bignum} File/folder size
+  # {Integer|Bignum} File/folder size
   def size
     if exist?
       File.stat(path).size

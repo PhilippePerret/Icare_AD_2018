@@ -86,14 +86,14 @@ Pour la description de la propriété, cf. [description de la propriété](#desc
           c'est-à-dire EXISTER et être NON NIL.
           Normalement, ne doit pas être false, ce qui serait idiot.
 
-    min {Fixnum|Float}
+    min {Integer|Float}
 
           Si la propriété a un type :fixnum ou :bignum, il faut que sa valeur
           ne soit pas inférieur à cette valeur
           Si la propriété a un type :string, il faut que sa longueur ne soit
           pas inférieur à cette valeur
 
-    max {Fixnum|Float}
+    max {Integer|Float}
 
 
           Si la propriété a un type :fixnum, :float ou :bignum, il faut que

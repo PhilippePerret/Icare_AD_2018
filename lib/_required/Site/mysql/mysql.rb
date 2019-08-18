@@ -167,7 +167,7 @@ class DBM_TABLE # DBM_TABLE pour DataBase Mysql
 
   NIL_TIME = Time.at(0)
 
-  # Retourne le timestamp {Fixnum} de la dernière actualisation
+  # Retourne le timestamp {Integer} de la dernière actualisation
   # de la table courante.
   def last_update default_value = NIL_TIME
     ((r = client.query(request_last_update)).nil? ? nil : r.first['UPDATE_TIME']) || default_value

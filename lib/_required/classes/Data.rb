@@ -7,7 +7,8 @@ commandes de console qui peuvent être mises sous la forme :
     `prop:valeur de la prop autreprop: autre valeur de l'autre propre etc.`
     Cf. semicolon_data_in
 =end
-class Data
+
+class PHData
 class << self
 
 
@@ -29,7 +30,7 @@ class << self
   def date_humaine_to_date_real hvalue, dformat = nil
     hvalue = hvalue.strip if hvalue.instance_of?(String)
     rval = case hvalue
-    when Fixnum
+    when Integer
       hvalue
     when "auj", "today", "aujourd'hui" then
       Time.now
@@ -60,7 +61,7 @@ class << self
   end
 
   # @usage :
-  #     hash_data = Data::by_semicolon_in line_data_string
+  #     hash_data = PHData::by_semicolon_in line_data_string
   #
   # Reçoit une chaine de données qui ressemble à :
   #   "pour:Phil le: auj tache: Ceci est la tache à exécuter : pour voir."
@@ -86,4 +87,4 @@ class << self
   end
 
 end #/<< self
-end #/Data
+end #/PHData

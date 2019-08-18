@@ -92,7 +92,7 @@ class << self
     (
       menu_jours_echeance +
       'expected_end'.in_hidden(name: 'property[name]', id: 'property_name') +
-      'Fixnum'.in_hidden(name: 'property[type]', id: 'property_type') +
+      'Integer'.in_hidden(name: 'property[type]', id: 'property_type') +
       'Appliquer cette échéance'.in_submit(class: 'small')
     ).in_form(action: "ic_etape/#{icetp.id}/set", id: 'form_echeance')
   end

@@ -196,7 +196,7 @@ class FormTest
       field_value =
         case field_value
         when String         then {value: field_value}
-        when Fixnum, Float  then {value: field_value.to_s}
+        when Integer, Float  then {value: field_value.to_s}
         when Hash           then field_value
         else raise 'La donnée d’un champ pour remplir un formulaire devrait être un Hash (contenant :type et :value, et d’autres valeurs optionnelles)'
         end

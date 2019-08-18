@@ -52,7 +52,7 @@ module MailModuleMethods
     @data = data
     data.each do |k,v|
       v = case v
-      when FalseClass, TrueClass, Fixnum then v
+      when FalseClass, TrueClass, Integer then v
       else
         v = v.strip if v.respond_to?(:strip)
         v == "" ? nil : v

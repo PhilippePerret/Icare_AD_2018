@@ -130,7 +130,7 @@ class String
     return str
   end
 
-  # {Fixnum} Quand le string est une horloge, la transforme en
+  # {Integer} Quand le string est une horloge, la transforme en
   # secondes
   def h2s
     str = self.split(':').reverse

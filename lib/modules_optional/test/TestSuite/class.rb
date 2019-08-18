@@ -11,7 +11,7 @@ class << self
 
   # Instance de la test-méthode courante (test_form, test_route, …)
   # permettant aux méthodes "extérieures" comme les méthodes de
-  # test des Fixnums ou des Strings de connaitre la méthode
+  # test des Integers ou des Strings de connaitre la méthode
   # courante.
   #
   # Cette méthode est définie à l'instanciation de la méthode de

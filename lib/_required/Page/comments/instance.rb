@@ -19,13 +19,13 @@ class Page
     def options   ; @options ||= get(:options)  end
 
     # On peut soit instancier le commentaire avec toutes ses
-    # données, soit avec son identifiant Fixnum
+    # données, soit avec son identifiant Integer
     def initialize hdata
       case hdata
       when Hash
         @data = hdata
         hdata.each{|k, v| instance_variable_set("@#{k}", v)}
-      when Fixnum
+      when Integer
         @id = hdata
       end
     end

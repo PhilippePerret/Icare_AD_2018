@@ -5,7 +5,7 @@ class AbsModule
   #   Propriétés enregistrées dans la base de données
   # ---------------------------------------------------------------------
 
-  # {Fixnum} Identifiant absolu et universel de l'étape absolue
+  # {Integer} Identifiant absolu et universel de l'étape absolue
   attr_reader :id
 
   def name              ; @name               ||= get(:name)              end

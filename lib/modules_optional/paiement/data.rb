@@ -56,7 +56,7 @@ class Paiement
   def montant_paypal
     @montant_paypal ||= begin
       case montant
-      when Fixnum then "#{montant}.00"
+      when Integer then "#{montant}.00"
       else "#{montant}"
       end
     end

@@ -1,4 +1,4 @@
-Dernière : N0004
+Dernière : N0005
 
 N0001
 
@@ -62,3 +62,36 @@ N0004
     Mais pour ne pas changer tous les codes, on teste pour savoir ce qui est
     envoyé. Et par exemple, on peut avoir un appel à `gabarit/header.erb` qui
     sera transformé en `gabarit/header/header.erb`.
+
+
+N0005
+
+    Les fichiers CSS et JS à inclure automatiquement avec les vues peuvent
+    maintenant être de trois formes :
+
+    1. Si la vue est dans un dossier quelconque
+
+        gabarit/ma_vue.erb
+
+        Le fichier doit porter l'extention voulue :
+
+        gabarit/ma_vue.js
+        gabarit/ma_vue.css
+
+    2.1. Si la vue est dans un dossier portant son nom
+
+        gabarit/ma_vue/
+
+        Le fichier peut porter le même nom, dans le dossier
+
+        gabarit/ma_vue/ma_vue.js
+        gabarit/ma_vue/ma_vue.css
+
+    2.2. Si la vue est un dossier portant son nom, avec un dossier 'css' ou 'js'
+
+        gabarit/ma_vue/css/premier.css
+                           seconde.css
+                           ...
+                       js/ premier.js
+                           second.js
+                           ...

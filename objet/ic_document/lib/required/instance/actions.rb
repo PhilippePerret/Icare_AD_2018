@@ -10,13 +10,13 @@ class IcDocument
   # de partager un document depuis un mail.
   #
   # +opts+
-  #   original        {Fixnum} Valeur de partage pour le document
+  #   original        {Integer} Valeur de partage pour le document
   #                   original (1: partagé, 2: non partagé)
   #                   1 par défaut
-  #   comments        {Fixnum} Valeur de partage pour le document
+  #   comments        {Integer} Valeur de partage pour le document
   #                   commentaires (1: partagé, 2: non partagé)
   #                   1 par défaut
-  #   request_user    {Fixnum} L'ID de l'user qui a fait la
+  #   request_user    {Integer} L'ID de l'user qui a fait la
   #                   demande, pour pouvoir l'avertir du partage.
   #
   def partager opts

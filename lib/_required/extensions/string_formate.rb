@@ -206,7 +206,7 @@ class String
   # Dans l'ordre, le path relatif peut être :
   #
   #   - Un path depuis la racine (on le garde tel quel)
-  #   - Un path depuis le dossier général ./view/img/
+  #   - Un path depuis le dossier général ./_view/img/
   #   - Un path depuis le dossier img général Narration
   #     ./data/unan/pages_semidyn/cnarration/img
   #   - Un path depuis un dossier img d'un livre Narration
@@ -219,7 +219,7 @@ class String
   def self.seek_image_path_of relpath, folder = nil
     [
       '',
-      './view/img/',
+      "./#{Dom.folder_images}",
       "./data/unan/pages_semidyn/cnarration/img/",
       "./data/unan/pages_semidyn/cnarration/#{folder}/img/",
       "./data/unan/pages_semidyn/cnarration/img/#{folder}/",

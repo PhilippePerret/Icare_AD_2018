@@ -15,7 +15,7 @@ class Page
       #
       # Retourne la section des commentaires de page
       #
-      # La vue se trouve dans ./view/gabarit/comments.erb
+      # La vue se trouve dans ./_view/gabarit/comments.erb
       #
       def comments
         Vue.new('comments', site.folder_gabarit).output

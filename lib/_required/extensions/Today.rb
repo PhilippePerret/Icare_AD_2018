@@ -13,13 +13,13 @@ Facilités pour le jour courant
     Si un délimiteur est spécifié, il sera mis entre les nombres
 
   Today.start
-    {Fixnum} Le timestamp de la première seconde du jour courant
+    {Integer} Le timestamp de la première seconde du jour courant
 
   Today.start_as_date
     {Time} Le début du jour courant, sous forme d'instance de date
 
   Today.end
-    {Fixnum} Le timestamp de la dernière seconde du jour courant
+    {Integer} Le timestamp de la dernière seconde du jour courant
 
   Today.end_as_date
     {Time} La fin du jour courant, sous forme d'instance de date

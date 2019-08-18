@@ -35,7 +35,7 @@ class Table
       # Le résultat de chaque méthode doit être retournée
       # pour affichage
       case true
-      when filter.instance_of?(Fixnum)
+      when filter.instance_of?(Integer)
         get_row_content_editable table, options
       else
         get_table_content table, options
@@ -149,7 +149,7 @@ class Table
 
       # Un menu pour définir le type lorsque la valeur est nil
       menu_types = [
-        ['String', 'String/raw'], ['Fixnum', 'Fixnum'], ['Float', 'Float'],
+        ['String', 'String/raw'], ['Integer', 'Integer'], ['Float', 'Float'],
         ['NotNil', 'Not Nil'],
         ['Date', 'Date'], ['Time', 'Time']
       ].in_select(name: 'row[%{prop}][type]', id: 'row_%{prop}_type')
@@ -160,7 +160,7 @@ class Table
         row.collect do |prop, value|
           value = value.nil_if_empty
           has_type = false == value.instance_of?(NilClass)
-          is_time = prop.to_s.end_with?('_at') && value.instance_of?(Fixnum)
+          is_time = prop.to_s.end_with?('_at') && value.instance_of?(Integer)
 
           class_input_text =
             if is_time
@@ -168,7 +168,7 @@ class Table
             else
               case value
               when NilClass, Time, Date then 'milong'
-              when Fixnum, Float
+              when Integer, Float
                 if value < 100
                   'short'
                 elsif value < 900
@@ -192,7 +192,7 @@ class Table
           human_value =
             if prop == :user_id
               "(#{User.new(value).pseudo})"
-            elsif prop.to_s.end_with?('_at') && value.instance_of?(Fixnum)
+            elsif prop.to_s.end_with?('_at') && value.instance_of?(Integer)
               # Une date
               value.as_human_date(true, true)
             else

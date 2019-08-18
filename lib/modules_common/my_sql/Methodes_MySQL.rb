@@ -158,7 +158,7 @@ module MethodesMySQL
   # Détruit la donnée
   # Alias def remove
   def delete
-    if id.instance_of? Fixnum
+    if id.instance_of? Integer
       table.delete(id)
     else
       table.delete(where: { id: id })

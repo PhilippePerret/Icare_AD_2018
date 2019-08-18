@@ -13,13 +13,13 @@ class Update
   # Instanciation de l'update
   #
   # +foo+ L'instanciation se fait avec deux valeurs possibles :
-  #   {Fixnum}  C'est l'ID de l'update enregistrée
+  #   {Integer}  C'est l'ID de l'update enregistrée
   #   {Hash}    Ce sont les données d'une update à créer
   #
   def initialize foo
     # debug "foo: #{foo.inspect}"
     case foo
-    when Fixnum
+    when Integer
       @id = foo
     when Hash
       @data = foo
@@ -30,7 +30,7 @@ class Update
       # relevées dans la table.
       human_values_to_correct_values if @data[:correct_values]
     else
-      raise ArgumentError, "Mauvais argument. Fixnum ou Hash attendu."
+      raise ArgumentError, "Mauvais argument. Integer ou Hash attendu."
     end
   end
 
@@ -44,7 +44,7 @@ class Update
     # -------
     # Noter que l'update peut être antidatée
     if @data.key?(:le)
-      @data[:created_at] = Data::date_humaine_to_date_real( @data.delete(:le) )
+      @data[:created_at] = PHData::date_humaine_to_date_real( @data.delete(:le) )
       debug "@data[:created_at] = #{@data[:created_at].inspect}"
     elsif !@data.key?(:created_at)
       @data[:created_at] = Time.now.to_i

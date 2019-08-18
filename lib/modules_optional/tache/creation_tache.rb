@@ -41,14 +41,14 @@ class Taches
     # {String} Détail (if any) de la tâche
     attr_reader :detail
 
-    # {Fixnum} Nombre de jours pour l'échéance
+    # {Integer} Nombre de jours pour l'échéance
     # Cf. la méthode `echeance_time`, qui retourne l'échéance exacte
     attr_reader :echeance
 
     # {String} La route de la page
     attr_reader :route
 
-    # {Fixnum} Importance de la tâche
+    # {Integer} Importance de la tâche
     attr_reader :importance
 
     # {String} La "last-route" de la page, donc la route
@@ -61,7 +61,7 @@ class Taches
     # {String} Le querystring de l'url
     attr_reader :query_string
 
-    # {Array of Fixnum} Liste des IDs de tâches créées
+    # {Array of Integer} Liste des IDs de tâches créées
     # (correspond au nombre de destinataires)
     attr_reader :taches_ids
 
@@ -126,7 +126,7 @@ class Taches
       return c
     end
 
-    # {Fixnum} Échéance pour la tâche, en fonction de son
+    # {Integer} Échéance pour la tâche, en fonction de son
     # type ou de la valeur spécifiée dans le menu échéance
     def echeance_time
       @echeance_time ||= begin

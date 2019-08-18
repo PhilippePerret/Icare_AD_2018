@@ -22,7 +22,7 @@ def create_page_comments args
   auteur, route, valided = [nil, nil, nil]
 
   case args
-  when Fixnum
+  when Integer
     # => le nombre de commentaires de pages
     nombre = args.freeze
   when Hash
@@ -68,7 +68,7 @@ def create_page_comments args
 
     bit1_options =
       case valided
-      when Fixnum
+      when Integer
         valided -= 1
         valided > 0 ? '1' : '0'
       when :all   then '1'

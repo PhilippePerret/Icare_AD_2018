@@ -285,7 +285,7 @@ images:
   -
     command:      balise image &lt;path/to/image&gt;
     description:  Crée une balise simple pour l'image de path relatif donné.
-    note:         "Le path relatif se calcule à partir du dossier './view/img/'."
+    note:         "Le path relatif se calcule à partir du dossier './_view/img/'."
 
 # ---------------------------------------------------------------------
 #   CRON

@@ -14,7 +14,7 @@ class User
   # l'index de l'option de clé +key_option+ (par exemple :admin, :grade)
   # et le second est le nom de la variable d'instance qui conserve
   # cette option. Par exemple '@grade' pour le grade de l'utilisateur.
-  # Si +key_option+ est l'index lui-même (Fixnum) il est retourné
+  # Si +key_option+ est l'index lui-même (Integer) il est retourné
   # accompagné de la valeur nil pour le nom de variable.
   # Note : Cette méthode est utilisée par les méthodes set_option
   # et get_option.
@@ -38,7 +38,7 @@ class User
         # Cf. RefBook > User > Options.md
         site.user_options[key_option] unless site.user_options.nil?
       end
-    when Fixnum
+    when Integer
       [key_option, nil]
     end
   end

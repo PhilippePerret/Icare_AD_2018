@@ -18,7 +18,7 @@ class Ranking
       # Le nœud envoyé à l'instanciation
       attr_reader :node
 
-      # {Fixnum} Index du lien (depuis le tout premier)
+      # {Integer} Index du lien (depuis le tout premier)
       attr_reader :index
 
       # {Hash} Les données qui seront utilisées pour l'enregistrement

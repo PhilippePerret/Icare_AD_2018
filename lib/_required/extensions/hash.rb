@@ -43,7 +43,7 @@ class Hash
   # Pour un affichage plain (pas HTML), affiche le hash de façon lisible, chaque
   # clé passant à la ligne + des retraits.
   # @usage : puts <hash>.pretty_inspect
-  # @param  retrait {Fixnum|String}
+  # @param  retrait {Integer|String}
   #         Le retrait à appliquer à chaque donnée
   def pretty_inspect retrait = 0
     retrait_str =  "  " * retrait
@@ -53,7 +53,7 @@ class Hash
       when :created_at, :updated_at, :ended_at
         case v
         when NilClass then nil
-        when Fixnum   then v.as_human_date(true, true, ' ') + " (real: #{v})"
+        when Integer   then v.as_human_date(true, true, ' ') + " (real: #{v})"
         else v
         end
       else v end
@@ -114,7 +114,7 @@ class Hash
                     end
                   else v
                 end
-      k = k.to_sym unless k.instance_of?(Fixnum)
+      k = k.to_sym unless k.instance_of?(Integer)
       hash_ruby = hash_ruby.merge( k => v_ruby )
     end
     hash_ruby

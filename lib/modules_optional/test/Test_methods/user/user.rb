@@ -10,7 +10,7 @@ class TestUser < DSLTestMethod
   # {mail: "son@mail.fr"}.
   attr_reader :ref_user
 
-  # {Fixnum} ID de l'user dans la table
+  # {Integer} ID de l'user dans la table
   attr_reader :user_id
 
   # {Hash} Données de l'auteur
@@ -63,7 +63,7 @@ class TestUser < DSLTestMethod
   # le retrouver dans la base de données
   def analyze_ref_user
     @data = case ref_user
-    when Fixnum
+    when Integer
       @user_id = ref_user
       User::table_users.get(@user_id)
     else

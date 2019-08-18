@@ -85,7 +85,7 @@ end #/<<self
   attr_reader :objet
   # {String} L'action de formulaire
   attr_reader :form_action
-  # {Fixnum} ID de la rangée du paiement dans la table des
+  # {Integer} ID de la rangée du paiement dans la table des
   # paiements
   # Note : cette valeur n'est définie que si le paiement a été
   # effectué avec succès. C'est l'ID de la rangée dans la base

@@ -4,7 +4,7 @@ class App
 
   def _visit_as user_id, options = nil
     options ||= Hash.new
-    user_id.instance_of?(Fixnum) || user_id = user_id.id
+    user_id.instance_of?(Integer) || user_id = user_id.id
 
     # Un nombre aléatoire
     alea = begin

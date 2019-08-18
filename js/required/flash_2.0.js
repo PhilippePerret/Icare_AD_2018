@@ -91,7 +91,7 @@ window.Flash = {
   /** Nettoie la fenêtre de message
     * @method clean
     * @param {String} fct_str     La fonction appelante, pour le débug
-    * @param {Fixnum} tps_timer   Défini si la méthode est appelée par un timer. Permet
+    * @param {Integer} tps_timer   Défini si la méthode est appelée par un timer. Permet
     *                             de savoir s'il faut fader ou vider directement.
     */
   clean:function(fct_str, tps_timer){

@@ -1,5 +1,5 @@
 # encoding: UTF-8
-class Fixnum
+class Integer
 
   def as_duree_jours
     n = self / 1.days
@@ -19,7 +19,7 @@ class Fixnum
     end
     m.pretty_join
   end
-end#/Fixnum
+end#/Integer
 class Atelier
 class << self
 

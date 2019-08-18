@@ -157,7 +157,7 @@ site.serveur_ssh = "icare@ssh-icare.alwaysdata.net"
 # page indiquera aux administrateurs les tâches qu'ils sont à
 # accomplir.
 # Cette pastille est insérée dans la page :
-#   ./view/gabarit/header.erb
+#   ./_view/gabarit/header.erb
 site.display_taches_for_administrator = true
 
 # Si cette option est true, une pastille en haut à droite de

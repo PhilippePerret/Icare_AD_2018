@@ -70,7 +70,7 @@ class User
     when FalseClass then "0"
     when NilClass   then nil
     when Hash, Array  then var_value.to_json
-    when Fixnum, Bignum, Float then var_value.to_s
+    when Integer, Bignum, Float then var_value.to_s
     else var_value.to_s
     end
   end
