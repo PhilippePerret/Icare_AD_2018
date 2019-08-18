@@ -13,6 +13,7 @@ class Vue
   # Si +folder+ est fourni, ça doit être un SuperFile
 
   def initialize relpath, folder = nil, bindee = nil
+    debug "Vue.initialize(relpath:'#{relpath}', folder:'#{folder}')"
     folder, relpath = Vue.normalize(folder, relpath)
     @relpath = relpath
     @folder  = folder || site.folder_objet

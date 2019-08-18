@@ -5,9 +5,14 @@ class << self
   # cf. N0004
   def normalize(folder, relpath)
     begin
-      unless folder
-        File.exists?(relpath) || raise
-        return [folder, relpath]
+      if folder.nil? || folder == ''
+        return [folder, relpath] if File.exists?(relpath)
+        folder = site.folder_objet
+        return [folder, relpath] if File.exists?(folder+relpath)
+        unless relpath.end_with?('.erb')
+          return [folder, "#{relpath}.erb"] if File.exists?(folder+"#{relpath}.erb")
+        end
+        raise
       end
       if relpath.end_with?('.erb')
         if (folder+relpath).exists?
@@ -28,6 +33,7 @@ class << self
       (folder+relpath).exists? || raise
       return [folder, relpath]
     rescue Exception => e
+      debug e
       raise("Le fichier '#{folder}/#{relpath}' est introuvable")
     end
   end
