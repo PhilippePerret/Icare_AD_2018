@@ -1,7 +1,7 @@
 # encoding: UTF-8
 =begin
 
-Si un dossier ./objet/user/lib/required existe, on le charge toujours
+Si un dossier ./_objet/user/lib/required existe, on le charge toujours
 
 =end
 class User

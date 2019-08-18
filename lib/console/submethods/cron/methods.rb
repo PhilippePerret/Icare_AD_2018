@@ -27,7 +27,7 @@ class Console
 
   def serveur_ssh
     @serveur_ssh ||= begin
-      require './objet/site/data_synchro.rb'
+      require './_objet/site/data_synchro.rb'
       Synchro.new.serveur_ssh
     end
   end

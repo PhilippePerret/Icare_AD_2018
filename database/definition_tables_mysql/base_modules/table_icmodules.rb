@@ -55,7 +55,7 @@ CREATE TABLE icmodules
     #  OPTIONS
     # ---------
     # Options
-    # cf. ./objet/ic_module/lib/required/instance/options.rb
+    # cf. ./_objet/ic_module/lib/required/instance/options.rb
     options VARCHAR(16),
 
     #  PAUSES

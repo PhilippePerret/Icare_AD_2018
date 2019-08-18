@@ -7,7 +7,7 @@ Méthodes-propriétés pour les URL
 class SiteHtml
   class Paiement
 
-    # Dossier de base du paiement. Par défaut, c'est le dossier './objet'
+    # Dossier de base du paiement. Par défaut, c'est le dossier './_objet'
     # et il s'agit du paiement pour le site lui-même.
     def base_folder
       @base_folder ||= begin

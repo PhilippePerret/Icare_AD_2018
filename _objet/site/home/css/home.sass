@@ -1,0 +1,85 @@
+// Importer le fichier './_view/css/common/_charte.sass'
+@import '../../../../_view/css/common/charte'
+
+
+#presentation-atelier
+  #presentation-atelier-texte
+    // background-color      : $darkcharte
+    // color                 : white
+    color : $darkcharte
+    padding         : 1em
+    letter-spacing  : 2px
+    word-spacing    : 1px
+    font-size       : 1.2em
+    text-align : justify
+    strong
+      color : white !important
+
+#presentation_phil
+  font-size     : 0.80rem
+  padding       : 2em
+  img#medaillon
+    width: 100px
+  // Ma presentation
+  #presentation_texte
+    a
+      color   : #007 !important
+      &:hover
+        text-decoration   : underline
+
+// Div des questions les plus frequentes
+div#faq
+  border      : 1px solid $darkcharte
+  padding     : 1em
+  font-size   : 0.75em
+  div.titre
+    font-size     : 1.2em
+    font-weight   : bold
+    margin-bottom : 1em
+  div.question
+    font-weight : bold
+    font-style  : italic
+    margin-top  : 0.5em
+  div.reponse
+    margin-left : 2em
+
+
+// Div des dernieres activites
+#div_last_actualites
+  border      : 1px solid $darkcharte
+  padding     : 1em
+  font-size   : 0.75em
+  // min-height  : 200px
+
+  ul#last_actualites
+    list-style    : none
+    margin        : 0px
+    padding       : 0px
+    li.actu
+      span.date
+        font-family     : Georgia !important
+        font-size       : 0.75rem
+        display         : block
+        color           : #6495ed
+      span.message
+        display         : block
+        text-align      : left
+
+  // Div contenant la citation
+  div#citation
+    margin-top      : 2em
+    div#texte_citation
+      font-family   : "Times New Roman", Times
+      font-style    : italic
+      font-size     : 0.9em
+      margin-bottom : 2em
+      img.openapo
+        width         : 34px
+        margin-right  : 0.5em
+      img.closeapo
+        width         : 34px
+        margin-left   : 0.5em
+    div#auteur_citation
+      // font-style    : italic
+      font-size     : 0.94em
+      text-align    : right

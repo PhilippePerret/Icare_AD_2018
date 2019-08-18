@@ -70,7 +70,7 @@ class Paiement
   end
 
   # Path du formulaire
-  # Soit le formulaire par défaut (./objet/user/paiement/form.erb) soit
+  # Soit le formulaire par défaut (./_objet/user/paiement/form.erb) soit
   # le formulaire du contexte.
   def form_affixe_path
     @form_path ||= begin

@@ -122,7 +122,7 @@ narration:
     description: |
       Ouvrir le fichier physique (markdown) de la page d'ID ou de portion titre donné en argument.
     note: |
-      On peut utiliser aussi les verbes `ouvre` ou `ouvrir`.<br>L'éditeur utilisé dépend de la définition de `site.markdown_application` dans le fichier `./objet/site/config.rb`.
+      On peut utiliser aussi les verbes `ouvre` ou `ouvrir`.<br>L'éditeur utilisé dépend de la définition de `site.markdown_application` dans le fichier `./_objet/site/config.rb`.
   -
     command:        edit page narration &lt;Page Ref&gt;
     description:    Met la page donné en référence en édition. La référence peut être l'ID de la page ou une portion de titre.

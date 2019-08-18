@@ -10,7 +10,7 @@ Les barrières-pages empêchent d'atteindre certaines pages lorsqu'on ne remplit
 
 ## Pages accessibles par les icariens
 
-C'est par exemple le cas de la page `home` (`./objet/user/home.erb`).
+C'est par exemple le cas de la page `home` (`./_objet/user/home.erb`).
 
 Il faut mettre au-dessus du fichier `.rb` :
 

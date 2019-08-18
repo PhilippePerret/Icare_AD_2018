@@ -19,7 +19,7 @@ CREATE TABLE frigos
     # Les options du frigo.
     # 32 caractères pour spécifier tous les aspects du frigo
     #
-    # Cf. le fichier ./objet/bureau/lib/module/frigo/frigo/instance/options.rb
+    # Cf. le fichier ./_objet/bureau/lib/module/frigo/frigo/instance/options.rb
     options VARCHAR(32) DEFAULT '',
 
     #  LAST_MESSAGES

@@ -13,7 +13,7 @@ require 'cgi'
 
 def synchro
   @synchro ||= begin
-    require '../../../../../../../objet/site/data_synchro'
+    require '../../../../../_objet/site/data_synchro'
     Synchro.new
   end
 end

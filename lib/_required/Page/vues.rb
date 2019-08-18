@@ -92,7 +92,7 @@ class Page
   end
 
   # Si une route est définie, contenant au moins 'objet' et 'method'
-  # la vue objet/<objet>/<methode>.erb, si elle existe, est chargée
+  # la vue _objet/<objet>/<methode>.erb, si elle existe, est chargée
   #
   # Si la route n'est pas définie ou qu'elle est mauvaise, la méthode
   # retourne NIL ce qui provoque le chargement de la page d'accueil.

@@ -47,7 +47,7 @@ CREATE TABLE frigo_discussions
     # Les options du frigo.
     # 16 caractères pour spécifier tous les aspects de la discussion
     #
-    # Cf. le fichier ./objet/bureau/lib/module/frigo/discussion/instance/options.rb
+    # Cf. le fichier ./_objet/bureau/lib/module/frigo/discussion/instance/options.rb
     options VARCHAR(32) DEFAULT '',
 
     # UPDATED_AT

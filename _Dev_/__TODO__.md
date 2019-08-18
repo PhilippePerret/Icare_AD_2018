@@ -81,7 +81,7 @@
 
 * Le lien "Historique" doit simplement présenter la partie si l'icarien est tout jeune à l'atelier
 
-* TODO Voir la procédure à adopter pour le fichier ./objet/bureau/lib/module/section_current_work/helper_abs.rb qui doit permettre à un icarien actif.
+* TODO Voir la procédure à adopter pour le fichier ./\_objet/bureau/lib/module/section_current_work/helper_abs.rb qui doit permettre à un icarien actif.
 
 * Dans le cronjob, vérifier les watchers de paiements. Si certains sont trop en retard => envoyer des mails (user et admin) et renseigner les data du watcher pour indiquer que les mails sont envoyés. Indiquer à l'administrateur qu'il faut détruire n icarien trop en dépassement (faire un watcher icarien/destroy)
 

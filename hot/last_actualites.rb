@@ -4,7 +4,7 @@ class SiteHtml
   # Dernières actualités générales qui apparaissent sur la page
   # d'accueil.
   # Cette méthode est utilisée par :
-  #   ./objet/site/lib/module/home_page/actualites.rb
+  #   ./_objet/site/lib/module/home_page/actualites.rb
   #
   def dernieres_actualites_generales
     drequest = {

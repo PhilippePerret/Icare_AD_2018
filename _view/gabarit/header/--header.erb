@@ -9,7 +9,7 @@
 # Insertion de la pastille indiquant les tâches à exécuter
 # si c'est un administrateur et que les options le réclament.
 # La valeur `display_taches_for_administrator` est défini
-    # dans le fichier config  : ./objet/site/config.rb
+    # dans le fichier config  : ./_objet/site/config.rb
     if site.display_taches_for_administrator && user.admin? %>
     <%=
     site.require_objet 'admin'

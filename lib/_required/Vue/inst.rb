@@ -6,7 +6,7 @@ Class Vue
 =end
 class Vue
 
-  # Chemin relatif à la vue, depuis le dossier 'objet'
+  # Chemin relatif à la vue, depuis le dossier '_objet'
   attr_reader :relpath
   attr_reader :folder
 

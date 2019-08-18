@@ -54,7 +54,7 @@ class User
     # On envoie le mail
     # -----------------
     # Les mails sont définis dans le dossier :
-    # ./objet/ic_etape/lib/mail
+    # ./_objet/ic_etape/lib/mail
     send_mail(
       subject:    'Échéance de travail d’étape dépassée',
       formated:   true,

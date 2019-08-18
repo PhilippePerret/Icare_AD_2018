@@ -5,10 +5,10 @@
   corriger les erreurs éventuelles.
 
   Pour jouer le module, copier-coller la ligne de code suivante
-  dans le fichier ./objet/site/home.rb
+  dans le fichier ./_objet/site/home.rb
 
       require './lib/console/console_scripts/check_start_modules.rb'
-      
+
 =end
 site.require_objet 'ic_module'
 site.require_objet 'ic_etape'

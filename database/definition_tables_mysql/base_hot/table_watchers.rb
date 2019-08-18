@@ -31,7 +31,7 @@ CREATE TABLE watchers
     # PROCESSUS
     # ---------
     # Route du processus, en fonction de l'objet. Se trouve
-    # défini dans ./objet/<objet>/lib/processus/
+    # défini dans ./_objet/<objet>/lib/processus/
     processus   VARCHAR(255) NOT NULL,
 
     triggered   INTEGER(10),

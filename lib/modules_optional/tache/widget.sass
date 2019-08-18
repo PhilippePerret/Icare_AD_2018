@@ -1,4 +1,4 @@
-@import '../../../../../_view/css/common/charte'
+@import '../../../_view/css/common/charte'
 
 #taches_widget
   position          : fixed
@@ -16,30 +16,30 @@
   span#span_titre
     color             : white
 
-  // DIV qui contient l'intérieur caché du widget, qui apparaitra
+  // DIV qui contient l'interieur cache du widget, qui apparaitra
   // lorsqu'on passera la souris dessus
   div#inner_widget
     display : none
-    // Le bouton pour créer la tâche
+    // Le bouton pour creer la tache
     a#btn_create_tache
-      // Non affiché par défaut (il ne le sera que lorsqu'on survolera
+      // Non affiche par defaut (il ne le sera que lorsqu'on survolera
       // le widget)
       color             : white
-    // Le menu des (types de) tâche
+    // Le menu des (types de) tache
     select#tache_id
       padding : 0
       margin  : 0
       option
         padding   : 0
         margin    : 0
-    // Le bouton pour créer la tache
+    // Le bouton pour creer la tache
     a#btn_create_tache
       display         : inline-block
       text-align      : right
       margin          : 4px 8px 4px 0
       border          : 1px solid
       padding         : 4px
-    // Le div détail quand on le voit
+    // Le div detail quand on le voit
     textarea#tache_detail
       width           : 98%
       height          : 34px
@@ -51,6 +51,6 @@
     // On masque le titre
     span#span_titre
       display       : none
-    // ON affiche l'intérieur
+    // ON affiche l'interieur
     div#inner_widget
       display         : block

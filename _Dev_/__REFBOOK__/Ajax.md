@@ -18,7 +18,7 @@ C'est maintenant l'argument `route` qu'il faut définir.
 
 Par exemple, si on veut invoquer le script :
 
-    ./objet/mon_objet/mon_module
+    ./\_objet/mon_objet/mon_module
 
 … on définit `route` à :
 

@@ -21,7 +21,7 @@ class Paiement
 
   # Définir le contexte du paiement, lorsque ce n'est pas un paiement
   # pour le site lui-même, mais pour une sous-section.
-  # Ce contexte est le dossier à partir de "./objet".
+  # Ce contexte est le dossier à partir de "./_objet".
   #
   # @usage
   #   Définir la propriété :context dans le hash envoyé

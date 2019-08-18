@@ -14,7 +14,7 @@ class SiteHtml
 
   # Le Title du site, servant notamment pour la bande logo
   # Il faut être surclassé par l'option de configuration de
-  # même nom (`site.title` dans le fichier ./objet/site/config.rb)
+  # même nom (`site.title` dans le fichier ./_objet/site/config.rb)
   def title
     # @title ||= name.upcase # si singleton
     @title ||= self.class.name.upcase # si instance

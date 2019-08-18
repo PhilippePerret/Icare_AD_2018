@@ -8,7 +8,7 @@ class User
   # cf. le fichier inst_options.rb
   # Rappel : Seuls les bits de 0 à 15 peuvent être utilisés par
   # le rest-site (la base). Les bits de 16 à 31 sont réservés à
-  # l'application elle-même. Cf. le fichier .objet/site/config.rb
+  # l'application elle-même. Cf. le fichier ./_objet/site/config.rb
   # qui définit ces valeurs de l'application.
 
   def exist?

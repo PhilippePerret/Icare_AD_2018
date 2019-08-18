@@ -102,7 +102,7 @@ class Page
       pfolder
     else
       # Sinon le dossier du fichier par défaut
-      site.folder_error_pages + 'page'
+      site.folder_error_pages
     end
   end
 end

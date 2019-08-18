@@ -183,7 +183,7 @@ class CURL
           break
         end
       end
-      sid != nil || error("Il faut définir site.cookie_session_name dans le fichier de configuration (./objet/site/config.rb) pour pouvoir récupérer l'ID de sessions.")
+      sid != nil || error("Il faut définir site.cookie_session_name dans le fichier de configuration (./_objet/site/config.rb) pour pouvoir récupérer l'ID de sessions.")
       sid
     end
   end

@@ -66,7 +66,7 @@ données pour le filmodico et le scénodico
 
 # Inclure les données de synchro propres au site courant
 # Produira une erreur si le fichier n'existe pas.
-require './objet/site/data_synchro.rb'
+require './_objet/site/data_synchro.rb'
 
 class RFile
 
@@ -140,7 +140,7 @@ class RFile
   end
 
   # Adresse du serveur SSH sous la forme "<user>@<adresse ssh>"
-  # Note : Défini dans './objet/site/data_synchro.rb'
+  # Note : Défini dans './_objet/site/data_synchro.rb'
   def serveur_ssh
     @serveur_ssh ||= Synchro::new().serveur_ssh
   end

@@ -139,7 +139,7 @@ class SiteHtml
   end
 
   def folder_objet
-    @folder_objet ||= SuperFile.new('./objet')
+    @folder_objet ||= SuperFile.new('./_objet')
   end
 
   def folder_tmp

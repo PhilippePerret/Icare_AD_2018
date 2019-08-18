@@ -130,7 +130,7 @@ class Lien
   # @usage      lien.information(xxx[, options])
   #
   # +aide_id+   SI {Integer} Identifiant du fichier d'aide, correspondant
-  #             au fichier dans le dossier ./objet/aide/lib/data/texte
+  #             au fichier dans le dossier ./_objet/aide/lib/data/texte
   #             SI {String}, le titre pour rejoindre l'aide du site
   # +options+   {Hash|String} Options définissant le lien
   #             OU le texte du lien lui-meême.

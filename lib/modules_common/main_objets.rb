@@ -4,10 +4,10 @@
 #   extend MethodesMainObjet
 #
 # La classe appelante doit IMPÉRATIVEMENT :
-#   * définir `folder`, le dossier de l'objet dans './objet'
+#   * définir `folder`, le dossier de l'objet dans './_objet'
 #     => {SuperFile}
 #     sauf si la classe minorisée a le même nom que le dossier
-#     p.e. class Cnarration => dossier './objet/cnarration/'
+#     p.e. class Cnarration => dossier './_objet/cnarration/'
 #
 module MethodesMainObjet
 
@@ -62,9 +62,9 @@ module MethodesMainObjet
   #     du dossier des modules qui doit se trouver dans le dossier
   #     lib/module de l'objet. Par exemple, si l'objet est "analyse",
   #     le module à requérir doit se trouver dans :
-  #       ./objet/<objet courant>/lib/module/-ici-
+  #       ./_objet/<objet courant>/lib/module/-ici-
   #   * Si c'est un fichier : le fichier lui-même, qui doit se
-  #     trouver dans ./objet/<objet courrant>/lib/module/
+  #     trouver dans ./_objet/<objet courrant>/lib/module/
   #     Dans ce cas, +module_name+ peut être soit le path relatif
   #     avec ou sans extension.
   def require_module module_name

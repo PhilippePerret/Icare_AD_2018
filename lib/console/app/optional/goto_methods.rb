@@ -36,12 +36,12 @@ class Console
     else
       if section_name.start_with?('livre ')
         book_ref = section_name[6..-1].to_sym
-        top_require './objet/cnarration/lib/required/constants.rb'
+        top_require './_objet/cnarration/lib/required/constants.rb'
         if Cnarration::SYM2ID.has_key?( book_ref )
           book_id = Cnarration::SYM2ID[book_ref]
           "livre/#{book_id}/tdm?in=cnarration"
         else
-          error "Le livre de référence `#{book_ref}` est inconnu dans './objet/cnarration/lib/required/constants.rb'."
+          error "Le livre de référence `#{book_ref}` est inconnu dans './_objet/cnarration/lib/required/constants.rb'."
         end
       else
         # En dernier recours on tente de le traiter comme une route

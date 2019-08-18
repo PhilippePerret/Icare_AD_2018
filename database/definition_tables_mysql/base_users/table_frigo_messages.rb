@@ -38,7 +38,7 @@ CREATE TABLE frigo_messages
     # Les options du frigo.
     # 8 caractères pour spécifier tous les aspects de la discussion
     #
-    # Cf. le fichier ./objet/bureau/lib/module/frigo/message/instance/options.rb
+    # Cf. le fichier ./_objet/bureau/lib/module/frigo/message/instance/options.rb
     options VARCHAR(8) DEFAULT '',
 
     # UPDATED_AT

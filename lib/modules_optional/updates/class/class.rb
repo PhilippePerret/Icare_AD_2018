@@ -111,7 +111,7 @@ class Updates
       raise_unless_admin
 
       # Données des livres de Narration
-      require './objet/cnarration/lib/required/constants.rb'
+      require './_objet/cnarration/lib/required/constants.rb'
 
       @liste_updates = []
       param(:updates).each do |id, value_on|

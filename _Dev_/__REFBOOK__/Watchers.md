@@ -65,7 +65,7 @@ Et donc on trouve le processus défini dans le dossier :
 
 ~~~
 
-    ./objet/icmodule/lib/_processus/start
+    ./_objet/icmodule/lib/_processus/start
 
 ~~~
 

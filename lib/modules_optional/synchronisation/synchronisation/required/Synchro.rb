@@ -6,7 +6,7 @@
 #   - les dossiers à traiter
 #   - les fichiers/dossiers à ignorer
 #
-require './objet/site/data_synchro'
+require './_objet/site/data_synchro'
 
 # Extension de Synchro
 class Synchro

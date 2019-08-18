@@ -82,14 +82,14 @@ class SiteHtml
 
     # La méthode qui va charger tout ce qui est défini par rapport
     # à la route donnée. Par exemple, si la route est "tool/list",
-    # la méthode va chercher le dossier `./objet/tool/lib/required`
+    # la méthode va chercher le dossier `./_objet/tool/lib/required`
     # et s'il le trouve elle va charger tous ses éléments dont les
     # modules ruby qui définiront PEUT-ÊTRE la classe Tool et la
     # méthode de classe ::list. Si la route définit le contexte
     # `unan/program' (par exemple `abs_pday/cal?in=unan/program`),
     # la méthode va tenter de charger :
-    #   - le dossier ./objet/unan/lib/required s'il existe
-    #   - le dossier ./objet/unan/program/lib/required s'il existe
+    #   - le dossier ./_objet/unan/lib/required s'il existe
+    #   - le dossier ./_objet/unan/program/lib/required s'il existe
     app.benchmark('--> iroute.load_required')
     iroute.load_required
     app.benchmark('<-- iroute.load_required')
@@ -282,13 +282,13 @@ class SiteHtml
         # contexte est défini)
         folders << folder_required_from_route
         unless context.nil?
-          # Le dossier ./objet/<context>/<objet>/lib/required
+          # Le dossier ./_objet/<context>/<objet>/lib/required
           folders << folder_required_with_context
-          # Le dossier ./objet/<context>/lib/required et tous les
+          # Le dossier ./_objet/<context>/lib/required et tous les
           # mots du contexte, c'est-à-dire, si le contexte est
           # 'mot1/mot2' alors on cherche :
-          #   ./objet/mot1/lib/required
-          #   ./objet/mot1/mot2/lib/required
+          #   ./_objet/mot1/lib/required
+          #   ./_objet/mot1/mot2/lib/required
           folders += folders_required_of_context
         end
         # Pour le donner
@@ -458,14 +458,14 @@ class SiteHtml
       @path_in_objet ||= site.folder_objet + (context || objet)
     end
 
-    # Dossier lib/required (dans ./objet/<objet>/)
+    # Dossier lib/required (dans ./_objet/<objet>/)
     def folder_required
       @folder_required ||= folder_lib + 'required'
     end
 
     # Dossier lib/required, mais si un contexte est défini. Dans
     # ce cas, le dossier peut se trouver dans :
-    # ./objet/<context>/<objet>/lib/required
+    # ./_objet/<context>/<objet>/lib/required
     def folder_required_with_context
       @folder_required_with_context ||= begin
         unless context.nil?

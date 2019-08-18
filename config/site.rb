@@ -80,7 +80,7 @@ site.keywords = [
 #   DONNÉES DE L'UTILISATEUR
 
 # Redirection possible
-# cf. le fichier ./objet/user/lib/required/user/instance/redirections.rb
+# cf. le fichier ./_objet/user/lib/required/user/instance/redirections.rb
 # pour la définition des routes.
 site.redirections_after_login = {
   0 => {hname: 'Accueil du site',         route: :home},

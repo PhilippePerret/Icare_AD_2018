@@ -23,7 +23,7 @@ CREATE TABLE updates
     #  TYPE
     # ------
     # Type de l'actualisation, son sujet.
-    # cf. TYPES dans ./objet/site/lib/module/updates/contantes.rb
+    # cf. TYPES dans ./_objet/site/lib/module/updates/contantes.rb
     type VARCHAR(20),
 
     # ANNONCE

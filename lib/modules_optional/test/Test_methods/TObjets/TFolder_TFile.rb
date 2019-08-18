@@ -47,7 +47,7 @@ module TestMethodsFileAndFolder
   # Adresse du serveur SSH sous la forme "<user>@<adresse ssh>"
   def serveur_ssh_boa
     @serveur_ssh ||= begin
-      require './objet/site/data_synchro.rb'
+      require './_objet/site/data_synchro.rb'
       Synchro::new().serveur_ssh
     end
   end
