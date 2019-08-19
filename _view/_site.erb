@@ -8,12 +8,11 @@
       <% debug "On ne charge pas les polices, en mode test." %>
     <% else %>
       <link href="https://fonts.googleapis.com/css?family=News+Cycle" rel="stylesheet">
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <% end %>
     <link rel="shortcut icon" href="_view/img/favicon.ico?" type="image/x-icon">
     <link rel="icon" href="_view/img/favicon.ico?" type="image/x-icon">
     <base href="<%= site.base %>" />
-    <link rel="stylesheet" href="_view/gabarit/header.css">
+    <link rel="stylesheet" href="_view/gabarit/header/header.css">
     <%= self.css %>
     <%= self.raw_css %>
     <!-- Page -->
@@ -22,7 +21,7 @@
   <body>
     <% unless site.route?('') %>
       <!-- Entête permanent du site, sans modification -->
-      <div id="header" class="container-fluid">
+      <div id="header">
         <%= './_view/gabarit/top_row.erb'.deserb(self.bind) %>
       </div>
     <% end %>
@@ -30,10 +29,8 @@
     le bouton d'enregistrement
     -->
     <% unless site.route?('') || user.identified? || site.route?('user/signin') || site.route?('user/signup') %>
-      <div class="container-fluid right mt-2 mb-2">
-        <div class="col center-mobile">
-          <%= 'poser&nbsp;sa&nbsp;candidature'.in_a(href: 'user/signup', id: 'btn_signup', class: 'btn main') %>
-        </div>
+      <div class="right">
+        <%= 'poser&nbsp;sa&nbsp;candidature'.in_a(href: 'user/signup', id: 'btn_signup', class: 'btn main') %>
       </div>
     <% end %>
 
@@ -42,11 +39,11 @@
       <%= app.div_flash %>
     </div>
 
-    <div id="page-contents" class="container-fluid">
+    <div id="page-contents">
         <!--
             CONTENU DE LA PAGE
         -->
-      <div class="row"><%= body %></div>
+      <%= body %>
 
       <!-- Le débug, seulement en offline -->
       <%= page.section_debug %>
@@ -54,10 +51,6 @@
     </div>
     <!-- Pour le site -->
     <%= self.raw_javascript %>
-    <!-- Pour Bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <%= self.javascript %>
   </body>
 </html>

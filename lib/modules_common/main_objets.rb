@@ -26,7 +26,9 @@ module MethodesMainObjet
   def titre_h1 sous_titre = nil, options = nil
     page.title = titre
     (
-      titre.in_div(class: 'navbar-brand big') +
+      # titre.in_div(class: 'navbar-brand big') +
+      # titre.in_h1(class: 'navbar-brand big') +
+      titre.in_h1() +
       collapse_button +
       onglets.in_div(class:'collapse navbar-collapse', id:'navBarBureau')
     ).in_nav(class: 'navbar navbar-expand-lg navbar-light bg-light') +
@@ -42,7 +44,7 @@ module MethodesMainObjet
   end
 
   def sous_titre_displayed sous_titre
-    sous_titre ? sous_titre.in_h4 : ''
+    sous_titre ? sous_titre.in_h2 : ''
   end
 
   # Onglet dans la version responsive, avec un nav bar
