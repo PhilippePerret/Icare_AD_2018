@@ -31,7 +31,8 @@ class FakeGem
     def local_gems_folder
       # NOTE ! NE PAS UTILISER SuperFile ici ni aucune méthode qui
       # l'utilise, car le gem n'est pas encore chargé
-      @local_gems_folder ||= File.join(app.lib_folder,'Gems')
+      # Donc pas de site.folder_lib ou app.lib_folder
+      @local_gems_folder ||= File.join('.','_lib','Gems')
     end
 
   end #/<< self

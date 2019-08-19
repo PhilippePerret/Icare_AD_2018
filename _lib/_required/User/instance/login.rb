@@ -70,12 +70,6 @@ class User
 
     flash 'Bienvenue, %s !' % pseudo
 
-    # Si une méthode doit être appelée après le login, on
-    # l'appelle.
-    if self.respond_to? :do_after_login
-      self.send(:do_after_login)
-    end
-
     if param(:login) && param(:login)[:back_to].nil_if_empty
       # Une redirection est demandée
       redirect_to param(:login)[:back_to]

@@ -1,7 +1,14 @@
 <%
 # Vue pour un user identifié et/ou administrateur
+
 %>
-<h1><%= user.id == id ? "Votre profil" : "Profil de #{pseudo}" %></h1>
+<h1>
+  <% if app.visit_as? %>
+    <%= "Profil de #{user.pseudo}" %>
+  <% else %>
+    Votre profil
+  <% end %>
+</h1>
 <%
 def div_row libelle, value, options = nil
   options ||= Hash.new
@@ -19,12 +26,12 @@ end
 <h3>Identité</h3>
 
 <div class="dim3070">
-  <%= div_row('Pseudo'        , pseudo ) %>
-  <%= div_row('Inscription'   , created_at.as_human_date(true, true) ) %>
+  <%= div_row('Pseudo'        , user.pseudo ) %>
+  <%= div_row('Inscription'   , user.created_at.as_human_date(true, true) ) %>
   <%
     grade_user =
       case true
-      when user.admin?    then "Administra#{f_trice} de niveau #{get_option(:admin)}"
+      when user.admin?    then "Administra#{f_trice} de niveau #{user.get_option(:admin)}"
       when !user.recu?    then "Candidat#{f_e} icarien"
       when user.alessai?  then "Icarien#{f_ne} à l'essai"
       else "Vrai#{f_e} icarien#{f_ne}"
@@ -32,7 +39,7 @@ end
   %>
   <%= div_row('Grade site', grade_user) %>
   <%= div_row('Mot de passe', lien_modifier_mdp) %>
-  <%= div_row('Session ID'    , session_id, {class:'small'} ) %>
+  <%= div_row('Session ID'    , user.session_id, {class:'small'} ) %>
 </div>
 
 <%
@@ -98,7 +105,9 @@ form_prefs =
 %>
 <%= ("Préférences".in_legend + form_prefs).in_fieldset(id: 'preferences') %>
 
-<% if user.admin? %><%= sous_vue('admin') %><% end %>
+<% if user.admin? %><%=
+  (site.folder_objet+"user/profil/sous_vues/admin.erb").deserb(self)
+%><% end %>
 
 
 <%

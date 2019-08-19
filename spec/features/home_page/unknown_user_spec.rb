@@ -3,20 +3,30 @@ feature "La page d'accueil de l'atelier", type: :feature do
   before(:each) do
     visit '/'
   end
-  #
-  # scenario 'contient les textes attendus' do
-  #   expect(page).to have_content("Atelier Icare")
-  #   expect(page).to have_content("un atelier d’écriture en ligne")
-  #   expect(page).to have_content("PHILIPPE PERRET")
-  # end
-  #
-  # scenario 'contient les liens utiles' do
-  #   ["EN SAVOIR PLUS", "S’INSCRIRE", "S’IDENTIFIER", "mort@vivant","Savoir rédiger et présenter son scénario","RÉUSSITES","ICARIEN(NE)S","TÉMOIGNAGES"].each do |link|
-  #     expect(page).to have_content(link)
-  #   end
-  # end
 
-  scenario 'permet de rejoindre les parties escomptées' do
+  scenario 'contient toutes les sections attendues' do
+    expect(page).to have_css('section#header_home')
+    expect(page).to have_css('section#main-logo-in-first-page')
+    expect(page).to have_css('div#presentation-atelier')
+    expect(page).to have_css('div#presentation_phil')
+    expect(page).to have_css('div#div-citation')
+    expect(page).to have_css('div#faq')
+    expect(page).to have_css('div#div_last_actualites')
+  end
+
+  scenario 'contient les textes attendus' do
+    expect(page).to have_content("Atelier Icare")
+    expect(page).to have_content("un atelier d’écriture en ligne")
+    expect(page).to have_content("PHILIPPE PERRET")
+  end
+
+  scenario 'contient les liens utiles' do
+    ["EN SAVOIR PLUS", "S’INSCRIRE", "S’IDENTIFIER", "mort@vivant","Savoir rédiger et présenter son scénario","RÉUSSITES","ICARIEN(NE)S","TÉMOIGNAGES"].each do |link|
+      expect(page).to have_content(link)
+    end
+  end
+
+  scenario 'permet de rejoindre toutes les parties liées' do
     {
       "EN SAVOIR PLUS"  => "Présentation d’Icare",
       "PRÉSENTATION COMPLÈTE" => "Présentation d’Icare",

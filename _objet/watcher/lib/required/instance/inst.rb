@@ -16,7 +16,7 @@ class Watcher
   # + Le fichier required.rb s'il existe
   def require_objet_watcher_and_required_file
     site.require_objet objet
-    required_file? && instance_eval(required_file.read) 
+    required_file? && instance_eval(required_file.read)
   end
 
   def table; @table ||= self.class.table end

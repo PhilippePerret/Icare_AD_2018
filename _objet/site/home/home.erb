@@ -16,16 +16,22 @@ site.require_all_in('./_objet/site/home')
 %>
 <section id="header_home">
   <div class="common-tools">
-    <a href="overview">EN SAVOIR PLUS</a>
-    <a href="signup">S’INSCRIRE</a>
-    <a href="user/login">S’IDENTIFIER</a>
+    <% if User.current? %>
+      <a href="bureau/home">VOTRE BUREAU</a>
+      <a href="user/profil">VOTRE PROFIL</a>
+      <a href="user/logout">SE DÉCONNECTER</a>
+    <% else %>
+      <a href="overview">EN SAVOIR PLUS</a>
+      <a href="signup">S’INSCRIRE</a>
+      <a href="user/login">S’IDENTIFIER</a>
+    <% end %>
   </div>
 </section>
-<div class="big-in-cadre">
+<section id="main-logo-in-first-page" class="big-in-cadre">
   <%= Dom.image('papillon-base-logo.png', id: 'papillon') %>
   <span id="titre_site">Atelier Icare</span>
   <div class="small">L’écriture dans tous ses états (*)</div>
-</div>
+</section>
 <div class="mini">(*) aussi bien dans la forme (roman, scénario, BD, etc.) que dans le fond (pitch, résumé, synopsis, scénario, etc.).
 </div>
 <hr class="big">
@@ -42,14 +48,12 @@ site.require_all_in('./_objet/site/home')
 <div id="div-citation" class="cadre in-cadre">
   <%= './_objet/site/home/citation.erb'.deserb %>
 </div>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col">
-      <%= Home.frequently_asked_questions %>
-    </div>
-    <div class="col">
-      <%= Home.bloc_dernieres_activites %>
-    </div>
+<div>
+  <div class="col">
+    <%= Home.frequently_asked_questions %>
+  </div>
+  <div class="col">
+    <%= Home.bloc_dernieres_activites %>
   </div>
 </div>
 <script type="text/javascript">

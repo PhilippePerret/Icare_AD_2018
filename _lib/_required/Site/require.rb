@@ -64,7 +64,8 @@ class SiteHtml
   # en tout premier lieu.
   def require_all_in dossier, forcer = false
     dossier = SuperFile.new(dossier) unless dossier.instance_of?(SuperFile)
-    dossier.exist? || error("Le dossier `#{dossier}' est introuvable. Impossible de le requérir.")
+    # dossier.exist? || error("Le dossier `#{dossier}' est introuvable. Impossible de le requérir.")
+    dossier.exist? || raise("Le dossier `#{dossier}' est introuvable. Impossible de le requérir.")
     if forcer
       Dir["#{dossier}/first_required/**/*.rb"].each{|m| load m}
       Dir["#{dossier}/**/*.rb"].each{|m| load m}

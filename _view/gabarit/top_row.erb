@@ -14,24 +14,20 @@ end
 
 %>
 
-<nav id="toprow" class="navbar navbar-expand-lg navbar-light bg-light">
-  <a id="site_title" class="navbar-brand mr-5" href="<%= site.url %>">Atelier Icare</a>
-  <button id="btn_toggle_navbar" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="" title="Rejoindre l’accueil de l’atelier">Accueil</a>
-      <a class="nav-item nav-link <%= user.identified? ? '' : 'disabled' %>" href='bureau/home' title='Pour rejoindre votre bureau de travail'>Bureau</a>
-      <a class="nav-item nav-link <%= user.identified? ? '' : 'disabled' %>" href="user/<%= user.id %>/profil" title='Pour rejoindre votre profil sur l’atelier'>Profil</a>
-      <a class="nav-item nav-link" href='aide/home' title='Aide de l’atelier Icare'>Aide</a>
-      <a class="nav-item nav-link" href='site/contact' title='Formulaire de contact de l’administration'>Contact</a>
-      <% if user.identified? %>
-        <%= signout_button %>
-      <% else %>
-        <a class="nav-item nav-link <%= site.route?('user/signin') ? 'disabled' : '' %>" href="user/signin" title="Se connecter">Connexion</a>
-      <% end %>
-    </div>
+<nav id="toprow">
+  <!-- Le titre-logo principal du site -->
+  <a id="site_title" href="<%= site.url %>">Atelier Icare</a>
+  <!-- Les boutons de navigation principaux (sous le titre) -->
+  <div id="main-nav-bar">
+    <a class="nav-item nav-link active" href="" title="Rejoindre l’accueil de l’atelier">Accueil</a>
+    <a class="nav-item nav-link <%= user.identified? ? '' : 'disabled' %>" href='bureau/home' title='Pour rejoindre votre bureau de travail'>Bureau</a>
+    <a class="nav-item nav-link <%= user.identified? ? '' : 'disabled' %>" href="user/<%= user.id %>/profil" title='Pour rejoindre votre profil sur l’atelier'>Profil</a>
+    <a class="nav-item nav-link" href='aide/home' title='Aide de l’atelier Icare'>Aide</a>
+    <a class="nav-item nav-link" href='site/contact' title='Formulaire de contact de l’administration'>Contact</a>
+    <% if user.identified? %>
+      <%= signout_button %>
+    <% else %>
+      <a class="nav-item nav-link <%= site.route?('user/signin') ? 'disabled' : '' %>" href="user/signin" title="Se connecter">Connexion</a>
+    <% end %>
   </div>
 </nav>

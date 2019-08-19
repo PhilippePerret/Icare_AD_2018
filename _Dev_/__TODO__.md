@@ -1,4 +1,6 @@
-* # Pour les tests, empêcher de charger les fonts online
+* Quand on est identifié et qu'on doit rejoindre la page d'accueil, ajouter des boutons (comme "EN SAVOIR PLUS") :
+  * "BUREAU", "PROFIL", "DÉCONNEXION"
+  * Supprimer "S'INSCRIRE", "S'IDENTIFIER" ET "EN SAVOIR PLUS"
 
 * # Empêcher un même message (comme le message d'accueil) de s'afficher plusieurs fois.
 
@@ -12,6 +14,10 @@
 
 * Penser à une re-structuration progressive du site (notamment au niveau du graphisme)
 * Implémenter la possibilité de répondre aux mails directement sur le site.
+
+## AVANT DE METTRE LE SITE EN LIGNE
+
+* Il faut régler le shebang du fichier ./index.rb pour qu'il soit normal (noter qu'il faut absolument actualiser ce fichier, car il a été changé)
 
 ## BUGS
 

@@ -4,15 +4,10 @@
 
 enable_comments
 %>
-<%
-def sous_vue vue_name
-  (site.folder_objet+"user/profil/#{vue_name}.erb").deserb(self)
-end
-%>
 <div class="container">
   <% if user.identified? %>
-    <%= sous_vue('identified') %>
+    <%= (site.folder_objet+"user/profil/sous_vues/identified.erb").deserb(user) %>
   <% else %>
-    <%= sous_vue('non_identified') %>
+    <%= (site.folder_objet+"user/profil/sous_vues/non_identified.erb").deserb(user) %>
   <% end %>
 </div>

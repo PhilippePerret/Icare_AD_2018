@@ -7,6 +7,8 @@ Classe
 class User
 
   extend MethodesMainObjet
+  require './_objet/watcher/lib/module/include/methodes_watchers.rb'
+  include MethodesWatchers
 
   class << self
 
@@ -60,6 +62,11 @@ class User
         # Pour le mettre dans @current
         curuser
       end
+    end
+
+    # Retourne true s'il y a un icarien vraiment
+    def current?
+      !app.session['user_id'].nil?
     end
 
     def bind; binding() end

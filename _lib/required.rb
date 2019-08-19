@@ -92,7 +92,7 @@ require_folder './_lib/modules_common'
 require_folder './_lib/_required'
 
 site.require_gem 'superfile'
-# defined?(SuperFile)|| raise("La class SuperFile n'est pas définie.")
+defined?(SuperFile)|| raise("La class SuperFile n'est pas définie.")
 
 # Le site
 require_folder './_objet/site/lib/required'
