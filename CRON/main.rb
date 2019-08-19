@@ -41,8 +41,8 @@ begin
   Dir.chdir(APP_FOLDER) do
     ONLY_REQUIRE = true
 
-    REF_LOG_SUIVI.write "* Chargement du fichier lib/required du site… "
-    require './lib/required'
+    REF_LOG_SUIVI.write "* Chargement du fichier _lib/required du site… "
+    require './_lib/required'
     REF_LOG_SUIVI.write "OK\n"
     # ==========================
 

@@ -4,7 +4,7 @@
 # fichier
 File.open('./.start_time'){|f| f.write(Time.now.to_i.to_s)} rescue nil
 begin
-  require './lib/required'
+  require './_lib/required'
   site.output
   # Note : Le programme ne passera en fait jamais par ici
 rescue Exception => e

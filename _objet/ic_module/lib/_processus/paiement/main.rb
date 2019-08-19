@@ -28,7 +28,7 @@ end
 # Il faut enregistrer l'ID de ce paiement dans l'ic-module
 # Note : il est mis dans param(:paie_id) par le module de paiement.
 # OBSOLETE : l'opération est faite à l'enregistrement du paiement
-# dans lib/module/on_paiement_ok/main.rb
+# dans _lib/module/on_paiement_ok/main.rb
 # paies = ( (icmodule.paiements||'') + " #{param(:paie_id)}" ).strip
 
 # Modification des données du module icarien

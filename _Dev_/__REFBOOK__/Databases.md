@@ -18,7 +18,7 @@ Dans la nouvelle formule de l'atelier Icare, toutes les données sont consignée
 
 Des raccourcis simples existent pour chaque tache, qui n'obligent pas d'utiliser chaque fois `site.dbm_table(base, table_name)`. Ils sont définis dans le fichier :
 
-    ./lib/app/required/handy_db.rb
+    ./\_lib/handy/handy_db.rb
 
 Ces noms sont simplement construits par :
 

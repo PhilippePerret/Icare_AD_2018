@@ -73,7 +73,7 @@ Par exemple :
 
 ## Fonctionnement interne des tickets
 
-C'est au chargement de la page qu'on teste si un ticket a été défini dans l'URL par le paramètre `tckid`. S'il existe, le préambule (`./lib/preambule.rb`) appelle la méthode check_ticket qui appelle l'exécution de ce ticket'exécuter :
+C'est au chargement de la page qu'on teste si un ticket a été défini dans l'URL par le paramètre `tckid`. S'il existe, le préambule (`./_lib/preambule.rb`) appelle la méthode check_ticket qui appelle l'exécution de ce ticket'exécuter :
 
     app.execute_ticket( ticket_id )
 

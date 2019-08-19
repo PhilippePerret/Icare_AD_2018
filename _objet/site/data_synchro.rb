@@ -57,10 +57,10 @@ class Synchro
   def app_ignored_folders
     # Les dossiers doivent OBLIGATOIREMENT se terminer par "/"
     [
-      './lib/deep/deeper/module/synchronisation/',
+      './_lib/modules_optional/Synchronisation/',
       './LOCAL_CRON/',
       './_view/img/CHANTIER',
-      './lib/deep/deeper/module/links_analyzer/output/routes_msh/',
+      './_lib/modules_optional/Links_analyzer/output/routes_msh/',
       './data/qdd'
     ]
   end
@@ -82,7 +82,7 @@ class Synchro
   def folders_2_check
     {
       'CRON'      => { extensions: COMMON_EXTENSIONS, dir: :l2s},
-      'lib'       => { extensions: COMMON_EXTENSIONS, dir: :l2s},
+      '_lib'      => { extensions: COMMON_EXTENSIONS, dir: :l2s},
       '_objet'    => { extensions: COMMON_EXTENSIONS, dir: :l2s},
       '_view'     => { extensions: COMMON_EXTENSIONS, dir: :l2s},
       'data'      => { extensions: COMMON_EXTENSIONS, dir: :l2s},
@@ -120,7 +120,7 @@ class Synchro
   # premiers JS requis et le dossier 'required' pour les autres
   # js requis
   def javascript_folder
-    @javascript_folder ||= './lib/deep/deeper/js'
-    # @javascript_folder ||= File.join('.', 'lib', 'deep', 'deeper', 'js')
+    @javascript_folder ||= './js'
+    # @javascript_folder ||= File.join('.', 'js')
   end
 end

@@ -4,7 +4,7 @@ Pour comparer le contenu des dossiers pdfs
 =end
 puts 'Folder courant : ' + File.expand_path('.')
 ONLY_REQUIRE = true
-require './lib/required'
+require './_lib/required'
 #
 folder_dst = site.folder_data+'qdd/pdfs'
 folder_src = site.folder_app+'xprev_version/qdd/pdfs'

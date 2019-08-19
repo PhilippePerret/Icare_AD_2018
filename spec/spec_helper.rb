@@ -24,7 +24,7 @@ require 'capybara/dsl'
 Capybara.default_driver = :rack_test
 Capybara.default_driver = :selenium_chrome
 
-require './lib/required'
+require './_lib/required'
 app.set_mode_test
 
 LOCAL_HOME    = 'localhost/AlwaysData/Icare_AD_2018'

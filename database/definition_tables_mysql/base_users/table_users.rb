@@ -54,7 +54,7 @@ CREATE TABLE users
     # -------
     # Les options de l'user.
     # 32 caractères (ou plus) pour spécifier l'user
-    # Cf. le fichier ./lib/_required/User/instance/options.rb
+    # Cf. le fichier ./_lib/_required/User/instance/options.rb
     # ATTENTION : LES OPTIONS PEUVENT ÊTRE DÉFINIES :
     #   - de 0 à 15 pour restsite dans User/instance/options.rb
     #   - de 16 à 31 pour l'application :
