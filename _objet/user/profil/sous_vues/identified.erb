@@ -2,13 +2,13 @@
 # Vue pour un user identifié et/ou administrateur
 
 %>
-<h1>
-  <% if app.visit_as? %>
-    <%= "Profil de #{user.pseudo}" %>
-  <% else %>
-    Votre profil
-  <% end %>
-</h1>
+
+<% if app.visit_as? %>
+  <h1><%= "Profil de #{user.pseudo}" %></h1>
+<% else %>
+  <h1>Votre profil</h1>
+<% end %>
+
 <%
 def div_row libelle, value, options = nil
   options ||= Hash.new
