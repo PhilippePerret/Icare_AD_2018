@@ -1,6 +1,4 @@
 
-require './lib/required'
-
 describe site do
   it 'répond à output' do
     expect(site).to respond_to :output

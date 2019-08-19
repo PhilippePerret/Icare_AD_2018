@@ -11,7 +11,7 @@ class Page
   def output
     unless site.ajax?
       # final_code = cgi.html{cgi.head{head}+cgi.body{body}}
-      final_code = ERB.new(File.read('./site.erb').force_encoding('utf-8')).result(self.bind)
+      final_code = ERB.new(File.read('./_view/_site.erb').force_encoding('utf-8')).result(self.bind)
       app.benchmark('CODE HTML FINAL BUILT') rescue nil
       # Correspond aussi à la fin de la méthode output du site
       app.benchmark('<- SiteHtml#output')

@@ -15,12 +15,22 @@
 
 Dir["./spec/support/**/*.rb"].each{|m| require m}
 
+require 'capybara/rspec'
 require 'capybara/dsl'
-require 'capybara/poltergeist'
+# require 'capybara/poltergeist'
 # require 'poltergeist'
 
-Capybara.default_driver = :poltergeist
+# Capybara.default_driver = :poltergeist
+Capybara.default_driver = :rack_test
+Capybara.default_driver = :selenium_chrome
 
+require './lib/required'
+app.set_mode_test
+
+LOCAL_HOME    = 'localhost/AlwaysData/Icare_AD_2018'
+DISTANT_HOME  = 'www.atelier-icare.net'
+
+Capybara.app_host = "http://#{LOCAL_HOME}"
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|

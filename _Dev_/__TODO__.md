@@ -1,3 +1,5 @@
+* # Pour les tests, empêcher de charger les fonts online
+
 * # Empêcher un même message (comme le message d'accueil) de s'afficher plusieurs fois.
 
 * Traduire les titres de mails en reprenant la formule dans la version nodejs du site

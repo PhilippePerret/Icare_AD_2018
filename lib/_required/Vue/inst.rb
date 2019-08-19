@@ -15,6 +15,7 @@ class Vue
   def initialize relpath, folder = nil, bindee = nil
     debug "Vue.initialize(relpath:'#{relpath}', folder:'#{folder}')"
     folder, relpath = Vue.normalize(folder, relpath)
+    debug "Vue.initialize après normalization: folder:#{folder}, relpath:#{relpath}"
     @relpath = relpath
     @folder  = folder || site.folder_objet
     @bindee  = bindee

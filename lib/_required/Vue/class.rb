@@ -6,13 +6,22 @@ class << self
   def normalize(folder, relpath)
     begin
       if folder.nil? || folder == ''
-        return [folder, relpath] if File.exists?(relpath)
-        folder = site.folder_objet
-        return [folder, relpath] if File.exists?(folder+relpath)
-        unless relpath.end_with?('.erb')
-          return [folder, "#{relpath}.erb"] if File.exists?(folder+"#{relpath}.erb")
+        if File.exists?(relpath) && relpath.end_with?('.erb')
+          return [folder, relpath]
         end
-        raise
+        folder = site.folder_objet
+        if File.exists?(folder+relpath) && relpath.end_with?('.erb')
+          return [folder, relpath]
+        end
+        if relpath.end_with?('.erb')
+          raise "Impossible de trouver le fichier #{folder+relpath}"
+        else
+          return [folder, "#{relpath}.erb"] if (folder+"#{relpath}.erb").exists?
+          affixe = relpath.split(File::SEPARATOR).last
+          relpath = "#{relpath}/#{affixe}.erb"
+          return [folder, relpath] if (folder+relpath).exists?
+          raise "Le fichier n'existe pas : #{folder+relpath}"
+        end
       end
       if relpath.end_with?('.erb')
         if (folder+relpath).exists?

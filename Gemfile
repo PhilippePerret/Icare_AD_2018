@@ -7,7 +7,8 @@ source 'https://rubygems.org'
 group :test do
   # Utiles pour les tests
   gem 'rspec', :require => 'spec'
-  gem 'poltergeist'
+  # gem 'poltergeist'
+  gem 'selenium-webdriver'
 end
 
 group :development do
