@@ -24,20 +24,18 @@ def lien_explicitation
 end
 
 %>
-<div class="container ml-3 mr-3">
-  <div class="row italic discret">
-    Au hasard des citations
-  </div>
-  <div class="row ml-3 mr-3">
-    <div class="col">
+<div class="flex flex-center">
+  <div id="bloc-citation" class="w-400 maxw-400 cadre in-cadre">
+    <div class="italic discret">
+      Au hasard des citations
+    </div>
+    <div class="">
       <%= citation_avec_guillemets %>
     </div>
-  </div>
-  <div class="row">
-      <div class="col-6 right">
+    <div class="right">
       <%= hcitation[:auteur].in_span(class: 'auteur') %>
     </div>
-    <div class="col-4">
+    <div class="">
       <%= lien_explicitation %>
     </div>
   </div>

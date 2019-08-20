@@ -4,12 +4,12 @@
   Bloc de l'accueil présentant les dernière activités
 
 =end
-class Home
+class LastActivities
 class << self
 
   # Bloc contenant les dernières activités
   # Soit on lit le listing fabriqué courant, soit on l'actualise
-  def bloc_dernieres_activites
+  def bloc_last
     htmlfile = site.file_last_actualites
     # last_actu = dbtable_actualites.select(order: 'created_at DESC', limit: 1).first
     last_actu =

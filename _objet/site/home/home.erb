@@ -37,23 +37,22 @@ site.require_all_in('./_objet/site/home')
 <hr class="big">
 
 <div class="cadre in-cadre">
-  <%= './_objet/site/home/atelier.erb'.deserb %>
-  <%= './_objet/site/home/phil.erb'.deserb %>
+  <%= './_objet/site/home/pieces/atelier.erb'.deserb %>
+  <%= './_objet/site/home/pieces/phil.erb'.deserb %>
 </div>
 
 <div class="in-cadre">
-  <%= './_objet/site/home/boutons.erb'.deserb %>
+  <%= './_objet/site/home/pieces/boutons.erb'.deserb %>
 </div>
 
-<div id="div-citation" class="cadre in-cadre">
-  <%= './_objet/site/home/citation.erb'.deserb %>
-</div>
-<div>
-  <div class="col">
-    <%= Home.frequently_asked_questions %>
+<%= './_objet/site/home/pieces/citation.erb'.deserb %>
+
+<div class="flex2">
+  <div class="w-300">
+    <%= FaqAtelier.frequently_asked_questions %>
   </div>
-  <div class="col">
-    <%= Home.bloc_dernieres_activites %>
+  <div class="w-300">
+    <%= LastActivities.bloc_last %>
   </div>
 </div>
 <script type="text/javascript">

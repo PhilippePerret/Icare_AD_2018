@@ -5,7 +5,7 @@
   posées sur l'atelier.
 
 =end
-class Home
+class FaqAtelier
 class << self
 
   LIEN_MODULES    = "☛ Les modules".in_a(href: 'modules')
