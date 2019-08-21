@@ -47,9 +47,6 @@ class User
 
   # On connecte l'user et on le redirige vers la
   # direction demandée ou logique.
-  # On met également en session une variable qui va permettre
-  # de gérer la transparence de l'interface (il doit disparaitre
-  # petit à petit à mesure que l'utilisateur visite les pages)
   def login
     app.benchmark('-> User#login')
 

@@ -39,6 +39,8 @@ class User
   def created_at  ; @created_at ||= get(:created_at)    end
   def updated_at  ; @updated_at ||= get(:updated_at)    end
 
+  # Identifiant du module d'apprentissage
+  def icmodule_id ;   @icmodule_id  ||= get(:icmodule_id)  end
 
   # ---------------------------------------------------------------------
   #   Données volatiles

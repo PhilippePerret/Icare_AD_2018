@@ -46,29 +46,6 @@ def require_folder dossier
   end
 end
 
-# On essaie ça : si on est ONLINE, on met tous les dossier GEMS
-# de ../.gems/gems en path par défaut, ainsi, tous les gems
-# seront accessibles
-# if ONLINE
-#   Dir["../.gems/gems/*"].each do |fpath|
-#     $LOAD_PATH << "#{fpath}/lib"
-#   end
-# end
-
-
-
-# On peut maintenant requérir tous les gems
-=begin
-raise <<-EOC
-<pre><code>
-RUBY_VERSION : #{RUBY_VERSION}
-$> ruby --version
-# => #{`ruby --version`}
-$> which -a ruby
-# => #{`which -a ruby`}
-</code></pre>
-EOC
-=end
 def raise_with_ruby mess
   raise <<-EOC
   <pre><code>
@@ -89,6 +66,7 @@ require 'json'
 
 # On requiert tous les modules utiles
 require_folder './_lib/modules_common'
+require './_lib/_required/required'
 require_folder './_lib/_required'
 
 site.require_gem 'superfile'
@@ -100,8 +78,6 @@ require_folder './_objet/site/lib/required'
 
 site.require_config
 app.require_config
-
-User.init # charge les librairies du dossier objet/user
 
 # ---------------------------------------------------------------------
 #   Quelques initialisations et vérification

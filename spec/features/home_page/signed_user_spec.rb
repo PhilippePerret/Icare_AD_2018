@@ -1,4 +1,4 @@
-feature "La page d'accueil", current: true do
+feature "La page d'accueil" do
   context 'pour un icarien identifié' do
     before(:each) do
       # TODO Il faut s'assurer que Benoit ait réglé ses options pour

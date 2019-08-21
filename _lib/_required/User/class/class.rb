@@ -7,7 +7,6 @@ Classe
 class User
 
   extend MethodesMainObjet
-  require './_objet/watcher/lib/module/include/methodes_watchers.rb'
   include MethodesWatchers
 
   class << self
