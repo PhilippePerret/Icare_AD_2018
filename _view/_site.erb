@@ -28,7 +28,7 @@
     <!-- Tant que l'utilisateur n'est pas identifié, on lui présente
     le bouton d'enregistrement
     -->
-    <% unless site.route?('') || user.identified? || site.route?('user/signin') || site.route?('user/signup') %>
+    <% unless site.route?('') || user.identified? || site.route?('user/login') || site.route?('user/signup') %>
       <div class="right">
         <%= 'poser&nbsp;sa&nbsp;candidature'.in_a(href: 'user/signup', id: 'btn_signup', class: 'btn main') %>
       </div>

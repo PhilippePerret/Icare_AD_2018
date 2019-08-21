@@ -32,7 +32,7 @@ class User
     # c'est une déconnexion (sinon ça pose problème si l'user
     # a choisi de rejoindre sa dernière page consultée après
     # son login)
-    return if rt.to_s =~ /(deconnexion|logout)$/
+    return if rt.to_s =~ /logout$/
     dbtable_connexions.set(self.id, {id: self.id, route: rt, time: Time.now.to_i})
   end
 

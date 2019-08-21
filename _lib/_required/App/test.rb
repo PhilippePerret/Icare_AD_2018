@@ -9,9 +9,13 @@ class App
     if on_off
       path_mode_test_file.write Time.now.to_i.to_s
     else
-      path_mode_test_file.remove if path_mode_test_file.exist?
+      unset_mode_test
     end
     @is_mode_test = nil
+  end
+
+  def unset_mode_test
+    path_mode_test_file.remove if path_mode_test_file.exist?
   end
 
   def path_mode_test_file

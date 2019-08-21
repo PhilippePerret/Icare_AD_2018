@@ -25,7 +25,6 @@ Capybara.default_driver = :rack_test
 Capybara.default_driver = :selenium_chrome
 
 require './_lib/required'
-app.set_mode_test
 
 LOCAL_HOME    = 'localhost/AlwaysData/Icare_AD_2018'
 DISTANT_HOME  = 'www.atelier-icare.net'
@@ -121,5 +120,26 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+
+  # Pour que l'application sache qu'on est en mode test, on place un
+  # fichier.TEST_ON à la racine du site. Il sera enlevé à la fin des
+  # test (cf. ci-dessous le config.after(:suite))
+  config.before :suite do
+    app.set_mode_test
+  end
+  config.after :suite do
+    app.unset_mode_test
+  end
+
+  # Pour prendre un instantanné de la page
+  def screenshot(fname)
+    @folder_screenshots || begin
+      @folder_screenshots = "./spec/screenshots"
+      FileUtils.rm_rf(@folder_screenshots)
+      FileUtils.mkdir(@folder_screenshots)
+    end
+    fname += '.png' unless fname.end_with?('.png')
+    page.save_screenshot("#{@folder_screenshots}/#{fname}")
+  end
 
 end

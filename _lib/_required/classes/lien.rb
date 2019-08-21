@@ -196,9 +196,9 @@ class Lien
   alias :inscription :signup
 
   # Lien pour s'identifier
-  def signin titre = "s'identifier", options = nil
+  def signin titre = 's’identifier', options = nil
     options ||= Hash.new
-    href = "user/signin"
+    href = "user/login"
     href += "?backto=#{CGI::escape(options.delete(:back_to))}" if options.key?(:back_to)
     build href, titre, options
   end

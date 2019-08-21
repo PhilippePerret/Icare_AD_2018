@@ -1,0 +1,9 @@
+<h1>Bienvenue <%= user.pseudo %> !</h1>
+<% if user.admin? %>
+    <p>Bonjour cher administrateur.</p>
+<% else %>
+    <p><%= user.pseudo %>, vous êtes l'utilisateur #<%= user.id %> du site.</p>
+<% end %>
+<p>Vous atterrisez sur cette page car aucune redirection n'est définie dans votre profil après votre identification.</p>
+<p>Vous atterrisez sur cette page car aucune redirection n'est définie dans votre profil après votre identification.</p>
+<p>Rejoignez <a href="user/profil">votre profil</a> pour régler cette redirection (dans la partie « après identification, rejoindre la page… »), et pouvoir ainsi rejoindre directement votre bureau, votre profil, votre dernière page, ou un autre endroit dès que vous vous identifiez sur le site de l'atelier.</p>

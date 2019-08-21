@@ -5,11 +5,11 @@
 def signout_button
   button_name, button_style =
     if app.visit_as?
-      ["Déconnecter #{user.pseudo}", 'border:2px solid red']
+      ["DÉCONNECTER #{user.pseudo}", 'border:2px solid red']
     else
-      ['Déconnexion', nil]
+      ['SE DÉCONNECTER', nil]
     end
-  button_name.in_a(href:"user/#{user.id}/deconnexion", class: 'nav-item nav-link', style: button_style)
+  button_name.in_a(href:"user/#{user.id}/logout", class: 'nav-item nav-link', style: button_style)
 end
 
 %>
@@ -27,7 +27,7 @@ end
     <% if user.identified? %>
       <%= signout_button %>
     <% else %>
-      <a class="nav-item nav-link <%= site.route?('user/signin') ? 'disabled' : '' %>" href="user/signin" title="Se connecter">Connexion</a>
+      <a class="nav-item nav-link <%= site.route?('user/login') ? 'disabled' : '' %>" href="user/login" title="Se connecter">Connexion</a>
     <% end %>
   </div>
 </nav>

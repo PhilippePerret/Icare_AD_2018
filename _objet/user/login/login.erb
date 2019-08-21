@@ -1,15 +1,13 @@
 <%
-# Vue affichée lorsque l'user vient de se logguer avec succès
-# s'il n'a pas demandé de redirection après l'identification.
+=begin
+  Vue pour l'identification de l'user
+  + après son identification s'il n'a demandé aucune redirectin.
+=end
 %>
-<h1>Bienvenue <%= user.pseudo %> !</h1>
-<% if user.admin? %>
-    <p>
-      Bonjour cher administrateur.
-    </p>
+<% if param(:login) %>
+  <% User.check_login %>
+<% elsif user.identified? %>
+  <%= (folder+'login/sous_vues/no_redirection.erb').deserb(user) %>
 <% else %>
-    <p>Vous êtes l'utilisateur #<%= user.id %> du site.</p>
+  <%= (folder+'login/sous_vues/login_form.erb').deserb(user) %>
 <% end %>
-<%
-debug "<- vue user/login.erb"
-%>

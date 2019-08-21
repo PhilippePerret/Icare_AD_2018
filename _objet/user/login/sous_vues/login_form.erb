@@ -1,0 +1,60 @@
+<%
+=begin
+  Formulaire d'identification
+
+  Il peut être atteint lorsqu'une partie nécessite d'être
+  identifiée et que l'user ne l'est pas. Dans ce cas-là,
+  on doit mémoriser la route que devra prendre ensuite
+  l'user s'il se loggue correctement.
+
+  Cette route peut être consignée dans le paramètre :backto
+  pour certaines routes qui font sciemment la redirection.
+  Mais si c'est le même module (ce formulaire) qui est
+  rechargé (suite à une erreur par exemple), alors c'est
+  dans param(:login) qu'on trouvera la clé :back_to qui
+  contiendra la valeur.
+
+=end
+
+# Page d'identification de l'user
+page.title = 'Identification'
+%>
+<h1>S’identifier</h1>
+<%
+backto =
+  if param(:backto) != nil
+    param(:backto)
+  elsif param(:login) != nil
+    param(:login)[:back_to]
+  else
+    ""
+  end
+%>
+
+<%=
+  # Éventuellement, un message d'erreur, typiquement quand l'user a
+  # voulu rejoindre une page qui nécessitait une identification.
+  page.error_in_page
+  %>
+
+<div class="flex flex-center">
+  <form id="form_user_login" action="user/login" method="POST" class="maxw-500">
+    <input type="hidden" name="login[back_to]" value="<%= backto %>">
+    <div class="row row-inline">
+      <label class="w150" for="login_mail">Votre mail</label>
+      <input type="text" id="login_mail" name="login[mail]" placeholder="mail@chez.vous" value="" />
+    </div>
+    <div class="row row-inline">
+      <label class="w150" for="login_password">Votre code secret</label>
+      <input type="password" id="login_password" name="login[password]" value="" />
+    </div>
+    <div class="buttons">
+      <div class="fleft small">
+        <div class='ulink'><a href="user/signup">S'inscrire</a></div>
+        <div class='ulink'><a href="user/retreive_password">Code oublié</a></div>
+        <span> </span>
+      </div>
+      <input type="submit" value="OK" class="btn-primary" onclick="return $.proxy(User,'check_login')()" />
+    </div>
+  </form>
+</div>

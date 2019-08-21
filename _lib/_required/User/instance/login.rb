@@ -59,7 +59,7 @@ class User
             ' vérifier votre boite aux lettres virtuelle.' +
             '<br><br>Vous n’avez plus ce message ?… Pas de problème :' +
             '<br><a href="user/new_mail_confirmation">Renvoyer un message de confirmation</a>.'
-      redirect_to 'user/deconnexion'
+      redirect_to 'user/logout'
       return # Pour ne pas enregistrer de message de bienvenue
     end
 
@@ -70,10 +70,10 @@ class User
     if param(:login) && param(:login)[:back_to].nil_if_empty
       # Une redirection est demandée
       redirect_to param(:login)[:back_to]
-    elsif self.respond_to?(:redirect_after_login)
+    else
       # Sinon, une redirection est peut-être définie
       # par défaut par les préférences ou l'application
-      self.send(:redirect_after_login)
+      redirect_after_login
     end
     app.benchmark('<- User#login')
     return true

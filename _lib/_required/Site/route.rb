@@ -149,7 +149,7 @@ class SiteHtml
       case rut
       when :last_page, :last_route
         app.session['last_route'] || param(:redirect) || :home
-      when :signin  then 'user/signin'
+      when :signin  then 'user/login'
       when :signup  then 'user/signup'
       when :home    then :home # cf. ci-dessous
       else
@@ -170,11 +170,11 @@ class SiteHtml
 
     @nombre_redirections += 1
 
-    # Traitement spécial pour les routes 'user/signin' ou
+    # Traitement spécial pour les routes 'user/login' ou
     # 'user/signup'. Il faut mettre dans le paramètre
     # backto la route actuelle pour y renvoyer l'user
     # après son identification réussie.
-    if rut == 'user/signin'
+    if rut == 'user/login'
       route_courante =
         if site.current_route.nil?
           nil
@@ -188,7 +188,6 @@ class SiteHtml
     # On reset complètement les valeurs __o etc. qui
     # définissent les routes.
     set_params_route
-
 
     # debug "rut après premier traitement : #{rut}"
 

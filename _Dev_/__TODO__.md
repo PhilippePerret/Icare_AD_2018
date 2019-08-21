@@ -1,7 +1,3 @@
-* Quand on est identifié et qu'on doit rejoindre la page d'accueil, ajouter des boutons (comme "EN SAVOIR PLUS") :
-  * "BUREAU", "PROFIL", "DÉCONNEXION"
-  * Supprimer "S'INSCRIRE", "S'IDENTIFIER" ET "EN SAVOIR PLUS"
-
 * # Empêcher un même message (comme le message d'accueil) de s'afficher plusieurs fois.
 
 * Traduire les titres de mails en reprenant la formule dans la version nodejs du site

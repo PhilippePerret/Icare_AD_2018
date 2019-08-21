@@ -1,0 +1,8 @@
+<h1>Au revoir</h1>
+<% if User.current? %>
+  <% oldpseudo = user.pseudo %>
+  <% user.deconnexion %>
+  <p class="center big">À très bientôt, <%= oldpseudo %> !</p>
+<% else %>
+  <p>Repassez quand vous le désirez !</p>
+<% end %>
