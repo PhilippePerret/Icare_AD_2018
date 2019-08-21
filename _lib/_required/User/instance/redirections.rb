@@ -17,7 +17,9 @@ class User
         :noredirection
       end
     debug "kroute = #{kroute.inspect}"
-    redirect_to route_for(kroute)
+    # redirect_to route_for(kroute)
+    # Maintenant, c'est une vraie redirection qui est provoquée
+    page.redirect_to(route_for(kroute))
     app.benchmark('<- redirect_after_login')
   end
 
