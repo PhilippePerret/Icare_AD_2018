@@ -1,3 +1,16 @@
+* Essayer de rationnaliser l'affichage de la page, parce que là, j'ai l'impression que ça part dans tous les sens
+  Synopsis actuel :
+    -> site.output
+      --> execute_route
+            Chargement en fonction de la route (iroute.load_per_vue)
+            Appel de la méthode par défaut (iroute.method_call)
+      --> page.prebuild
+          --> page.footer
+          --> page.content
+                Charge la vue 'gabarit/page_content.erb'
+      --> page.output
+
+
 * # Empêcher un même message (comme le message d'accueil) de s'afficher plusieurs fois.
 
 * Traduire les titres de mails en reprenant la formule dans la version nodejs du site

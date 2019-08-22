@@ -83,10 +83,11 @@ site.keywords = [
 # cf. le fichier ./_lib/_required/User/instance/redirections.rb
 # pour la définition des routes.
 site.redirections_after_login = {
-  0 => {hname: 'Accueil du site',         route: :home},
+  0 => {hname: 'Aucune',                  route: :noredirection},
   1 => {hname: 'Bureau de travail',       route: :bureau},
   2 => {hname: 'Profil',                  route: :profil},
   3 => {hname: 'Dernière page consultée', route: :last_page},
+  4 => {hname: 'Accueil du site',         route: :home},
 
   # - ADMINISTRATEUR -
   7 => {hname: 'Aperçu Icariens', route: 'admin/overview', admin: true},

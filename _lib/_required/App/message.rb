@@ -7,6 +7,16 @@ class App
     flash_content.in_div(id: "flash")
   end
 
+  def flash_sessionnalize
+    notice.sessionnalize
+    error.sessionnalize
+  end
+
+  def flash_dessessionnalize
+    notice.dessessionnalize
+    error.dessessionnalize
+  end
+
   def error
     @error ||= ErrorDealer.new
   end
@@ -30,6 +40,19 @@ class App
       @output ||= begin
         messages.collect{|m| m.in_div(class:'notice')}.join('').in_div(id: 'messages')
       end
+    end
+    # Mise en session des messages s'il y en a
+    def sessionnalize
+      return if messages.empty?
+      session['flash-notices'] = messages.join(';;;')
+    end
+    def dessessionnalize
+      return if session['flash-notices'].nil?
+      @messages = session['flash-notices'].split(';;;')
+      session['flash-notices'] = nil
+    end
+    def session
+      app.session
     end
   end
   # ---------------------------------------------------------------------
@@ -60,6 +83,27 @@ class App
           m.in_div(class:'error')
         end.join('').in_div(id:'errors')
       end
+    end
+
+    def sessionnalize
+      return if errors.empty?
+      session['flash-errors'] = errors.collect do |err|
+        case err
+        when String then err
+        else
+          err.respond_to?(:message) ? err.message : err.inspect
+        end
+      end.join(';;;')
+    end
+
+    def dessessionnalize
+      return if session['flash-errors'].nil?
+      @errors = session['flash-errors'].split(';;;')
+      session['flash-errors'] = nil
+    end
+
+    def session
+      app.session
     end
   end
 end

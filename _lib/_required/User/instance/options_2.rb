@@ -66,7 +66,10 @@ class User
     flash "Merci à vous #{pseudo}, votre mail et votre inscription sont confirmés.<br />Vous pouvez vous identifier."
   end
   # Retourne true si le mail est bien confirmé
-  def mail_confirmed? ; (options||'')[2].to_i == 1 end
+  def mail_confirmed?
+    debug "Options de #{pseudo} : #{options.inspect}"
+    (options||'')[2].to_i == 1
+  end
 
   # OPTION 4 (indice 3)
   def bit_destroyed

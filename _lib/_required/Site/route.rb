@@ -6,29 +6,6 @@ Méthodes propres au traitement de la route
 =end
 class SiteHtml
 
-  # Retourne true si la route +route+ est égale à la route
-  # courante
-  def current_route? route_checked
-    route_checked != '' || route_checked = 'site/home'
-    curroute = self.current_route ? self.current_route.route : 'site/home'
-    curroute == route_checked
-  end
-  alias :route? :current_route?
-
-  # Un raccourci pour obtenir l'instance courante
-  # de la route à l'aide de `site.objet` ou `site.instance`
-  def objet
-    @objet ||= self.current_route.instance
-  end
-  alias :instance :objet
-
-  # {SiteHtml::Route} Instance de la route courante
-  attr_reader :current_route
-
-  def route
-    @route ||= SiteHtml::Route.new
-  end
-
   # = main =
   #
   # Exécution de la route, si elle est définie
@@ -136,6 +113,30 @@ class SiteHtml
   ensure
     app.benchmark('<- SiteHtml#execute_route')
   end
+
+  # Retourne true si la route +route+ est égale à la route
+  # courante
+  def current_route? route_checked
+    route_checked != '' || route_checked = 'site/home'
+    curroute = self.current_route ? self.current_route.route : 'site/home'
+    curroute == route_checked
+  end
+  alias :route? :current_route?
+
+  # Un raccourci pour obtenir l'instance courante
+  # de la route à l'aide de `site.objet` ou `site.instance`
+  def objet
+    @objet ||= self.current_route.instance
+  end
+  alias :instance :objet
+
+  # {SiteHtml::Route} Instance de la route courante
+  attr_reader :current_route
+
+  def route
+    @route ||= SiteHtml::Route.new
+  end
+
 
   # Une redirection
   # ---------------
@@ -326,18 +327,17 @@ class SiteHtml
     # réel.
     # Noter que si c'est un objet propre à l'application,
     # il doit être impérativement défini dans le dossier
-    # 'lib/required' de l'objet pour pouvoir être chargé
+    # '_lib/_required' de l'objet pour pouvoir être chargé
     # avant l'appel de cette méthode.
     #
     # On n'appelle pas cette méthode si la méthode de l'url
     # est 'new'
     def method_call
-      method_sym != :new || return
-      # if false #true
-      #   cname = "#{sujet.class.name}" == 'Class' ? sujet.name : sujet.class.name
-      #   debug "sujet.class: #{cname} / method_sym: #{method_sym.inspect}"
-      # end
-      sujet.send(method_sym) if method_sym != nil && sujet.respond_to?(method_sym)
+      (method_sym.nil? || method_sym == :new) && return
+      if sujet.respond_to?(method_sym)
+        debug "[site.method_call] Appel de la méthode automatique #{method_sym.inspect}"
+        sujet.send(method_sym)
+      end
     end
 
     # ---------------------------------------------------------------------

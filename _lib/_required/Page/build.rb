@@ -17,36 +17,26 @@ class Page
   # définir toutes les choses avant d'appeler les méthodes qui
   # vont charger les css, les js, les messages, etc.
   # Cette méthode prédéfinit donc `header` et `content`
-  def preload
+  def prebuild
     return if site.ajax?
     app.benchmark('-> Page#preload')
-    # header
     footer
     content
-    # head # N'existe plus
-    @content = page.error_standard(fatal_error) unless fatal_error.nil?
+    unless fatal_error.nil?
+      @content = page.error_standard(fatal_error)
+    end
     app.benchmark('<- Page#preload')
   rescue Exception => e
     @content = page.error_standard(e)
   end
 
-  # On construit le body avant de l'afficher pour avoir tous
-  # les éléments requis
-  def prebuild_body
-    return if site.ajax?
-    app.benchmark('-> Page#prebuild_body')
-    body
-    app.session['last_route'] = route_courante unless site.current_route.nil?
-    app.benchmark('<- Page#prebuild_body')
-  end
 
   # {StringHTML} Retourne le code HTML pour l'entête du
   # site. C'est le code qui se trouve dans le fichier :
-  # _view/deep/gabarit/header.erb
+  # _view/gabarit/header.erb
   def header
     @header ||= begin
-      vue = Vue.new('header', site.folder_gabarit)
-      vue.output
+      Vue.new('header', site.folder_gabarit).output
     rescue Exception => e
       self.fatal_error = e
       "[PROBLÈME D'HEADER : #{e.message}]"
@@ -55,26 +45,27 @@ class Page
 
   def footer
     @footer ||= begin
-      vue = Vue.new('footer', site.folder_gabarit)
-      if vue.exist?
-        vue.output
-      else
-        ""
-      end
+      Vue.new('footer', site.folder_gabarit).output
     rescue Exception => e
       self.fatal_error = e
       "[PROBLÈME DE FOOTER : #{e.message}]"
     end
   end
 
+  # La page d'accueil, spéciale
+  def home
+    Vue.new('home', (site.folder_objet+'site')).output
+  end
+
   def content
     @content ||= begin
-      (site.folder_gabarit + 'page_content.erb').deserb( site.objet_binded.respond_to?(:bind) ? site.objet_binded : nil )
+      (site.folder_gabarit+'page_content.erb').deserb( site.objet_binded.respond_to?(:bind) ? site.objet_binded : nil )
     rescue Exception => e
       self.fatal_error = e
       "[PROBLÈME DE CONTENT : #{e.message}]"
     end
   end
+
   # Définir le contenu à l'aide de `page.content = ...`
   # Pour le moment, seulement utilisé pour les protections de sections
   # et de modules
@@ -83,12 +74,6 @@ class Page
   # (JE NE COMPRENDS PAS LE MESSAGE CI-DESSUS...)
   def content= value
     @content_route = value
-  end
-
-  # Page d'accueil (quand aucune route n'est définie ou que la
-  # route n'a pas de vue)
-  def home
-    (site.folder_view + 'home.erb').deserb( site )
   end
 
   # Si une route est définie, contenant au moins 'objet' et 'method'
@@ -107,24 +92,13 @@ class Page
           (site.folder_error_pages + 'error_unknown_route.erb').deserb()
         end
       else
-        # L'accueil
+        # La page d'accueil du site
         nil
       end
     rescue Exception => e
       self.fatal_error = e
       "[PROBLÈME DE CONTENT_ROUTE : #{e.message}]"
     end
-  end
-
-  def login_box_unless_identified
-    return "" if user.identified? || (site.current_route && ['login', 'signup', 'paiement'].include?(site.current_route.method))
-    login_box
-  end
-  # {StringHTML} Return la boite d'identification
-  # de l'user. Elle n'est affichée que si l'utilisateur
-  # n'est pas identifié
-  def login_box
-    self.vue('login_form', site.folder_user_view)
   end
 
   # Pour charger une vue
@@ -148,7 +122,7 @@ class Page
   # Ne pas confondre avec le débug qui se construit avec la
   # méthode handy `debug` et qui est construit dans App/debug.rb
   def section_debug
-    (site.folder_gabarit + 'debug/debug.erb').deserb( site )
+    (site.folder_gabarit+'debug/debug.erb').deserb( site )
   end
 
   def add_css arr_css

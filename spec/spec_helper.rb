@@ -131,6 +131,14 @@ RSpec.configure do |config|
     app.unset_mode_test
   end
 
+  # Pour exécuter une requête directement sur la base
+  def db_execute(request)
+    require './data/secret/mysql'
+    request = request.gsub(/"/, '\"')
+    request.concat(';') unless request.end_with?(';')
+    `mysql -u #{DATA_MYSQL[:offline][:username]} -p#{DATA_MYSQL[:offline][:password]} -e "#{request}" --silent 2> nul`
+  end
+
   # Pour prendre un instantanné de la page
   def screenshot(fname)
     @folder_screenshots || begin

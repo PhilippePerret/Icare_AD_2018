@@ -22,9 +22,14 @@
     <% unless site.route?('') %>
       <!-- Entête permanent du site, sans modification -->
       <div id="header">
-        <%= './_view/gabarit/top_row.erb'.deserb(self.bind) %>
+        <%= './_view/gabarit/header.erb'.deserb(self.bind) %>
       </div>
     <% end %>
+
+    <%=
+      # Les messages éventuels
+      app.div_flash %>
+
     <!-- Tant que l'utilisateur n'est pas identifié, on lui présente
     le bouton d'enregistrement
     -->
@@ -34,10 +39,6 @@
       </div>
     <% end %>
 
-    <!-- Les message éventuels -->
-    <div class="container">
-      <%= app.div_flash %>
-    </div>
 
     <div id="page-contents">
         <!--

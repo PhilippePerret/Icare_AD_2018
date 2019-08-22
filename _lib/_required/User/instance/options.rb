@@ -40,6 +40,7 @@ class User
     opts = options.dup || "0"*(index+1) # || ("0"*32)
     raise "La valeur à donner à une option ne peut être supérieur à 35" if value.to_i > 35
     opts[index] = value.to_s(36)
+    # debug "NOUVELLES OPTIONS : #{opts}"
     set( options: opts )
     # On renseigne la variable d'instance si elle existe
     instance_variable_set(instance_var, value) unless instance_var.nil?

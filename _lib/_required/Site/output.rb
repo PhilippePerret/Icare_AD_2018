@@ -7,20 +7,16 @@ require 'erb'
 class SiteHtml
 
   # ---------------------------------------------------------------------
-  # 
+  #
   #   Méthode principale qui sort la vue en fonction de la route
   #
   # ---------------------------------------------------------------------
   def output
     app.benchmark('-> SiteHtml#output')
-      # Note : la fin du benchmark de cette méthode sera mis
-      # dans page.output, car on ne passe pas à la fin de cette
-      # méthode.
     execute_route
-    page.preload
-    page.prebuild_body
+    page.prebuild
     page.output
-    # On ne passe jamais ici
+    # On ne passe jamais ici, car page.output puts cgi.
   rescue Exception => e
     # ERREUR FATALE
     app.benchmark_fin rescue nil
