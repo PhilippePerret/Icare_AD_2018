@@ -10,6 +10,7 @@
                 Charge la vue 'gabarit/page_content.erb'
       --> page.output
 
+* Rationnaliser l'utilisation de flash, que les méthodes ne soient plus dans `app` mais dans un objet à part.
 
 * # Empêcher un même message (comme le message d'accueil) de s'afficher plusieurs fois.
 

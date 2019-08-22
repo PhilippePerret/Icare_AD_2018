@@ -3,14 +3,14 @@
 
   Vue qui s'affiche lorsque l'user n'a pas défini de redirection après
   son identification. On l'invite ici à le faire.
-  
+
 =end
 
 # Le visiteur doit être identifié, pour passer par là
 raise_unless_identified
 
 %>
-<h1>Bienvenue <%= user.pseudo %> !</h1>
+<h1>Bienvenue, <%= user.pseudo %> !</h1>
 <% if user.admin? %>
     <p>Bonjour cher administrateur.</p>
 <% else %>
