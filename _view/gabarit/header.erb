@@ -26,11 +26,19 @@ end
 </div>
 <nav id="main-nav-bar">
   <!-- Les boutons de navigation principaux (sous le titre) -->
-  <a class="nav-item nav-link active" href="" title="Rejoindre l’accueil de l’atelier">Accueil</a>
-  <a class="nav-item nav-link" href='site/contact' title='Formulaire de contact de l’administration'>Contact</a>
+  <a class="nav-item nav-link active" href="" title="Rejoindre l’accueil de l’atelier">
+    <img src="_view/img/main-icones/home.png" alt="Accueil">
+    Accueil</a>
+  <a class="nav-item nav-link" href='site/contact' title='Formulaire de contact de l’administration'>
+    <img src="_view/img/main-icones/contact.png" alt="Contact">
+    Contact</a>
   <a class="nav-item nav-link" href='aide/home' title='Aide de l’atelier Icare'>Aide</a>
-  <a class="nav-item nav-link <%= user.identified? ? '' : 'disabled' %>" href='bureau/home' title='Pour rejoindre votre bureau de travail'>Bureau</a>
-  <a class="nav-item nav-link <%= user.identified? ? '' : 'disabled' %>" href="user/<%= user.id %>/profil" title='Pour rejoindre votre profil sur l’atelier'>Profil</a>
+  <a class="nav-item nav-link <%= user.identified? ? '' : 'disabled' %>" href='bureau/home' title='Pour rejoindre votre bureau de travail'>
+    <img src="_view/img/main-icones/bureau.png" alt="Bureau">
+    Bureau</a>
+  <a class="nav-item nav-link <%= user.identified? ? '' : 'disabled' %>" href="user/<%= user.id %>/profil" title='Pour rejoindre votre profil sur l’atelier'>
+    <img src="_view/img/main-icones/profil.png" alt="Profil">
+    Profil</a>
   <% if user.identified? %>
     <%= signout_button %>
   <% else %>
