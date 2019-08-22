@@ -30,16 +30,6 @@
       # Les messages éventuels
       app.div_flash %>
 
-    <!-- Tant que l'utilisateur n'est pas identifié, on lui présente
-    le bouton d'enregistrement
-    -->
-    <% unless site.route?('') || user.identified? || site.route?('user/login') || site.route?('user/signup') %>
-      <div class="right">
-        <%= 'poser&nbsp;sa&nbsp;candidature'.in_a(href: 'user/signup', id: 'btn_signup', class: 'btn main') %>
-      </div>
-    <% end %>
-
-
     <div id="page-contents">
         <!--
             CONTENU DE LA PAGE
