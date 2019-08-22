@@ -50,7 +50,7 @@ feature "Identification d'un user" do
         fill_in 'login[password]', with: DATA_BENOIT[:password]
         click_button( 'OK' )
       end
-      expect(page).to have_content('Bienvenue BenoA !', count: 1)
+      expect(page).to have_content('Bienvenue, BenoA !', count: 1)
     end
 
     def login_ben
@@ -74,7 +74,7 @@ feature "Identification d'un user" do
         set_redir_ben(0) # => Pas de redirection définie
         login_ben
         screenshot('after-identify-0')
-        expect(page).to have_css('h1', text: 'Bienvenue BenoA !')
+        expect(page).to have_css('h1', text: 'Bienvenue, BenoA !')
       end
     end
     context 'avec un choix de redirection vers le bureau' do

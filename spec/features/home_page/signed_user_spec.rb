@@ -18,7 +18,7 @@ feature "La page d'accueil" do
       end
 
     end
-    scenario 'contient un lien valide pour se déconnecter' do
+    scenario 'contient un lien valide pour se déconnecter', current: true do
       expect(page).to have_link("SE DÉCONNECTER")
       click_link("SE DÉCONNECTER")
       expect(page).not_to have_link("SE DÉCONNECTER")

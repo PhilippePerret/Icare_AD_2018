@@ -27,7 +27,7 @@ end
     <% if user.identified? %>
       <%= signout_button %>
     <% else %>
-      <a class="nav-item nav-link <%= site.route?('user/login') ? 'disabled' : '' %>" href="user/login" title="Se connecter">Connexion</a>
+      <a class="nav-item nav-link <%= site.route?('user/login') ? 'disabled' : '' %>" href="user/login" title="Se connecter">S’IDENTIFIER</a>
     <% end %>
   </div>
 </nav>

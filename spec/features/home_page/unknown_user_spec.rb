@@ -9,7 +9,7 @@ feature "La page d'accueil de l'atelier", type: :feature do
     expect(page).to have_css('section#main-logo-in-first-page')
     expect(page).to have_css('div#presentation-atelier')
     expect(page).to have_css('div#presentation_phil')
-    expect(page).to have_css('div#div-citation')
+    expect(page).to have_css('div#bloc-citation')
     expect(page).to have_css('div#faq')
     expect(page).to have_css('div#div_last_actualites')
   end
