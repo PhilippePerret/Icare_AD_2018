@@ -124,6 +124,14 @@ RSpec.configure do |config|
   # Pour que l'application sache qu'on est en mode test, on place un
   # fichier.TEST_ON à la racine du site. Il sera enlevé à la fin des
   # test (cf. ci-dessous le config.after(:suite))
+
+  # config.before(:each) do
+  config.before(:each, js: true) do
+    Capybara.page.driver.browser.manage.window.resize_to(1000,600)
+    # Si poltergeist:
+    # Capybara.page.driver.browser.resize_to(1000,400)
+  end
+
   config.before :suite do
     app.set_mode_test
   end
