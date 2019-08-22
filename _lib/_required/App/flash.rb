@@ -33,6 +33,7 @@ class App
       @messages = Array.new
     end
     def add mess, options = nil
+      return if @messages.include?(mess) # pas le même message deux fois
       @messages << mess
     end
     def output
