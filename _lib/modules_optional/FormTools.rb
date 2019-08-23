@@ -410,7 +410,6 @@ class Field
     css = (options[:class]||"").split(' ')
     css << 'exergue' if exergue
     css << 'warning' if warning
-    css << 'form-control' # bootstrap
     css.join(' ')
   end
 
