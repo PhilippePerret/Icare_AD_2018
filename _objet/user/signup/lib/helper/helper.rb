@@ -27,10 +27,5 @@ class << self
     end.join.in_div(class: 'container center-mobile')
   end
 
-  # Chargement de la vue (dans le dossier signup/view/)
-  def view relpath
-    (folder_views + relpath).deserb(self)
-  end
-
 end #/ << self
 end #/ Signup

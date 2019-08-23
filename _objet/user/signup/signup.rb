@@ -4,6 +4,8 @@ require_folder(site.folder_objet+'user/signup/lib')
 class Signup
 class << self
 
+  attr_accessor :new_user # on en aura besoin dans les vues
+
   def params
     @params ||= param(:signup) || Hash.new
   end
@@ -37,8 +39,8 @@ class << self
   def bind ; binding() end
 
   # Dossier contenant les différentes vues de l'inscription
-  def folder_views
-    @folder_views ||= site.folder_objet+'user/signup/lib/view'
+  def folder_pages
+    @folder_pages ||= site.folder_objet+'user/signup/lib/pages'
   end
 
 end #/<< self

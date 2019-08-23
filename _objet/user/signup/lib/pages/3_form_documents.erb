@@ -7,6 +7,7 @@ form.prefix = 'signup_documents'
 required_mark = ' <span class="red"><sup>*</sup></span>'
 
 (
+  app.checkform_hidden_field('form_documents') +
   'save_documents'.in_hidden(name: 'signup[operation]', id: 'signup_operation') +
   'Afin de finaliser votre inscription, merci de transmettre vos documents de présentation (le fichier de présentation et la lettre de motivation sont requis).'.in_p(class: 'small air') +
   form.field_file("Votre présentation#{required_mark}", 'presentation') +

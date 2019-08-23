@@ -29,6 +29,7 @@ end
 site.require 'form_tools'
 form.prefix = 'signup'
 (
+  app.checkform_hidden_field('form_modules') +
   'save_modules'.in_hidden(name: 'signup[operation]', id: 'signup_operation') +
   "Merci de choisir ci-dessous les modules pour lesquels vous postulez. Dans le doute, n'hésitez pas à #{lien.contact("contacter Phil")} pour en discuter avec lui.".in_p(class: 'small') +
   liste_modules_checkboxable +

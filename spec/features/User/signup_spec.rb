@@ -165,6 +165,8 @@ feature "Inscription d'un candidat à l'atelier" do
         click_button('Enregistrer la candidature')
       end
 
+      sleep 30
+
       # Aucune erreur n'a été rencontrée
       expect(page).not_to have_css('div#flash div#errors')
       # Un fichier contient les données des documents
@@ -185,7 +187,6 @@ feature "Inscription d'un candidat à l'atelier" do
 
       # On se retrouve sur la page de confirmation de l'inscription
       expect(page).to have_css('h2', text: 'Confirmation de votre candidature')
-      sleep 30
 
       # TODO Un watcher a été créé pour l'administrateur
       # TODO Un watcher a été créé pour le candidat

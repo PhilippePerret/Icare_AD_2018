@@ -32,6 +32,9 @@ class << self
     traite_documents_presentation
   end
 
+  def path_tmp_document(doc_name)
+    folder_tmp_documents+doc_name
+  end
   # Dossier dans lesquels les documents seront déposés
   def folder_tmp_documents
     @folder_tmp_documents ||= folder_tmp_session + 'documents'

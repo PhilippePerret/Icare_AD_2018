@@ -11,7 +11,7 @@ class << self
     when 'save_documents'
       save_documents && begin
         self.state = 'confirmation'
-        create_candidature
+        User.create_candidature
       end
     end
   end

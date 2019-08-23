@@ -10,6 +10,10 @@ form.prefix = 'user'
 
 <form id="form_user_signup" onsubmit="return $.proxy(Signup,'check_cgu')()" action="<%= site.current_route.route %>" method="POST">
 
+  <%=
+    # Pour empêcher le rechargement après soumission
+    app.checkform_hidden_field('form_user_signup') %>
+
   <div style="vertical-align:bottom;">Les champs marqués d'un <%= required_mark %> sont obligatoires.</div>
   <%= 'save_identite'.in_hidden(name: 'signup[operation]', id: 'signup_operation') %>
   <%= 'identite'.in_hidden(name: 'signup[state]', id: 'signup_state')%>

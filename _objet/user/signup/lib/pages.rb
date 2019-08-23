@@ -2,6 +2,11 @@
 class Signup
 class << self
 
+  # Chargement de la vue (dans le dossier signup/view/)
+  def view relpath
+    (folder_pages+relpath).deserb(self)
+  end
+
   def page_form_identite
     (current_data = get_identite) && param(user: current_data)
     Signup.view('1_form_identite.erb')
