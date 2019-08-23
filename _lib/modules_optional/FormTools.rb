@@ -264,7 +264,6 @@ class Field
 
   def form_row_css
     (
-      "form-group " + # bootstrp
       "row" +
       Page::FormTools.exergue_field?(property) +
       Page::FormTools.error_field?(property) +

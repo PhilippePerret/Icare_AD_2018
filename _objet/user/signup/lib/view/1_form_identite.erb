@@ -1,63 +1,52 @@
 <%# Formulaire pour s'inscrire au site %>
 <%
-
-# Fabrication de la rangée de formulaire
-def row libelle, property, field_type, values = nil
-  field_name  = "user[#{property}]"
-  field_id    = "user_#{property}"
-  c = ""
-  c << libelle.in_span(class: 'libelle')
-  c << case field_type
-  when :text
-    (self.send(property)||"").in_input_text(name:field_name, id:field_id)
-  when :select
-    values.in_select(name:field_name, id: field_id, selected: user.send(property))
-  end.in_span(class: 'value')
-  c.in_div(class:'row')
-end
-
-%>
-<%
 required_mark = ' <span class="red"><sup>*</sup></span>'
 site.require 'form_tools'
 form.prefix = 'user'
 %>
-<p class='small container-fluid'>
+<p class='small center-mobile'>
   Notez que pour poser votre candidature au sein de l'atelier, vous devez avoir rédigé vos deux documents de présentation. <strong>Ces deux documents vous seront demandés en fin de procédure</strong>. Pour savoir comment rédiger ces documents de présentation, consultez <%=  lien.aide 100, titre: 'l’aide pour les documents d’inscription.', discret: false %>
 </p>
 
-<form id="form_user_signup" onsubmit="return $.proxy(Signup,'check_cgu')()" class="container" action="<%= site.current_route.route %>" method="POST">
-  <div class="col-md-8">
+<form id="form_user_signup" onsubmit="return $.proxy(Signup,'check_cgu')()" action="<%= site.current_route.route %>" method="POST">
 
-    <p class='tiny' style="vertical-align:bottom;">Les champs marqués d'un <%= required_mark %> sont obligatoires.</p>
-    <%= 'save_identite'.in_hidden(name: 'signup[operation]', id: 'signup_operation') %>
-    <%= 'identite'.in_hidden(name: 'signup[state]', id: 'signup_state')%>
+  <div style="vertical-align:bottom;">Les champs marqués d'un <%= required_mark %> sont obligatoires.</div>
+  <%= 'save_identite'.in_hidden(name: 'signup[operation]', id: 'signup_operation') %>
+  <%= 'identite'.in_hidden(name: 'signup[state]', id: 'signup_state')%>
 
-    <h3>Identité</h3>
-    <%= form.field_text("Pseudo#{required_mark}", 'pseudo', nil) %>
-    <%= form.field_text("Patronyme", 'patronyme', nil) %>
-    <%= form.field_select("Vous êtes…#{required_mark}", 'sexe', nil, {values: [["F", "une femme"], ["H", "un homme"]]}) %>
-    <% valeurs_annees = (1920..(Time.now.year - 18)).collect{|y| [y, y]}.reverse %>
-    <%= form.field_select("Naissance#{required_mark}", 'naissance', nil, {values: valeurs_annees}) %>
+  <h3>Identité</h3>
+  <%= form.field_text("Pseudo#{required_mark}", 'pseudo', nil) %>
+  <%= form.field_text("Patronyme", 'patronyme', nil) %>
+  <%= form.field_select("Vous êtes…#{required_mark}", 'sexe', nil, {values: [["F", "une femme"], ["H", "un homme"]]}) %>
+  <% valeurs_annees = (1920..(Time.now.year - 18)).collect{|y| [y, y]}.reverse %>
+  <%= form.field_select("Naissance#{required_mark}", 'naissance', nil, {values: valeurs_annees}) %>
 
-    <h3>Contact et accès au site</h3>
-    <%= form.field_text("Mail#{required_mark}", 'mail', nil) %>
-    <%= form.field_text("Confirmation mail#{required_mark}", 'mail_confirmation', nil) %>
-    <%= form.field_text("Mot de passe#{required_mark}", 'password', nil) %>
-    <%= form.field_text("Confirmation mot de passe#{required_mark}", 'password_confirmation', nil) %>
+  <h3>Contact et accès au site</h3>
+  <%= form.field_text("Mail#{required_mark}", 'mail', nil) %>
+  <%= form.field_text("Confirmation mail#{required_mark}", 'mail_confirmation', nil) %>
+  <%= form.field_text("Mot de passe#{required_mark}", 'password', nil) %>
+  <%= form.field_text("Conf. mot de passe#{required_mark}", 'password_confirmation', nil) %>
 
-    <h3>Coordonnées</h3>
-    <% name = "Téléphone#{site.signup_phone_required ? required_mark : ''}" %>
-    <%= form.field_text(name, 'telephone', nil) %>
-    <% name = "Adresse#{site.signup_address_required ? required_mark : ''}" %>
-    <%= form.field_textarea(name, 'adresse') %>
-    <%
-    form_submit_button = 'Enregistrer et poursuivre l’inscription'
-    texte_cgu = "J’accepte les <a href=\"http://www.atelier-icare.net/CGU_Atelier_ICARE.pdf\" target=\"_blank\">Conditions générales d’utilisation</a> de l’Atelier Icare."
-    %>
-    <%= form.field_checkbox(texte_cgu, 'accept_cgu', nil)%>
-    <%= app.hidden_field_captcha_value %>
-    <%= form.field_text("Antirobot#{required_mark}", 'captcha', nil, {class:'short', text_before: "#{site.captcha_question.in_span(id:'captcha_question')} : ".in_span(class:'small')}) %>
+  <h3>Coordonnées</h3>
+  <% name = "Téléphone#{site.signup_phone_required ? required_mark : ''}" %>
+  <%= form.field_text(name, 'telephone', nil) %>
+  <% name = "Adresse#{site.signup_address_required ? required_mark : ''}" %>
+  <%= form.field_textarea(name, 'adresse') %>
+  <%
+  texte_cgu = "<span>J’accepte les <a href=\"http://www.atelier-icare.net/CGU_Atelier_ICARE.pdf\" target=\"_blank\">Conditions générales d’utilisation</a><br>de l’Atelier Icare.</span>"
+  %>
+  <div class="row">
+    <span id="span-cb-cgu">
+      <input type="checkbox" id="user_accept_cgu" name="user[accept_cgu]" value="">
+      <label for="user_accept_cgu" class="left">
+        <%= texte_cgu %>
+      </label>
+    </span>
   </div>
-  <%= form_submit_button.in_submit(class: 'btn btn-primary').in_div(class:'col').in_div(class:'form-control row mt-5') %>
+  <%= app.hidden_field_captcha_value %>
+  <%= form.field_text("Antirobot#{required_mark}", 'captcha', nil, {class:'short', text_before: "#{site.captcha_question.in_span(id:'captcha_question')} : ".in_span(class:'small')}) %>
+
+  <%=
+    form_submit_button = 'Enregistrer et poursuivre l’inscription'
+    form_submit_button.in_submit(class: 'btn btn-primary').in_div(class:'row buttons big air') %>
 </form>
