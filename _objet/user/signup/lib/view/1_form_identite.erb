@@ -1,8 +1,5 @@
+<%# Formulaire pour s'inscrire au site %>
 <%
-# Formulaire pour s'inscrire au site
-%>
-<%
-# Formulaire d'inscription par défaut
 
 # Fabrication de la rangée de formulaire
 def row libelle, property, field_type, values = nil
@@ -32,7 +29,7 @@ form.prefix = 'user'
 <form id="form_user_signup" onsubmit="return $.proxy(Signup,'check_cgu')()" class="container" action="<%= site.current_route.route %>" method="POST">
   <div class="col-md-8">
 
-    <p class='tiny'>Les champs marqués d'un <%= required_mark %> sont obligatoires.</p>
+    <p class='tiny' style="vertical-align:bottom;">Les champs marqués d'un <%= required_mark %> sont obligatoires.</p>
     <%= 'save_identite'.in_hidden(name: 'signup[operation]', id: 'signup_operation') %>
     <%= 'identite'.in_hidden(name: 'signup[state]', id: 'signup_state')%>
 

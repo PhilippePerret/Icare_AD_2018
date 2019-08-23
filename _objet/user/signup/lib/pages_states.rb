@@ -4,19 +4,19 @@ class << self
 
   def page_form_identite
     (current_data = get_identite) && param(user: current_data)
-    Signup.view('form_identite.erb')
+    Signup.view('1_form_identite.erb')
   end
 
   def page_form_modules
     param( modules_checked: (get_modules || Array.new) )
-    Signup.view('form_modules.erb')
+    Signup.view('2_form_modules.erb')
   end
   def page_form_documents
-    Signup.view('form_documents.erb')
+    Signup.view('3_form_documents.erb')
   end
 
   def page_confirmation
-    Signup.view('page_confirmation.erb')
+    Signup.view('4_page_confirmation.erb')
   end
 
 end #/<< self
