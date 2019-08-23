@@ -123,6 +123,11 @@ class SiteHtml
   end
   alias :route? :current_route?
 
+  # Retourne true si on se trouve sur la page d'accueil
+  def home_page?
+    current_route?('')
+  end
+
   # Un raccourci pour obtenir l'instance courante
   # de la route à l'aide de `site.objet` ou `site.instance`
   def objet

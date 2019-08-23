@@ -19,29 +19,27 @@
     <title><%= page.title %></title>
   </head>
   <body>
-    <% unless site.route?('') %>
-      <!-- Entête permanent du site, sans modification -->
-      <div id="header">
-        <%= './_view/gabarit/header.erb'.deserb(self.bind) %>
-      </div>
+    <% unless site.home_page? %>
+      <%= './_view/gabarit/header/header.erb'.deserb(self.bind) %>
     <% end %>
 
     <%=
       # Les messages éventuels
       app.div_flash %>
 
-    <div id="page-contents">
-        <!--
-            CONTENU DE LA PAGE
-        -->
-      <%= body %>
+    <section id="page-contents">
+      <%=
+        # CONTENU DE LA PAGE
+        body %>
 
-      <!-- Le débug, seulement en offline -->
-      <%= page.section_debug %>
+      <%=
+        # DÉBUG (seulement en offline)
+        page.section_debug %>
 
-    </div>
-    <!-- Pour le site -->
+    </section>
+
     <%= self.raw_javascript %>
     <%= self.javascript %>
+
   </body>
 </html>

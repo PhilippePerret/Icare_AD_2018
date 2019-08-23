@@ -1,0 +1,50 @@
+<%
+
+# La rangée supérieure, avec le logo du site et les menus principaux
+
+def signout_button
+  button_name, button_style =
+    if app.visit_as?
+      ["DÉCONNECTER #{user.pseudo}", 'border:2px solid red']
+    else
+      ['SE DÉCONNECTER', nil]
+    end
+  button_name.in_a(href:"user/#{user.id}/logout", class: 'nav-link-logout', style: button_style)
+end
+
+%>
+<section id="header">
+<% unless site.route?('') || user.identified? || site.route?('user/login') || site.route?('user/signup') %>
+  <div class="fright" style="margin-right:1em;">
+    <%= 'poser&nbsp;sa&nbsp;candidature'.in_a(href:'user/signup', id:'btn_signup', class:'btn main') %>
+  </div>
+<% end %>
+
+<div id="div-logo">
+  <a id="site_title" href="<%= site.url %>">Atelier Icare</a>
+</div>
+<% ison = user.identified? %>
+<nav id="main-nav-bar">
+  <!-- Les boutons de navigation principaux (sous le titre) -->
+  <a class="active" href="" title="Rejoindre l’accueil de l’atelier">
+    <img src="_view/img/main-icones/home.png" alt="Accueil">
+    ACCUEIL</a>
+  <a href='site/contact' title='Formulaire de contact de l’administration'>
+    <img src="_view/img/main-icones/contact.png" alt="Contact">
+    CONTACT</a>
+  <a href='aide/home' title='Aide de l’atelier Icare'>
+    <img src="_view/img/main-icones/aide.png" alt="Aide">
+    AIDE</a>
+  <a class="<%= ison ? '' : 'disabled' %>" href='bureau/home' title='Pour rejoindre votre bureau de travail'>
+    <img src="_view/img/main-icones/bureau<%= ison ? '' : '-off' %>.png" alt="Bureau">
+    BUREAU</a>
+  <a class="<%= user.identified? ? '' : 'disabled' %>" href="user/<%= user.id %>/profil" title='Pour rejoindre votre profil sur l’atelier'>
+    <img src="_view/img/main-icones/profil<%= ison ? '' : '-off' %>.png" alt="Profil">
+    PROFIL</a>
+  <% if user.identified? %>
+    <%= signout_button %>
+  <% else %>
+    <a class="<%= site.route?('user/login') ? 'disabled' : '' %>" href="user/login" title="Se connecter">S’IDENTIFIER</a>
+  <% end %>
+</nav>
+</section>
