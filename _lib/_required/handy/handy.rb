@@ -7,6 +7,15 @@
 
 def debug mess; app.debug.add mess end
 
+def error err, options = nil
+  app.error.add err, options
+end
+def errors_as_list errs, options = nil
+  app.errors_as_list errs, options
+end
+def flash mess, options = nil
+  app.notice.add mess, options
+end
 
 # Permet d'envoyer un message à l'admininistrateur suite à une
 # erreur.

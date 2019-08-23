@@ -1,8 +1,9 @@
 <%# Choix des modules d'apprentissage optionnés %>
+<h2>Modules optionnés</h2>
 <%
 
 # +selecteds+ Liste des IDs des modules sélectionnés au cours
-# d'un choix précédente
+# d'un choix précédent
 def liste_modules_checkboxable selecteds = nil
   site.require_objet('abs_module')
   cbs_modules = ''

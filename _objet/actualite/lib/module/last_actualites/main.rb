@@ -47,7 +47,7 @@ class Actualite
     ).in_li(class: 'actu', id: "actu-#{id}")
   end
   def span_date
-    created_at.as_human_date(false, true).in_span(class: 'date')
+    created_at.to_i.as_human_date(false, true).in_span(class: 'date')
   end
   def span_message
     message.in_span(class:'message')

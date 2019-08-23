@@ -39,15 +39,15 @@ class << self
     check_cgu_acceptation
 
     @naissance  = form_data[:naissance].to_i
-    @phone      = form_data[:telephone].nil_if_empty
-    @phone.nil? || @phone.length < 11 || raise('Votre numéro de téléphone est invalide.')
+
+    check_phone_number
+
     @adresse    = form_data[:adresse].nil_if_empty
 
     unless @form_errors.empty?
       errs_count = @form_errors.count
       error "#{errs_count} erreur#{errs_count>1 ? 's' : ''} empêchent votre candidature, merci de les corriger :"
-      # @form_errors.each{|err| error "<bigtab></bigtab>–&nbsp;#{err}"}
-      error "<ul>"+@form_errors.collect{|err|"<li>#{err}</li>"}.join('')+'</ul>'
+      errors_as_list(@form_errors)
       return false
     end
 
@@ -64,11 +64,11 @@ class << self
     @pseudo = form_data[:pseudo].nil_if_empty
     raise( "Un pseudo est requis." ) if @pseudo.nil?
     ! pseudo_exist?(@pseudo) || raise("Ce pseudo est déjà utilisé, merci d'en choisir un autre")
-    @pseudo.length < 40 || raise("Le pseudo doit faire moins de 40 caractères.")
-    @pseudo.length >= 3 || raise("Le pseudo doit faire au moins 3 caractères.")
+    @pseudo.length < 40 || raise("Ce pseudo est trop long. Il doit faire moins de 40 caractères.")
+    @pseudo.length >= 3 || raise("Ce pseudo est trop court. Il doit faire au moins 3 caractères.")
 
-    reste = @pseudo.gsub(/[a-zA-Z_\-]/,'')
-    reste == "" || raise("Le pseudo ne doit comporter que des lettres, traits plats et tirets. Il comporte les caractères interdits : #{reste.split.pretty_join}")
+    reste = @pseudo.gsub(/[a-zA-Z0-9_\-]/,'')
+    reste == "" || raise("Ce pseudo est invalide. Il ne doit comporter que lettres, chiffres, traits plats et tirets. Il comporte les caractères interdits : #{reste.split.pretty_join}")
   rescue Exception => e
     form_error e.message
   end
@@ -138,6 +138,13 @@ class << self
     unless form_data[:accept_cgu] == 'ok'
       raise("Vous devez accepter les Conditions Générales d’Utilisation (en cochant la case au-dessus du bouton de soumission).")
     end
+  rescue Exception => e
+    form_error e.message
+  end
+
+  def check_phone_number
+    @phone      = form_data[:telephone].nil_if_empty
+    @phone.nil? || @phone.length < 11 || raise('Votre numéro de téléphone est invalide.')
   rescue Exception => e
     form_error e.message
   end

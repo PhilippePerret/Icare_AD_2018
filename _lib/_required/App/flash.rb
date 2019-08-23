@@ -17,6 +17,9 @@ class App
     error.dessessionnalize
   end
 
+  def errors_as_list errs, options = nil
+    error.add("<ul>#{errs.collect{|err|"<li>#{err}</li>"}.join('')}</ul>", options)
+  end
   def error
     @error ||= ErrorDealer.new
   end
@@ -107,11 +110,4 @@ class App
       app.session
     end
   end
-end
-
-def error err, options = nil
-  app.error.add err, options
-end
-def flash mess, options = nil
-  app.notice.add mess, options
 end
