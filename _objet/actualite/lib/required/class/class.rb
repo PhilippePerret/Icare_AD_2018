@@ -18,13 +18,16 @@ class Actualite
     #         SOIT Symbol identifiant une opération type.
     #              Par exemple, :signup pour une nouvelle inscription.
     #
+    # +iuser++  L'instance éventuelle de l'user, lorsque ce n'est pas
+    #           l'user courant, identifié, qui est concerné.
     # La méthode détruit également le fichier ./_objet/site/actualites.html
     # pour forcer sa reconstruction.
     #
     # RETURN L'identifiant de la nouvelle données créée
-    def create dactu
-      dactu.instance_of?(Hash) || dactu = data_actualite_from_symbol(dactu)
-      dactu[:user_id] ||= user.id
+    def create dactu, iuser = nil
+      iuser = user if iuser.nil? && User.current?
+      dactu.instance_of?(Hash) || dactu = data_actualite_from_symbol(dactu, iuser)
+      dactu[:user_id] ||= iuser.id
       dactu[:status]  ||= 1
       dactu[:data].nil? || begin
         case dactu[:data]
@@ -39,14 +42,14 @@ class Actualite
 
     # Retourne les données de l'actualité à enregistrer en fonction
     # du symbol +sym+ (qui peut être par exemple :signup pour l'inscription)
-    def data_actualite_from_symbol sym
+    def data_actualite_from_symbol( sym, iuser)
       case sym
       when :signup
-        dactu = {message: "Inscription de <strong>#{user.pseudo}</strong>."}
+        dactu = {message: "Inscription de <strong>#{iuser.pseudo}</strong>."}
       end
       # Dans tous les cas, une actualité "symbolique" concerne l'user
-      # courant
-      dactu.merge!(user_id: user.id)
+      # courant ou l'user transmis
+      dactu.merge!(user_id: iuser.id)
     end
 
     # Méthode qui reconstruit le fichiers des derniers actualités

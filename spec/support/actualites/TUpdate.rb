@@ -7,9 +7,9 @@ class TUpdate
   # ÇA PLANTE, POUR UNE RAISON INCONNUE………………
   # include ModuleTestTimeMethodes
 
-  def initialize data
-    @data = data
-    dispatch(data)
+  def initialize instdata
+    @instdata = instdata
+    dispatch(instdata)
   end
 
   def dispatch hdata
@@ -19,16 +19,16 @@ class TUpdate
   #   Méthodes de test
   # ---------------------------------------------------------------------
   def existe options = nil
-    res = DB.getUpdate(@data)
+    res = DB.getUpdate(@instdata)
     unless res.nil?
-      @data = res
-      dispatch(@data)
+      @instdata = res
+      dispatch(@instdata)
     end
     res != nil
   end
 
-  def data
-    @data
+  def all_data
+    @instdata
   end
 
   # ---------------------------------------------------------------------
@@ -36,7 +36,7 @@ class TUpdate
   # ---------------------------------------------------------------------
 
   def ref
-    des = "l'actualité #{data.inspect}"
+    des = "l'actualité #{instdata.inspect}"
     user.nil? || des << "concernant #{user.pseudo} (##{user.id})"
     "#{des}."
   end
@@ -49,6 +49,6 @@ class TUpdate
   end
 
   def user_id
-    @user_id ||= data[:user_id]
+    @user_id ||= instdata[:user_id]
   end
 end

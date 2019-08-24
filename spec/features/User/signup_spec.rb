@@ -210,9 +210,9 @@ feature "Inscription d'un candidat à l'atelier" do
       expect(dwatcher[:data]).to eq File.basename(signup_folder)
 
       # Une actualité a dû être créée
-      dactu = {user_id:user_id, message: "Inscription de <strong>#{pseudo}</strong>"}
+      dactu = {user_id:user_id, message: "Inscription de <strong>#{pseudo}</strong>."}
       dactu = actualite_should_exist(dactu)
-      puts "--- ACTU: #{dactu.inspect}"
+      # puts "--- ACTU: #{dactu.inspect}"
 
     end
   end

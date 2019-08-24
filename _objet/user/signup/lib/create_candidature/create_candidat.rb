@@ -77,7 +77,7 @@ class User
       # qu'elle est faite avant d'avoir pris les documents et
       # les modules choisis
       site.require_objet 'actualite'
-      SiteHtml::Actualite.create(:signup)
+      SiteHtml::Actualite.create(:signup, new_user)
     end
 
     # Watcher qui permettra à l'administrateur de valider ou de refuser

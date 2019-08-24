@@ -2,9 +2,9 @@
 # Procède au test de l'existence de l'actualité et retourne
 # ses données si elle a été trouvée
 def actualite_should_exist hdata
-  update = TUpdate.new(hdata)
-  expect(update).to is_actualite
-  return update.data
+  upd = TUpdate.new(hdata)
+  expect(upd).to is_actualite
+  return upd.all_data
 end
 
 class DB
