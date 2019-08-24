@@ -12,9 +12,7 @@
 
 # +path+ depuis le dossier ./_view/img
 def image path, options = nil
-  options ||= Hash.new
-  path = (site.folder_images + path).to_s
-  path.in_image(options)
+  (site.folder_images+path).to_s.in_image(options || {})
 end
 
 # Pour afficher un gros message dans la page, comme par

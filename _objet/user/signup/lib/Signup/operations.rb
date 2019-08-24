@@ -5,11 +5,12 @@ class << self
   def traite_operation
     case params[:operation]
     when 'save_identite'
-      save_identite   && self.state = 'modules'
+      save_identite && self.state = 'modules'
     when 'save_modules'
-      save_modules    && self.state = 'documents'
+      save_modules && self.state = 'documents'
     when 'save_documents'
-      save_documents && begin
+      if save_documents
+        debug "--- L'état est mis à 'confirmation'"
         self.state = 'confirmation'
         User.create_candidature
       end

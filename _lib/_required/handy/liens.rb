@@ -20,6 +20,20 @@ Rappel : c'est un singleton, on appelle les méthodes par :
 
 =end
 DATA_LINKS = {
+  aide:{
+      text:   'aide du site',
+      href:   'aide/home',
+      target: nil,
+      title:  "Accueil de l'aide du site",
+      type:   'interne'
+  },
+  overview:{
+      text:   'aperçu de l’atelier Icare',
+      href:   'overview/home',
+      target: nil,
+      title:  'Aperçu de l’atelier Icare, témoignages, réussites, etc.',
+      type:   'interne'
+  },
   G2LN: {
       text:   "Grand Livre des Lois de la Narration",
       href:   'http://www.scenariopole.fr/download/LOIS_NARRATION_PhilPERRET.pdf',

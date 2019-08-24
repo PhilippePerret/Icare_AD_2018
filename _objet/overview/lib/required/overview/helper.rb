@@ -8,6 +8,7 @@ class Overview
     parcours:     'Parcours fictif de 3 icarien.ne.s',
     raisons:      '10 bonnes raisons de choisir l’atelier',
     temoignages:  'Les témoignages d’ancien.ne.s icarien.ne.s',
+    nom_atelier:  'Le nom de l’atelier',
     stats:        'L’atelier en chiffres'
   }
 

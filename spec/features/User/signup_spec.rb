@@ -80,6 +80,8 @@ feature "Inscription d'un candidat à l'atelier" do
   context 'avec des données valides', current: true do
     scenario 'peut s’inscrire à l’atelier' do
 
+      start_time = Time.now
+
       now = Time.now.to_i.to_s[-7..-1]
       pseudo = "UnPseudo#{now}"
       mail   = "mail#{now}@chez.lui"
@@ -134,7 +136,7 @@ feature "Inscription d'un candidat à l'atelier" do
 
       # On peut passer à la deuxième étape de l'inscription : le
       # choix du module
-      expect(page).to have_css('h2', {text: 'Modules optionnés'})
+      expect(page).to have_css('h2', {text: 'Modules d’apprentissage optionnés (2/4)'})
       within('form#form_modules') do
         check('signup_modules[2]') # Documents
         check('signup_modules[4]') # Personnages
@@ -158,14 +160,14 @@ feature "Inscription d'un candidat à l'atelier" do
       motivation_name   = 'ma motivation.odt'
       presentation_path = File.expand_path(File.join('.','spec','asset','document',presentation_name))
       motivation_path   = File.expand_path(File.join('.','spec','asset','document',motivation_name))
-      expect(page).to have_css('h2', text: 'Documents de candidature')
+      expect(page).to have_css('h2', text: 'Documents de candidature (3/4)')
       within('form#form_documents') do
         attach_file('signup_documents[presentation]', presentation_path)
         attach_file('signup_documents[motivation]', motivation_path)
         click_button('Enregistrer la candidature')
       end
 
-      sleep 30
+      # sleep 30
 
       # Aucune erreur n'a été rencontrée
       expect(page).not_to have_css('div#flash div#errors')
@@ -186,8 +188,20 @@ feature "Inscription d'un candidat à l'atelier" do
       expect(File.exists?(extraits_signup_path)).to be false
 
       # On se retrouve sur la page de confirmation de l'inscription
-      expect(page).to have_css('h2', text: 'Confirmation de votre candidature')
+      expect(page).to have_css('h2', text: 'Confirmation du dépôt (4/4)')
 
+      # On doit vérifier que tout a été bien été créé
+      # ---------------------------------------------
+
+      # L'enregistrement pour l'user, avec les bons options
+      res = DB.execute("SELECT * FROM icare_users.users WHERE created_at > ?", [start_time])
+      d = nil
+      res.each do |h|
+        puts "---- h: #{h.pretty_inspect}"
+        d = h
+      end
+      expect(d[:pseudo]).to eq pseudo
+      user_id = d[:id]
       # TODO Un watcher a été créé pour l'administrateur
       # TODO Un watcher a été créé pour le candidat
     end

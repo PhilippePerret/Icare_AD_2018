@@ -1,4 +1,14 @@
 # encoding: UTF-8
+=begin
+
+  Extension String pour les code HTML
+  version 1.0.1
+
+  # version 1.0.1
+    Développement de la méthode `in_image` pour traiter le cas où
+    il y a une légende fournie.
+
+=end
 class String
 
   ##
@@ -349,12 +359,20 @@ class String
     attrs.merge!( src: self ) unless self == "" || attrs.has_key?(:src)
     legend        = attrs.delete(:legend)
     if legend
-      legend_class  = attrs.delete(:legend_class) || 'img_legend'
-      div_class     = attrs.delete(:div_class)    || 'img_cadre'
+      legend_class  = attrs.delete(:legend_class) || []
+      legend_class = [legend_class] unless legend_class.is_a?(Array)
+      legend_class << 'legend'
+      div_class     = attrs.delete(:div_class)    || []
+      div_class = [div_class] unless div_class.is_a?(Array)
+      div_class << 'image-with-legend'
     end
     centrer_image   = attrs.delete(:center)
     with_air        = attrs.delete(:air)
     image_flottante = attrs.delete(:float)
+    if attrs[:size]
+      attrs[:style] ||= ''
+      attrs[:style] << "width:#{attrs.delete(:size)}"
+    end
 
     ##
     ## Le tag IMG
@@ -363,11 +381,14 @@ class String
 
     ##
     ## S'il y a une légende
+    ## (il faut alors mettre le tout dans un cadre (qui sera flottant
+    ##  si l'image doit être flottante))
     ##
     tag = if legend
-      div_legend = legend.in_div(class: legend_class)
-      div_image  = tag_img.in_div
-      (div_image + div_legend).in_div(class: div_class)
+      div_legend = legend.in_div(class: legend_class.join(' '))
+      div_image  = tag_img.in_div(class: 'image')
+      div_class << "f#{image_flottante}" if image_flottante
+      (div_image + div_legend).in_div(class: div_class.join(' '))
     else
       tag_img
     end
@@ -379,12 +400,16 @@ class String
     ##
     ## Si l'image doit être centrée ou floattant
     ##
-    if centrer_image
-      tag.in_div(class: css.join(' '))
-    elsif image_flottante != nil
-      tag.in_div(class: "air f#{image_flottante}")
-    else
+    if legend
       tag
+    else
+      if centrer_image
+        tag.in_div(class: css.join(' '))
+      elsif image_flottante != nil
+        tag.in_div(class: "f#{image_flottante}")
+      else
+        tag
+      end
     end
   end
   alias :in_img :in_image

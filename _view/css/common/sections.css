@@ -1,1 +1,1 @@
-section#page-contents{padding:1em 2em;max-width:38rem}
+section#page-contents{padding:1em 2em}section#page-contents:not(.home){max-width:38rem}

@@ -1,3 +1,5 @@
+@charset "utf-8"
+  
 // Module principal pour les types documents
 
 section.document, div.document_legend
@@ -37,17 +39,17 @@ section.document, pre.document
   margin-top        : 2em
   margin-bottom     : 2em
   background-color  : #EDFDF2
-  
+
 // La class principale
 section.document
   padding           : 2.1em 2.4em
   border            : 1px solid #8d8d8d
   line-height       : 1.3em !important
-    
+
   &.events, &.evenemencier
     font-family       : courier
     font-size         : 0.95em
-  
+
   h1, h2, h3
     text-align      : left
   h1
@@ -64,7 +66,7 @@ section.document
     font-weight     : bold !important
     margin          : 0.5em 0 0.3em !important
     color           : black !important
-  
+
   p, div.p
     margin-left     : 0em
   p, div
@@ -80,12 +82,12 @@ section.document
       margin-left       : 7.5em
     &.rtt6
       margin-left       : 9em
-  
+
   // Propre au type "brut"
   &.raw
     white-space       : pre
     font-family       : monospace
-    
+
   // Propre au type évènemencier
   &.events
     div.e
@@ -94,7 +96,7 @@ section.document
       position        : absolute
       left            : -1em
       top             : 0
-      
+
   // Propre au type SCÉNARIO
   &.scenario
     div.intitule, div.personnage
@@ -133,12 +135,12 @@ section.document
         color       : #777
       &:after
         content     : ")"
-      
+
 // La légende (optionnelle) du document ou d'une image
-div.document_legend, div.img_legend
+div.document_legend
   font-size           : 0.75em
   font-style          : italic
   text-align          : center
-  
+
 div.document_legend
   margin-top          : -2em

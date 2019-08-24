@@ -1,17 +1,10 @@
 # encoding: UTF-8
 class Signup
-
-  DATA_STATES = {
-    identite:     {hname: 'Informations personnelles', numero: 1},
-    modules:      {hname: 'Choix des modules d’apprentissage', numero: 2},
-    documents:    {hname: 'Documents de présentation', numero: 3},
-    confirmation: {hname: 'Confirmation du dépôt', numero: 4}
-  }
-
 class << self
 
   # Retourne le code HTML de la page courante
   def current_page
+    debug "--> current_page / state = #{state}"
     case state
     when NilClass, 'identite'
       page_form_identite

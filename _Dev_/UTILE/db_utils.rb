@@ -43,7 +43,7 @@ class << self
   def client_data
     @client_data ||= begin
       require './data/secret/mysql'
-      DATA_MYSQL[OFF_OR_ON]
+      DATA_MYSQL[ON_OR_OFF]
     end
   end
 end #<< self
