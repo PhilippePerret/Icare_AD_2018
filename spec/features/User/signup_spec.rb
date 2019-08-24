@@ -193,17 +193,27 @@ feature "Inscription d'un candidat à l'atelier" do
       # On doit vérifier que tout a été bien été créé
       # ---------------------------------------------
 
-      # L'enregistrement pour l'user, avec les bons options
-      res = DB.execute("SELECT * FROM icare_users.users WHERE created_at > ?", [start_time])
-      d = nil
-      res.each do |h|
-        puts "---- h: #{h.pretty_inspect}"
-        d = h
-      end
-      expect(d[:pseudo]).to eq pseudo
-      user_id = d[:id]
-      # TODO Un watcher a été créé pour l'administrateur
-      # TODO Un watcher a été créé pour le candidat
+      # Aucun enregistrement n'a été fait dans la base
+      res = DB.execute("SELECT * FROM icare_users.users WHERE created_at > ?", [start_time.to_i])
+      expect(res).not_to be_empty
+      duser = res.first
+      expect(duser[:pseudo]).to eq pseudo
+      expect(duser[:mail])  .to eq mail
+      user_id = duser[:id]
+
+      # Un watcher a été créé pour l'administrateur
+      dwatcher = {user_id:user_id, objet:'user', objet_id:user_id, processus:'valider_inscription'}
+      dwatcher = watcher_should_exist(dwatcher)
+      # puts "---DWATCHER: #{dwatcher.inspect}"
+      session_id = dwatcher[:data]
+      # Ça doit être le nom du dossier
+      expect(dwatcher[:data]).to eq File.basename(signup_folder)
+
+      # Une actualité a dû être créée
+      dactu = {user_id:user_id, message: "Inscription de <strong>#{pseudo}</strong>"}
+      dactu = actualite_should_exist(dactu)
+      puts "--- ACTU: #{dactu.inspect}"
+
     end
   end
 end

@@ -26,17 +26,45 @@ class << self
       puts "\n\nRequête simulée: #{request}"
       puts "VALUES: #{values.inspect}"
     else
-      prepared_statement(request).execute(*values, {symbolize_keys: true})
+      res = prepared_statement(request).execute(*values, {symbolize_keys: true})
+      res.collect{|r|r}
     end
   end
   # Pour forcer l'exécution de la requête, lorsque l'on est
   # en mode simulation.
   def force_execute request, values = nil
-    prepared_statement(request).execute(*values, {symbolize_keys: true})
+    res = prepared_statement(request).execute(*values, {symbolize_keys: true})
+    res.collect{|r|r}
   end
   def prepared_statement(request)
     client.prepare(request)
   end
+
+  # Récupère un résultat dans la table +table+
+  # Si +foo+ est un integer, on le prend comme identifiant, sinon, si c'est
+  # c'est un Hash, on le prend comme liste de valeurs filtre.
+  def get table, foo
+    case foo
+    when Integer
+      condis = ['id = ?']
+      values = [foo]
+    when Hash
+      condis = []
+      values = []
+      foo.each do |k, v|
+        condis << "#{k} = ?"
+        values << v
+      end
+    else
+      raise "Impossible d'obtenir une rangée dans la base de données à l'aide d'autre chose qu'un entier (définissant l'identifiant) ou une table de données (Hash)."
+    end
+    force_execute("SELECT * FROM #{table} WHERE #{condis.join(' AND ')}", values)
+  end
+  # Comme précédente mais ne renvoie que le premier résultat (ou le seul)
+  def getOne(table, foo)
+    get(table,foo).first
+  end
+
   def client
     @client ||= Mysql2::Client.new(client_data)
   end

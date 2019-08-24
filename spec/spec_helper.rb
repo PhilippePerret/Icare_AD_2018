@@ -13,6 +13,9 @@
 # it.
 #
 
+require './_lib/required'
+
+Dir["./spec/support/__first_required__/**/*.rb"].each{|m| require m}
 Dir["./spec/support/**/*.rb"].each{|m| require m}
 
 require 'capybara/rspec'
@@ -24,7 +27,6 @@ require 'capybara/dsl'
 Capybara.default_driver = :rack_test
 Capybara.default_driver = :selenium_chrome
 
-require './_lib/required'
 
 LOCAL_HOME    = 'localhost/AlwaysData/Icare_AD_2018'
 DISTANT_HOME  = 'www.atelier-icare.net'
