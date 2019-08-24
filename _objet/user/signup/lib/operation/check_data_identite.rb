@@ -16,7 +16,7 @@ class << self
 
     @form_errors = []
 
-    debug "form_data = #{form_data.pretty_inspect}"
+    # debug "form_data = #{form_data.pretty_inspect}"
 
     # Validité du PSEUDO
     check_pseudo

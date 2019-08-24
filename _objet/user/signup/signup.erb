@@ -1,32 +1,8 @@
 <%# Inscription à l'atelier %>
+<%= Signup.titre_h1(Signup.current_page_subtitle) %>
 
-<h1>Poser sa candidature</h1>
+<% Signup.redirect_to_profil if user.identified? %>
 
-<%
+<% Signup.traite_operation %>
 
-if user.identified?
-  flash("Vous êtes déjà inscrit#{user.f_e} à l'atelier Icare, #{user.pseudo} !")
-  site.redirect_to('user/profil')
-end
-
-#
-# Traitement de l'opération courante, en fonction du state
-#
-Signup.traite_operation
-
-%>
-
-<%=
-  #
-  # Construction du bandeau indiquant l'étape courante et
-  # permettant de revenir en arrière
-  #
-  Signup.bandeau_states
-%>
-
-<%=
-  #
-  # Affichage de la page courante
-  #
-  Signup.current_page
-%>
+<%= Signup.current_page %>
