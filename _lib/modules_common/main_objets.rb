@@ -27,7 +27,7 @@ module MethodesMainObjet
   def titre_h1 sous_titre = nil, options = nil
     page.title = titre
     div = titre.in_h1
-    div << onglets.in_div(class:"", id:'navBarBureau') if data_onglets?
+    div << onglets.in_div(class:"", id:'navBarSection') if data_onglets?
     div << sous_titre.in_h2 if sous_titre
     return div
   end
