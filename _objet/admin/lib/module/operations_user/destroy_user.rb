@@ -145,7 +145,7 @@ class Admin
           @user_id      = @short_value
         else
           short_value.to_s == icarien_id.to_s ||
-            raise('Pour détruire un icarien, il faut que l’ID dans le champ court corresponde à l’icarien(ne) choisi(e) dans le menu. Si l’icarien ne se trouve pas dans le menu, mettre un « S » devant l’identifiant dans le champ court.')
+            raise('Pour détruire un icarien, il faut que l’ID dans le champ court corresponde à l’icarien(ne) choisi(e) dans le menu. Si l’icarien ne se trouve pas dans le menu, mettre un <q>S » devant l’identifiant dans le champ court.')
         end
 
         # Ne surtout pas le mettre ci-dessus, `user` serait toujours le même

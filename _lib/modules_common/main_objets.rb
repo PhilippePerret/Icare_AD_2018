@@ -22,36 +22,25 @@ module MethodesMainObjet
   # ---------------------------------------------------------------------
 
 
-  # Les nouvelles méthodes pour Bootstrap
+  # Retourne un titre et un sous-titre formatés, ainsi que des onglets
+  # si la page en possède.
   def titre_h1 sous_titre = nil, options = nil
     page.title = titre
-    (
-      # titre.in_div(class: 'navbar-brand big') +
-      # titre.in_h1(class: 'navbar-brand big') +
-      titre.in_h1() +
-      collapse_button +
-      onglets.in_div(class:'collapse navbar-collapse', id:'navBarBureau')
-    ).in_nav(class: 'navbar navbar-expand-lg navbar-light bg-light') +
-    sous_titre_displayed(sous_titre)
+    div = titre.in_h1
+    div << onglets.in_div(class:"", id:'navBarBureau') if data_onglets?
+    div << sous_titre.in_h2 if sous_titre
+    return div
   end
 
-  def collapse_button
-    <<-HTML
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navBarBureau" aria-controls="navBarBureau" aria-expanded="true" aria-label="Barre de navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    HTML
-  end
-
-  def sous_titre_displayed sous_titre
-    sous_titre ? sous_titre.in_h2 : ''
+  # Return true si des onglets sont définis
+  def data_onglets?
+    !(data_onglets.empty? || data_onglets.nil?)
   end
 
   # Onglet dans la version responsive, avec un nav bar
   # Dans l'objet, définir la méthode `data_onglets` retournant
   # les données des onglets en fonction du context
   def onglets
-    (data_onglets.empty? || data_onglets.nil?) && (return '')
     data_onglets.collect do |ong_titre, ong_route|
       css_active = site.current_route?(ong_route) ? ' active' : ''
       ong_titre.in_a(href:ong_route, class: "nav-item nav-link#{css_active}")

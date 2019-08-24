@@ -4,7 +4,7 @@ Les menus `myselect` sont des menus qui fonctionnent par CSS et permette une mei
 
 ## Implantation des menus `myselect`
 
-On implante les menus `myselect` comme les autres, à partir d'un `Array` de paire « value - titre ». Mais au lieu d'utiliser la méthode `in_select`, on utilise `in_my_select`.
+On implante les menus `myselect` comme les autres, à partir d'un `Array` de paire <q>value - titre</q>. Mais au lieu d'utiliser la méthode `in_select`, on utilise `in_my_select`.
 
 Par exemple :
 

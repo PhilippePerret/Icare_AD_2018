@@ -100,7 +100,7 @@ class << self
       site.require_objet 'actualite'
       SiteHtml::Actualite.create(
         user_id: owner.id,
-        message: "<strong>#{owner.pseudo}</strong> envoie le document « #{bonne_longueur_nom(document_name)} » pour l’#{icetape.designation}."
+        message: "<strong>#{owner.pseudo}</strong> envoie le document <q>#{bonne_longueur_nom(document_name)}</q> pour l’#{icetape.designation}."
         )
     end
 

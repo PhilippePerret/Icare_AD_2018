@@ -1,18 +1,37 @@
-section#content
-  h1, h2, h3
-    font-family       : inherit
-    font-size         : inherit
-    font-variant      : inherit
-    font-weight       : normal !important
-    text-align        : left
+@charset "utf-8"
+
+h1, h2, h3, h4, h5, h6, h7
+  font-weight: normal
+  font-family: inherit
+  text-align: left
+h3
+  font-weight: bold
+
+section, div.content
+  // Titre
+  h1
+    font-size       : 2em
+    margin-bottom   : 1.5em
+    margin-top      : 0
+  h2
+    font-size       : 1.6em !important
+    margin-bottom   : 1.3em !important
+  h3
+    font-size       : 1.2em !important
+    margin-top      : 1.4em !important
+    margin-bottom   : 1em !important
+  h4
+    font-size       : 1.4em !important
+    color           : #555
+  h5
+    font-size       : 1.3em !important
+
+section#page-contents
   h1
     letter-spacing    : 4.8px
     margin-top        : 0.6em
     margin-bottom     : 0
-    font-size         : 2.1em
-    font-weight       : normal !important
-    color             : #578088 // #969273
-    text-shadow       : 4px 4px #d9d9d9
+    color             : #51725d
     a
       font-size         : inherit !important
       font-family       : inherit !important
@@ -46,3 +65,7 @@ p.titre, div.titre
   font-size       : 1.2em
   margin-bottom   : 1.3em
   font-weight     : bold
+
+
+h1 + ul.onglets
+  margin-top    : 0 !important

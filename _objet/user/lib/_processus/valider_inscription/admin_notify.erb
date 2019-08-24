@@ -49,7 +49,7 @@ lien_charger_documents = 'Download présentation'.in_a(href: "admin/operation?op
   form do
     "Attribuer à <strong>#{owner.pseudo}</strong> (##{owner.id}) le module :".in_div +
     menu_modules.in_div(class:'right') +
-    '<div class="small">(les modules choisis par le candidat sont entre « *** »)</div>' +
+    '<div class="small">(les modules choisis par le candidat sont entre <q>***</q>)</div>' +
     "<div id=\"#{id_div_refus}\" style='display:none'>" +
       "Ou refuser l'inscription au motif de :".in_div +
       ("".in_textarea(id: 'motif_refus', name: 'refus[motif]')).in_div(id: 'div_motif_refus') +
