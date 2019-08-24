@@ -1,11 +1,19 @@
 # encoding: UTF-8
 =begin
 
+CLASSE Link
+===========
+
+  Link.to(<id lien>[, texte lien][, attributes])
+
+  attributes[:full_url] => on retourne le lien complet, par exemple pour un
+  mail.
+
 # Si un lien est ajouté, il faut l'ajouter aussi à la section
 # liens de l'aide : ./_lib/console/app/help_app.yml
 
-Extension de la classe Lien, pour l'application courante
-
+CLASSE Lien
+===========
 Rappel : c'est un singleton, on appelle les méthodes par :
 
     lien.<nom méthode>[ <args>]
@@ -25,6 +33,27 @@ DATA_LINKS = {
       target: :new,
       title:  "La collection Narration en version numérique",
       type:   'externe'
+  },
+  boa: {
+      text:   "Boite à Outils de l'Auteur",
+      href:   "http://www.laboiteaoutilsdelauteur.fr",
+      target: :new,
+      title:  "La boite à outils de l'auteur",
+      type:   'externe'
+  },
+  scenariopole: {
+      text:   "Scénariopole",
+      href:   "http://www.scenariopole.fr",
+      target:  :new,
+      title:  "Scénariopole, le site du scénario",
+      type:   'externe'
+  },
+  bureau: {
+      text:   "votre bureau",
+      href:   "bureau/home",
+      target: nil,
+      title:  "Votre bureau de travail sur l'atelier icare",
+      type:   'interne'
   }
 
 }
@@ -51,13 +80,30 @@ class Link
     text.in_a(full_attributes)
   end
   def full_attributes
-    attrs.merge!(target: target)
-    attrs.merge!(title: title)
+    attrs.merge!(target:  target)
+    attrs.merge!(title:   title)
+    attrs.merge!(href:    href)
     return attrs
   end
   def text    ; @text   ||= defOrAttr(:text)    end
   def target  ; @target ||= defOrAttr(:target)  end
   def title   ; @title  ||= defOrAttr(:title)   end
+  def href
+    @href ||= begin
+      ref = data[:href]
+      if interne? && full_url?
+        ref = "http://#{site.distant_host}/#{ref}"
+      end
+      ref
+    end
+  end
+
+  def interne?
+    data[:interne] === true
+  end
+  def full_url
+    attrs[:full_url] === true
+  end
 
   def defOrAttr(prop)
     attrs[prop] || data[prop]
@@ -71,9 +117,8 @@ class Lien
     Link.to(:narration, attrs)
   end
 
-  # Lien vers le bureau
-  def bureau titre = 'bureau', options = nil
-    build "bureau/home", titre, options
+  def bureau titre = nil, attrs = nil
+    Link.to(:bureau, titre, attrs)
   end
 
   def profil titre = 'profil', options = nil
