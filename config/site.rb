@@ -33,7 +33,7 @@ site.logo_title = "Atelier Icare"
 # Le mail pour le paramètre `:to` de l'envoi de mail notamment, ou
 # pour écrire les infos à propos du site
 site.mail                 = "phil@atelier-icare.net"
-site.mail_before_subject  = "ICARE — "
+site.mail_before_subject  = "[ICARE] "
 site.mail_signature       = "<p>#{site.name}</p>"
 # Liste des mails à éviter, qui correspondent à des users qui
 # ont changé d'adresse sans le signaler.

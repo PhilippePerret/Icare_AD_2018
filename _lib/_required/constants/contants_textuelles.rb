@@ -5,3 +5,5 @@ NON = "<span class='warning'>NON</span>"
 
 
 HTML_SEPARATOR = '<div style="clear:both"></div>'
+
+PICTO_MAIL = '📧'

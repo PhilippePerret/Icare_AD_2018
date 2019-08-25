@@ -77,8 +77,8 @@ module MailModuleMethods
   # ---------------------------------------------------------------------
   # Le message complet final
   # ------------------------
-  def message
-    "From: <#{from}>\nTo: <#{to}>\nMIME-Version: 1.0\nContent-type: text/html; charset=UTF-8\nSubject: #{subject}\n\n#{code_html}"
+  def fmessage
+    "From: <#{from}>\nTo: <#{to}>\nMIME-Version: 1.0\nContent-type: text/html; charset=UTF-8\nSubject: #{fsubject}\n\n#{code_html}"
   end
 
   # ----------------------------------------------------------------------
@@ -108,15 +108,26 @@ module MailModuleMethods
   def title
     @title ||= "<title>#{subject}</title>"
   end
-  # Pour le sujet du message
+
+  # Le sujet tel qu'envoyé dans les données (non formaté)
   def subject
-    @subject ||= "(sans sujet)"
-    if @no_header_subject.nil?
-      "#{header_subject}#{@subject}"
-    else
-      @subject
+    @subject
+  end
+
+  def full_subject
+    @full_subject ||= begin
+      suj = subject || "(sans sujet)"
+      @no_header_subject.nil? ? "#{header_subject}#{suj}" : suj
     end
   end
+
+  # Le sujet codé en unicode, pour n'avoir aucun caractère spécial gênant
+  def fsubject
+    @fsubject ||= begin
+      full_subject.gsub(SiteHtml::Mail.specialCharsInSubject, SiteHtml::Mail.regSubjectReplacement)
+    end
+  end
+
   def content_type
     if get_class(:content_type).nil?
       set_class(:content_type, '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>')
@@ -152,25 +163,11 @@ module MailModuleMethods
     'font-size:1rem;padding:1rem;'
   end
 
-  # # Le corps du message du mail
-  # def body
-  #   c = header + (
-  #       message_formated  +
-  #       signature         +
-  #       footer
-  #     ).in_div(id:'message_content')
-  #   # Si le body style est défini, on met le code dans un div
-  #   # contenant ce body style.
-  #   c = c.in_div(style: SiteHtml::Mail.body_style) if SiteHtml::Mail.respond_to?(:body_style)
-  #   return c
-  # end
-
   # / Sous-sous-méthodes
   # ---------------------------------------------------------------------
 
   # ---------------------------------------------------------------------
   #   Sous-sous-sous méthodes de construction du message
-
 
   def header
     @data[:no_header] && (return '')
@@ -182,7 +179,7 @@ module MailModuleMethods
 
   def header_subject
     if get_class(:header_subject).nil?
-      set_class(:header_subject, site.mail_before_subject ? "#{site.mail_before_subject} " : "" )
+      set_class(:header_subject, site.mail_before_subject ? site.mail_before_subject : "" )
     end
     get_class :header_subject
   end
@@ -239,8 +236,15 @@ module MailModuleMethods
   end
 end # /fin module MailModuleMethods
 
+#
+# ---------------------------------------------------------------------
+#
+#   L'INSTANCE MAIL
+#
+
 class SiteHtml
   class Mail
+
     include MailModuleMethods
 
     # Les données SMTP pour l'envoi des mails
@@ -305,12 +309,67 @@ class SiteHtml
     # doit forcer l'envoyer même en offline.
     def send
       if self.class.respond_to?(:send_offline)
-        self.class.send_offline data.merge(subject: subject, to: to, from: from, message: message)
+        now = Time.now.to_i
+        self.class.send_offline data.merge(
+            fsubject:       fsubject,          # Le sujet formaté
+            full_subject:   full_subject, # Le sujet avec l'entête éventuelle (p.e. '[ICARE] ')
+            subject:        subject,      # Le sujet tel que transmis
+            to:             to,
+            from:           from,
+            message:        @message,      # Le message tel que transmis à la méthode
+            fmessage:       fmessage,    # Le message formaté
+            sent_at:        now
+          )
       end
       if self.class.online? || @force_offline
-        self.class.send message, to, from
+        self.class.send( fmessage, to, from)
       end
     end
 
-  end
-end
+    # ---------------------------------------------------------------------
+    #   POUR CORRIGER LE SUJET
+
+    # Cf. http://www.fileformat.info/info/unicode/char/00f4/index.htm
+    #     http://www.fileformat.info/info/unicode/category/Po/list.htm
+    REAL_LETTER_TO_SUBJECT_CODE = {
+      'ç' => 'A7', # -> =C3=A7
+      'Ç' => '87',
+      'é' => 'A9',
+      'É' => '89',
+      'è' => 'A8',
+      'ê' => 'AA',
+      'ë' => 'AB',
+      'Ê' => '8A',
+      'à' => 'A0',
+      'â' => 'A2',
+      'æ' => 'A6',
+      'Â' => '82',
+      'Ô' => '94',
+      'ô' => 'F4',
+      'ö' => 'B6',
+      'Œ' => ['C5','92'],
+      'œ' => ['C5','93'],
+      'ù' => 'B9',
+      'û' => 'BB',
+      'ü' => 'BC',
+      'Ù' => '99',
+      'Û' => '9B',
+      'î' => 'AE',
+      'ï' => 'AF',
+      '…' => ['E2','80','A6'],
+    }
+    def self.regSubjectReplacement
+      @regSubjectReplacement ||= begin
+        hrep = {}
+        REAL_LETTER_TO_SUBJECT_CODE.each do |letter, co|
+          hrep.merge!(letter => co.is_a?(String) ? "=C3=#{co}" : co.collect{|oc|"=#{oc}"}.join(''))
+        end
+        hrep
+      end
+    end
+    def self.specialCharsInSubject
+      @specialCharsInSubject ||= /[#{REAL_LETTER_TO_SUBJECT_CODE.keys.join('')}]/
+    end
+
+  end #/Mail
+end #/SiteHtml

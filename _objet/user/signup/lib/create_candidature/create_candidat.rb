@@ -110,7 +110,7 @@ class User
     debug "[User#create] Sauvegarde des données OK"
     self.send_mail_confirmation_mail  || return
     debug "[User#create] Envoi du mail de confirmation OK"
-    self.send_mail_bienvenue          || return
+    self.send_mail_confirmation_candidature || return
     debug "[User#create] Envoi du mail de bienvenue OK"
     self.send_mail_annonce_admin      || return
     debug "[User#create] Envoi du mail d'annonce à l'administrateur OK"
@@ -130,7 +130,7 @@ class User
   def send_mail_confirmation_mail
     send_mail(
       subject: 'Merci de confirmer votre mail',
-      message: (this_folder+'mail_confirmation.erb').deserb(self),
+      message: (this_folder+'mail_confirm_mail.erb').deserb(self),
       formated: true
     )
   rescue Exception => e
@@ -143,10 +143,10 @@ class User
 
   # On envoie un mail à l'utilisateur pour confirmer son
   # inscription.
-  def send_mail_bienvenue
+  def send_mail_confirmation_candidature
     self.send_mail(
-      subject:    'Bienvenue !',
-      message:    (this_folder+'mail_bienvenue.erb').deserb(self),
+      subject:    'Confirmation de votre candidature',
+      message:    (this_folder+'mail_confirm_candidature.erb').deserb(self),
       formated:   true
     )
   rescue Exception => e
@@ -168,6 +168,7 @@ class User
   rescue Exception => e
     debug "### PROBLÈME À L'ENVOI DU MAIL D'ANNONCE DE NOUVELLE INSCRIPTION"
     debug e
+    false
   end
 
   # Méthode qui sauve toutes les données de l'user d'un coup

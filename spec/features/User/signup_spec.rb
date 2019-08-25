@@ -24,7 +24,7 @@ def get_last_signup_folder
   end
 end
 
-feature "Inscription d'un candidat à l'atelier" do
+feature "Inscription d'un candidat à l'atelier", current: true do
   before(:all) do
     reset_signup_folder
   end
@@ -77,7 +77,7 @@ feature "Inscription d'un candidat à l'atelier" do
     end
   end
 
-  context 'avec des données valides', current: true do
+  context 'avec des données valides' do
     scenario 'peut s’inscrire à l’atelier' do
 
       start_time = Time.now
@@ -167,8 +167,6 @@ feature "Inscription d'un candidat à l'atelier" do
         click_button('Enregistrer la candidature')
       end
 
-      # sleep 30
-
       # Aucune erreur n'a été rencontrée
       expect(page).not_to have_css('div#flash div#errors')
       # Un fichier contient les données des documents
@@ -214,6 +212,33 @@ feature "Inscription d'un candidat à l'atelier" do
       dactu = actualite_should_exist(dactu)
       # puts "--- ACTU: #{dactu.inspect}"
 
+      # Un mail a dû être envoyé à l'administrateur pour l'informer du dépôt
+      dmail = {to:site.mail, fsubject:'[ICARE] Nouvelle inscription', after:start_time}
+      inst_mail = mail_should_have_been_sent(dmail)
+      # puts "---> mail trouvé : #{inst_mail}"
+
+      # Le mail de confirmation du dépôt de candidature
+      dmail = {to:mail, from:site.mail, after:start_time, fsubject:'[ICARE] Confirmation de votre candidature'}
+      inst_mail = mail_should_have_been_sent(dmail)
+
+      # Récupération du dernier ticket pour l'user, qui doit exister
+      request = "SELECT * FROM icare_hot.tickets WHERE user_id = ? AND created_at > ?"
+      ticket = DB.execute(request, [user_id, start_time.to_i]).first
+      # puts "--- ticket remonté : #{ticket.inspect}"
+      expect(ticket).not_to be_nil
+      # Le code du ticket doit être bon
+      expect(ticket[:code]).to eq "User::get(#{user_id}).confirm_mail"
+      ticket_id = ticket[:id]
+
+      # Un mail a dû être envoyé au candidat pour valider son email
+      dmail = {to:mail, from:site.mail, after:start_time, fsubject:'[ICARE] Merci de confirmer votre mail',
+        fcontent: [mail, 'Confirmation de votre mail', "href=\"#{site.distant_url}?tckid=#{ticket_id}\""]}
+      inst_mail = mail_should_have_been_sent(dmail)
+      # puts "---> mail trouvé : #{inst_mail}"
+
+      # L'user repasse par l'accueil pour trouver l'annonce de son inscription
+      visit '/'
+      expect(page).to have_css('ul#last_actualites li.actu', text: "Inscription de #{pseudo}")
     end
   end
 end

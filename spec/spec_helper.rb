@@ -12,6 +12,7 @@
 # the additional setup, and require it from the spec files that actually need
 # it.
 #
+VERBOSE = true
 
 require './_lib/required'
 
@@ -38,6 +39,8 @@ RSpec.configure do |config|
 
   config.include Features::SessionHelpers, type: :feature
   config.include Capybara::DSL
+
+  config.include TMailMatchers::Matchers
 
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
@@ -136,6 +139,7 @@ RSpec.configure do |config|
 
   config.before :suite do
     app.set_mode_test
+    reset_mails # vide le dossier des mails
   end
   config.after :suite do
     app.unset_mode_test

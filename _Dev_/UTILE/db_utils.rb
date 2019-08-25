@@ -51,6 +51,14 @@ class << self
     when Hash
       condis = []
       values = []
+      if foo.key?(:after)
+        condis << "created_at > ?"
+        values << foo.delete(:after)
+      end
+      if foo.key?(:before)
+        condis << "created_at < ?"
+        values << foo.delete(:before)
+      end
       foo.each do |k, v|
         condis << "#{k} = ?"
         values << v

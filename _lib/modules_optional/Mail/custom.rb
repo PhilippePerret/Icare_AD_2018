@@ -86,14 +86,16 @@ div#citation span#quote_auteur{
     # Méthode pour recevoir l'envoi si on est en OFFLINE
     # Permet d'écrire le message dans un tampon pour pouvoir
     # l'analyser au cours du test
-    def send_offline hash_data_message_plus
-      hash_data_message_plus.merge!(created_at: Time.now.to_i)
+    def send_offline mail_data
+      require 'yaml'
       # debug "Mail qui aurait été envoyé : "
-      # debug hash_data_message_plus.pretty_inspect
-      tmp_mail_path.write Marshal.dump(hash_data_message_plus)
-    end
-    def tmp_mail_path
-      tmp_mails_folder + tmp_mail_name
+      # debug mail_data.pretty_inspect
+      # (tmp_mails_folder+"mail-#{now}.msh").write Marshal.dump(mail_data)
+      imail = 0
+      begin
+        imail += 1
+      end while ((tmp_mails_folder+"mail-#{mail_data[:sent_at]}-#{imail}.yaml")).exists?
+      (tmp_mails_folder+"mail-#{mail_data[:sent_at]}-#{imail}.yaml").write YAML.dump(mail_data)
     end
     def tmp_mails_folder
       @tmp_mails_folder ||= begin
@@ -101,19 +103,6 @@ div#citation span#quote_auteur{
         fd.exist? || fd.build
         fd
       end
-    end
-    # Retourne un numéro pour le mail unique par
-    # rapport à ceux qui se trouvent déjà dans le dossier
-    # des mails (qui doit donc être régulièrement vidé)
-    def tmp_mail_name
-      mail_name = nil
-      @imail ||= 0
-      begin
-        @imail += 1
-        imailj = "#{@imail}".rjust(4,"0")
-        mail_name = "mail#{imailj}.msh"
-      end while (tmp_mails_folder + mail_name).exist?
-      mail_name
     end
 
   end # << self
