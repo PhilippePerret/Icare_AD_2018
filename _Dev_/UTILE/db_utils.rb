@@ -40,6 +40,11 @@ class << self
     client.prepare(request)
   end
 
+  # Retourne le nombre d'élément dans la table +table_name+
+  def count table_name
+    execute("SELECT COUNT(*) FROM #{table_name}").first[:"COUNT(*)"]
+  end
+
   # Récupère un résultat dans la table +table+
   # Si +foo+ est un integer, on le prend comme identifiant, sinon, si c'est
   # c'est un Hash, on le prend comme liste de valeurs filtre.

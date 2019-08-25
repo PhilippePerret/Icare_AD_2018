@@ -24,21 +24,25 @@ def get_last_signup_folder
   end
 end
 
-feature "Inscription d'un candidat à l'atelier", current: true do
+feature "Inscription d'un candidat à l'atelier" do
   before(:all) do
     reset_signup_folder
   end
   context 'sans soumettre aucune donnée' do
-    scenario 'ne peut pas candidater à Icare' do
-      visit '/'
-      click_link("S’INSCRIRE")
-      nombre_inscriptions = signups_count
-      expect(page).to have_css('h1', text:'Poser sa candidature')
-      expect(page).to have_button('Enregistrer et poursuivre l’inscription')
-      click_button('Enregistrer et poursuivre l’inscription')
-      screenshot('signup-erreurs')
-      # Aucun dossier inscription ne doit avoir été construit
-      expect(signups_count).not_to eq(nombre_inscriptions + 1)
+    scenario 'ne peut pas candidater à Icare', current: true do
+
+      expect {
+        visit '/'
+        click_link("S’INSCRIRE")
+        nombre_inscriptions = signups_count
+        expect(page).to have_css('h1', text:'Poser sa candidature')
+        expect(page).to have_button('Enregistrer et poursuivre l’inscription')
+        click_button('Enregistrer et poursuivre l’inscription')
+        screenshot('signup-erreurs')
+        # Aucun dossier inscription ne doit avoir été construit
+        expect(signups_count).not_to eq(nombre_inscriptions + 1)
+      }.not_to change{ TUser.count }
+
       # Il doit y avoir des erreurs
       expect(page).to have_css('div#flash div#errors div.error')
       expect(page).to have_css('div#flash div#errors div.error', text: 'Un pseudo est requis')
@@ -222,10 +226,9 @@ feature "Inscription d'un candidat à l'atelier", current: true do
       inst_mail = mail_should_have_been_sent(dmail)
 
       # Récupération du dernier ticket pour l'user, qui doit exister
-      request = "SELECT * FROM icare_hot.tickets WHERE user_id = ? AND created_at > ?"
-      ticket = DB.execute(request, [user_id, start_time.to_i]).first
-      # puts "--- ticket remonté : #{ticket.inspect}"
+      ticket = ticket_should_exist({user_id:user_id, after:start_time})
       expect(ticket).not_to be_nil
+      # puts "--- ticket remonté : #{ticket.inspect}"
       # Le code du ticket doit être bon
       expect(ticket[:code]).to eq "User::get(#{user_id}).confirm_mail"
       ticket_id = ticket[:id]
