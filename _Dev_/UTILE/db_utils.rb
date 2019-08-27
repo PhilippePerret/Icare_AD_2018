@@ -58,11 +58,15 @@ class << self
       values = []
       if foo.key?(:after)
         condis << "created_at > ?"
-        values << foo.delete(:after)
+        time = foo.delete(:after)
+        time.is_a?(Integer) || time = time.to_i
+        values << time
       end
       if foo.key?(:before)
         condis << "created_at < ?"
-        values << foo.delete(:before)
+        time = foo.delete(:before)
+        time.is_a?(Integer) || time = time.to_i
+        values << time
       end
       foo.each do |k, v|
         condis << "#{k} = ?"

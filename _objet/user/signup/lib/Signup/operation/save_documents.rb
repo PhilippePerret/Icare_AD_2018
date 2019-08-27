@@ -5,14 +5,17 @@ class << self
   # Méthode qui sauve les données d'identité dans un fichier marshal
   # provisoire avant de passer à la suite de l'inscription
   def save_documents
-    data_documents_valides? || (return false)
-    # Les documents ont pu être téléchargés, on peut passer
-    # à la suite (qui verra la création réelle de l'user)
-    # On crée juste un fichier Marshal pour que l'application
-    # détecte que cette étape de l'inscription a été faite
-    # Mais on ne met rien dedans
-    marshal_file('documents').write Marshal.dump(@data_documents)
-    return true
+    if data_documents_valides?
+      # Les documents ont pu être téléchargés, on peut passer
+      # à la suite (qui verra la création réelle de l'user)
+      # On crée juste un fichier Marshal pour que l'application
+      # détecte que cette étape de l'inscription a été faite
+      # Mais on ne met rien dedans
+      marshal_file('documents').write Marshal.dump(@data_documents)
+      return true
+    else
+      return false
+    end
   end
 
   # Retourne les données des documents, qui consiste simplement
@@ -27,9 +30,20 @@ class << self
   def data_documents_valides?
     folder_tmp_documents.remove if folder_tmp_documents.exist?
     @data_documents = {
-      presentation: nil, motivation: nil, extrait: nil
+      presentation: {fname: nil, required: true, hname: 'Présentation'},
+      motivation:   {fname: nil, required: true,  hname: "Motivation"},
+      extrait:      {fname: nil, required: false, hname: "Extrait"}
     }
     traite_documents_presentation
+    if @data_documents[:presentation][:fname] && @data_documents[:motivation][:fname]
+      return true
+    elsif @data_documents[:motivation][:fname]
+      error "Votre présentation personnelle est requise !"
+    elsif @data_documents[:presentation][:fname]
+      error "Votre lettre de motivation est requise"
+    else
+      error "Vos documents de présentation sont requis"
+    end
   end
 
   def path_tmp_document(doc_name)
@@ -44,20 +58,18 @@ class << self
   #
   # Retourne TRUE en cas de succès et FALSE en cas d'échec
   def traite_documents_presentation
-    {
-      presentation: {required: true,  hname: "Présentation"},
-      motivation:   {required: true,  hname: "Motivation"},
-      extrait:      {required: false, hname: "Extrait"}
-    }.each do |doc_id, ddata|
-      case traite_document_presentation(doc_id)
+    @data_documents.each do |doc_id, ddata|
+      res = traite_document_presentation(doc_id)
+      case res
       when NilClass
         # Pas de document de ce type envoyé. Si ça n'est pas un document
         # obligatoire, on poursuit
         # Normalement, ça ne doit pas pouvoir arriver car javascript empêche
         # de soumettre le formulaire sans les deux documents obligatoires.
-        !ddata[:required] || raise("Le document “#{ddata[:hname]}” est absolument requis.")
       when FalseClass
         raise "Le document “#{ddata[:hname]}” n'a pas pu être uploadé."
+      else
+        ddata[:fname] = res
       end
     end
   rescue Exception => e
@@ -81,7 +93,7 @@ class << self
     doc_name      = "Document_#{doc_id}#{doc_extension}"
     doc_file      = folder_tmp_documents + doc_name
     res = doc_file.upload(doc_tempfile, {change_name: false, nil_if_empty: true})
-    res && @data_documents[doc_id] = doc_name
+    res && res = doc_name
     return res
   end
 

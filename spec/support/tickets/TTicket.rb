@@ -25,9 +25,9 @@ class TTicket
   # ---------------------------------------------------------------------
 
   def ref
-    ref = "le ticket #{wdata.inspect}"
-    user.nil? || ref << " concernant #{user.pseudo} (##{user.id})"
-    data.nil? || ref << " avec les données #{wdata}"
+    ref = "#{wdata.inspect}"
+    user.nil?   || ref << " concernant #{user.pseudo} (##{user.id})"
+    wdata.nil?  || ref << " avec les données #{wdata}"
     ref << "."
   end
   alias :designation :ref

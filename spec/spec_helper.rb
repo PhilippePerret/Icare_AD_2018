@@ -132,7 +132,8 @@ RSpec.configure do |config|
 
   config.before(:each) do
   # config.before(:each, js: true) do # ça ne fonctionne pas, avec ça
-    Capybara.page.driver.browser.manage.window.resize_to(1200,600)
+    # Capybara.page.driver.browser.manage.window.resize_to(1200,600)
+    # Capybara.page.driver.browser.manage.window.resize_to(1200,600)
     # Si poltergeist:
     # Capybara.page.driver.browser.resize_to(1000,400)
   end

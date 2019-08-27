@@ -60,8 +60,9 @@ class User
       @data_modules  || raise('Impossible de trouver les données de modules. Je ne peux pas créer votre candidature.')
       @data_documents = Signup.get_documents
       @data_documents || raise('Impossible de trouver la données des documents. Je ne peux pas créer votre candidature.')
-      @data_documents.each do |doc_id, doc_name|
-        doc_name != nil || next
+      @data_documents.each do |doc_id, ddata|
+        next if ddata[:fname].nil?
+        doc_name = ddata[:fname]
         doc_path = Signup.path_tmp_document(doc_name)
         doc_path.exist? || raise("Le document `#{doc_name}` est introuvable… Je ne peux pas enregistrer votre candidature.")
       end

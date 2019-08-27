@@ -5,8 +5,13 @@ class << self
   # Méthode qui sauve les données d'identité dans un fichier marshal
   # provisoire avant de passer à la suite de l'inscription
   def save_modules
-    data_modules_valides? || (return false)
-    marshal_file('modules').write Marshal.dump(modules_choisis)
+    if data_modules_valides?
+      marshal_file('modules').write Marshal.dump(modules_choisis)
+      return true
+    else
+      error "Il faut optionner au moins un module d’apprentissage !"
+      return false
+    end
   end
 
   # Récupère les données de modules (liste des IDs) si le fichier
@@ -17,7 +22,7 @@ class << self
   end
 
   def data_modules_valides?
-    param(:signup_modules) != nil
+    param(:signup_modules) && modules_choisis.count > 0
   end
 
   # Retourne la liste Array des identifiants des modules choisis

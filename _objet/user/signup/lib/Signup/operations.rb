@@ -7,12 +7,14 @@ class << self
     when 'save_identite'
       save_identite && self.state = 'modules'
     when 'save_modules'
-      save_modules && self.state = 'documents'
+      self.state = save_modules ? 'documents' : 'modules'
     when 'save_documents'
       if save_documents
         debug "--- L'état est mis à 'confirmation'"
         self.state = 'confirmation'
         User.create_candidature
+      else
+        self.state = 'documents'
       end
     end
   end
