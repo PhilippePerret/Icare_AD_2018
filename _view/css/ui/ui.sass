@@ -1,3 +1,4 @@
+@charset "utf-8"
 // L'UI en general
 
 body
@@ -5,3 +6,30 @@ body
   font-family: "News Cycle", sans-serif
   margin: 0
   padding: 0
+
+  div#navBarSection
+    margin-top: 0 !important
+    text-align: right
+    font-size: 12pt
+    width: 200px
+    height: 1.6rem
+    line-height: 1.6rem
+    overflow: hidden
+    float: right
+    transition: 0.5s
+    div.content
+      opacity: 0
+      transition: 0.5s
+
+    &:hover
+      height: auto
+      div.content
+        opacity: 1
+        transition: 0.5s
+
+    div.handler
+      text-align: right
+    div
+    a
+      display: block
+      margin-left: 1em

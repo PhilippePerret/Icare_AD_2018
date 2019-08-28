@@ -3,7 +3,6 @@
 * [Pages accessibles par les icariens](#pageaccessiblesparicariens)
 
 
-
 Les barrières-pages empêchent d'atteindre certaines pages lorsqu'on ne remplit pas les conditions voulues.
 
 <a name='pageaccessiblesparicariens'></a>

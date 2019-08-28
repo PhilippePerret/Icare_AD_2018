@@ -27,8 +27,10 @@ module MethodesMainObjet
   def titre_h1 sous_titre = nil, options = nil
     page.title = titre
     div = titre.in_h1
-    div << onglets.in_div(class:"", id:'navBarSection') if data_onglets?
-    div << sous_titre.in_h2 if sous_titre
+    h2 = ''
+    h2 << onglets.in_div(id:'navBarSection') if data_onglets?
+    h2 << sous_titre if sous_titre
+    div << h2.in_h2 if h2 != ''
     return div
   end
 
@@ -41,10 +43,11 @@ module MethodesMainObjet
   # Dans l'objet, définir la méthode `data_onglets` retournant
   # les données des onglets en fonction du context
   def onglets
+    "Se rendre à…".in_div(class: 'handler')+
     data_onglets.collect do |ong_titre, ong_route|
       css_active = site.current_route?(ong_route) ? ' active' : ''
       ong_titre.in_a(href:ong_route, class: "nav-item nav-link#{css_active}")
-    end.join
+    end.join.in_div(class:'content')
   end
 
 

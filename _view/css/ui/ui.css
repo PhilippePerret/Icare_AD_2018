@@ -1,1 +1,1 @@
-body{font-family:"News Cycle",sans-serif;margin:0;padding:0}
+body{font-family:"News Cycle",sans-serif;margin:0;padding:0}body div#navBarSection{margin-top:0 !important;text-align:right;font-size:12pt;width:200px;height:1.6rem;line-height:1.6rem;overflow:hidden;float:right;transition:.5s}body div#navBarSection div.content{opacity:0;transition:.5s}body div#navBarSection:hover{height:auto}body div#navBarSection:hover div.content{opacity:1;transition:.5s}body div#navBarSection div.handler{text-align:right}body div#navBarSection a{display:block;margin-left:1em}

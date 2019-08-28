@@ -1,10 +1,14 @@
-<%
+<%#
 # Accueil du bureau d'un icarien
 # ------------------------------
 # Ce bureau fonctionne pour tout icarien, qu'il soit actif ou non,
 # reçu ou non, en pause, etc.
 #
 # C'est le centre névralgique de tout auteur
+
+Noter que même lorsque l'administrateur appelle cette adresse, il est
+redirigé par admin/home.
+
 %>
 <%= Bureau.titre_h1 %>
 
@@ -15,44 +19,32 @@
 #
 # ---------------------------------------------------------------------
 %>
-<div class="container-fluid">
+<div class="flex2">
 
-  <div class="row">
+  <div class="col">
 
-    <div id="statut-auteur" class="col-md-6 mb-2">
+    <div id="statut-auteur">
+
       <%= Bureau.section_statut_auteur %>
+
       <div id="info-module-courant" style="margin-top:2em;">
-        <%=
-          if user.admin?
-            Bureau.section_administrateur
-          else
-            Bureau.section_info_module_et_echeance
-          end
-        %>
+        <%= Bureau.section_info_module_et_echeance %>
       </div>
     </div>
-    <!-- col -->
 
-    <div id="notifications" class="col-md-6">
+    <div id="notifications">
       <%= Bureau.section_notifications %>
     </div>
-    <!-- col -->
 
   </div>
-  <!-- row -->
 
-  <div class="row">
-    <!-- <div class="col"> -->
-      <a name="travail_etape"></a>
-      <% if user.actif? && user.icetape.abs_etape.numero < 100 %>
-        <% debug "user.icetape.abs_etape.numero : #{user.icetape.abs_etape.numero.inspect}" %>
-        <p id="bureau_cadre_explication_travail" class="tiny"><%= user.pseudo %>, trouvez ci-dessous le travail à effectuer pour votre étape courante. Si vous voulez en savoir plus sur la constitution de cette page, vous pouvez lire la <%= lien.aide(11, titre: 'page d’aide sur les éléments du bureau') %>.</p>
-      <% end %>
-      <a name="section_travail_auteur"></a>
-      <%= Bureau.section_travail_auteur %>
-    <!-- </div> -->
+  <div>
+    <a name="travail_etape"></a>
+    <% if user.actif? && user.icetape.abs_etape.numero < 100 %>
+      <p id="bureau_cadre_explication_travail" class="tiny"><%= user.pseudo %>, trouvez ci-dessous le travail à effectuer pour votre étape courante. Si vous voulez en savoir plus sur la constitution de cette page, vous pouvez lire la <%= lien.aide(11, titre: 'page d’aide sur les éléments du bureau') %>.</p>
+    <% end %>
+    <a name="section_travail_auteur"></a>
+    <%= Bureau.section_travail_auteur %>
   </div>
-  <!-- row -->
 
 </div>
-<!-- container -->

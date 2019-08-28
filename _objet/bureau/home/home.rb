@@ -1,6 +1,10 @@
 # encoding: UTF-8
 # raise_unless( (user.admin? || user.icarien?), nil, identification = true )
 raise_unless_identified
+
+# Si c'est l'administrateur, on le redirige tout de suite
+redirect_to('admin/home') if user.admin?
+
 class User
   # RETURN true si l'user possède un module à démarrer
   def has_module_to_start?
