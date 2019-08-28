@@ -2,6 +2,16 @@
 module Features
   module SessionHelpers
 
+    def identify_phil
+      require './data/secret/data_phil'
+      click_link("S’IDENTIFIER")
+      within('form#form_user_login') do
+        fill_in 'login[mail]', with: DATA_PHIL[:mail]
+        fill_in 'login[password]', with: DATA_PHIL[:password]
+        click_button('OK')
+      end
+      expect(page).to have_message("Bienvenue, Phil !")
+    end
     def identify_benoit
       require './data/secret/data_benoit'
       click_link("S’IDENTIFIER")

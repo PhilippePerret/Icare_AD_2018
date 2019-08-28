@@ -16,22 +16,22 @@ def db_erase_all_after time
   time.is_a?(Integer) || time = time.to_i
 
   DATA_DATABASES.each do |db_name, tables|
-    puts "*** DATABASE #{db_name}"
+    puts "*** DATABASE #{db_name}" if VERBOSE
     tables.each do |tbl_name|
       if tbl_name.is_a?(Array)
         tbl_name, property = tbl_name
       else
         property = 'created_at'
       end
-      print "* Table #{db_name}.#{tbl_name}…".ljust(44)
+      print "* Table #{db_name}.#{tbl_name}…".ljust(44) if VERBOSE
       count_init = DB.count("#{db_name}.#{tbl_name}")
       request = "DELETE FROM #{db_name}.#{tbl_name} WHERE #{property} > ?"
       res = DB.execute(request, [time])
       count_after = DB.count("#{db_name}.#{tbl_name}")
       if count_after < count_init
-        puts " #{count_init - count_after} SUPPRESSION(S)"
+        puts " #{count_init - count_after} SUPPRESSION(S)" if VERBOSE
       else
-        puts " OK"
+        puts " OK" if VERBOSE
       end
     end
   end
@@ -39,9 +39,9 @@ def db_erase_all_after time
 end
 
 def db_backup_all_databases
-  print "*** Backup de toutes les bases icare…"
+  print "*** Backup de toutes les bases icare…" if VERBOSE
   DATA_DATABASES.each do |db_name, tables|
     `mysqldump -u root #{db_name} > /Users/philippeperret/Sites/xoffline/Backups_DB_Icare/#{db_name}.sql`
   end
-  puts "   OK"
+  puts "   OK" if VERBOSE
 end

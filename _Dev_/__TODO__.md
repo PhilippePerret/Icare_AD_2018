@@ -1,5 +1,3 @@
-* Pour les tests, à la fin, passer en revue les tables et détruire toutes les données créées après le début des tests.
-
 * Essayer de rationnaliser l'affichage de la page, parce que là, j'ai l'impression que ça part dans tous les sens
   Synopsis actuel :
     -> site.output
@@ -12,11 +10,9 @@
                 Charge la vue 'gabarit/page_content.erb'
       --> page.output
 
-* Rationnaliser l'utilisation de flash, que les méthodes ne soient plus dans `app` mais dans un objet à part.
-
 * Traduire les titres de mails en reprenant la formule dans la version nodejs du site
 
-* Pouvoir télécharger les documents sans aller sur le site (ssh/scp)
+* Pouvoir télécharger les documents des icariens sans aller sur le site (ssh/scp)
 
 * mettre la configuration propre aux mails dans ./config/mails.rb et faire une méthode `Mail.require_config`.
 
@@ -24,27 +20,23 @@
 * Nicolas Dufourg   : crapette
 * Emmanuelle Badina : crapette
 
-* Penser à une re-structuration progressive du site (notamment au niveau du graphisme)
 * Implémenter la possibilité de répondre aux mails directement sur le site.
 
 ## AVANT DE METTRE LE SITE EN LIGNE
 
-* Il faut régler le shebang du fichier ./index.rb pour qu'il soit normal (noter qu'il faut absolument actualiser ce fichier, car il a été changé)
+* Il faut régler le shebang du fichier ./index.rb pour qu'il soit normal (noter qu'il faut absolument actualiser ce fichier, car il a été changé pour la nouvelle version)
 
 ## BUGS
 
 * Dans l'édition des étapes/travaux-types, s'assurer que les balises FILM soient bien formatées. Contrairement à BOA où elles ressemblent à FILM[Ali2001], sur l'atelier, elles doivent ressembler à FILM[256|Ali] donc FILM[<id>|<titre>]. S'assurer qu'on peut les avoir sous cette forme avec le code.
 
-## PROGRAMMÉ
-
-
-## À FAIRE RAPIDEMENT
-
-* Faire un backup de tous les documents QDD actuels et zipper
-* Pouvoir synchroniser les étapes de travail locales avec les distantes (en faisant très attention — mais normalement, c'est la synchro de bases de données qui devrait être utilisé)
 
 ## TESTS À FAIRE
 
+* Inscription (dépôt de candidature) OK
+* Confirmation du mail
+* Acceptation/rejet de candidature
+* Mise en route du module d'apprentissage
 * Tester l'historique
 * Tester le Frigo
   - définition partage

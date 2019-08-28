@@ -506,7 +506,7 @@ feature "Inscription d'un candidat à l'atelier" do
 
 
   context 'avec des données valides' do
-    scenario 'peut s’inscrire à l’atelier', current: true do
+    scenario 'peut s’inscrire à l’atelier' do
 
       # On mémorise les dossiers inscription existants pour pouvoir
       # trouver le nouveau créé par ce test

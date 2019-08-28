@@ -42,7 +42,7 @@ class App
     def output
       return "" if messages.empty?
       @output ||= begin
-        messages.collect{|m| m.in_div(class:'notice')}.join('').in_div(id: 'messages')
+        messages.collect{|m| m.in_div(class:'notice')}.join('').in_div(id:'notices')
       end
     end
     # Mise en session des messages s'il y en a

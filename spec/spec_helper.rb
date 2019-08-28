@@ -12,7 +12,7 @@
 # the additional setup, and require it from the spec files that actually need
 # it.
 #
-VERBOSE = true
+VERBOSE = false
 
 require './_lib/required'
 
@@ -150,7 +150,7 @@ RSpec.configure do |config|
     # db_backup_all_databases
 
     # Pour effacer des données à partir d'un certain temps
-    db_erase_all_after(Time.now - 2.days)
+    # db_erase_all_after(Time.now - 2.days)
 
     app.set_mode_test
     reset_mails # vide le dossier des mails
