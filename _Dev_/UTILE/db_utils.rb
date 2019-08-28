@@ -27,14 +27,14 @@ class << self
       puts "VALUES: #{values.inspect}"
     else
       res = prepared_statement(request).execute(*values, {symbolize_keys: true})
-      res.collect{|r|r}
+      res && res.collect{|r|r}
     end
   end
   # Pour forcer l'exécution de la requête, lorsque l'on est
   # en mode simulation.
   def force_execute request, values = nil
     res = prepared_statement(request).execute(*values, {symbolize_keys: true})
-    res.collect{|r|r}
+    res && res.collect{|r|r}
   end
   def prepared_statement(request)
     client.prepare(request)

@@ -1,3 +1,5 @@
+* Pour les tests, à la fin, passer en revue les tables et détruire toutes les données créées après le début des tests.
+
 * Essayer de rationnaliser l'affichage de la page, parce que là, j'ai l'impression que ça part dans tous les sens
   Synopsis actuel :
     -> site.output
@@ -13,6 +15,8 @@
 * Rationnaliser l'utilisation de flash, que les méthodes ne soient plus dans `app` mais dans un objet à part.
 
 * Traduire les titres de mails en reprenant la formule dans la version nodejs du site
+
+* Pouvoir télécharger les documents sans aller sur le site (ssh/scp)
 
 * mettre la configuration propre aux mails dans ./config/mails.rb et faire une méthode `Mail.require_config`.
 

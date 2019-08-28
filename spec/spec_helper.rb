@@ -34,6 +34,13 @@ DISTANT_HOME  = 'www.atelier-icare.net'
 
 Capybara.app_host = "http://#{LOCAL_HOME}"
 
+# Une classe pour conserver des valeurs
+class MyTests
+class << self
+  attr_accessor :tests_start_time
+end #/<< self
+end
+
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
 
@@ -139,11 +146,27 @@ RSpec.configure do |config|
   end
 
   config.before :suite do
+    # Pour faire un backup de toutes les bases icare
+    # db_backup_all_databases
+
+    # Pour effacer des données à partir d'un certain temps
+    db_erase_all_after(Time.now - 2.days)
+
     app.set_mode_test
     reset_mails # vide le dossier des mails
+    # Prendre la date de début pour pouvoir supprimes les données
+    MyTests.tests_start_time = Time.now
+
   end
   config.after :suite do
     app.unset_mode_test
+    # À la fin du test, on supprime toutes les données créées
+    # Mais on vérifie quand même que la date ne soit pas hérétique
+    if MyTests.tests_start_time > Time.now - 1.day
+      db_erase_all_after(MyTests.tests_start_time)
+    else
+      raise "Impossible de supprimer les données DB, le temps de départ (#{@tests_start_time}) ne semble pas bon."
+    end
   end
 
   # Pour exécuter une requête directement sur la base

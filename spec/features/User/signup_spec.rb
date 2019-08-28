@@ -47,7 +47,7 @@ def memo_current_signup_folders
   @prev_signup_folders_list = Dir['./tmp/signup/*']
 end
 
-feature "Inscription d'un candidat à l'atelier", current: true do
+feature "Inscription d'un candidat à l'atelier" do
   before(:all) do
     reset_signup_folder
   end
@@ -506,7 +506,7 @@ feature "Inscription d'un candidat à l'atelier", current: true do
 
 
   context 'avec des données valides' do
-    scenario 'peut s’inscrire à l’atelier' do
+    scenario 'peut s’inscrire à l’atelier', current: true do
 
       # On mémorise les dossiers inscription existants pour pouvoir
       # trouver le nouveau créé par ce test
