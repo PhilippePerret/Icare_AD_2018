@@ -1,8 +1,7 @@
-<%
-# Tableau de bord de l'administrateur
+<%# Tableau de bord de l'administrateur%>
 
-raise_unless_admin
-%>
-<%= Admin.titre_h1 %>
+<% raise_unless_admin %>
+
+<%= Admin.titre_h1('Dashboard') %>
 
 <%= Dashboard.content || 'Aucun retour.'.in_p %>

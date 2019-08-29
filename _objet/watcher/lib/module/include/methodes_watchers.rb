@@ -130,12 +130,14 @@ module MethodesWatchers
 
     # Retourne les watchers comme une liste HTML
     def as_ul options = nil
+      options ||= {}
+      options.merge!(class: 'watcher')
       list.collect do |watcher|
         # Attention, watcher.as_li peut retourner NIL, lorsque par exemple
         # il n'y a pas de notification pour le watcher donné ou qu'il n'est
         # pas encore déclenché.
         watcher.as_li(options)
-      end.compact.join.in_ul(class: 'notifications', id: "watchers-#{owner.class.objet_name}-#{owner.id}")
+      end.compact.join.in_ul(class: 'watchers notifications', id: "watchers-#{owner.class.objet_name}-#{owner.id}")
     end
 
     # La liste dépend du fait que :

@@ -158,12 +158,14 @@ RSpec.configure do |config|
     MyTests.tests_start_time = Time.now
 
   end
+
+  # À exécuter après la suite de tests
   config.after :suite do
     app.unset_mode_test
     # À la fin du test, on supprime toutes les données créées
     # Mais on vérifie quand même que la date ne soit pas hérétique
     if MyTests.tests_start_time > Time.now - 1.day
-      db_erase_all_after(MyTests.tests_start_time)
+      # db_erase_all_after(MyTests.tests_start_time)
     else
       raise "Impossible de supprimer les données DB, le temps de départ (#{@tests_start_time}) ne semble pas bon."
     end

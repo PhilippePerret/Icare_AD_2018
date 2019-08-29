@@ -1,3 +1,12 @@
+
+* Documenter l'utilisation de "user.ref" (qui renvoie un affichage de l'user avec un lien vers son profil)
+* Charger les js des dossiers watcher (dans \_processus) comme pour tout dossier requis avec require_folder.
+* Vérifier que le profil présente bien des choses différentes en fonction de :
+  * c'est un user non identifié qui le visite
+  * c'est le user concerné qui visite son profil
+  * c'est un user identifié qui visite le profil | mail | frigo
+  * c'est un administrateur | mail | frigo
+
 * Essayer de rationnaliser l'affichage de la page, parce que là, j'ai l'impression que ça part dans tous les sens
   Synopsis actuel :
     -> site.output

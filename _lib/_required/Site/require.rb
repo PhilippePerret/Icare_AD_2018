@@ -27,8 +27,13 @@ class SiteHtml
   # Note : Pour le moment, produit une erreur fatale si le dossier
   # n'existe pas.
   def require_objet objet_name, forcer = false
-    dos = folder_objet + "#{objet_name}/lib/required"
-    require_all_in dos, forcer
+    dos = folder_objet+"#{objet_name}/lib/required"
+    if dos.exists?
+      debug "[require_objet] Dossier '#{dos}' (existant) requis"
+      require_all_in(dos, forcer)
+    else
+      debug "# [require_objet] Le dossier '#{dos}' est introuvable, donc l'objet ne peut pas être chargé."
+    end
   end
 
   # Requiert tout ce qui se trouve dans le dossier module
@@ -63,15 +68,16 @@ class SiteHtml
   # Si le dossier contient un dossier `first_required`, il est chargé
   # en tout premier lieu.
   def require_all_in dossier, forcer = false
-    dossier = SuperFile.new(dossier) unless dossier.instance_of?(SuperFile)
-    # dossier.exist? || error("Le dossier `#{dossier}' est introuvable. Impossible de le requérir.")
+    dossier = SuperFile.new(dossier) unless dossier.is_a?(SuperFile)
     dossier.exist? || raise("Le dossier `#{dossier}' est introuvable. Impossible de le requérir.")
     if forcer
       Dir["#{dossier}/first_required/**/*.rb"].each{|m| load m}
       Dir["#{dossier}/**/*.rb"].each{|m| load m}
     else
       Dir["#{dossier}/first_required/**/*.rb"].each{|m| require m}
-      Dir["#{dossier}/**/*.rb"].each{|m| require m}
+      Dir["#{dossier}/**/*.rb"].each do |m|
+        require m
+      end
     end
     page.add_css        Dir["#{dossier}/**/*.css"]
     page.add_javascript Dir["#{dossier}/**/*.js"]

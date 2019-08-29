@@ -1,11 +1,13 @@
 # Manuel pour les tests
 
+* [Site](#le_site)
+  * [Identifier un utilisateur ou un administrateur](#identify_user)
 * [Base de données](#base_de_donnees)
   * [Nombre de données dans une table](#nombre_rows_in_table)
   * [Obtenir une seule données particulière](#get_a_db_row_with_data)
   * [Récupérer plusieurs données](#get_rows_in_db)
   * [Exécuter une requête quelconque](#exec_any_request)
-* [Méthodes fréquentes](#methodes_frequentes)
+* [Méthodes de check fréquentes](#methodes_frequentes)
   * [Pour vérifier l'existence d'un watcher](#check_watcher_exist)
   * [Pour vérifier l'existence d'une actualité](#check_update_exist})
   * [Pour vérifier l'existence d'une ticket](#check_ticket_exist})
@@ -13,6 +15,16 @@
   * [Vérifier l'existence d'un mail](#check_mail_exist)
   * [Ré-initialiser le dossier des mails](#init_mails)
   * [Récupérer tous les mails envoyés](#get_all_mails)
+
+## Le Site {#le_site}
+
+### Identifier un utilisateur ou un administrateur {#identify_user}
+
+* La méthode pour identifier Benoit est `identify_benoit`.
+* La méthode pour identifier Phil est `identify_phil`.
+* La méthode pour identifier un user quelconque est `identify_user(<param>)` où `<param>` peut être :
+  * l'identifiant de l'user,
+  * une table contenant au moins `:mail` et `:password`.
 
 
 ## Base de données {#base_de_donnees}

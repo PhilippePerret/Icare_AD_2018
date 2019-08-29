@@ -2,6 +2,7 @@
 class Admin
 
   DATA_ONGLETS = {
+    'Accueil'         => 'admin/home',
     'Dashboard'       => 'admin/dashboard',
     'Aperçu général'  => 'admin/overview',
     'Mailing'         => 'admin/mailing',

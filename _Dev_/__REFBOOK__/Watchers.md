@@ -168,60 +168,60 @@ Note : il peut se mettre dans le formulaire, au-dessus, par exemple :
 
 ### Formulaire de notification
 
-Les formulaires ont forcément l'action `watcher/<id du watcher>/run`. Pour le reste, ils sont "normaux".
+Les formulaires de notification peuvent utiliser maintenant une toute nouvelle tournure, qui ressemble à de la DSL mais qui n'en est pas. Le code ressemble à :
 
-Pour fabriquer de façon simple un formulaire, il suffit d'utiliser la méthode `SiteHtml::Watcher#form` :
+```rb
 
-~~~
+FORM id:'mon_formulaire'
+  DIV id:'container'
+    DIV "Text du div contenu dans le div#container"
+  LEGEND  "Une légende inconnue"
+  LABEL   "Juste un label"
+  DIV display:'none' "Un div contenant ce texte, mais caché."
+  DIV id:mon_id "Un div contenant un code à évaluer renvoyant l'id"
+  # Un menu peut être spécifié de cette manière
+  SELECT id:'id-menu' values:'methode_evaluee_retournant_valeurs'
+  DIV "<%= select_construit_par_le_programme %>"
+  # Un Checkbox
+  CHECKBOX name:'mon-cb' value:'oui' "Il faut cliquer cette case !"
+  # Des divs de différents format
+  MAIN_DIV "Un div mis en exergue" class:'autre'
+  SMALL_DIV "Un div contenant un texte plus petit" id:'mon-id-de-div'
+  TINY_DIV  "Un div contenant un texte minuscule"
+  # La bande inférieure des boutons
+  BUTTONS
+    # Pour mettre des choses à gauche
+    LEFT
+      A href:'mon/lien/perso' "Le titre du lien"
+      BUTTON "Mon bouton" onclick:'Objet.activate.call(Objet)'
+    SUBMIT "Soumettre le formulaire"
 
-  # Dans le fichier ERB :
+```
 
-  <%= form do
-    'cachée'.in_hidden(name: 'valeur_cachee') +
-    "Soumettre".in_submit
-  end %>
+Le nom du fichier doit être un script ruby, avec `f2c` ajouté (pour `FormToCode` qui est la classe s'occupant de la transformation). Par exemple `admin_notify.f2c.rb` produira le fichier `admin_notify.erb`.
 
-~~~
+Il suffit ensuite d'appeler une méthode — par exemple dans le fichier `required.rb` du watcher — une méthode qui va contenir :
 
-On peut transmettre des arguments pour transformer un peu le formulaire, ou pour préciser, par exemple, qu'il contient des champs FILE :
+```ruby
 
-~~~
+def construit_le_form
+  site.require_module 'Form2Code'
+  FormToCode.new((self.folder+'admin_notify.f2c.rb').to_s).build
+end
 
-  <%= form(file: true, class: "maclasse") do
-    ...
-  end %>
+# ...
 
-~~~
+construit_le_form
 
-Noter qu'ON NE PEUT PAS, malheureusement, faire :
+```
 
-~~~
+Principes de l'implémentation :
 
-  <%= form do %>
-    <input type="submit" value="Soumettre" />
-  <% end %>
+* c'est l'indentation qui détermine l'appartenance,
+* les attributs (avec leur valeur) ne sont séparés que par des espaces simples,
+* il ne faut pas d'espace entre l'attribut et sa définition
+* la valeur textuelle peut être stipulée où l'on veut, au début, à la fin, ou entre les attributs.
 
-~~~
-
-Mais si l'on veut vraiment écrire du code HTML, on peut faire :
-
-~~~
-
-  <%= form_entete %>
-    <... le code ici ...>
-  </form>
-
-~~~
-
-Ou avec des arguments :
-
-~~~
-
-  <%= form_entete(class: 'autre') %>
-    <... le code ici ...>
-  </form>
-
-~~~
 
 ---------------------------------------------------------------------
 

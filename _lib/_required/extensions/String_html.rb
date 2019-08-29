@@ -2,7 +2,13 @@
 =begin
 
   Extension String pour les code HTML
-  version 1.0.1
+  version 1.0.2
+
+  # version 1.0.2
+    La class, dans les attributs des balises, peut être donnée avec une
+    liste Array.
+    Lorsque les attributs définissent display:'none', on ajoute le style
+    'display:none;'
 
   # version 1.0.1
     Développement de la méthode `in_image` pour traiter le cas où
@@ -84,8 +90,8 @@ class String
 
       if nodisplay || displayed === false || attrs.has_key?(:display)
         display = case attrs.delete(:display)
-        when nil    then "none" # avec nodisplay et displayed=false
-        when false  then "none"
+        # when nil    then "none" # avec nodisplay et displayed=false
+        when false, nil, 'none'  then "none"
         when true   then "block"
         else display
         end
@@ -97,6 +103,8 @@ class String
         attrs[:style] ||= ""
         attrs[:style] += "visibility:#{isvisible ? 'visible' : 'hidden'}"
       end
+
+      attrs[:class] = attrs[:class].join(' ') if attrs[:class] && attrs[:class].is_a?(Array)
 
       attrs =
         unless attrs.empty?

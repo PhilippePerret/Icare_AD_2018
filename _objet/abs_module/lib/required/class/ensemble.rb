@@ -1,8 +1,8 @@
 # encoding: UTF-8
 class AbsModule
-  
+
   SORTED_ABSMODULE_IDS = [7, 8, 12, 10, 6, 4, 15, 5, 11, 2, 3, 1, 9, 13, 14]
-  
+
 class << self
   # Retourne la liste (Array) des instances de module absolu
   def list

@@ -1,6 +1,16 @@
 # encoding: UTF-8
 class User
 
+  # Méthode qui renvoie un lien HTML pour afficher l'user
+  # Note : les informations sont plus ou moins complètes en fonction du
+  # statut de l'user qui visite. Par exemple, si c'est un administrateur,
+  # on indique l'identifiant de l'user
+  def ref
+    r = "<strong>#{pseudo}</strong>"
+    r << " <span class=tiny>(##{id})</span>" if user.admin?
+    r.in_a({href:"user/#{id}/profil", target: :new})
+  end
+
   # Cette méthode surclasse la méthode d'origine
   def htype
     hu = "utilisa#{f_trice}"

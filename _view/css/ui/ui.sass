@@ -8,6 +8,9 @@ body
   padding: 0
 
   div#navBarSection
+    position: absolute
+    right: 0
+    top: 0
     margin-top: 0 !important
     text-align: right
     font-size: 12pt
@@ -17,9 +20,12 @@ body
     overflow: hidden
     float: right
     transition: 0.5s
+    background-color: white
+    opacity: 0.85
     div.content
       opacity: 0
       transition: 0.5s
+      padding: 1em
 
     &:hover
       height: auto
@@ -29,7 +35,8 @@ body
 
     div.handler
       text-align: right
-    div
     a
       display: block
       margin-left: 1em
+      &:hover
+        color: #4A666C !important

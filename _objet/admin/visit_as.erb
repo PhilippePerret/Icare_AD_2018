@@ -8,14 +8,14 @@ def menu_icariens
 end
 
 %>
-<h1>Visiter le site comme…</h1>
+<%= Admin.titre_h1('Visiter le site en tant que…') %>
 <%=
 case param(:operation)
 when NilClass
   (
     'visite_as'.in_hidden(name: 'operation') +
-    ('Prendre l’identité de ' + menu_icariens + ' pour visiter le site.').in_span(class:'value').in_div(class:'row') +
-    'GO'.in_submit(class: 'btn btn-primary')
+    ('Prendre l’identité de ' + menu_icariens).in_span(class:'value').in_div(class:'row') +
+    'GO'.in_submit(class: 'btn btn-primary').in_div(class:'row buttons')
   ).in_form(action: 'admin/visit_as', class: 'container')
 when 'visite_as'
   user_as = User.new(param(:as_user).to_i)
