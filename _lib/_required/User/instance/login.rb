@@ -66,6 +66,9 @@ class User
     proceed_login
 
     flash 'Bienvenue, %s !' % pseudo
+    if File.exists?('./alerte_connexion.rb')
+      require './alerte_connexion'
+    end
 
     if param(:login) && param(:login)[:back_to].nil_if_empty
       # Une redirection est demandée

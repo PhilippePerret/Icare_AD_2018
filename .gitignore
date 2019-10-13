@@ -16,3 +16,7 @@ data/qdd.zip
 xprev_version/
 
 _lib/modules_optional/synchronisation/synchronisation/output/
+
+_lib/Gems/
+
+alerte_connexion.rb

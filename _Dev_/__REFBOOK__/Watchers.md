@@ -172,13 +172,21 @@ Les formulaires de notification peuvent utiliser maintenant une toute nouvelle t
 
 ```rb
 
+# Un commentaire sur le code
 FORM id:'mon_formulaire'
+
   DIV id:'container'
     DIV "Text du div contenu dans le div#container"
   LEGEND  "Une légende inconnue"
   LABEL   "Juste un label"
   DIV display:'none' "Un div contenant ce texte, mais caché."
+
   DIV id:mon_id "Un div contenant un code à évaluer renvoyant l'id"
+    # Noter que pour que ça fonctionne, 'mon_id' doit être une
+    # méthode-propriété et que son propriétaire doit être envoyé
+    # en premier argument de la méthode `build` qui construit le
+    # formulaire.
+
   # Un menu peut être spécifié de cette manière
   SELECT id:'id-menu' values:'methode_evaluee_retournant_valeurs'
   DIV "<%= select_construit_par_le_programme %>"

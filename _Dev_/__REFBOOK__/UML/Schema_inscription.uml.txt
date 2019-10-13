@@ -1,0 +1,40 @@
+# Jouer 'uml path/to/this/file' pour produire le png de ce schéma
+
+@startuml
+
+start
+
+:Le candidat rejoint le formulaire de candidature;
+:Il remplit le formulaire;
+while (Formulaire mal rempli)
+  : Correction du formulaire;
+endwhile
+
+: Mail: confirmation\ndu dépôt de candidature ;
+: Mail: Pour confirmer son adresse mail;
+: Mail: Annonce à l’administration;
+: Annonce sur le site;
+: Enregistrement de l’annonce pour le lendemain par mail;
+
+(A)
+
+detach
+
+(A)
+:L’administrateur vient\nconfirmer la candidature;
+if (Mail de candidat validé ?) then (oui)
+  : L’administrateur peut\nétudier la candidature;
+else (non)
+  : L’administrateur doit\ns'arrêter là;
+  end
+endif
+
+if (validation) then (oui)
+  : Mail: au candidat lui annonçant qu'il est reçu;
+else
+  : Mail annonçant au candidat qu'il n'est pas reçu;
+endif
+
+stop
+
+@enduml

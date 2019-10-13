@@ -5,8 +5,11 @@ $(document).ready(function(){
   // d'erreur sont affichés
   if($('#flash').length){
     if( $('#flash div.error').length == 0 ){
-      var coefH = $('#flash').height() / 40;
-      setTimeout($.proxy(Flash, 'clean', null, true), 5000 * coefH)
+      var len   = $('#flash').html().length;
+      var mots  = len / 7
+      var duree = parseInt((mots / 4) * 1000,10)
+      // console.log("Durée : ", duree)
+      setTimeout($.proxy(Flash, 'clean', null, true), duree)
     }
   }
 
