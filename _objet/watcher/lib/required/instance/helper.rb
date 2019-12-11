@@ -38,6 +38,9 @@ class Watcher
     ).in_form(args)
   rescue AlreadySubmitForm => e
     error e.message
+  rescue Exception => e
+    debug e
+    return "<div>Impossible de construire le formulaire du watcher ##{id} : #{e.message}</div>"
   end
 
   # Permet de construire facilement un formulaire conforme

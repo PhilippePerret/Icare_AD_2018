@@ -34,12 +34,12 @@ class User
   def actif?
     bit_state == 2 && !en_pause?
   end
-  
+
   # Gestion de la pause
   def en_pause?
     bit_state == 8 || (icmodule != nil && icmodule.en_pause?)
   end
-  def set_en_pause    ; set_option(16,3) end
+  def set_en_pause    ; set_option(16,8) end
   def unset_en_pause  ; set_option(16,2) end
 
   def inactif?

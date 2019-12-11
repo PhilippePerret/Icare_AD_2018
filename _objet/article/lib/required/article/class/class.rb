@@ -21,7 +21,7 @@ class Article
 
     def current_article_id
       @current_article_id ||= begin
-        require './_objet/article/current.rb'
+        require './objet/article/current.rb'
         CURRENT_ARTICLE_ID
       end
     end

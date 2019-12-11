@@ -103,10 +103,10 @@ module CommonSyncMethods
 
 
   # Adresse du serveur SSH sous la forme "<user>@<adresse ssh>"
-  # Note : Défini dans './_objet/site/data_synchro.rb'
+  # Note : Défini dans './objet/site/data_synchro.rb'
   def serveur_ssh
     @serveur_ssh ||= begin
-      require './_objet/site/data_synchro.rb'
+      require './objet/site/data_synchro.rb'
       Synchro::new().serveur_ssh
     end
   end

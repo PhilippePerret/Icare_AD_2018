@@ -88,7 +88,7 @@ class UAUS
 
   def serveur_ssh
     @serveur_ssh ||= begin
-      require './_objet/site/data_synchro.rb'
+      require './objet/site/data_synchro.rb'
       Synchro::new().serveur_ssh
     end
   end

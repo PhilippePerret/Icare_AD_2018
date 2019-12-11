@@ -27,7 +27,7 @@ class User
 
     # --- Redirection après le bureau --- #
     # Cf. la propriété `site.redirections_after_login` définie
-    # dans ./_objet/site/config.rb 
+    # dans ./objet/site/config.rb 
     new_options = new_options.set_bit(18, prefs[:goto_after_login])
 
     # --- Contact ---

@@ -32,7 +32,7 @@ class SiteMap
         when /([0-9]{4,4})-([0-9]{2,2})-([0-9]{2,2})/
           lastmod
         when true
-          File.stat("./_objet/#{url}.erb").mtime.strftime("%Y\-%m\-%d")
+          File.stat("./objet/#{url}.erb").mtime.strftime("%Y\-%m\-%d")
         end
       "<lastmod>#{value_lastmod}</lastmod>"
     end

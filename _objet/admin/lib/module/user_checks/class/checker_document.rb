@@ -109,7 +109,7 @@ class Document
 
   # Méthode qui s'assure que les options sont cohérentes
   #
-  # cf. _objet/ic_document/lib/required/instance/options.rb
+  # cf. objet/ic_document/lib/required/instance/options.rb
   def check_options
     options
     @options = @options.ljust(16,'0')

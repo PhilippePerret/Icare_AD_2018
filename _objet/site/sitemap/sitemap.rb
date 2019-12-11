@@ -6,7 +6,7 @@ raise_unless_admin
 
 =end
 require 'yaml'
-site.require_all_in('./_objet/site/sitemap')
+site.require_all_in('./objet/site/sitemap')
 
 class SiteMap
   include Singleton

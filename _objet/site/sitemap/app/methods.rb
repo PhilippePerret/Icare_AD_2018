@@ -3,7 +3,7 @@ class SiteMap
   class Location
 
     def tutoriels_videos
-      require './_objet/video/DATA_VIDEOS.rb'
+      require './objet/video/DATA_VIDEOS.rb'
       @is_video = true
       Video::DATA_VIDEOS.collect do |vid, vdata|
         @url          = "video/#{vid}/show"

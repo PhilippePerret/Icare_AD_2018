@@ -10,9 +10,9 @@ class << self
   # le fichier est volontairement détruit.
   def statistiques
     if uptodate?
-      site.require_all_in('./_objet/site/statistiques/css')
+      site.require_all_in('./objet/site/statistiques/css')
     else
-      site.require_all_in('./_objet/site/statistiques')
+      site.require_all_in('./objet/site/statistiques')
       update_stats_file
     end
     stats_file.read

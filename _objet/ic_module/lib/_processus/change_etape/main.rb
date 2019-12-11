@@ -8,7 +8,7 @@
 
     ATTENTION : si ce module est changé, les changements doivent être
     reportés dans le fichier
-    ./_objet/admin/lib/module/operations_user/etape_change.rb qui permet
+    ./objet/admin/lib/module/operations_user/etape_change.rb qui permet
     de forcer un changement d'étape.
 
 =end
@@ -43,7 +43,7 @@ begin
     processus:  'send_work'
   )
 
-
+  
   # On détruit le fichier statistiques, car le nombre d'étapes
   # a forcément changé.
   Atelier.remove_statistiques_file
