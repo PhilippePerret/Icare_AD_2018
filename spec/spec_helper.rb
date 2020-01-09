@@ -19,14 +19,26 @@ require './_lib/required'
 Dir["./spec/support/__first_required__/**/*.rb"].each{|m| require m}
 Dir["./spec/support/**/*.rb"].each{|m| require m}
 
-require 'capybara/rspec'
-require 'capybara/dsl'
+require "selenium-webdriver"
+require 'rest-clien'
+# require 'capybara/rspec'
+# require 'capybara/dsl'
 # require 'capybara/poltergeist'
 # require 'poltergeist'
 
 # Capybara.default_driver = :poltergeist
-Capybara.default_driver = :rack_test
-Capybara.default_driver = :selenium_chrome
+# Capybara.default_driver = :rack_test
+# Capybara.default_driver = :selenium_chrome
+# capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
+#   chromeOptions: {
+#     args: %w[
+#       headless disable-gpu no-sandbox
+#       --window-size=1980,1080 --enable-features=NetworkService,NetworkServiceInProcess
+#     ]
+#   }
+# )
+#
+# Capybara::Selenium::Driver.new app, browser: :chrome, desired_capabilities: capabilities
 
 
 LOCAL_HOME    = 'localhost/AlwaysData/Icare_AD_2018'

@@ -27,7 +27,7 @@
       # Les messages éventuels
       app.div_flash %>
 
-    <section id="page-contents<%= site.home_page? ? ' home' : '' %>">
+    <section id="page-contents" class="<%= site.home_page? ? 'home' : '' %>">
       <%=
         # CONTENU DE LA PAGE
         body %>

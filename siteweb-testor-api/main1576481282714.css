@@ -1,0 +1,17 @@
+/*
+  Feuille de style principale
+ */
+body {
+  font-family:monospace
+  font-size:11pt;
+}
+h1 {
+  all:unset;
+  font-size:9pt;
+  font-weight:bold;
+  font-variant:small-caps;
+}
+iframe#site {
+  width:100%;
+  height:600px;
+}

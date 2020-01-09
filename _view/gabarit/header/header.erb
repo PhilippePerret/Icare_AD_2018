@@ -9,14 +9,14 @@ def signout_button
     else
       ['SE DÉCONNECTER', nil]
     end
-  button_name.in_a(href:"user/#{user.id}/logout", class: 'nav-link-logout', style: button_style)
+  button_name.in_a(id:"signout-button", href:"user/#{user.id}/logout", class: 'nav-link-logout', style: button_style)
 end
 
 %>
 <section id="header">
 <% unless site.route?('') || user.identified? || site.route?('user/login') || site.route?('user/signup') %>
   <div class="fright" style="margin-right:1em;">
-    <%= 'poser&nbsp;sa&nbsp;candidature'.in_a(href:'user/signup', id:'btn_signup', class:'btn main') %>
+    <%= 'poser&nbsp;sa&nbsp;candidature'.in_a(href:'user/signup', id:'signup-button', class:'btn main') %>
   </div>
 <% end %>
 
@@ -44,7 +44,7 @@ end
   <% if user.identified? %>
     <%= signout_button %>
   <% else %>
-    <a class="<%= site.route?('user/login') ? 'disabled' : '' %>" href="user/login" title="Se connecter">S’IDENTIFIER</a>
+    <a id='signin-button' class="<%= site.route?('user/login') ? 'disabled' : '' %>" href="user/login" title="Se connecter">S’IDENTIFIER</a>
   <% end %>
 </nav>
 </section>

@@ -24,7 +24,7 @@ feature "Acceptation de la candidature" do
   context 'avec un candidat ayant confirmé son mail' do
     scenario 'l’administrateur peut valider la candidature' do
       create_candidature(mail_confirmed: true)
-      pending
+      # pending
     end
   end
 end
